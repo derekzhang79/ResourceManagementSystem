@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>wSlide - tests simples</title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.wslide.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function(){
+				/*====================== Exemple basique ======================*/
+				$("#parent1").wslide({
+					width: 450,
+					height: 200
+				});
+				/*====================== Exemple 2 ======================*/
+				$("#parent2").wslide({
+					width: 250,
+					height: 250,
+					pos: 4,
+					horiz: true
+				});
+				/*====================== Exemple 3 ======================*/
+				$("#parent3").wslide({
+					width: 250,
+					height: 300,
+					col: 4,
+					autolink: 'menu3'
+				});
+				/*====================== Exemple 4 ======================*/
+				$("#parent4").wslide({
+					width: 400,
+					height: 250,
+					autolink: false,
+					fade: true,
+					duration: 2000
+				});
+			});
+		</script>
+		<link rel="stylesheet" href="ext_files/style.css" type="text/css" media="screen" charset="utf-8" />
+		<style type="text/css" media="screen">
+			/*====================== Exemple basique ======================*/
+			#parent1 li{
+				background: #000000;
+				padding: 5px;
+				color: #ffffff;
+			}
+			#parent1-menu a.wactive{
+				padding: 0px 2px;
+				background: #000000;
+				color: #eeeeee;
+			}
+			/*====================== Exemple 2 ======================*/
+			#parent2-wrap{
+				border: 1px solid gray;
+			}
+			#parent2 li{
+				background: #F2F2F2;
+				padding: 15px;
+				margin: 5px;
+			}
+			#parent2-menu a.wactive{
+				font-weight: bold;
+			}
+			/*====================== Exemple 3 ======================*/
+			#parent3 li{
+				background: gray;
+				padding: 10px;
+				color: white;
+			}
+			#menu3 a.wactive{
+				padding: 0 3px;
+				border: 1px solid gray;
+			}
+			/*====================== Exemple 4 ======================*/
+			#parent4 li{
+				background: #F2F2F2;
+				padding: 15px;
+				margin: 5px;
+			}
+			#menu4 a.wactive{
+				color: #B2CCFF;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body><h1>wSlide - tests simples</h1>
+		<div class="container" >
+			<div class="warning">
+				<strong>/!\</strong> <ins><em><a href='http://www.webinventif.fr/wslide-plugin/'>Revenir à la page d'accueil du plugin wSlide</a></em></ins><br />
+				<strong>/!\</strong> Autres pages de demo: <ins><em><a href='test-wslide-2.htm'>wSlide - tests avec effets</a></em></ins> | <ins><em><a href='test-wslide-3.htm'>wSlide - tests avancés</a></em></ins><br />
+				<strong>/!\</strong> Pour les styles css des exemples, explorez le code source de la page, ils sont écrit en dur et séparés distinctement !
+			</div>
+			<br /><hr /><hr />
+			<!-- ====================== Exemple basique ====================== -->
+			<h2>Exemple basique</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				Voici la configuration de base. Vous devez juste donner la largeur et la hauteur du bloc. Le menu de navigation est auto-généré, il se trouve dans une div avec une id=<em>'#parent1-menu'</em> (remplacez le 'parent1' par l'id de votre case.
+<pre>$('#parent1').wslide({
+	width: 450,
+	height: 200
+});</pre>
+			</div>
+			<div>
+				<ul id="parent1">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<br /><hr />
+			<!-- ====================== Exemple 2 ====================== -->
+			<h2>Exemple 2</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				Dans cet exemple, j'ai précisé la case de départ par défaut et j'ai appliqué un slide horizontal. J'ai aussi appliqué un margin sur mes <em>&lt;li&gt;</em>, ce qui donne un effet de separation entre les cases.
+<pre>$('#parent2').wslide({
+	width: 250,
+	height: 250,
+	pos: 4,
+	horiz: true
+});</pre>
+			</div>
+			<div>
+				<ul id="parent2">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<br /><hr />
+			<!-- ====================== Exemple 3 ====================== -->
+			<h2>Exemple 3</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				Ici j'ai crée une map, simplement en precisant le nombre de colonne (<em>col: 4</em>), les cases se repartissent automatiquement sur les lignes suivantes. J'ai aussi déplacé le menu de navigation, simplement en lui indiquant l'emplacement d'une div avec une id='menu3' (<em>autolink: 'menu3'</em>) placée au dessus de la boite.
+<pre>$('#parent3').wslide({
+	width: 250,
+	height: 300,
+	col: 4,
+	autolink: 'menu3'
+});</pre>
+			</div>
+			<div id="menu3">Ici viendra se placer le menu de navigation</div>
+			<div>
+				<ul id="parent3">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<br /><hr />
+			<!-- ====================== Exemple 4 ====================== -->
+			<h2>Exemple 4</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				<p>Ici j'ai activé l'effet de fading (<em>fade: true</em>), donc inutile dans ce cas de lui donner un effet horizontal ou de map. <br />J'ai aussi augmenter la durée de l'effet à 2 secondes (<em>duration: 2000</em>)</p>Et contrairement aux autres exemples, ici j'ai désactivé la génération du menu (<em>autolink: false</em>) au profit d'un menu ecrit en dur dans la page. Indispensable pour se faire un menu bien personnalisé ! <br />Pour creer votre propre menu, vous devez juste construire vos attributs href comme ceci: <em>href="#id_du_bloc-numero_de_case"</em> <br />Danc dans ce cas-ci: <em>&lt;a href='#parent4-1'&gt;1&lt;/a&gt; - &lt;a href='#parent4-2'&gt;2&lt;/a&gt; -etc ...</em> jusque 8 (car 8 éléments dans la liste)
+<pre>$('#parent4').wslide({
+	width: 400,
+	height: 250,
+	autolink: false,
+	fade: true,
+	duration: 2000
+});</pre>
+			</div>
+			<div>
+				<ul id="parent4">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<div id="menu4">[ <a href="#parent4-1">1</a> - <a href="#parent4-2">2</a> - <a href="#parent4-3">3</a> - <a href="#parent4-4">4</a> - <a href="#parent4-5">5</a> - <a href="#parent4-6">6</a> - <a href="#parent4-7">7</a> - <a href="#parent4-8">8</a> ]</div>
+			<br /><hr /><hr />
+			<div class="warning">
+				<strong>/!\</strong> <ins><em><a href='http://www.webinventif.fr/wslide-plugin/'>Revenir à la page d'accueil du plugin wSlide</a></em></ins><br />
+				<strong>/!\</strong> Autres pages de demo: <ins><em><a href='test-wslide-2.htm'>wSlide - tests avec effets</a></em></ins> | <ins><em><a href='test-wslide-3.htm'>wSlide - tests avancés</a></em></ins><br />
+				<strong>/!\</strong> Pour les styles css des exemples, explorez le code source de la page, ils sont écrit en dur et séparés distinctement !
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,388 @@
+/*-------menubuttonstart-----*/
+.sidemenutop {
+	width: 211px;
+	height: 36px;
+	background: url(../../../images/default/blue/mainmenu_top.gif) no-repeat;
+	font-family: Verdana;
+	font-size: 12px;
+	font-weight: bold;
+	color: #DFDCB8;
+	margin: 0px;
+	padding: 0px;
+}
+
+.sidemenutext {
+ font-family: Verdana;
+ font-size: 12px;
+ text-align: center;
+ vertical-align: middle;
+ font-weight: bold;
+ color: #DFDCB8;
+ padding-top: 7px;
+}
+
+.sidemenuhome {
+	background: #048CC0;
+	width: 211px;
+	
+	height: 74px;
+	margin: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sidemenuhome ul {
+	list-style-type: none;
+	margin: 0px 0;
+	padding: 0;
+	width: 211px;
+	border-bottom-width: 0;
+}
+
+.sidemenuhome li {
+	background: url(../../../images/default/blue/glossyback2.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: #026184 2px solid;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidemenuhome li input[type=submit] {
+	background: url(../../../images/default/blue/home.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	border: none;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 2px 10px 3px 60px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.sidemenuhome li input[type=submit]:hover {
+	background-image: url(../../../images/default/blue/home_rol.gif);
+	cursor: pointer;
+}
+
+.sidemenuess {
+	background: #048CC0;
+	width: 211px;
+	border-style: solid solid none solid;
+	border-color:01719B;
+	border-size: 1px;
+	border-width: 1px;
+	height: 74px;
+	margin: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sidemenuess ul {
+	list-style-type: none;
+	margin: 2px 0;
+	padding: 0;
+	width: 211px;
+	border-bottom-width: 0;
+}
+
+.sidemenuess li {
+	background: url(../../../images/default/blue/glossyback2.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: #026184 2px solid;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidemenuess li input[type=submit] {
+	background: url(../../../images/default/blue/ess.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	border: none;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 2px 10px 3px 60px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.sidemenuess li input[type=submit]:hover {
+	background-image: url(../../../images/default/blue/ess_rol.gif);
+	cursor: pointer;
+}
+
+.sidemenuexpense {
+	background: #048CC0;
+	width: 211px;
+	border-style: solid solid none solid;
+	border-color:#026184;
+	border-size: 1px;
+	border-width: 1px;
+	height: 74px;
+	margin: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sidemenuexpense ul {
+	list-style-type: none;
+	margin: 2px 0;
+	padding: 0;
+	width: 211px;
+	border-bottom-width: 0;
+}
+
+.sidemenuexpense li {
+	background: url(../../../images/default/blue/glossyback2.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: #026184 2px solid;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidemenuexpense li input[type=submit] {
+	background: url(../../../images/default/blue/expenses.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	border: none;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 2px 10px 3px 60px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.sidemenuexpense li input[type=submit]:hover {
+	background-image: url(../../../images/default/blue/expenses_rol.gif);
+	cursor: pointer;
+}
+
+.sidemenuleave {
+	background: #048CC0;
+	width: 211px;
+	border-style: solid solid none solid;
+	border-color:#026184;
+	border-size: 1px;
+	border-width: 1px;
+	height: 74px;
+	margin: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sidemenuleave ul {
+	list-style-type: none;
+	margin: 2px 0;
+	padding: 0;
+	width: 211px;
+	border-bottom-width: 0;
+}
+
+.sidemenuleave li {
+	background: url(../../../images/default/blue/glossyback2.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: #026184 2px solid;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidemenuleave li input[type=submit] {
+	background: url(../../../images/default/blue/leave.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	border: none;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 2px 10px 3px 60px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.sidemenuleave li input[type=submit]:hover {
+	background-image: url(../../../images/default/blue/leave_rol.gif);
+	cursor: pointer;
+}
+
+.sidemenutimesheet {
+	background: #048CC0;
+	width: 211px;
+	border-style: solid solid none solid;
+	border-color:#026184;
+	border-size: 1px;
+	border-width: 1px;
+	height: 74px;
+	margin: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sidemenutimesheet ul {
+	list-style-type: none;
+	margin: 2px 0;
+	padding: 0;
+	width: 211px;
+	border-bottom-width: 0;
+}
+
+.sidemenutimesheet li {
+	background: url(../../../images/default/blue/glossyback2.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: #01719B 2px solid;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidemenutimesheet li input[type=submit] {
+	background: url(../../../images/default/blue/time.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	border: none;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 2px 10px 3px 60px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.sidemenutimesheet li input[type=submit]:hover {
+	background-image: url(../../../images/default/blue/time_rol.gif);
+	cursor: pointer;
+}
+
+.sidemenulogout {
+	background: #01719B;
+	width: 211px;
+	border-style: solid solid none solid;
+	border-color:#026184;
+	border-size: 1px;
+	border-width: 1px;
+	height: 74px;
+	margin: 0px;
+	text-align: left;
+	vertical-align: top;
+}
+
+.sidemenulogout ul {
+	list-style-type: none;
+	margin: 2px 0;
+	padding: 0;
+	width: 211px;
+	border-bottom-width: 0;
+}
+
+.sidemenulogout li {
+	background: url(../../../images/default/blue/glossyback2.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 0px 0px 0px 0px;
+	border-bottom: #333333 2px solid;
+	text-align: center;
+	text-decoration: none;
+}
+
+.sidemenulogout li input[type=submit] {
+	background: url(../../../images/default/blue/logout.gif) repeat-x bottom left;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+	color: #ffffff;
+	border: none;
+	display: block;
+	width: 211px;
+	height: 74px;
+	padding: 2px 10px 3px 60px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.sidemenulogout li input[type=submit]:hover {
+	background-image: url(../../../images/default/blue/logout_rol.gif);
+	cursor: pointer;
+}
+
+/*-------endsidemenu-----*/
+
+
+/*----headermenu------*/
+.headermenubg{
+	background: url(../../../images/default/blue/header2_bg.png) repeat-x;
+	height: 28px;
+	font: bold 11px Verdana, Arial, Helvetica, sans-serif;
+}
+
+.headermenu{
+height: 24px;
+font: bold 12px Verdana;
+float: right;
+padding-left: 10px; /*offset of tabs relative to browser left edge*/
+}
+
+.headermenu ul{
+margin: 0;
+height: 24px;
+padding: 0;
+list-style-type: none;
+}
+
+/*Top level list items*/
+.headermenu ul li{
+position: relative;
+display: inline;
+float: left;
+font-size: 12px;
+font-weight: bold;
+color: #FFFFFF;
+border-top: 1px solid #999999;
+border-left: 1px solid #999999;
+border-right: 1px solid #999999;
+}
+
+/*Top level menu link items style*/
+.headermenu ul li input[type=submit]{
+display: block;
+background: url(../../../images/default/blue/tintblue.gif) repeat-x; /*background of tabs (default state)*/
+padding: 2px 5px 4px 7px;
+margin-right: 3px; /*spacing between tabs*/
+border-top: 1px solid #999999;
+border-left: 1px solid #999999;
+border-right: 1px solid #999999;
+color: #2d2b2b;
+text-decoration: none;
+font-size: 12px;
+font-weight: bold;
+color: #FFFFFF;
+}
+
+.headermenu ul li input[type=submit]:hover{
+background-image: url(../../../images/default/blue/tintbluedark.gif) /*tab link background during hover state*/
+}

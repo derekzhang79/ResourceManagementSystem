@@ -1,0 +1,10 @@
+[
+	["Annulled","Annulled"],
+	["Cohabitating","Cohabitating"],
+	["Divorced","Divorced"], 
+	["Engaged","Engaged"],
+	["Married","Married"],
+	["Single","Single"],
+	["Separated","Separated"],
+	["Widowed","Widowed"]
+]

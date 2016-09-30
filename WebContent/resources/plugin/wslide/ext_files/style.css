@@ -1,0 +1,306 @@
+/*  
+Theme Name: The test
+Theme URI: http://themasterplan.in/themes/the-morning-after/
+Description: A magazine-style theme for WordPress, available at <a href="http://themasterplan.in/themes/the-morning-after/">The Masterplan</a>.
+Version: 1.2
+Author: Arun Kale
+Author URI: http://themasterplan.in/
+
+Please read the license in the README.txt included with the theme.
+*/
+
+/* --------------------------------------------------------------   
+   This theme makes use of the Blueprint CSS Framework [bjorkoy.com/blueprint]    
+-------------------------------------------------------------- */
+
+/* Import stylesheets and hide from IE/Mac \*/
+@import "compressed.css";
+/* End import/hide */
+
+/* Start The Morning After stylesheet
+-------------------------------------------------------------- */
+body { background: #ebeff2 url(image/fond.jpg) repeat-y top center; }
+a { color: #000; text-decoration: none; }
+h2 { font-weight: normal; }
+.null {color: inherit}
+.container { background-color:  #fff; }
+.entete { display: none}
+.entete2 { float:left; margin-right: 10px;}
+blockquote {border-left: 3px solid #ccc; padding-left: 10px; margin-right: 10px;}
+.contenuu {margin-bottom: 20px;}
+pre{overflow: auto;}
+div.dean_ch{margin-bottom:1.3em;background:#eee;border:0.1em solid #ddd;padding:1.5em;overflow: auto;}
+.taag p{ border-right: 3px solid #dadada;}
+#soci {position: relative}
+#soci a{display: block; position: absolute; color: white;}
+#soci a.misterwong{height: 43px; width: 118px; left: 0; top: 0; background-image: url(image/misterwong1.gif);}
+#soci a.fuzz{height: 43px; width: 118px; left: 120px; top: 0; background-image: url(image/fuzz1.gif);}
+#soci a.blogasty{height: 35px; width: 118px; left: 0; top: 45px; background-image: url(image/blogasty1.gif);}
+#soci a.scoop{height: 35px; width: 118px; left: 120px; top: 45px; background-image: url(image/scoopeo1.gif);}
+#soci a.techno{height: 41px; width: 169px; left: 0; top: 82px; background-image: url(image/technorati1.gif);}
+#soci a.delicious{height: 41px; width: 67px; left: 171px; top: 82px; background-image: url(image/delicious1.gif);}
+#soci a.misterwong:hover{background-image: url(image/misterwong2.gif);}
+#soci a.fuzz:hover{background-image: url(image/fuzz2.gif);}
+#soci a.blogasty:hover{background-image: url(image/blogasty2.gif);}
+#soci a.scoop:hover{background-image: url(image/scoopeo2.gif);}
+#soci a.techno:hover{background-image: url(image/technorati2.gif);}
+#soci a.delicious:hover{background-image: url(image/delicious2.gif);}
+#home_left {z-index: 600; position: relative}
+/*#home_right  {z-index: 500; position: relative}*/
+
+/* Header styles
+-------------------------------------------------------------- */
+#header { padding: 1.5em 0 0 0; height: 108px; border-bottom: 0 solid #999; }
+#header #logo { height: 90px; position: relative;}
+#header #logo .title { width: 220px; position: absolute; left: 130px; top: 43px; padding: 0.5em 0 0 0.5em; font: 700 3em arial, sans-serif; letter-spacing: -.050em; line-height: 1.2em; color: #000; }
+#header #logo .title .desc { text-align: right; margin: 0.4em 0 0 0; font: 400 0.25em arial, sans-serif; text-transform: uppercase; color: #666; letter-spacing: 0.2em; padding: 0.6em 0 0 1.5em; border-top: 1px solid #000;  }
+#header #logo .title a { text-decoration: none; color: #000; }
+#header #logo .title a:hover { color: #fff; background: #000; }
+#header #logo a.sitelogo { display: block; width: 400px; height: 90px; background: url(images/bg/sitelogo.png) no-repeat; }
+
+/* Search and navigation
+-------------------------------------------------------------- */
+
+#header #search_menu { height: 90px; width: 450px}
+#header #search_menu #search { padding: 0 0 0 5px; }
+#menu { width: 450px; float: right; margin: 10px 0 0 2px; list-style: none; font-weight: bold; font-family: Helvetica, Arial; }
+#menu li { float: left; padding: 2px 0 3px 3px; margin: 1px 12px 0 0; line-height: 1.6em; font-size: 0.9em; }
+#menu li a { padding: 0; text-decoration: none; color: #000; }
+#menu li a:hover { padding: 0; text-decoration: underline; }
+#menu li span { display: block; float: left; padding: 0 0px 0 22px; }
+#menu li span.home { background: url(images/bg/home.gif) no-repeat; }
+#menu li span.about { background: url(images/bg/info.gif) no-repeat; }
+#menu li span.archives { background: url(images/bg/hourglass.gif) no-repeat; }
+#menu li span.subscribe { background: url(images/bg/favourite.gif) no-repeat; }
+#menu li span.contact { background: url(images/bg/mail.gif) no-repeat; }
+
+/* Top banner with rotating images
+-------------------------------------------------------------- */
+
+#topbanner { height: 70px; border-bottom: 0 solid #999; background: url(image/fond-ban-accueil.jpg) 0 0 no-repeat; }
+#topbanner_arch { height: 70px; border-bottom: 0 solid #999; background: url(image/fond-ban-accueil.jpg) 0 0 no-repeat; }
+#topbanner_single { height: 70px; border-bottom: 0 solid #999; background: url(image/fond-ban-accueil.jpg) 0 0 no-repeat; }
+#topbanner .pagetitle, #topbanner_arch .pagetitle, #topbanner_single .pagetitle { float: left; background: transparent url(image/fond-titre.gif) no-repeat top right; color: #000; font: 700 2em arial, sans-serif; text-transform: lowercase; letter-spacing: -0.036em; padding: 1px 8px 1px 0; margin: 20px 0 0 0; }
+#header {background: transparent url(image/fond-ban1.jpg) 0 0px no-repeat; }
+
+/* Home page columns
+-------------------------------------------------------------- */
+
+#home_content { margin: 1.5em 0; }
+
+/* latest post */
+
+#latest_post { padding: 0 0 1.5em 0; }
+#latest_post_image img { margin: 0 0 0.2em 0; }
+.latest_post_meta { font-size: 0.9em; line-height: 1.6em; }
+.latest_post_meta a { font-weight: bold; }
+.latest_post_meta a:hover { text-decoration: underline; }
+.latest_read_on { padding: 0 20px 1px 20px; background: url(images/bg/readon.png) no-repeat top left; }
+.latest_comments { padding: 0 20px 1px 20px; background: url(images/bg/comment.png) no-repeat top left; }
+.latest_category { padding: 0 20px 1px 20px; background: url(images/bg/category.png) no-repeat top left; }
+
+/* featured post */
+
+#home_featured { background: #f2f2f2 url(images/bg/dot.png) repeat-x bottom left; margin: 0 0 1.1em 0; float: left; width: 100%; }
+.feat_content { float: left; padding: 0 0.7em 0.4em 0.7em; }
+.feat_thumb { float: left; padding: 0; margin: 0.2em 1em 1em 0; width: 50px; height: 50px;}
+.feat_thumb a { display: block; width: 50px; height: 50px;}
+.feat_title { font: 700 12px georgia, serif; padding: 0 0 0.3em 0; }
+.feat_title a { color: #224970; }
+.feat_title a:hover { color: #000; }
+
+/* asides */
+
+ul.arrow, ul.cat, ul.reccom, ul.email { list-style: none; list-style-image: url(foo.gif); margin: 0; }
+ul.arrow li { padding: 0 0 0.5em 12px; margin: 0 0 0.5em 0; border-bottom: 1px solid #dadada; border-left: 5px solid #dadada; }
+ul.arrow li a, ul.reccom li a, ul.email li a { color: #224970; }
+ul.arrow li a:hover, ul.reccom li a:hover, ul.email li a:hover { color: #000; background: #eee; }
+
+/* about */
+
+#home_about { border-bottom: 1px solid #dadada; border-top: 1px solid #dadada; margin: 0 0 1em 0; background: #f3f9ff; padding: 0.5em 0.7em 0 0.7em; }
+#home_about p { font-size: 0.9em; font-family: tahoma; }
+#home_about h3{clear: none;}
+	
+/* recent posts */
+
+.home_recent_post { padding: 0.1em 0 1.2em 0; margin: 0 0 0.8em 0; background: url(images/bg/dot.png) repeat-x bottom left; }
+.home_recent_thumb { float: left; padding: 0 0 0 0; margin: 0 0.5em 0 0; float: left; }
+.home_recent_thumb a { display: block; width: 50px; height: 50px; padding: 0; margin: 0; border: 0; }
+.home_recent_title a { font-weight: bold; }
+.home_recent_title a:hover { color: #fff; background: #000; }
+.home_recent_date, .home_recent_auth { padding: 0; margin: 0; color: #666; font-size: 0.9em; }
+.home_recent_exc p { color: #666; text-align: left; }
+
+/* category list */
+
+#side_categories { margin: 0 0 1em 0; }
+ul.cat li { padding: 0 0 0.3em 0; margin: 0; }
+ul.cat li a { display: block; text-transform: uppercase; font-size: 0.8em; font-weight: bold; color: #000; border-bottom: 1px solid #dadada; border-left: 3px solid #dadada; padding: 3px 12px 0 7px; margin: 0; background: url(images/bg/arrow.png) no-repeat 177px 3px; height: 19px; }
+ul.cat2 li a {background: url(images/bg/arrow.png) no-repeat 487px 3px; height: 19px; }
+ul.cat li a:hover { background: #f1f1f1 url(images/bg/arrow2.png) no-repeat 167px 3px; color: #224970; }
+ul.cat2 li a:hover { background: #f1f1f1 url(images/bg/arrow2.png) no-repeat 477px 3px; color: #224970; }
+ul.cat li ul { list-style: none; list-style-image: url(foo.gif); margin: 0; padding: 0.3em 0 0.2em 0.8em; }
+ul.cat li ul li { padding: 0; margin: 0; }
+ul.cat li ul li a { border: 0; margin: 0; padding: 0 0 0 12px; text-transform: none; font-size: 0.9em; height: 19px; background: url(images/bg/sub.png) no-repeat; }
+ul.cat li ul li a:hover { background: #f1f1f1 url(images/bg/sub1.png) no-repeat; }
+
+/* recent comments */
+
+#side_recent_comments, #side_most_emailed { margin: 0 0 1.4em 0; }
+
+ul.reccom li { padding: 0 0 0.2em 20px; margin: 0 0 0.5em 0; border-bottom: 1px solid #dadada; background: url(images/bg/bubble.png) no-repeat 0 3px; }
+
+/* most emailed */
+
+ul.email li { padding: 0 0 0.2em 20px; margin: 0 0 0.5em 0; border-bottom: 1px solid #dadada; background: url(images/bg/doc.png) no-repeat 0 3px; }
+
+/* ad */
+
+.ad_block { border: 1px solid #dadada; padding: 4px 0; margin: 1em 0 1.2em; text-align: center; }
+.ad_block .ad160 { margin: 0 auto; width: 160px; }
+.ad_block .ad180 { margin: 0 auto; width: 180px; }
+.ad_block .ad250 { margin: 0 auto; width: 250px; }
+.ad_block img, .ad_block p img { margin: 0; padding: 0; display: block; }
+
+
+/* Archive styles
+-------------------------------------------------------------- */
+
+#arch_content, #post_content { margin: 1.5em 0; }
+.archive_meta { margin: 1.5em 0; border-top: 1px solid #dadada; }
+.archive_meta a { color: #666; }
+.archive_meta a:hover { color: #224970; }
+.archive_feed { padding: 0.5em 1.5em; margin: 0; border-bottom: 1px solid #dadada; background: url(images/bg/feedicon12.png) no-repeat 0 8px; color: #666; }
+.archive_number { padding: 0.5em 1.5em; margin: 0; border-bottom: 1px solid #dadada; color: #666; background: url(images/bg/info.png) no-repeat 0 8px;  }
+.archive_email { padding: 0.5em 1.5em; margin: 0; border-bottom: 1px solid #dadada; color: #666; background: url(images/bg/email_author.png) no-repeat 0 9px;  }
+.archive_post_block { padding: 0.1em 0 0 0; border-bottom: 1px solid #dadada; margin: 0 0 1.2em 0; }
+.archive_post_meta { color: #818181; padding: 0 0 0.6em 0; }
+.archive_post_meta a, .post_meta a { color: #224970; }
+.archive_post_meta a:hover, .post_meta a:hover { color: #000; text-decoration: underline; }
+
+/* Single post styles
+-------------------------------------------------------------- */
+
+.post_meta { color: #818181; padding: 0.3em 0 1.4em 0; }
+/*#post_content blockquote { float: right; width: 260px; color: #666; margin: 0 0 0 1.5em; color: #000; font: bold 1.3em georgia, serif; font-style: italic; letter-spacing: -0.048em; }
+#post_content blockquote p { text-align: right; line-height: 1.5em; }*/
+/*modif #post_content p img { float:left; margin:0 1.5em 1em 0;padding:0; }*/
+/*#post_content p img { margin:0 1.5em 1em 0;padding:0; }#224970*/
+#post_content img.WP-PrintIcon, #post_content img.WP-EmailIcon { margin: 0 0.3em 0 0;padding: 0; }
+#post_content p a, .contenuu a,.taag a, .post_content2 li a, #arch_content p a { color: #224970; border-bottom: 1px dotted #999 }
+#post_content p a:hover,.taag a:hover, .contenuu a:hover, .post_content2 li a:hover, #arch_content p a:hover { color: #000;background: #eee; border: none}
+
+/* Comment area styles
+-------------------------------------------------------------- */
+
+#comments { margin-top: 3em; }
+#commenthead { margin-bottom: 1em; }
+ol#commentlist { list-style-type: none; margin: 0; padding: 0 0 12px 0; }
+ol#commentlist li { border-right: 3px solid #dadada; border-bottom: 1px solid #dadada; margin: 0 0 1em 0; padding: 0 1em 1em 0; overflow-x: hidden; }
+ol#commentlist li.alternate { border-right: 3px solid #999; border-bottom: 1px solid #dadada; }
+ol#commentlist cite { font-style: normal; text-align: left; display: block; color: #818181; }
+ol#commentlist cite a { color: #224970; }
+ol#commentlist cite a:hover { color: #000; text-decoration: underline; }
+ol#commentlist li blockquote { float: none; width: auto; padding: 0 2em 0 0; margin: 0.5em 0; color: #818181; font: italic 1em arial, sans-serif; letter-spacing: 0; text-align: left; }
+ol#commentlist li .commentauthor { font-weight: bold; color: #333; }
+ol#commentlist li .commentauthor a, ol#commentlist li .commenttime a { font-weight: bold; color: #224970; }
+ol#commentlist li .commentauthor a:hover, ol#commentlist li .commenttime a:hover { color: #000; text-decoration: underline; }
+ol#commentlist li .commnumber { width: 30px; text-align: left; float: left; font-size: 3em; font-weight: bold; line-height: 1em; }
+ol#commentlist li .commentcont p { margin: 0 0 0.5em 0; padding: 0; }
+
+/* comment form */
+
+#comment-form form { margin-top: 1.5em; }
+label.com { float: left; width: 100px; }
+input.comtext, textarea.comtext { width: 300px; border-top: 1px solid #999; border-left: 1px solid #999; border-bottom: 1px solid #dadada; border-right: 1px solid #dadada; padding: 2px; }
+input.comtext:focus, input.comtext:hover, textarea.comtext:focus, textarea.comtext:hover { background: #f7f7f7; border-top: 1px solid #999; border-left: 1px solid #999; border-bottom: 1px solid #dadada; border-right: 1px solid #dadada; }
+input.comsubmit { margin-left: 100px; }
+ul.archives {  margin: 0 0 1.5em 0; list-style: none; list-style-image: url(foo.gif); }
+ul.archives li { padding: 0 0 0.2em 20px; background: url(images/bg/doc.png) no-repeat 0 3px; }
+ul.archives li a { color: #224970; }
+ul.archives li a:hover { color: #000; background: #eee; }
+form#commentform, .custom1 { border-right: 3px solid #dadada; border-bottom: 1px solid #dadada; margin: 0 0 1em 0; padding: 0 1em 1em 0; overflow-x: hidden; }
+
+/* Footer
+-------------------------------------------------------------- */
+
+#footer { background: #8ab72f url(image/fond-footer.jpg) no-repeat top left; padding: 12px 0 0 0; color: #fff; height: 30px}
+#footer a {color: white}
+
+/* Form styles
+-------------------------------------------------------------- */
+
+input.search_input { width: 292px; border: 0; background: #fff url(images/bg/input.png) no-repeat; padding: 5px; color: #E0691A; font-weight: bold; margin: 0; float: left; }
+input.submit_input { background: /*#E0691A*/ url(images/bg/submit.png) no-repeat; border: 0; height: 24px; padding: 0; width: 65px; margin: 0 0 0 5px; color: #FFF; font: bold 0.9em arial, sans-serif; float: left; }
+
+/* Miscellaneous styles
+-------------------------------------------------------------- */
+
+/*  heading styles */
+
+h2.archive_name, h2.post_name { letter-spacing: -0.04em; }
+h2.post_cat { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0 0 0.2em 0; margin: 0 0 1em 0; letter-spacing: 0.1em; color: #999; border-bottom: 1px solid #dadada; }
+h2.post_comm { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0.3em 0 0.2em 0; margin: 0 0 0.2em 0; letter-spacing: 0.1em; color: #000; border-bottom: 1px solid #dadada; background: url(images/bg/stripe.png) repeat; }
+h2.post_comm2 { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0.3em 0 0.2em 0; margin: 0 0 0.2em 0; letter-spacing: 0.1em; color: #000; border-bottom: 1px solid #dadada; }
+h3.latest_post_title { font: bold 1.6em arial, sans-serif; line-height: 1.6em; margin: 0; letter-spacing: -.035em; padding: 0 0 0.2em 0; }
+h3.latest_post_title a:hover { color: #fff; background: #000; }
+h3.home_featured { background: url(images/bg/dot.png) repeat-x top left; text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0.7em 0.7em 0.9em 0.7em; color: #5f9410; letter-spacing: 0.1em; }
+h3.mast { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0 0 0.6em 0; letter-spacing: 0.1em; color: #a11b1b; }
+h3.mast2 { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0 0 0.2em 0; color: #5f9410; }
+h3.mast3 { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0 0 0.2em 0; letter-spacing: 0.1em; color: #224970; }
+h3.mast4 { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: bold; padding: 0 0 0.6em 0; letter-spacing: 0.1em; }
+h3.mast5 { text-transform: uppercase; font-size: 0.8em; line-height: 1.8em; font-weight: normal; padding: 0 0 0.2em 0; letter-spacing: 0.1em; color: #5f9410; }
+h3.archive_title { line-height: 1em; padding: 0 0 5px 0; }
+h3.archive_title a { font: bold 1.0em arial, sans-serif; color: #000; letter-spacing: -0.036em; }
+h3.archive_title a:hover { color: #fff; background: #000; }
+
+/* miscellaneous */
+
+.none { display: none; }
+.border_left { padding-left: 9px; margin-left: 0; border-left: 1px solid #ddd; }
+.dot { font-family: "lucida sans unicode", "arial unicode ms", sans-serif; }
+.navigation { color: #818181; }
+
+/* image caption classes */
+
+.captionleft { float: left; margin: 0 1.5em 0.5em 0; padding: 0.5em; text-align: left; }
+.captionright { float: right; margin: 0 0 0.5em 1.5em; padding: 0.5em; text-align: left; }
+.captionfull { margin: 0 0 1em 0; padding: 0; text-align: left; }
+.captionleft img, .captionright img, .captionfull img { margin: 0; display: block; }
+.captionleft p, .captionright p, .captionfull p { background: #eee; margin: 0; line-height: 1.2em; padding: 0.2em; border-bottom: 1px solid #ccc; border-top: 1px solid #ccc; font-size: 0.9em; color: #555; }
+.menuz {
+	width: 350px; font-size: 0.9em; background: #eee; color: #555; float: right; border: 1px solid #ccc; padding: 5px; margin-left: 15px;
+}
+.menuz a {color: #555;}
+.imageframe{border: 1px solid #ccc;}
+/* pour le js */
+
+.js_recent2{
+	display: none; 
+	background-color: #5F9410; 
+	color: white;
+}
+.js_recent{
+	padding: 5px; 
+	background-color: #F2F2F2; 
+	color: #6F6F6F;
+}
+
+
+.code{
+	padding: 5px;
+	float: right;
+	width: 465px;
+	background-color: #F2F2F2; 
+}
+pre{
+	font-family: monospace;  
+	line-height: 1.3em;
+}
+.code span{display: block;margin-bottom:1.3em;background:#eee;border:0.1em solid #ddd;padding:1.5em;}
+.code span{overflow: auto;}
+.code span{
+	font-family: monospace;  
+	line-height: 1.3em;
+}

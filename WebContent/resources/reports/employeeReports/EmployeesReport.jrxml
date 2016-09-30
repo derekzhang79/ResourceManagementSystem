@@ -1,0 +1,1123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BroadcastReport" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="192"/>
+	<style name="Title" isDefault="false" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" isDefault="false" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" isDefault="false" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" isDefault="false" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" isDefault="false" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style isDefault="false" style="Row" mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="hql">
+		<![CDATA[from EmployeesVO]]>
+	</queryString>
+	<field name="country" class="com.rooster.hcmone.vo.CountryVO"/>
+	<field name="created" class="java.util.Date"/>
+	<field name="createdBy" class="com.rooster.hcmone.vo.EmployeesVO"/>
+	<field name="departmentIdObj" class="com.rooster.hcmone.vo.DepartmentVO"/>
+	<field name="empBirthDate" class="java.util.Date"/>
+	<field name="empBirthDateEnds" class="java.util.Date"/>
+	<field name="empBirthDateValue" class="java.lang.String"/>
+	<field name="empCityName" class="java.lang.String"/>
+	<field name="empCounName" class="java.lang.String"/>
+	<field name="empCustom1" class="java.lang.String"/>
+	<field name="empCustom2" class="java.lang.String"/>
+	<field name="empDriLicenExpDate" class="java.util.Date"/>
+	<field name="empDriLicenExpDateEnds" class="java.util.Date"/>
+	<field name="empDriLicenExpDateValue" class="java.lang.String"/>
+	<field name="empDriLicenNum" class="java.lang.String"/>
+	<field name="empFirstName" class="java.lang.String"/>
+	<field name="empFullName" class="java.lang.String"/>
+	<field name="empGender" class="java.lang.String"/>
+	<field name="empGenderValue" class="java.lang.String"/>
+	<field name="empHmTelephone" class="java.lang.String"/>
+	<field name="empJoinedDateEnds" class="java.util.Date"/>
+	<field name="empJoinedDateValue" class="java.lang.String"/>
+	<field name="empJoineddate" class="java.util.Date"/>
+	<field name="empLastName" class="java.lang.String"/>
+	<field name="empMaritalStatus" class="java.lang.String"/>
+	<field name="empMidName" class="java.lang.String"/>
+	<field name="empMilitaryService" class="java.lang.String"/>
+	<field name="empMobile" class="java.lang.String"/>
+	<field name="empNickName" class="java.lang.String"/>
+	<field name="empOthEmail" class="java.lang.String"/>
+	<field name="empOtherId" class="java.lang.String"/>
+	<field name="empOtherName" class="java.lang.String"/>
+	<field name="empPicturePath" class="java.lang.String"/>
+	<field name="empSSNNumber" class="java.lang.String"/>
+	<field name="empSmoker" class="java.lang.Boolean"/>
+	<field name="empSpace" class="java.lang.String"/>
+	<field name="empStatusIdObj" class="com.rooster.hcmone.vo.EmployeeStatusVO"/>
+	<field name="empStreet1" class="java.lang.String"/>
+	<field name="empStreet2" class="java.lang.String"/>
+	<field name="empTerminatedDate" class="java.util.Date"/>
+	<field name="empTerminatedReason" class="java.lang.String"/>
+	<field name="empType" class="java.lang.String"/>
+	<field name="empWorkEmail" class="java.lang.String"/>
+	<field name="empWorkTelephone" class="java.lang.String"/>
+	<field name="empZipCode" class="java.lang.String"/>
+	<field name="employeeId" class="java.lang.Integer"/>
+	<field name="employeeWage" class="java.lang.String"/>
+	<field name="ethnicRaceIdObj" class="com.rooster.hcmone.vo.EthnicRaceVO"/>
+	<field name="isActive" class="java.lang.Short"/>
+	<field name="jobTitleIdObj" class="com.rooster.hcmone.vo.JobTitleVO"/>
+	<field name="message" class="java.util.List"/>
+	<field name="nationalityIdObj" class="com.rooster.hcmone.vo.NationalityVO"/>
+	<field name="roleObj" class="com.rooster.hcmone.vo.RoleVO"/>
+	<field name="teamIdObj" class="com.rooster.hcmone.vo.TeamVO"/>
+	<field name="updated" class="java.sql.Timestamp"/>
+	<field name="updatedBy" class="com.rooster.hcmone.vo.EmployeesVO"/>
+	<field name="vendorIdObj" class="com.rooster.hcmone.vo.VendorVO"/>
+	<field name="countryName" class="java.lang.String">
+		<fieldDescription><![CDATA[country.countryName]]></fieldDescription>
+	</field>
+	<field name="deptName" class="java.lang.String">
+		<fieldDescription><![CDATA[departmentIdObj.deptName]]></fieldDescription>
+	</field>
+	<field name="statusName" class="java.lang.String">
+		<fieldDescription><![CDATA[empStatusIdObj.statusName]]></fieldDescription>
+	</field>
+	<field name="ethnicRaceDesc" class="java.lang.String">
+		<fieldDescription><![CDATA[ethnicRaceIdObj.ethnicRaceDesc]]></fieldDescription>
+	</field>
+	<field name="jobTitleName" class="java.lang.String">
+		<fieldDescription><![CDATA[jobTitleIdObj.jobTitleName]]></fieldDescription>
+	</field>
+	<field name="nationalityName" class="java.lang.String">
+		<fieldDescription><![CDATA[nationalityIdObj.nationalityName]]></fieldDescription>
+	</field>
+	<field name="roleName" class="java.lang.String">
+		<fieldDescription><![CDATA[roleObj.roleName]]></fieldDescription>
+	</field>
+	<field name="teamName" class="java.lang.String">
+		<fieldDescription><![CDATA[teamIdObj.teamName]]></fieldDescription>
+	</field>
+	<field name="vendorName" class="java.lang.String">
+		<fieldDescription><![CDATA[vendorIdObj.vendorName]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="102" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" forecolor="#000000" backcolor="#000000"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="SansSerif" size="46" isBold="false"/>
+					</textElement>
+					<text><![CDATA[HCMOne]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#000000" backcolor="#000000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="639" y="0" width="144" height="25" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" lineSpacing="Single" markup="none">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="0" width="183" height="25" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Employee Report]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement style="Column header" mode="Opaque" x="0" y="0" width="802" height="20" backcolor="#000000"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="0" y="0" width="388" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{empFirstName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="392" y="0" width="410" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{empLastName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="342" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="5" width="250" height="147" backcolor="#AAB6B7"/>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="20" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="1" width="10" height="18"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="1" width="120" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Employee Id]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="1" width="120" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.Integer"><![CDATA[$F{employeeId}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="250" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Personal Information]]></text>
+				</staticText>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="41" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="1" width="10" height="18"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="1" width="120" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[First Name]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="1" width="120" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empFirstName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="62" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="1" width="10" height="18"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="1" width="120" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empMidName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="1" width="120" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Middle Name]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="83" width="250" height="20"/>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="104" width="250" height="20"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="-20" width="120" height="20"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empLastName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="120" y="-20" width="10" height="20"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="-20" width="120" height="20"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Last Name]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="120" y="-1" width="10" height="20"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="-1" width="120" height="20"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Nick Name]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="-1" width="120" height="20"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empNickName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="125" width="250" height="20"/>
+					<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+						<reportElement x="130" y="-1" width="120" height="20"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$F{empBirthDate}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="120" y="-1" width="10" height="20"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="-1" width="120" height="20"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Date Of Birth]]></text>
+					</staticText>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="158" width="250" height="181" backcolor="#AAB6B7"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="250" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Contact Information]]></text>
+				</staticText>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="21" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Nationality]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="1" width="120" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{nationalityName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="41" width="250" height="20"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empZipCode}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Postal Code]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="61" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="-20" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="120" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empCityName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[City]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="81" width="250" height="20"/>
+					<staticText>
+						<reportElement x="0" y="-1" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Region]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empCounName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="101" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Address 1]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="20" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empStreet1}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="121" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Address 2]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="20" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empStreet2}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="141" width="250" height="20"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empHmTelephone}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Home Telephone]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="161" width="250" height="20"/>
+					<staticText>
+						<reportElement x="120" y="-20" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="120" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="120" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Mobile]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="130" y="0" width="120" height="20" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empMobile}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="530" y="205" width="270" height="126" backcolor="#AAB6B7"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="270" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Others]]></text>
+				</staticText>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="22" width="270" height="20"/>
+					<staticText>
+						<reportElement x="1" y="-2" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Other E-Mail Id]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="133" y="0" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="143" y="-2" width="127" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empOthEmail}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="45" width="270" height="20"/>
+					<staticText>
+						<reportElement x="0" y="0" width="129" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Custom 1]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="0" width="130" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empCustom1}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="2" y="67" width="268" height="20"/>
+					<staticText>
+						<reportElement x="-2" y="2" width="128" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Custom 2]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="2" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="141" y="2" width="127" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empCustom2}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="530" y="5" width="270" height="197" backcolor="#AAB6B7"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="270" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Work Information]]></text>
+				</staticText>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="21" width="270" height="20"/>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="43" width="270" height="20"/>
+					<staticText>
+						<reportElement x="1" y="-20" width="130" height="16" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Role]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="-20" width="130" height="16"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{roleName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="65" width="270" height="20"/>
+					<staticText>
+						<reportElement x="0" y="-22" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[JobTitle]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="131" y="0" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="139" y="-21" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{jobTitleName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="87" width="270" height="20"/>
+					<staticText>
+						<reportElement stretchType="RelativeToTallestObject" x="0" y="-20" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Work E-Mail]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="2" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="-21" width="130" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empWorkEmail}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement x="2" y="109" width="267" height="20"/>
+					<staticText>
+						<reportElement x="1" y="-19" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Work Telephone]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="132" y="0" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="-20" width="127" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empWorkTelephone}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="131" width="270" height="20"/>
+					<staticText>
+						<reportElement x="2" y="-21" width="128" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Joined Date]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="1" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+						<reportElement x="143" y="-21" width="126" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$F{empJoineddate}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="153" width="270" height="20"/>
+					<staticText>
+						<reportElement x="2" y="-20" width="127" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Terminated Date]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="129" y="2" width="10" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+						<reportElement x="139" y="-21" width="130" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$F{empTerminatedDate}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="176" width="270" height="20"/>
+					<staticText>
+						<reportElement x="0" y="-22" width="130" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Terminated Reason]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="-22" width="130" height="18" forecolor="#000000"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empTerminatedReason}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="255" y="5" width="270" height="332" backcolor="#AAB6B7"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="270" height="20" forecolor="#FFFFFF" backcolor="#000000"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[General Information]]></text>
+				</staticText>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="22" width="270" height="20"/>
+					<staticText>
+						<reportElement x="130" y="1" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="0" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Gender]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="142" y="3" width="96" height="16"/>
+						<textElement/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empGender}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="43" width="270" height="20"/>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="0" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empMaritalStatus}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="0" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Marital Status]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="64" width="270" height="20"/>
+					<staticText>
+						<reportElement x="0" y="-1" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Folder size]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="1" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empSpace}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="130" y="1" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="84" width="270" height="20"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="142" y="2" width="127" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{ethnicRaceDesc}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="1" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Ethnic Race]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="131" y="1" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="105" width="270" height="20"/>
+					<staticText>
+						<reportElement x="129" y="-1" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="139" y="-1" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{countryName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="0" y="0" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Country]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="127" width="270" height="20"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="139" y="0" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{deptName}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="130" y="1" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="1" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Department]]></text>
+					</staticText>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="144" width="270" height="20"/>
+					<staticText>
+						<reportElement x="1" y="1" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Team]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="132" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="1" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{teamName}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="162" width="270" height="20"/>
+					<staticText>
+						<reportElement x="1" y="1" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Employee Type]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="132" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="1" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empType}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="1" y="182" width="268" height="20"/>
+					<staticText>
+						<reportElement x="0" y="2" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Vendor Name]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="2" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="2" width="128" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{vendorName}]]></textFieldExpression>
+					</textField>
+					<frame>
+						<reportElement x="116" y="0" width="100" height="20"/>
+					</frame>
+					<frame>
+						<reportElement x="10" y="-76" width="100" height="20"/>
+					</frame>
+					<frame>
+						<reportElement x="131" y="-20" width="100" height="20"/>
+					</frame>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="1" y="206" width="268" height="20"/>
+					<staticText>
+						<reportElement x="0" y="2" width="130" height="18" forecolor="#000000"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Employee Status]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="2" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="2" width="128" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{statusName}]]></textFieldExpression>
+					</textField>
+					<frame>
+						<reportElement x="116" y="0" width="100" height="20"/>
+					</frame>
+					<frame>
+						<reportElement x="10" y="-76" width="100" height="20"/>
+					</frame>
+					<frame>
+						<reportElement x="131" y="-20" width="100" height="20"/>
+					</frame>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="0" y="225" width="270" height="20"/>
+					<staticText>
+						<reportElement x="0" y="1" width="130" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[SSN Number]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="131" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="0" width="130" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empSSNNumber}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="1" y="245" width="268" height="20"/>
+					<staticText>
+						<reportElement x="0" y="0" width="130" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Military Status]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="-1" width="128" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empMaritalStatus}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="4" y="265" width="265" height="20"/>
+					<staticText>
+						<reportElement x="0" y="0" width="130" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Driving License Number]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="140" y="0" width="125" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empDriLicenNum}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="4" y="287" width="265" height="20"/>
+					<staticText>
+						<reportElement x="1" y="0" width="140" height="18"/>
+						<textElement verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Driving License Expire Date :]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+						<reportElement x="140" y="0" width="125" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.util.Date"><![CDATA[$F{empDriLicenExpDate}]]></textFieldExpression>
+					</textField>
+				</frame>
+				<frame>
+					<reportElement stretchType="RelativeToBandHeight" x="-1" y="306" width="270" height="20"/>
+					<staticText>
+						<reportElement x="1" y="0" width="130" height="18"/>
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[Other Id]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="130" y="0" width="10" height="18" forecolor="#000000" backcolor="#000000"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font isBold="true"/>
+						</textElement>
+						<text><![CDATA[:]]></text>
+					</staticText>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement x="141" y="0" width="129" height="18"/>
+						<textElement verticalAlignment="Middle"/>
+						<textFieldExpression class="java.lang.String"><![CDATA[$F{empOtherId}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="769" y="3" width="28" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="689" y="3" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="0" width="252" height="25" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12"/>
+					</textElement>
+					<text><![CDATA[Roosterhr.com All Rights Reserved]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

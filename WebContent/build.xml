@@ -1,0 +1,57 @@
+<project name="struts2_hibernate" default="war" basedir="." >
+    <description>
+    struts2_hibernate local build file
+    </description>
+
+    <property environment="env"/>
+    <property name="resources" location="resources"/>
+    <property name="src" location="src/java"/>
+    <property name="classes" location="WEB-INF/classes"/>
+    <property name="lib" location="WEB-INF/lib"/>
+    <property name="dependency_jars" location="dependency_jars"/>
+
+    <target name="init">
+        <tstamp/>
+        <delete dir="${classes}"/>
+        <mkdir dir="${classes}"/>
+        <delete dir="dist"/>
+        <mkdir dir="dist"/>
+    </target>
+
+    <path id="project.class.path" >
+        <pathelement path="${env.classpath}"/>
+        <fileset dir="${lib}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="${dependency_jars}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement location="${src}"/>
+        <pathelement location="${classes}"/>
+    </path>
+
+    <target name="compile" depends="init" description="compile the source " >
+        <echo message="compiling files"/>
+        <javac srcdir="${src}" destdir="${classes}" classpathref="project.class.path"/>
+        <echo message="copying other src xml and property files to classes"/>
+        <copy toDir="${classes}">
+            <fileset dir="${src}">
+                <include name="**/*.properties"/>
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="war" depends="compile" description="Builds application war file">
+        <war webxml="WEB-INF/web.xml" destfile="dist/hcmone.war">
+            <fileset dir=".">
+                <exclude name="src/"/>
+                <exclude name="dist/"/>
+                <exclude name="dependency_jars/"/>
+                <exclude name="db_build/"/>
+                <exclude name="**.xml"/>
+            </fileset>
+        </war>
+    </target>
+
+</project>
