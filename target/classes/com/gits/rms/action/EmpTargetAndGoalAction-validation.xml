@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="empTAGObj.projectName.projectId">
+  <field-validator type="required">
+   		<message key="errors.project.name"></message>
+  </field-validator>
+</field>
+
+<field name="empTAGObj.projectActivityName.projectActivityId">
+  	<field-validator type="required">
+   		<message key="errors.empName"></message>
+  	</field-validator>
+</field>
+
+<field name="empTAGObj.empTargetName">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.target.name"></message>
+  	</field-validator>
+</field>
+
+<field name="empTAGObj.empTargetAchieved">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.target.achieved"></message>
+  	</field-validator>
+</field>
+
+</validators>

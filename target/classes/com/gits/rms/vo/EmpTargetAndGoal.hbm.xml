@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+	<class name="com.gits.rms.vo.EmpTargetAndGoalVO" table="hcmo_emp_target_goal">
+	<id name="hcmoEmpTgId" 
+		type="integer" 
+		column="HcmoEmpTgId"
+		length="11">
+		<generator class="native" />
+	</id>
+	<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+    <property 
+    	name="empTargetName" 
+    	type="string"
+    	column="EmpTargetName"
+    	length="120"
+    />
+    <property 
+    	name="empTargetType" 
+    	type="string"
+    	column="EmpTargetType"
+    	length="120"
+    />
+    <property 
+    	name="empTargetMode" 
+    	type="string"
+    	column="EmpTargetMode"
+    	length="120"
+    />
+    <property 
+    	name="empGoalName" 
+    	type="text"
+    	column="EmpGoalName"
+    />
+    <property 
+    	name="empTargetAchieved" 
+    	type="text"
+    	column="EmpTargetAchieved"
+    />
+    <property 
+    	name="empTargetNotes" 
+    	type="text"
+    	column="EmpTargetNotes"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+<many-to-one name="employeeName" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="projectActivityName" column="HcmoProjectActivityId" lazy="false" class="com.gits.rms.vo.ProjectActivityVO"/>
+<many-to-one name="projectName" column="HcmoProjectId" lazy="false" class="com.gits.rms.vo.ProjectVO"/>
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	</class>
+</hibernate-mapping>

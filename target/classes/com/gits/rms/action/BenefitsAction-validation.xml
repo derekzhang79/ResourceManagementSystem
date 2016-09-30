@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="benefit.year">
+  <field-validator type="required">
+   		<message key="errors.benefit.year"></message>
+  </field-validator>
+  <field-validator type="int">
+       <param name="min">1900</param>
+       <param name="max">2500</param>
+       <message key="errors.benefit.year.invalid"></message>
+  </field-validator>
+</field>
+<field name="benefit.benefitsName">
+  <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.benefit.name"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.benefit.benefitsName"></message>
+  	</field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">50</param>
+   		<message key="errors.length.benefit.name"></message>
+  </field-validator>
+</field>
+<field name="benefitsAttachFile">
+  <field-validator type="required">
+   		<message key="errors.benefit.benefitsAttachFile"></message>
+  </field-validator>
+</field>
+
+</validators>
+

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.AssetsVO" table="hcmo_assets">
+     <id
+        name="assetTypeId"
+        type="integer"
+        column="AssetTypeId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property
+      name="assetTypeName"
+      type="string"
+      column="assetTypeName"
+      length="100"
+    />
+    
+    <!-- ALTER TABLE `hcmo_assets` ADD `hcmoclientid` INT(11) NULL DEFAULT NULL AFTER `IsActive`, ADD `HcmoEmployeeId` INT(11) NULL DEFAULT NULL AFTER `hcmoclientid`; -->
+    <!-- ALTER TABLE `hcmo_emp_assets` ADD `hcmoclientid` INT(11) NULL DEFAULT NULL AFTER `IsActive`; -->
+    <property 
+     name="clientId"
+     type="integer"
+     column="hcmoclientid"
+     length="11" 
+     />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+     </class>
+</hibernate-mapping>

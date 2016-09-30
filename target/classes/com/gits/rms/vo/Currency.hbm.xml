@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.CurrencyVO" table="hcmo_currency">
+     <id
+        name="hcmoCurrencyId"
+        type="integer"
+        column="HcmoCurrencyId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+     <property
+        name="currencyType"
+        type="string"
+        column="CurrencyType"
+        length="20"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+    </class>
+</hibernate-mapping>

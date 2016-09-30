@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.TargetTypeVO" table="hcmo_target_type">
+     <id
+        name="hcmoTargetTypeId"
+        type="integer"
+        column="HcmoTargetTypeId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+     <property
+        name="targetTypeName"
+        type="string"
+        column="TargetTypeName"
+        length="120"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+     </class>
+</hibernate-mapping>

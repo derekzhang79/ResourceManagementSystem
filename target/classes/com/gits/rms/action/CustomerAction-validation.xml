@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="cust.customerName">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.customer.name"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.customer.name"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.customer.name"/>
+    </field-validator>
+</field>
+
+<field name="cust.email">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.customer.email"></message>
+    </field-validator>
+	<field-validator type="email" short-circuit="true">
+   		<message key="errors.common.email.invalid"></message>
+	</field-validator>
+	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.common.email"/>
+   </field-validator>
+</field>
+
+<field name="cust.phoneNumber">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.customer.phone"></message>
+    </field-validator>
+   <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.common.phone.invalid"></message>
+   </field-validator>
+</field>
+ 
+<field name="cust.fax">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.customer.fax"></message>
+    </field-validator>
+   <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.common.fax.invalid"></message>
+   </field-validator>
+</field>
+
+<field name="cust.contactName">
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.customer.contactName"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">60</param>
+        <param name="trim">true</param>
+        <message key="errors.length.customer.contactName"/>
+   </field-validator>
+</field>
+
+<field name="cust.addr1">
+  <field-validator type="requiredstring">
+  		<param name="trim">true</param>
+  		<message key="errors.customer.address1"></message>
+  </field-validator>
+  <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.common.address1"/>
+  </field-validator>
+</field>
+
+<field name="cust.addr2">
+  <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.common.address2"/>
+  </field-validator>
+</field>
+ 
+</validators>

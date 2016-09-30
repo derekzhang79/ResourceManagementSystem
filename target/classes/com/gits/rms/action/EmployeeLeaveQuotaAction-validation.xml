@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+  
+<validators>
+<field name="empLeaveQuota.empIdObj.employeeId">
+   <field-validator type="required">
+   		<message key="errors.empName"></message>
+   </field-validator>
+</field>
+<field name="empLeaveQuota.leaveTypeIdObj.leaveTypeId">
+   <field-validator type="required">
+   		<message key="errors.leaveType.name"></message>
+   </field-validator>
+</field>
+
+<field name="empLeaveQuota.year">
+   <field-validator type="required">
+   		<message key="errors.employeeLeaveQuota.year"></message>
+   </field-validator>
+   <field-validator type="int">
+        <param name="min">1900</param>
+        <param name="max">2500</param>
+        <message key="errors.employeeLeaveQuota.year.invalid"></message>
+   </field-validator>
+</field>
+<field name="empLeaveQuota.noOfDays">
+  	<field-validator type="required" short-circuit="true">
+   		<message key="errors.employeeLeaveQuota.daysAlloted"></message>
+   </field-validator>
+  	<!--<field-validator type="double" short-circuit="true">
+    	<param name="minExclusive">0.95</param>
+        <message key="errors.employeeLeaveQuota.noOfDays.invalid"></message>
+    </field-validator>
+    --><field-validator type="double" short-circuit="true">
+  		<param name="maxExclusive">999999</param>
+  		<message key="errors.length.employeeLeaveQuota.noOfDays"></message>
+    </field-validator>
+</field> 
+</validators>  

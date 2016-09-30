@@ -1,0 +1,89 @@
+
+
+/************** Media Css **************/
+
+
+@media screen and (max-width: 1023px) {
+body.utility-page #content #sign-up { float: none; margin: 0 auto;}
+#content.SignUp_page { padding: 40px 30px 50px 31px }
+
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+
+body {
+    height: auto;
+}
+#order .panel-body.pn .mb5 { float: left; width: 100%;}
+#order .panel-body.pn .mb5.Mod_price { float: left; width: 100%;}
+.section.row.Mod_Selection:last-child {
+    margin-left: 30px !important;
+}
+
+
+}
+
+
+@media screen and (max-width: 860px) {
+
+.modal-dialog {
+    width: 90% !important;
+}
+
+}
+
+@media screen and (max-width: 780px) {
+.field.option.PayMent {
+    margin-bottom: 22px;
+}
+.allcp-form .section.PayMentOpt { margin-bottom: 7px; }
+}
+
+@media screen and (max-width: 768px) {
+    
+#exampleModal1 .modal-dialog { margin: 20px auto !important;  width: 90% !important;}
+.modal-dialog { margin: 20px auto !important;  width: 90% !important;}
+
+
+}
+
+
+@media screen and (max-width: 650px) {
+.section.row.Mod_Selection:last-child {
+    float: left;
+    margin-left: 0 !important;
+    width: 100%;
+}
+
+
+}
+
+
+
+@media screen and (max-width: 620px) {
+
+.allcp-form .section {
+    margin-bottom: 7px;
+}
+.allcp-form .PayMentOpt .PayMent {
+    margin-bottom: 15px;
+}
+}
+
+
+@media screen and (max-width: 360px) {
+
+.allcp-form .prepend-icon > .field-icon { display: block !important;}
+.allcp-form .prepend-icon > input, .allcp-form .prepend-icon > textarea { padding-left: 36px !important; text-align: left !important;}
+
+}
+
+@media screen and (max-width: 340px) {
+.modal-dialog { width: 97% !important;}
+
+}
+}
+ 

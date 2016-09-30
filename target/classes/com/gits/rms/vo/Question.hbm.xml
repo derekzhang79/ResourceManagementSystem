@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.QuestionVO" table="hcmo_question">
+		 <id
+		 	name="hcmoQuestionId"
+		 	type="integer"
+		 	length="11"
+		 	column="HcmoQuestionId">
+		 	<generator class="native"></generator>
+		 </id>
+		<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		 <property 
+		 	name="question"
+		 	type="string"
+		 	length="100"
+		 	column="Question"
+		 />
+		 
+		 <property 
+		 	name="questionType"
+		 	type="string"
+		 	length="100"
+		 	column="QuestionType"
+		 />
+		 
+		 <property 
+		 	name="option1"
+		 	type="string"
+		 	length="100"
+		 	column="Option1"
+		 />
+		 
+		 <property 
+		 	name="option2"
+		 	type="string"
+		 	length="100"
+		 	column="Option2"
+		 />
+		 
+		 <property 
+		 	name="option3"
+		 	type="string"
+		 	length="100"
+		 	column="Option3"
+		 />
+		 
+		 <property 
+		 	name="option4"
+		 	type="string"
+		 	length="100"
+		 	column="Option4"
+		 />
+		 
+		 <property 
+		 	name="option5"
+		 	type="string"
+		 	length="100"
+		 	column="Option5"
+		 />
+		 
+		 <property 
+		 	name="option6"
+		 	type="string"
+		 	length="100"
+		 	column="Option6"
+		 />
+		 
+		 <property 
+		 	name="minRate"
+		 	type="string"
+		 	length="100"
+		 	column="MinRate"
+		 />
+		 
+		  <property 
+		 	name="maxRate"
+		 	type="string"
+		 	length="100"
+		 	column="MaxRate"
+		 />
+		  <property 
+		 	name="created"
+		 	type="date"
+		 	column="Created"
+		 />
+		 
+		 <property 
+		 	name="updated"
+		 	type="timestamp"
+		 	column="Updated"
+		 />
+		 
+		<property
+        	name="isActive"
+        	type="integer"
+        	column="IsActive"
+        	length="1"
+    	/>
+		 
+		 <many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoSubCategoryId" column="HcmoSubCategoryId" lazy="false" class="com.gits.rms.vo.SubCategoryVO"/>
+		 <many-to-one name="hcmoCategoryId" column="HcmoCategoryId" lazy="false" class="com.gits.rms.vo.CategoryVO"/>
+	</class>
+</hibernate-mapping>

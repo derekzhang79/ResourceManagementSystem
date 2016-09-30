@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.AnswerVO" table="hcmo_answer">
+	 	<id
+		 	name="hcmoAnswerId"
+		 	type="integer"
+		 	length="11"
+		 	column="HcmoAnswerId">
+		 	
+		 	<generator class="native"></generator>
+		 	
+		 </id>
+		 <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		 <property 
+		 	name="answer"
+		 	type="string"
+		 	length="100"
+		 	column="Answer"
+		 />
+		 <property 
+		 	name="status"
+		 	type="string"
+		 	length="100"
+		 	column="Status"
+		 />
+		  <property 
+		 	name="created"
+		 	type="date"
+		 	column="Created"
+		 />
+		 
+		 <property 
+		 	name="updated"
+		 	type="timestamp"
+		 	column="Updated"
+		 />
+		 
+		<property
+        	name="isActive"
+        	type="integer"
+        	column="IsActive"
+        	length="1"
+    	/>
+		 
+		 <many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoQuestionBankId" column="HcmoQuestionGroupNameId" lazy="false" class="com.gits.rms.vo.QuestionBankVO"/>
+		 <many-to-one name="hcmoAppraiserEmployeeId" column="AppraiserEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoAppraisingEmployeeId" column="AppraisingEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoQuestionGeneralInfoGroup" column="HcmoQuestionGeneralInfoGroupId" lazy="false" class="com.gits.rms.vo.QuestionGeneralInfoGroupVO"/>
+	</class>
+</hibernate-mapping>	

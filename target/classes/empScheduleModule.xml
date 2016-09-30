@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="empScheduleModule" extends="default">
+	
+			
+		<action name="empScheduleForm" method="empScheduleForm" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/EmpScheduleForm.jsp</result>
+		</action>
+		
+		<action name="insertOrUpdateEmpSchedule" method="empSchedule" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/EmpScheduleForm.jsp</result>
+			<result name="Project" type="chain">
+	       			<param name="actionName">getProjectDetails</param>
+		   	</result>
+		   	<result name="Timesheet" type="chain">
+	       			<param name="actionName">getTimesheetDetails</param>
+		   	</result>
+		   	<result name="Leave" type="chain">
+	       			<param name="actionName">getLeaveScheduleDetails</param>
+		   	</result>
+		   	
+		   	<result name="error" type="chain">
+	       			<param name="actionName">empScheduleForm</param>
+		    </result>
+		   	
+		</action>
+		
+		<action name="getSchedSubEmployees" method="getSchedSubEmployees" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/subEmployeeDiv.jsp</result>
+		</action>
+		
+		<action name="getProjectDetails" method="getProjectDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/projectSchedule.jsp</result>
+		</action>
+		
+		<action name="displayProjectDetails" method="displayProjectDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/EmpScheduleProjView.jsp</result>
+		</action>
+		
+		<action name="displayTimesheetDetails" method="displayTimesheetDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/EmpScheduleTimesheetView.jsp</result>
+		</action>
+		
+		<action name="displayTimesheetCatDetails" method="displayTimesheetDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/EmpScheduleTimesheetCatView.jsp</result>
+		</action>
+		
+		
+		
+		<action name="getTimesheetDetails" method="getTimesheetDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/timesheetSchedule.jsp</result>
+		</action>
+		
+		<action name="getLeaveScheduleDetails" method="getLeaveScheduleDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/leaveSchedule.jsp</result>
+		</action>
+		
+		<action name="displayLeaveDetails" method="displayLeaveDetails" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/EmpScheduleLeaveView.jsp</result>
+		</action>
+		
+		<action name="displayMoreProjects" method="displayMoreProjects" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/MoreProjectDetails.jsp</result>
+		</action>
+				
+		
+		<action name="empScheduleIncYear" method="incrementYear" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/projectSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleDecYear" method="decrementYear" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/projectSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleIncMonth" method="incrementMonth" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/projectSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleDecMonth" method="decrementMonth" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/projectSchedule.jsp</result>
+		</action>
+		
+		<!-- Start Timesheet page next/prev -->
+				
+		<action name="empScheduleTsIncYear" method="incrementYear" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/timesheetSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleTsDecYear" method="decrementYear" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/timesheetSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleTsIncMonth" method="incrementMonth" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/timesheetSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleTsDecMonth" method="decrementMonth" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/timesheetSchedule.jsp</result>
+		</action>
+		<!-- End Timesheet page next/prev -->
+		
+		<!-- Start leave page next/prev -->
+				
+		<action name="empScheduleLveIncYear" method="incrementYear" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/leaveSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleLveDecYear" method="decrementYear" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/leaveSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleLveIncMonth" method="incrementMonth" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/leaveSchedule.jsp</result>
+		</action>
+		
+		<action name="empScheduleLveDecMonth" method="decrementMonth" class="com.gits.rms.action.EmpScheduleAction">
+			<result name="success">/resources/jsp/leaveSchedule.jsp</result>
+		</action>
+		<!-- End leave page next/prev -->
+	
+	</package>
+</struts>

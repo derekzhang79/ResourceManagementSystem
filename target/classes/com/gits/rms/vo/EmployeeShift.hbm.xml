@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EmployeeShiftVO" table="hcmo_employee_shift">
+     <id
+        name="HcmoShiftId"
+        type="integer"
+        column="HcmoShiftId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+   
+   <!-- ALTER TABLE `hcmo_employee_shift` ADD `shiftType` VARCHAR(100) NULL DEFAULT NULL AFTER `IsActive`; -->
+    <property
+       name="shiftType"
+       type="string" 
+       column="shiftType"
+       length="100"
+    /> 
+    
+    <property
+       name="startDate"
+       type="date"
+       column="startDate"
+    />
+   
+    <property
+       name="endDate"
+       type="date"
+       column="endDate"
+    />
+    
+    <property
+       name="startTime"
+       type="timestamp"
+       column="startTime"
+    />   
+    
+    <property
+       name="endTime"
+       type="timestamp"
+       column="endTime"
+    />
+    
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    
+    <!-- ALTER TABLE `hcmo_employee_shift` ADD `HcmoClientId` INT(11) NULL DEFAULT NULL AFTER `shiftType`; -->
+    <property 
+    	name="clientId"
+    	type="integer"
+    	column="HcmoClientId"
+    	length="11" 
+    	/>
+    
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+        
+    <many-to-one name="employee" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+    <many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+</class>
+</hibernate-mapping>

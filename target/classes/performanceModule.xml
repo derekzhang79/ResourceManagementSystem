@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="performanceModule" extends="default">
+	
+	<!-- Category CRUD Starts-->
+		<action name="getAllCategory" method="getAllCategory" class="com.gits.rms.action.performance.CategoryAction">
+        	<interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <result name="success">/resources/jsp/performance/Category.jsp</result>
+        </action>
+        <action name="setUpCategory" method="setUpCategory" class="com.gits.rms.action.performance.CategoryAction">
+            <result name="success">/resources/jsp/performance/CategoryForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateCategory" method="insertOrUpdateCategory" class="com.gits.rms.action.performance.CategoryAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllCategory</param>
+       	   </result>
+           <result name="input">/resources/jsp/performance/CategoryForm.jsp</result>
+        </action>
+        <action name="deleteCategory" method="deleteCategory" class="com.gits.rms.action.performance.CategoryAction">
+           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+           <interceptor-ref name="store">
+      			   <param name="operationMode">STORE</param>
+    		   </interceptor-ref>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllCategory</param>
+       	   </result>
+        </action>
+        <action name="categoryView" method="categoryView" class="com.gits.rms.action.performance.CategoryAction">
+           <result name="success">/resources/jsp/performance/CategoryView.jsp</result>
+        </action>
+		<action name="categorySearchForm" method="categorySearchForm" class="com.gits.rms.action.performance.CategoryAction">
+           <result name="success">/resources/jsp/performance/CategorySearchForm.jsp</result>
+        </action>
+        <action name="categorySearchResult" method="categorySearchResult" class="com.gits.rms.action.performance.CategoryAction">
+           <result name="success">/resources/jsp/performance/CategorySearchResult.jsp</result>
+        </action>
+        <action name="resetCategory">
+           <result name="success" type="redirectAction">
+       			<param name="actionName">setUpCategory</param>
+	   	   </result>
+        </action>
+    <!-- Category CRUD Ends-->
+    
+    <!-- SubCategory CRUD Starts-->    
+        <action name="getAllSubCategory" method="getAllSubCategory" class="com.gits.rms.action.performance.SubCategoryAction">
+        	<interceptor-ref name="store">
+                <param name="operationMode">RETRIEVE</param>
+            </interceptor-ref>
+            <result name="success">/resources/jsp/performance/SubCategory.jsp</result>
+        </action>
+        <action name="setUpSubCategory" method="setUpSubCategory" class="com.gits.rms.action.performance.SubCategoryAction">
+            <result name="success">/resources/jsp/performance/SubCategoryForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateSubCategory" method="insertOrUpdateSubCategory" class="com.gits.rms.action.performance.SubCategoryAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllSubCategory</param>
+       	   </result>
+           <result name="input">/resources/jsp/performance/SubCategoryForm.jsp</result>
+        </action>
+        <action name="deleteSubCategory" method="deleteSubCategory" class="com.gits.rms.action.performance.SubCategoryAction">
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllSubCategory</param>
+       	   </result>
+        </action>
+        <action name="subCategoryView" method="subCategoryView" class="com.gits.rms.action.performance.SubCategoryAction">
+           <result name="success">/resources/jsp/performance/SubCategoryView.jsp</result>
+        </action>
+		<action name="subCategorySearchForm" method="subCategorySearchForm" class="com.gits.rms.action.performance.SubCategoryAction">
+           <result name="success">/resources/jsp/performance/SubCategorySearchForm.jsp</result>
+        </action>
+        <action name="subCategorySearchResult" method="subCategorySearchResult" class="com.gits.rms.action.performance.SubCategoryAction">
+           <result name="success">/resources/jsp/performance/SubCategorySearchResult.jsp</result>
+        </action>
+        <action name="resetSubCategory">
+           <result name="success" type="redirectAction">
+       			<param name="actionName">setUpSubCategory</param>
+	   	   </result>
+        </action>
+       <!-- SubCategory CRUD Ends-->
+       <!-- Questions CRUD Starts-->
+       	<action name="performanceTab" method="questionTab" class="com.gits.rms.action.performance.QuestionAction">
+           <result name="success">/resources/jsp/performance/PerformanceTab.jsp</result>
+        </action>
+        <action name="getKpiQuestionTab">
+        	<result name="success">/resources/jsp/performance/QuestionTab.jsp</result>
+        </action>
+       	<action name="questionTab">
+           <result name="success">/resources/jsp/performance/QuestionTab.jsp</result>
+        </action>
+        <action name="setUpOptionalQuestions" method="setUpOptionalQuestions" class="com.gits.rms.action.performance.QuestionAction">
+           <result name="success">/resources/jsp/performance/OptionalQuestionsForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateQuestion" method="insertOrUpdateQuestion" class="com.gits.rms.action.performance.QuestionAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllOptionalQuestions</param>
+       	   </result>
+           <result name="input">/resources/jsp/performance/OptionalQuestionsForm.jsp</result>
+        </action>
+        <action name="setUpNumberingQuestions" method="setUpNumberingQuestions" class="com.gits.rms.action.performance.QuestionAction">
+           <result name="success">/resources/jsp/performance/NumberingQuestionsForm.jsp</result>
+        </action>
+        <action name="resetOptionalQuestion">
+           <result name="success" type="redirectAction">
+    			<param name="actionName">setUpOptionalQuestions</param>
+		   	</result>
+        </action>
+        <action name="resetNumberingQuestion">
+			<result name="success" type="redirectAction">
+    			<param name="actionName">setUpNumberingQuestions</param>
+		   	</result>
+        </action>
+        <action name="resetSummaryQuestion">
+			<result name="success" type="redirectAction">
+    			<param name="actionName">setUpSummaryQuestions</param>
+		   	</result>
+        </action>
+        <action name="insertOrUpdateNumberingQuestion" method="insertOrUpdateQuestion" class="com.gits.rms.action.performance.QuestionAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllNumberingQuestions</param>
+       	   </result>
+           <result name="input">/resources/jsp/performance/NumberingQuestionsForm.jsp</result>
+        </action>
+        <action name="setUpSummaryQuestions" method="setUpSummaryQuestions" class="com.gits.rms.action.performance.QuestionAction">
+           <result name="success">/resources/jsp/performance/SummaryQuestionsForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateSummaryQuestion" method="insertOrUpdateQuestion" class="com.gits.rms.action.performance.QuestionAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllSummaryQuestions</param>
+       	   </result>
+           <result name="input">/resources/jsp/performance/SummaryQuestionsForm.jsp</result>
+        </action>
+        <action name="getAllSubCategoryName" method="subCategoryListForCategory" class="com.gits.rms.action.performance.SubCategoryAction">
+        	<result name="success">/resources/jsp/performance/SubCategoryListDiv.jsp</result>
+        </action>
+        <action name="getAllOptionalQuestions" method="getAllOptionalQuestions" class="com.gits.rms.action.performance.QuestionAction">
+        	<result name="success">/resources/jsp/performance/OptionalQuestionsList.jsp</result>
+        </action>
+        <action name="getAllNumberingQuestions" method="getAllNumberingQuestions" class="com.gits.rms.action.performance.QuestionAction">
+        	<result name="success">/resources/jsp/performance/NumberingQuestionsList.jsp</result>
+        </action>
+        <action name="getAllSummaryQuestions" method="getAllSummaryQuestions" class="com.gits.rms.action.performance.QuestionAction">
+        	<result name="success">/resources/jsp/performance/SummaryQuestionsList.jsp</result>
+        </action>
+        <action name="getQuestionView" method="getQuestionView" class="com.gits.rms.action.performance.QuestionAction">
+        	<result name="OptionalView">/resources/jsp/performance/OptionalQuestionsView.jsp</result>
+        	<result name="NumberingView">/resources/jsp/performance/NumberingQuestionsView.jsp</result>
+        	<result name="SummaryView">/resources/jsp/performance/SummaryQuestionsView.jsp</result>
+        </action>
+        <action name="getAllQuestionGroupView" method="getAllQuestionGroupView" class="com.gits.rms.action.performance.QuestionBankAction">
+        	<result name="success">/resources/jsp/performance/QuestionTypeView.jsp</result>
+        </action>
+        <action name="getAllQuestionType" method="getAllQuestionType" class="com.gits.rms.action.performance.QuestionBankAction">
+        	<result name="success">/resources/jsp/performance/QuestionTypeTab.jsp</result>
+        </action>
+        <action name="insertQuestionBank" method="insertQuestionBank" class="com.gits.rms.action.performance.QuestionBankAction">
+        	<result name="success" type="redirectAction">getAllQuestionType</result>
+        	<result name="input">/resources/jsp/performance/QuestionTypeTab.jsp</result>
+        </action>
+        <action name="getAllQuestionGroupIdentificationName" method="getAllQuestionGroupIdentificationName" class="com.gits.rms.action.performance.QuestionBankAction">
+        	<result name="success">/resources/jsp/performance/QuestionGroupNameIdentificationList.jsp</result>
+        </action>
+        <action name="setUpQuestBankGeneralInfoForm">
+        	<result name="success">/resources/jsp/performance/QuestionBankGeneralInfoForm.jsp</result>
+        </action>
+        <action name="getGeneralInfoGroup" method="getGeneralInfoGroup" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+       		<result name="input">/resources/jsp/performance/QuestionBankGeneralInfoForm.jsp</result>
+        	<result name="success">/resources/jsp/performance/chooseEmployeeQestionGroup.jsp</result>
+        </action>
+         <action name="questionBankGeneralInfoEmployeeList" method="questionBankGeneralInfoEmployeeList" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+         <result name="input">/resources/jsp/performance/chooseEmployeeQestionGroup.jsp</result>
+        	<result name="success" type="redirectAction">getEmployeeListType</result>
+        </action>
+        <action name="questionBankGeneralInfoPeerEmployeeList" method="questionBankGeneralInfoPeerEmployeeList" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success" type="redirectAction">getEmployeeListType</result>
+        </action>
+        <action name="questionBankGeneralInfoApprovingEmployeeList" method="questionBankGeneralInfoApprovingEmployeeList" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success" type="redirectAction">getEmployeeListType</result>
+        </action>
+        <action name="getAllAnswerList" method="getAllAnswerList" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="OPTIONAL">/resources/jsp/performance/MyReviewAnswerForm.jsp</result>
+        	<result name="success">/resources/jsp/performance/MyReviewAnswerForm.jsp</result>
+        	<result name="COMPLETEANSWERS" type="redirectAction">getAllEmployeeQuestionBankGroup</result>
+        </action>
+        <action name="getEmployeeListType" method="getEmployeeListType" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/chooseEmployeeQestionGroup.jsp</result>
+        	<result name="EMPLOYEE">/resources/jsp/performance/chooseEmployeeQestionGroup.jsp</result>
+        	<result name="APPROVINGEMPLOYEE">/resources/jsp/performance/chooseApprovingEmployeeQestionGroup.jsp</result>
+        	<result name="PEEREMPLOYEE">/resources/jsp/performance/choosePeerEmployeeQestionGroup.jsp</result>
+        </action>
+        <action name="setUpAssignEmployeeQuestions" method="setUpAssignEmployeeQuestions" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/QuestionBankGeneralInfoForm.jsp</result>
+        </action>
+        <action name="updateGeneralInfoStatus" method="updateGeneralInfoStatus" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success" type="redirectAction">getAllEmployeeQuestionBankGroup</result>
+        	<result name="peeremployee" type="redirectAction">getPeerEmployeeQuestionBank</result>
+        </action>
+        <action name="approverCommentsForm" method="approverCommentsForm" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/approverCommentsForm.jsp</result>
+        </action>
+        <action name="updateGeneralInfoApproverCommentsStatus" method="updateGeneralInfoApproverCommentsStatus" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success" type="redirectAction">getSubEmployeeQuestions</result>
+        </action>
+        <action name="viewAssignedQuestionsList" method="viewAssignedQuestionsList" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/ViewAssignedEmployeeGeneralGroupList.jsp</result>
+        </action>
+        <action name="viewAssignedQuestionGeneralInfoGroup" method="viewAssignedQuestionGeneralInfoGroup" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/QuestionBankGeneralInfoView.jsp</result>
+        </action>
+       <!-- Questions CRUD Ends-->
+       <!-- Answer CRUD Starts-->
+       <action name="insertOrUpdateAnswer" method="insertOrUpdateAnswer" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/MyReviewAnswerForm.jsp</result>
+        	<result name="completed" type="redirectAction">getAllEmployeeQuestionBankGroup</result>
+        	<result name="approvercompleted" type="redirectAction">getSubEmployeeQuestions</result>
+        	<result name="peercompleted" type="redirectAction">getPeerEmployeeQuestionBank</result>
+        </action>
+       <action name="getAllEmployeeQuestionBankGroup" method="getAllEmployeeQuestionBankGroup" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/QuestionBankList.jsp</result>
+        </action>
+         <action name="getAllApproverSubEmployee" method="getAllApproverSubEmployee" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/ApproversSubEmployeeForm.jsp</result>
+        </action>
+        <action name="getSubEmployeeQuestions" method="getSubEmployeeQuestions" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/ApprovingEmployeeQuestionBankList.jsp</result>
+        </action>
+        <action name="getAllApproversSubEmployeeData" method="getAllApproversSubEmployeeData" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/ApprovingEmployeePerformanceTab.jsp</result>
+        </action>
+        <action name="getEmployeeAnswerEntered" method="getEmployeeAnswerEntered" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/EmployeeAnswersList.jsp</result>
+        </action>
+        <action name="getAllEmployeePeerEmployeeList" method="getAllEmployeePeerEmployeeList" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/PeerEmployeeForm.jsp</result>
+        </action>
+        <action name="getAllPeersSubEmployee" method="getAllPeersSubEmployee" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/AnswerEmployeePeerEmployeeList.jsp</result>
+        </action>
+        <action name="getPeerEmployeeQuestionBank" method="getPeerEmployeeQuestionBank" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/QuestionBankList.jsp</result>
+        </action>
+        <action name="getAllAnswer" method="getAllAnswer" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/AnswerEmployeeList.jsp</result>
+        	<result name="completed" type="redirectAction">getAllEmployeeQuestionBankGroup</result>
+        	<result name="approvingEmployee" type="redirectAction">getSubEmployeeQuestions</result>
+        	<result name="peerEmployee" type="redirectAction">getPeerEmployeeQuestionBank</result>
+        </action>
+        <action name="getAnswers" method="getAnswers" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/AnswerEmployeeEditForm.jsp</result>
+        </action>
+         <action name="updateAnswers" method="updateAnswers" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success" type="redirectAction">getAllEmployeeQuestionBankGroup</result>
+        	<result name="approvingemployee" type="redirectAction">getSubEmployeeQuestions</result>
+        	<result name="peeremployee" type="redirectAction">getPeerEmployeeQuestionBank</result>
+        </action>
+         <action name="getEmployeePeerAnswerEntered" method="getEmployeePeerAnswerEntered" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/EmployeeAnswersList.jsp</result>
+        </action>
+         <action name="getAppEmpSubEmpQuestions" method="getAppEmpSubEmpQuestions" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/MyReviewAnswerForm.jsp</result>
+        	<result name="COMPLETEANSWERS" type="redirectAction">getAllEmployeeQuestionBankGroup</result>
+        </action>
+         <action name="getAnswerView" method="getAnswerView" class="com.gits.rms.action.performance.AnswerAction">
+        	<result name="success">/resources/jsp/performance/AnswerEmployeeView.jsp</result>
+        </action>
+        <action name="getAdminPerformanceTab">
+        	<result name="success">/resources/jsp/performance/adminPerformanceReviewForm.jsp</result>
+        </action>
+        <action name="adminPerformance" method="adminPerformance" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/adminPerformanceTab.jsp</result>
+        </action>
+         <action name="employeePerformanceTab" method="employeePerformanceTab" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/AdminEmployeeQuestionBankList.jsp</result>
+        </action>
+        <action name="appEmployeePerformanceTab" method="appEmployeePerformanceTab" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/AdminApprovingEmployeeQuestionBankList.jsp</result>
+        </action>
+        <action name="peerEmployeePerformanceTab" method="peerEmployeePerformanceTab" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success">/resources/jsp/performance/AdminApprovingEmployeeQuestionBankList.jsp</result>
+        </action>
+        <action name="getAdminCommentsForm" method="getAdminCommentsForm" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="input" type="redirectAction">employeePerformanceTab</result>
+        	<result name="success">/resources/jsp/performance/AdminCommentsForm.jsp</result>
+        </action>
+        <action name="updateAdminComments" method="updateAdminComments" class="com.gits.rms.action.performance.QuestionBankGeneralInfoAction">
+        	<result name="success" type="redirectAction">employeePerformanceTab</result>
+        </action>
+       <!-- Answer CRUD Ends-->
+       
+	</package>
+</struts>
+

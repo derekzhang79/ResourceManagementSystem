@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="jobTitle.salaryGradeIdObj.hcmoSalaryGradeId">
+  <field-validator type="required">
+   		<message key="errors.salaryGrade.name"></message>
+  </field-validator>
+</field>
+
+<field name="jobTitle.jobTitleName">
+  <field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.jobTitle.name"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.jobTitle.name"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">60</param>
+        <param name="trim">true</param>
+        <message key="errors.length.jobTitle.name"/>
+   </field-validator>
+</field>
+ 
+</validators>

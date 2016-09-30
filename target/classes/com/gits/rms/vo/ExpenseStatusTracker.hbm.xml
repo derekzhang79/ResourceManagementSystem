@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.ExpenseStatusTrackerVO" table="hcmo_expense_status_tracker">
+		
+		<id 
+			name="hcmoExpensesStatusTrackerId" 
+			type="integer"
+			column="HcmoExpensesStatusTrackerId"
+			length="11">
+			<generator class="native"/>
+		</id>
+		<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		<property 
+			name="approvalStatus" 
+			type="string" 
+			column="ApprovalStatus"
+		/>
+		<property 
+			name="created" 
+			type="date" 
+			column="Created" 
+		/>
+		<property 
+			name="updated" 
+			type="timestamp" 
+			column="Updated" 
+		/>
+		<property 
+			name="rejectedNotes" 
+			type="string" 
+			column="RejectedNotes"
+		/>
+		
+		<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+		<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+ 		<many-to-one name="hcmoExpensesId" column="HcmoExpensesId" lazy="false" class="com.gits.rms.vo.EmployeeExpensesVO"/>
+		<many-to-one name="approverId" column="ApproverId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		<many-to-one name="rejectedId" column="RejectedId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		<many-to-one name="reviewedId" column="ReviewedId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		<many-to-one name="nextLevelId" column="NextLevelId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		<many-to-one name="accountantId" column="AccountantId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	</class>
+</hibernate-mapping>

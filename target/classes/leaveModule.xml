@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="leaveModule" extends="default">
+		
+	
+	<!-- Leave Tab Starts-->
+		<action name="getAllLeaveTab" method="getAllLeaveTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+			<result name="input">/resources/jsp/LeaveHistoryTab.jsp</result>
+			<result name="success">/resources/jsp/LeaveHistoryTab.jsp</result>
+			<result name="redirect" type="redirectAction">getAllSubEmpLeaveTab</result>
+		</action>
+		<action name="getAllSubEmpLeaveTab" method="getAllSubEmpLeaveTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+			<result name="input">/resources/jsp/MyEmployeeLeaveTab.jsp</result>
+			<result name="success">/resources/jsp/MyEmployeeLeaveTab.jsp</result>
+		</action>
+	<!-- Leave Tab Ends-->
+	
+	<!-- LeaveReqsApproval CRUD Starts-->
+	 	<action name="getAllEmpLeaveForApprovalTab" method="getAllEmpLeaveForApprovalTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveEmpForApprovalSearch.jsp</result>
+            <result name="success">/resources/jsp/LeaveEmpForApprovalSearch.jsp</result>
+        </action>
+         <action name="getAllEmpLeaveApprovalTab" method="getAllEmpLeaveApprovalTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveEmpApproval.jsp</result>
+            <result name="success">/resources/jsp/LeaveEmpApproval.jsp</result>
+        </action>
+         <action name="getAllEmpLeaveDisApprovalTab" method="getAllEmpLeaveDisApprovalTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveEmpDisApprove.jsp</result>
+            <result name="success">/resources/jsp/LeaveEmpDisApprove.jsp</result>
+        </action>
+        <action name="getAllLeaveReqsApproval" method="getAllLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveForApproval.jsp</result>
+            <result name="success">/resources/jsp/LeaveForApproval.jsp</result>
+        </action> 
+        <action name="getAllLeaveApprovalTab" method="getAllLeaveApprovalTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveApproval.jsp</result>
+            <result name="success">/resources/jsp/LeaveApproval.jsp</result>
+        </action>
+         <action name="getAllLeaveDisApprovalTab" method="getAllLeaveDisApprovalTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveDisApprove.jsp</result>
+            <result name="success">/resources/jsp/LeaveDisApprove.jsp</result>
+        </action>
+        <action name="getAllSubEmpLeaveReqsApproval" method="getAllSubEmpLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/SubEmpLeaveForApproval.jsp</result>
+            <result name="success">/resources/jsp/SubEmpLeaveForApproval.jsp</result>
+        </action>
+         <action name="getAllLeaveForApprovalTab" method="getAllLeaveForApprovalTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveForApprovalSearch.jsp</result>
+            <result name="success">/resources/jsp/LeaveForApprovalSearch.jsp</result>
+        </action>
+         <action name="getAllSubEmpApprovedList" method="getAllSubEmpApprovedList" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/SubEmpLeaveApprDisAppr.jsp</result>
+            <result name="success">/resources/jsp/SubEmpLeaveApprDisAppr.jsp</result>
+        </action>
+         <action name="getAllSubEmpDisApprovedList" method="getAllSubEmpDisApprovedList" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/SubEmpLeaveDisApprove.jsp</result>
+            <result name="success">/resources/jsp/SubEmpLeaveDisApprove.jsp</result>
+        </action>
+        <action name="getAllApprovedList" method="getAllApprovedList" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveForApproval.jsp</result>
+            <result name="success">/resources/jsp/LeaveForApproval.jsp</result>
+        </action>
+        <action name="getAllDisApprovedList" method="getAllDisApprovedList" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/LeaveForApproval.jsp</result>
+            <result name="success">/resources/jsp/LeaveForApproval.jsp</result>
+        </action>
+        <action name="employeeLeaveApproved" method="employeeLeaveApproved" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="input">/resources/jsp/Approved.jsp</result>
+            <result name="success">/resources/jsp/Approved.jsp</result>
+        </action>
+        <action name="setUpLeaveReqsApproval" method="setUpLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+			<interceptor-ref name="store">
+     			<param name="operationMode">RETRIEVE</param>
+   			</interceptor-ref>
+   			<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+            <result name="input">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+            <result name="success">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateLeaveReqsApproval" method="insertOrUpdateLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+        	<interceptor-ref name="store">
+    			 <param name="operationMode">STORE</param>
+   			</interceptor-ref>
+   			<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+           <result name="input">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+           <result name="success" type="redirectAction">
+    	   		<param name="actionName">setUpLeaveReqsApproval</param>
+	   	    </result>
+        </action>
+        <action name="leaveRequestapproved" method="leaveRequestapproved" class="com.gits.rms.action.LeaveReqsApprovalAction">
+           <result name="input">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+           <result name="success" type="redirectAction">
+    	   		<param name="actionName">getAllLeaveForApprovalTab</param>
+	   	   	</result>
+        </action>
+        <action name="leaveApprovedNotes" method="leaveRequestApprovedNotes" class="com.gits.rms.action.LeaveReqsApprovalAction">
+           <result name="success">/resources/jsp/LeaveApproveNotes.jsp</result>
+        </action>
+        <action name="leaveDisApprovedNotes" method="leaveRequestDisApprovedNotes" class="com.gits.rms.action.LeaveReqsApprovalAction">
+           <result name="success">/resources/jsp/LeaveDisApproveNotes.jsp</result>
+        </action>
+         <action name="leaveRequestdisapproved" method="leaveRequestdisapproved" class="com.gits.rms.action.LeaveReqsApprovalAction">
+           <result name="input">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+           <result name="success" type="redirectAction">
+    	   		<param name="actionName">getAllLeaveForApprovalTab</param>
+	   	   </result>
+        </action>
+         <action name="setUpLeaveReqsApprovalForReset" method="setUpLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+            <result name="success">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+        </action>
+        <action name="resetLeaveRequest">
+        	<result name="success" type="redirectAction">
+    	   		<param name="actionName">setUpLeaveReqsApprovalForReset</param>
+	   	    </result>
+		</action>
+		<action name="setUpLeaveReqsApprovalEditForm" method="setUpLeaveReqsApprovalEditForm" class="com.gits.rms.action.LeaveReqsApprovalAction">
+	        <result name="success">/resources/jsp/LeaveReqsApprovalEditForm.jsp</result>
+	     </action>
+	     <action name="updateLeaveReqsApproval" method="updateLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+           <result name="input">/resources/jsp/LeaveReqsApprovalEditForm.jsp</result>
+           <result name="success" type="redirectAction">
+    	   		<param name="actionName">getAllLeaveForApprovalTab</param>
+	   	   	</result>
+        </action>
+        <action name="backLeaveForApprovalButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllLeaveForApprovalTab</param>
+	   	    </result>
+        </action>
+        <action name="backApproverApprovedTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllLeaveApprovalTab</param>
+	   	    </result>
+        </action>
+        <action name="backDisApproverTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllLeaveDisApprovalTab</param>
+	   	    </result>
+        </action>
+        <action name="backLeaveEmpForAppTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpLeaveForApprovalTab</param>
+	   	    </result>
+        </action>
+        <action name="backLeaveEmpApproveTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpLeaveApprovalTab</param>
+	   	    </result>
+        </action>
+        <action name="backLeaveEmpDisApproveTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpLeaveDisApprovalTab</param>
+	   	    </result>
+        </action>
+        <action name="backLeaveForApprovalListButton" method="getAllEmpAppBackLeaveTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllSubEmpLeaveReqsApproval</param>
+       			<param name="lrapp.empIdObj.employeeId">${lrapp.empIdObj.employeeId}</param>
+	   	    </result>
+        </action>
+        <action name="backLeaveForApprovalDisApproveListButton" method="getAllEmpDisAppBackLeaveTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllSubEmpLeaveReqsApproval</param>
+       			<param name="lrapp.empIdObj.employeeId">${lrapp.empIdObj.employeeId}</param>
+	   	    </result>
+        </action>
+        <action name="backLeaveEmpEditListButton" method="getAllEmpEditBackLeaveTab" class="com.gits.rms.action.LeaveReqsApprovalAction">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllSubEmpLeaveReqsApproval</param>
+       			<param name="lrapp.empIdObj.employeeId">${lrapp.empIdObj.employeeId}</param>
+	   	    </result>
+        </action>
+	<!-- leaveReqsApproval CRUD Ends--> 
+	
+	<!-- LeaveHistory CRUD Starts-->
+		<action name="getAllLeaveHistory" method="getAllLeaveHistory" class="com.gits.rms.action.LeaveHistoryAction">
+            <result name="success">/resources/jsp/LeaveHistory.jsp</result>
+        </action>
+        <action name="setUpLeaveHistory" method="setUpLeaveHistory" class="com.gits.rms.action.LeaveHistoryAction">
+            <result name="success">/resources/jsp/LeaveHistEmpSearchForm.jsp</result>
+        </action> 
+		<action name="getAllLeaveHistorySearch" method="getAllLeaveHistorySearch" class="com.gits.rms.action.LeaveHistoryAction">
+            <result name="success">/resources/jsp/LeaveHistSearchResult.jsp</result>
+        </action>
+   		<action name="getLeaveHistorySubEmployee" method="getLeaveHistorySubEmployee" class="com.gits.rms.action.LeaveHistoryAction">
+            <result name="success">/resources/jsp/LeaveHistorySubEmployee.jsp</result>
+        </action>
+        <action name="setUpSubEmpLeaveHistory" method="setUpSubEmpLeaveHistory" class="com.gits.rms.action.LeaveHistoryAction">
+            <result name="success">/resources/jsp/LeaveHistSubEmpSearchForm.jsp</result>
+        </action>
+        <action name="getSubEmpLeaveHistorySearch" method="getSubEmpLeaveHistorySearch" class="com.gits.rms.action.LeaveHistoryAction">
+            <result name="success">/resources/jsp/LeaveHistSubEmpSearchResult.jsp</result>
+        </action>
+        <action name="backLeaveAppHistoryTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">setUpSubEmpLeaveHistory</param>
+	   	    </result>
+        </action>
+         <action name="backEmpLeaveHistoryTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">setUpLeaveHistory</param>
+	   	    </result>
+        </action>
+	<!-- LeaveHistory CRUD Ends-->
+	
+	 <!-- Leave Assign CRUD Starts-->
+		<action name="setUpLeaveReqsAssigned" method="setUpLeaveReqsAssigned" class="com.gits.rms.action.LeaveAssignedAction">
+			<interceptor-ref name="store">
+     			<param name="operationMode">RETRIEVE</param>
+   			</interceptor-ref>
+   			<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+            <result name="input">/resources/jsp/LeaveReqsAssignedForm.jsp</result>
+            <result name="success">/resources/jsp/LeaveReqsAssignedForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateLeaveReqsAssigned" method="insertOrUpdateLeaveReqsAssigned" class="com.gits.rms.action.LeaveAssignedAction">
+        	<interceptor-ref name="store">
+    			 <param name="operationMode">STORE</param>
+   			</interceptor-ref>
+   			<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+           <result name="input">/resources/jsp/LeaveReqsAssignedForm.jsp</result>
+           <result name="success" type="redirectAction">
+    	   		<param name="actionName">setUpLeaveReqsAssigned</param>
+	   	    </result>
+        </action>
+        <action name="viewAssignedForm" method="viewAssignedForm" class="com.gits.rms.action.LeaveAssignedAction">
+           <result name="success">/resources/jsp/LeaveAssignLeaveSearch.jsp</result>
+        </action>
+         <action name="viewAssignedList" method="viewAssignedList" class="com.gits.rms.action.LeaveAssignedAction">
+           <result name="success">/resources/jsp/LeaveAssignList.jsp</result>
+        </action>
+        <action name="resetLeaveAssign">
+           <result name="success" type="redirectAction">setUpLeaveReqsAssigned</result>
+        </action>
+        <action name="backLeaveAssignTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">viewAssignedForm</param>
+	   	    </result>
+        </action>
+	<!-- Leave Assign CRUD Ends-->
+	<!-- Leave Cancel CRUD Starts -->
+		 <action name="leaveRequestCancel" method="leaveRequestCanceled" class="com.gits.rms.action.LeaveCancelAction">
+           <result name="success" type="redirectAction">
+    	   		<param name="actionName">getAllEmpLeaveForApprovalTab</param>
+	   	   	</result>
+        </action>
+        <action name="viewCancelForm" method="viewCancelForm" class="com.gits.rms.action.LeaveCancelAction">
+           <result name="success">/resources/jsp/LeaveCancelForm.jsp</result>
+        </action>
+         <action name="viewCancelList" method="viewCancelList" class="com.gits.rms.action.LeaveCancelAction">
+           <result name="success">/resources/jsp/LeaveCancelList.jsp</result>
+        </action>
+        <action name="backLeaveCancelTabButton">
+	       	<result name="success" type="redirectAction">
+	      			<param name="actionName">viewCancelForm</param>
+	   	    </result>
+        </action>
+	<!-- Leave Cancel CRUD Ends -->
+	  
+	  </package>
+</struts>
+

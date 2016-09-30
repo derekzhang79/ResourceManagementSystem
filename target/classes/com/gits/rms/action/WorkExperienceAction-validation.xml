@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="workexp.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.empName"></message>
+	</field-validator>
+</field>
+
+<field name="workexp.employeerName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.empExperience.employerName"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.empExperience.employerName"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.empExperience.employerName"></message>
+    </field-validator>
+</field>
+ 
+<field name="workexp.empJobTitle">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.empExperience.jobTitle"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.jobTitle.name"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">120</param>
+   		<message key="errors.length.jobTitle.name"></message>
+    </field-validator>
+</field> 
+ 
+<field name="workexp.fromDate">
+    <field-validator type="required">
+   		<message key="errors.empExperience.fromDate"></message>
+    </field-validator>
+    <field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.workExperience.startDate.invalid"></message>
+    </field-validator>
+</field>
+ 
+<field name="workexp.toDate">
+    <field-validator type="required">
+   		<message key="errors.empExperience.toDate"></message>
+    </field-validator>
+    <field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.workExperience.endDate.invalid"></message>
+    </field-validator>
+</field>
+</validators>

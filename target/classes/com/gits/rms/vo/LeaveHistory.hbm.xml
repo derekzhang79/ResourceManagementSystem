@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.LeaveHistoryVO" table="hcmo_leave_history">
+		<id 
+			name="hcmoLeaveHistoryId" 
+		    type="integer"
+		    column="HcmoLeaveHistoryId"
+			length="11">
+		<generator class="native" />
+		</id>
+	<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		<property
+				name="leaveDate" 
+				type="date"
+				column="LeaveDate"
+				length="9" 
+		/>
+		<property
+				name="leaveEndDate" 
+				type="date"
+				column="LeaveEndDate"
+				length="9" 
+		/>
+
+		<property 
+				name="leaveStatus" 
+				type="string"
+				column="LeaveStatus"
+				length="10" />
+				
+		<property 
+				name="leaveComments" 
+				type="string" 
+				column="LeaveComments"
+			    length="80" />
+		
+		<property
+				 name="leaveRequestId"
+				 type="integer"
+				 column="LeaveRequestId"
+				 length="11" />
+			
+		<property 
+				name="startTime"
+				type="string"
+				column="StartTime"
+			    length="10" />
+			    
+		<property
+				name="endTime"
+				type="string" 
+				column="EndTime"
+				length="10" />
+				
+		<property 
+				 name="approveNotes"
+				 type="string"
+				 column="ApproveNotes"/>
+				  
+		<property
+				 name="disApproveNotes"
+				 type="string"
+				 column="DisApproveNotes"/>
+				 
+		<property 
+				name="noOfDays"
+				type="big_decimal"
+				column="Days"/>
+			
+		<property 
+				name="hours"
+				type="big_decimal"
+				column="Hours"/>
+			
+		<property 
+				name="mins"
+				type="big_decimal"
+				column="Minutes"/>			 
+				 
+		<property 
+				name="created" 
+				type="date" 
+				column="Created" />
+				
+		<property 
+				name="updated" 
+				type="timestamp" 
+				column="Updated" />
+				
+		<property 
+				name="isActive" 
+				type="integer" 
+				column="IsActive"
+				length="1" />
+
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+	<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+	<many-to-one name="leaveTypeIdObj" column="HcmoLeaveTypeId" lazy="false" class="com.gits.rms.vo.LeaveTypeVO" />
+	<many-to-one name="hcmoLeaveApproverId" column="HcmoLeaveApproverId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+
+	</class>
+</hibernate-mapping>

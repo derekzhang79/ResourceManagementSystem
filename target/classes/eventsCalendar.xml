@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="eventsCalendar" extends="default">
+		
+	<!-- Events Calendar Starts --> 
+		<action name="createNewEvent" class="com.gits.rms.action.MenuAction">
+        	<result>/resources/jsp/NewEvent.jsp</result>
+        </action> 
+        <action name="viewCalendar" method="insertEvents" class="com.gits.rms.action.MenuAction">
+        	<result>/resources/jsp/common/calendar.jsp</result>
+        	<result name="error" type="chain">
+           		<param name="actionName">createNewEvent</param>
+       	    </result>
+        </action> 
+        <action name="increment" class="com.gits.rms.action.MenuAction" method="increment">
+        	<result>/resources/jsp/common/calendar.jsp</result>
+        </action> 
+        <action name="decrement" class="com.gits.rms.action.MenuAction" method="decrement">
+        	<result>/resources/jsp/common/calendar.jsp</result>
+        </action> 
+        <action name="incrementMonth" class="com.gits.rms.action.MenuAction" method="incrementMonth">
+        	<result>/resources/jsp/common/calendar.jsp</result>
+        </action>
+        <action name="decrementMonth" class="com.gits.rms.action.MenuAction" method="decrementMonth">
+        	<result>/resources/jsp/common/calendar.jsp</result>
+        </action>
+        <action name="listEvent" class="com.gits.rms.action.MenuAction" method="listEvents">
+        	<result name="success">/resources/jsp/ListEvents.jsp</result>
+        </action> 
+        <action name="editEvent" class="com.gits.rms.action.MenuAction" method="getEditEvents">
+        	<result name="success">/resources/jsp/EditEvents.jsp</result>
+        </action>
+        <action name="SaveOrUpdateEvent" class="com.gits.rms.action.MenuAction" method="editEvents">
+        	<result name="success" type="redirectAction">
+           		<param name="actionName">listEvent</param>
+       	    </result>
+       	    <result name="error" type="redirectAction">
+           		<param name="actionName">editEvent</param>
+       	    </result>
+        </action>
+        <action name="deleteEvent" class="com.gits.rms.action.MenuAction" method="deleteEvents">
+        	<result name="success" type="redirectAction">
+           		<param name="actionName">listEvent</param>
+       	    </result>
+        </action>
+        <action name="calendarMainPage" class="com.gits.rms.action.MenuAction">
+        	<result>/resources/jsp/common/calendar.jsp</result>
+        </action>
+        
+        <action name="displayMoreEvents" method="displayMoreEvents" class="com.gits.rms.action.MenuAction">
+        	<result name="success">/resources/jsp/displayMoreEvents.jsp</result>
+        </action>
+        
+        
+	<!-- Events Calendar Ends --> 
+	  
+	 </package>
+</struts>
+

@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EmployeeLeaveQuotaVO" table="hcmo_emp_leave_quota">
+     <id
+        name="empLeaveQuotaId"
+        type="integer"
+        column="HcmoEmpLeaveQuotaId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+     <property
+        name="year"
+        type="integer"
+        column="Year"
+        length="4"
+    />
+    
+    <property
+        name="noOfDays"
+        type="big_decimal"
+        column="NoOfDaysAlloted"
+        length="6"
+    />
+    
+    <property 
+    	name="hours"
+    	type="big_decimal"
+    	column="Hours"
+    	length="6"
+    />
+    
+    <property 
+    	name="minutes"
+    	type="big_decimal"
+    	column="Minutes"
+    	length="6"
+    />
+    
+    <property 
+    	name="remainDays"
+    	type="big_decimal"
+    	column="RemainingDays"
+    	length="6"
+    />
+    	
+    <property 
+    	name="remainHours"
+    	type="big_decimal"
+    	column="RemainingHours"
+    	length="6"
+    />
+    
+    <property 
+    	name="remainMinutes"
+    	type="big_decimal"
+    	column="RemainingMinutes"
+    	length="6"
+    />
+    
+     <property
+        name="leaveTaken"
+        type="big_decimal"
+        column="LeaveTaken"
+        length="10"
+    />
+    
+    <property 
+    	name="leaveTakenHours"
+    	type="big_decimal"
+    	column="LeaveTakenHours"
+    	length="6"
+    />
+    
+    <property 
+    	name="leaveTakenDays"
+    	type="big_decimal"
+    	column="LeaveTakenDays"
+    	length="6"
+    />
+    
+    <property 
+    	name="leaveTakenMinutes"
+    	type="big_decimal"
+    	column="LeaveTakenMinutes"
+    	length="6"
+    />
+    
+    <property 
+    	name="previousCarryFwdDays"
+    	type="big_decimal"
+    	column="PreCarryFwdDays"
+    	length="6"/>
+    	
+    <property 
+    	name="previousCarryFwdHours"
+    	type="big_decimal"
+    	column="PreCarryFwdHours"
+    	length="6"/>
+    	
+    <property 
+    	name="previousCarryFwdMinutes"
+    	type="big_decimal"
+    	column="PreCarryFwdMinutes"
+    	length="6"/>
+    	
+    <property
+        name="prvYearCarryingForward"
+        type="big_decimal"
+        column="PrvYearCarryingForward"
+        length="10"
+    />
+    
+     <property
+        name="leaveCarryingForward"
+        type="big_decimal"
+        column="LeaveCarryingForward"
+        length="10"
+    />
+    
+     <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="leaveTypeIdObj" column="HcmoLeaveTypeId" lazy="false" class="com.gits.rms.vo.LeaveTypeVO"/>
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BroadcastReport" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() % 2 == 0)]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="hql">
+		<![CDATA[]]>
+	</queryString>
+	<field name="country" class="com.rooster.hcmone.vo.CountryVO"/>
+	<field name="created" class="java.util.Date"/>
+	<field name="createdBy" class="com.rooster.hcmone.vo.EmployeesVO"/>
+	<field name="departmentIdObj" class="com.rooster.hcmone.vo.DepartmentVO"/>
+	<field name="empBirthDate" class="java.util.Date"/>
+	<field name="empBirthDateEnds" class="java.util.Date"/>
+	<field name="empBirthDateValue" class="java.lang.String"/>
+	<field name="empCityName" class="java.lang.String"/>
+	<field name="empCounName" class="java.lang.String"/>
+	<field name="empCustom1" class="java.lang.String"/>
+	<field name="empCustom2" class="java.lang.String"/>
+	<field name="empDriLicenExpDate" class="java.util.Date"/>
+	<field name="empDriLicenExpDateEnds" class="java.util.Date"/>
+	<field name="empDriLicenExpDateValue" class="java.lang.String"/>
+	<field name="empDriLicenNum" class="java.lang.String"/>
+	<field name="empFirstName" class="java.lang.String"/>
+	<field name="empFullName" class="java.lang.String"/>
+	<field name="empGender" class="java.lang.String"/>
+	<field name="empGenderValue" class="java.lang.String"/>
+	<field name="empHmTelephone" class="java.lang.String"/>
+	<field name="empJoinedDateEnds" class="java.util.Date"/>
+	<field name="empJoinedDateValue" class="java.lang.String"/>
+	<field name="empJoineddate" class="java.util.Date"/>
+	<field name="empLastName" class="java.lang.String"/>
+	<field name="empMaritalStatus" class="java.lang.String"/>
+	<field name="empMidName" class="java.lang.String"/>
+	<field name="empMilitaryService" class="java.lang.String"/>
+	<field name="empMobile" class="java.lang.String"/>
+	<field name="empNickName" class="java.lang.String"/>
+	<field name="empOthEmail" class="java.lang.String"/>
+	<field name="empOtherId" class="java.lang.String"/>
+	<field name="empPicturePath" class="java.lang.String"/>
+	<field name="empSSNNumber" class="java.lang.String"/>
+	<field name="empSmoker" class="java.lang.Boolean"/>
+	<field name="empSpace" class="java.lang.String"/>
+	<field name="empStatusIdObj" class="com.rooster.hcmone.vo.EmployeeStatusVO"/>
+	<field name="empStreet1" class="java.lang.String"/>
+	<field name="empStreet2" class="java.lang.String"/>
+	<field name="empTerminatedDate" class="java.util.Date"/>
+	<field name="empTerminatedReason" class="java.lang.String"/>
+	<field name="empWorkEmail" class="java.lang.String"/>
+	<field name="empWorkTelephone" class="java.lang.String"/>
+	<field name="empZipCode" class="java.lang.String"/>
+	<field name="employeeId" class="java.lang.Integer"/>
+	<field name="employeeWage" class="java.lang.String"/>
+	<field name="ethnicRaceIdObj" class="com.rooster.hcmone.vo.EthnicRaceVO"/>
+	<field name="isActive" class="java.lang.Short"/>
+	<field name="jobTitleIdObj" class="com.rooster.hcmone.vo.JobTitleVO"/>
+	<field name="message" class="java.util.List"/>
+	<field name="nationalityIdObj" class="com.rooster.hcmone.vo.NationalityVO"/>
+	<field name="roleObj" class="com.rooster.hcmone.vo.RoleVO"/>
+	<field name="teamIdObj" class="com.rooster.hcmone.vo.TeamVO"/>
+	<field name="updated" class="java.sql.Timestamp"/>
+	<field name="updatedBy" class="com.rooster.hcmone.vo.EmployeesVO"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="102" forecolor="#FFFFFF" backcolor="#FFFFFF"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" forecolor="#000000" backcolor="#000000"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font fontName="SansSerif" size="46" isBold="false"/>
+					</textElement>
+					<text><![CDATA[HCMOne]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#000000" backcolor="#000000"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="639" y="0" width="144" height="25" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" markup="none">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+						<paragraph lineSpacing="Single"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="0" width="183" height="25" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="18" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Birthday Report]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement style="Column header" mode="Opaque" x="0" y="0" width="802" height="20" forecolor="#000000" backcolor="#FFFFFF"/>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="400" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Employee Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="403" y="0" width="399" height="20" forecolor="#000000" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Date Of Birth]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="20"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="0" y="0" width="400" height="18"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{empFullName}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement positionType="FixRelativeToBottom" x="0" y="18" width="802" height="1"/>
+					<graphicElement>
+						<pen lineWidth="0.5" lineColor="#999999"/>
+					</graphicElement>
+				</line>
+				<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy" isBlankWhenNull="true">
+					<reportElement x="403" y="0" width="399" height="18"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{empBirthDate}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="769" y="3" width="28" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="689" y="3" width="80" height="20" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="10" y="0" width="252" height="25" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="12"/>
+					</textElement>
+					<text><![CDATA[Roosterhr.com All Rights Reserved]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

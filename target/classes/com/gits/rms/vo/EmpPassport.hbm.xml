@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EmpPassportVO" table="hcmo_emp_passport">
+     <id
+        name="hcmoEmpPassportId"
+        type="integer"
+        column="HcmoEmpPassportId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+    <property
+        name="epPassportNo"
+        type="string"
+        column="EpPassportNum"
+        length="100"
+    />
+    <property
+        name="epPassportIssueDate"
+        type="date"
+        column="EpPassportIssueDate"
+    />
+     <property
+        name="epPassportExpireDate"
+        type="date"
+        column="EpPassportExpireDate"
+    />
+     <property
+        name="epComments"
+        type="text"
+        column="EpComments"
+    />
+	
+	<property
+        name="epPassportTypeFlg"
+        type="string"
+        column="EpPassportTypeFlg"
+        length="1"
+    />
+    <property
+        name="epL9Status"
+        type="string"
+        column="Ep19Status"
+        length="100"
+    />
+    <property
+        name="epL9ReviewDate"
+        type="date"
+        column="Ep19ReviewDate"       
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+    <many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+    <many-to-one name="country" column="HcmoCountryId" lazy="false" class="com.gits.rms.vo.CountryVO"/>
+     </class>
+</hibernate-mapping>

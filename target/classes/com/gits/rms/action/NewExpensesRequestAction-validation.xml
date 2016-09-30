@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+	<field name="expApprover.projectId.projectId">
+		<field-validator type="required">
+			<message key="errors.project.name" />
+		</field-validator>
+		<field-validator type="int">
+			<message>Project Id is invalid</message>
+		</field-validator>
+	</field>
+
+	<field name="expApprover.createdDate">
+		<field-validator type="required">
+			<message key="errors.license.date" />
+		</field-validator>
+		<field-validator type="date">
+			<param name="min">01/01/1990</param>
+			<param name="max">01/01/3000</param>
+			<message>Date must be within ${min} and ${max}</message>
+		</field-validator>
+	</field>
+
+	<field name="expApprover.totalAmount">
+		<field-validator type="required">
+			<message key="errors.empExpenses.totalAmount" />
+		</field-validator>
+		<field-validator type="double">
+			<message>Total Amount is invalid</message>
+		</field-validator>
+	</field>
+
+	<field name="expDetails.expensesDate">
+		<field-validator type="required">
+			<message key="errors.license.date" />
+		</field-validator>
+		<field-validator type="date">
+			<param name="min">01/01/1990</param>
+			<param name="max">01/01/3000</param>
+			<message>Date must be within ${min} and ${max}</message>
+		</field-validator>
+	</field>
+
+	<field name="expDetails.hcmoExpensesTypeId.hcmoExpensesTypeId">
+		<field-validator type="required">
+			<message key="errors.newExpenses.expType" />
+		</field-validator>
+		<field-validator type="int">
+			<message>Expense Type is invalid</message>
+		</field-validator>
+	</field>
+
+	<field name="expDetails.amount">
+		<field-validator type="required">
+			<message key="errors.empExpenses.amount" />
+		</field-validator>
+		<field-validator type="double">
+			<message>Amount is invalid</message>
+		</field-validator>
+	</field>
+
+	<field name="expDetails.description">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="errors.empExpenses.description" />
+		</field-validator>
+	</field>
+	
+</validators>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping> 
+	<class name="com.gits.rms.vo.ProjectAssignEmpVO" table="hcmo_ts_emp_proj_rel">
+	
+	<id name="projectAssignEmpId" 
+		type="integer" 
+		column="HcmoTsEmpProjRelId"
+		length="11">
+		 <generator class="native" />
+	</id>
+	<property 
+     name="clientId"
+     type="integer"
+     column="hcmoclientid"
+     length="11" 
+     />
+	<property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property 
+    	name="projTargetName" 
+    	type="string"
+    	column="ProjTargetName"
+    	length="120"
+    />
+    <property 
+    	name="projTargetType" 
+    	type="string"
+    	column="ProjTargetType"
+    	length="120"
+    />
+    <property 
+    	name="projTargetMode" 
+    	type="string"
+    	column="ProjTargetMode"
+    	length="120"
+    />
+    <property 
+    	name="projGoalName" 
+    	type="text"
+    	column="ProjGoalName"
+    />
+    <property
+        name="projectStartDate"
+        type="date"
+        column="ProjectStartDate"
+    />
+    <property
+        name="projectEndDate"
+        type="date"
+        column="ProjectEndDate"
+    />
+    <property
+        name="allocatedHours"
+        type="string"
+        column="AllocatedHours"
+        length="255"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+    <property
+        name="description"
+        type="string"
+        column="description"
+        length="255"
+    />
+    
+     <property
+       name="isBillable"
+       type="integer"
+       column="isBillable"
+       length="1"
+   />
+ 
+<many-to-one name="projOwnerEmpIdObj" column="ProjectOwnerId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="customerIdObj" column="HcmoCustomerId" lazy="false" class="com.gits.rms.vo.CustomerVO"/>
+<many-to-one name="departmentIdObj" column="HcmoDepartmentId" lazy="false" class="com.gits.rms.vo.DepartmentVO"/>
+<many-to-one name="employeeName" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="projectName" column="HcmoProjectId" lazy="false" class="com.gits.rms.vo.ProjectVO"/>
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		
+	</class>
+</hibernate-mapping>

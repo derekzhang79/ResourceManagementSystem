@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="proActivity.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.project.projectOwner"></message>
+  	</field-validator>
+</field>
+ 
+<field name="proActivity.proObj.projectId">
+  <field-validator type="required">
+   		<message key="errors.project.name"></message>
+  </field-validator>
+</field>
+ 
+<field name="proActivity.activityName">
+  <field-validator type="requiredstring">
+  		<param name="trim">true</param>
+   		<message key="errors.projActivity.name"></message>
+  </field-validator>
+  <field-validator type="stringlength">
+   		<param name="maxLength">120</param>
+   		<message key="errors.length.projActivity.projectActivity"></message>
+  </field-validator>
+</field>
+<field name="proActivity.estimatedHours">
+		<field-validator type="regex" short-circuit="true">
+	   		<param name="trim">true</param>
+	   		<param name="expression"><![CDATA[([\d]*)]]></param>
+	   		<message key="errors.specialCharacter.projectActivity.estimatedHours"></message>
+	  	</field-validator>
+	  	<field-validator type="stringlength">
+	        <param name="maxLength">120</param>
+	        <param name="trim">true</param>
+	        <message key="errors.length.projActivity.estimatedHours"/>
+	   	</field-validator>
+	</field>
+ 
+</validators>

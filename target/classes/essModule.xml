@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="essModuleCalls" extends="default">
+		
+	<!-- Employee Dynamic Load Pages Starts -->
+        <action name="getEmployeeAllEducation" method="getEmployeeAllEducation" class="com.gits.rms.action.EducationAction">
+            <result name="success">/resources/jsp/ajax/employee/education.jsp</result>
+        </action>
+        <action name="setUpEmpEducation" method="setUpEmpEducation" class="com.gits.rms.action.EducationAction">
+            <result name="success">/resources/jsp/ajax/employee/educationForm.jsp</result>
+        </action>
+        
+        <action name="viewEmpEducation" method="educationView" class="com.gits.rms.action.EducationAction">
+        <result name="success">/resources/jsp/ajax/employee/educationView.jsp</result>
+        </action>
+        
+        <action name="setUpEmpEducationSingle" method="setUpEmpEducationSingle" class="com.gits.rms.action.EducationAction">
+            <result name="success">/resources/jsp/ajax/employee/educationForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateEducationAjax" method="insertOrUpdateEducation" class="com.gits.rms.action.EducationAction">
+           <result name="input">/resources/jsp/ajax/employee/educationForm.jsp</result>
+           <result name="success" type="redirectAction">
+       			<param name="actionName">getEmployeeAllEducation</param>
+       			<param name="edu.empIdObj.employeeId">${edu.empIdObj.employeeId}</param>
+   	        </result>
+        </action>
+        <action name="resetEducationFormAjax">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">setUpEmpEducation</param>
+   	        </result>
+        </action>
+        <action name="deleteEmpEducation" method="deleteEducation" class="com.gits.rms.action.EducationAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">getEmployeeAllEducation</param>
+				<param name="edu.empIdObj.employeeId">${edu.empIdObj.employeeId}</param>
+			</result>
+        </action> 
+        <action name="getEmployeeAllChildren" method="getEmployeeAllChildren" class="com.gits.rms.action.ChildrenAction">
+            <result name="success">/resources/jsp/ajax/employee/children.jsp</result>
+        </action>
+        <action name="setUpEmpChildren" method="setUpEmpChildren" class="com.gits.rms.action.ChildrenAction">
+            <result name="success">/resources/jsp/ajax/employee/childrenForm.jsp</result>
+        </action>
+        <action name="viewEmpChildren" method="childrenView" class="com.gits.rms.action.ChildrenAction">
+            <result name="success">/resources/jsp/ajax/employee/childrenView.jsp</result>
+        </action>
+        
+        <action name="setUpEmpChildrenSingle" method="setUpEmpChildrenSingle" class="com.gits.rms.action.ChildrenAction">
+            <result name="success">/resources/jsp/ajax/employee/childrenForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateChildrenAjax" method="insertOrUpdateChildren" class="com.gits.rms.action.ChildrenAction">
+           <result name="input">/resources/jsp/ajax/employee/childrenForm.jsp</result>
+   		   <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllChildren</param>
+		   		<param name="child.empIdObj.employeeId">${child.empIdObj.employeeId}</param>
+		   </result>
+        </action>
+        <action name="resetChiFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpChildren</param>
+		    </result>
+        </action>
+        <action name="deleteEmpChildren" method="deleteChildren" class="com.gits.rms.action.ChildrenAction">
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllChildren</param>
+		   		<param name="child.empIdObj.employeeId">${child.empIdObj.employeeId}</param>
+		    </result>
+        </action> 
+        <action name="getEmployeeAllLicense" method="getEmployeeAllLicense" class="com.gits.rms.action.LicenseAction">
+            <result name="success">/resources/jsp/ajax/employee/license.jsp</result>
+        </action>
+        <action name="setUpEmpLicense" method="setUpEmpLicense" class="com.gits.rms.action.LicenseAction">
+            <result name="success">/resources/jsp/ajax/employee/licenseForm.jsp</result>
+        </action>
+       <action name="viewEmpLicense" method="licenseView" class="com.gits.rms.action.LicenseAction">
+            <result name="success">/resources/jsp/ajax/employee/licenseView.jsp</result>
+        </action>
+       
+        <action name="setUpEmpLicenseSingle" method="setUpEmpLicenseSingle" class="com.gits.rms.action.LicenseAction">
+            <result name="success">/resources/jsp/ajax/employee/licenseForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateLicenseAjax" method="insertOrUpdateLicense" class="com.gits.rms.action.LicenseAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="input">/resources/jsp/ajax/employee/licenseForm.jsp</result>
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllLicense</param>
+		   		<param name="license.empIdObj.employeeId">${license.empIdObj.employeeId}</param>
+		   </result>
+        </action> 
+        <action name="resetLicenseFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpLicense</param>
+		    </result>
+        </action>
+        <action name="deleteEmplicense" method="deletelicense" class="com.gits.rms.action.LicenseAction">
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllLicense</param>
+		   		<param name="license.empIdObj.employeeId">${license.empIdObj.employeeId}</param>
+		   </result>
+        </action>        
+        <action name="getEmployeeAllDirectDebit" method="getEmployeeAllDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+            <result name="success">/resources/jsp/ajax/employee/directDebit.jsp</result>
+        </action>
+        <action name="setUpEmpDirectDebit" method="setUpEmpDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+            <result name="success">/resources/jsp/ajax/employee/directDebitForm.jsp</result>
+        </action>
+        <action name="vieEmpDirectDebit" method="directDebitView" class="com.gits.rms.action.DirectDebitAction">
+            <result name="success">/resources/jsp/ajax/employee/directDebitView.jsp</result>
+        </action>
+        
+        <action name="setUpEmpDirectDebitSingle" method="setUpEmpDirectDebitSingle" class="com.gits.rms.action.DirectDebitAction">
+            <result name="success">/resources/jsp/ajax/employee/directDebitForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateDirectDebitAjax" method="insertOrUpdateDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+           <result name="input">/resources/jsp/ajax/employee/directDebitForm.jsp</result>
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllDirectDebit</param>
+		   		<param name="dirDebit.empIdObj.employeeId">${dirDebit.empIdObj.employeeId}</param>
+		   </result>
+        </action> 
+        <action name="deleteEmpDirectDebit" method="deleteDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+           <result name="error">/resources/jsp/ajax/employee/directDebit.jsp</result>
+           <result name="input">/resources/jsp/ajax/employee/directDebitForm.jsp</result>
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllDirectDebit</param>
+		   		<param name="dirDebit.empIdObj.employeeId">${dirDebit.empIdObj.employeeId}</param>
+		   </result>
+        </action> 
+        <action name="resetDirDebitFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpDirectDebit</param>
+		    </result>
+        </action>
+        <action name="getEmployeeAllWorkExperience" method="getEmployeeAllWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+            <result name="success">/resources/jsp/ajax/employee/WorkExperience.jsp</result>
+        </action>
+        <action name="setUpEmpWorkExperience" method="setUpEmpWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+            <result name="success">/resources/jsp/ajax/employee/WorkExperienceForm.jsp</result>
+        </action>
+        <action name="viewEmpWorkExperience" method="workExperienceView" class="com.gits.rms.action.WorkExperienceAction">
+            <result name="success">/resources/jsp/ajax/employee/workExperienceView.jsp</result>
+        </action>
+        
+        <action name="setUpEmpWorkExperienceSingle" method="setUpEmpWorkExperienceSingle" class="com.gits.rms.action.WorkExperienceAction">
+            <result name="success">/resources/jsp/ajax/employee/WorkExperienceForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateWorkExperienceAjax" method="insertOrUpdateWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+           <result name="input">/resources/jsp/ajax/employee/WorkExperienceForm.jsp</result>
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllWorkExperience</param>
+		   		<param name="workexp.empIdObj.employeeId">${workexp.empIdObj.employeeId}</param>
+		   </result>
+        </action>
+        <action name="deleteEmpWorkExperience" method="deleteWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllWorkExperience</param>
+		   		<param name="workexp.empIdObj.employeeId">${workexp.empIdObj.employeeId}</param>
+		   </result>
+        </action>
+        <action name="resetWorkExpFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpWorkExperience</param>
+		    </result>
+        </action>
+		<action name="getEmployeeAllExpApprover" method="getEmployeeAllExpApprover"	class="com.gits.rms.action.ExpensesApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/ExpensesApprover.jsp</result>
+		</action>
+		<action name="setUpEmpInsertOrUpdateExpApprover" method="setUpEmpInsertOrUpdateExpApprover" class="com.gits.rms.action.ExpensesApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/ExpensesApproverForm.jsp</result>
+		</action>
+		<action name="viewEmpExpenseApprover" method="expensesApproverView" class="com.gits.rms.action.ExpensesApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/ExpensesApproverView.jsp</result>
+		</action>
+		
+		<action name="setUpEmpInsertOrUpdateExpApproverSingle" method="setUpEmpInsertOrUpdateExpApproverSingle" class="com.gits.rms.action.ExpensesApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/ExpensesApproverForm.jsp</result>
+		</action>
+		<action name="insertOrUpdateExpApproverAjax" method="insertOrUpdateExpApprover"	class="com.gits.rms.action.ExpensesApproverAction">
+			<result name="input">/resources/jsp/ajax/employee/ExpensesApproverForm.jsp</result>
+			<result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllExpApprover</param>
+		   		<param name="expApprover.hcmoEmployeeId.employeeId">${expApprover.hcmoEmployeeId.employeeId}</param>
+		    </result>
+		</action>
+		<action name="deleteEmpExpApprover" method="deleteExpApprover"	class="com.gits.rms.action.ExpensesApproverAction">
+			<result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllExpApprover</param>
+		   		<param name="expApprover.hcmoEmployeeId.employeeId">${expApprover.hcmoEmployeeId.employeeId}</param>
+		    </result>
+		</action>
+		<action name="resetExpenseApprFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpInsertOrUpdateExpApprover</param>
+		    </result>
+        </action>
+		<action name="getEmployeeAllTimeSheetApprover" method="getEmployeeAllTimeSheetApprover" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/TimeSheetApprover.jsp</result>
+		</action>
+		<action name="setUpEmpInsertOrUpdateTimeSheetApprover" method="setUpEmpInsertOrUpdateTimeSheetApprover" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/TimeSheetApproverForm.jsp</result>
+			
+		</action>
+		<action name="viewEmpTimeSheetApprover" method="timesheetApproverView" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/TimeSheetApproverView.jsp</result>
+		</action>
+		
+		<action name="setUpEmpInsertOrUpdateTimeSheetApproverSingle" method="setUpEmpInsertOrUpdateTimeSheetApproverSingle" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/TimeSheetApproverForm.jsp</result>
+		</action>
+		<action name="insertOrUpdateTimeSheetApproverAjax" method="insertOrUpdateTimeSheetApprover"	class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/ajax/employee/TimeSheetApproverForm.jsp</result>
+			<result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllTimeSheetApprover</param>
+		   		<param name="timeSheetApprover.hcmoEmployeeId.employeeId">${timeSheetApprover.hcmoEmployeeId.employeeId}</param>
+		    </result>
+		    <result name="error">/resources/jsp/ajax/employee/TimeSheetApproverForm.jsp</result>
+		</action>
+		<action name="deleteEmpTimeSheetApprover" method="deleteTimeSheetApprover"	class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllTimeSheetApprover</param>
+		   		<param name="timeSheetApprover.hcmoEmployeeId.employeeId">${timeSheetApprover.hcmoEmployeeId.employeeId}</param>
+		    </result>
+		</action>
+		<action name="resetTSApprFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpInsertOrUpdateTimeSheetApprover</param>
+		    </result>
+        </action>
+		<action name="getEmployeeAllLeaveApprover" method="getEmployeeAllLeaveApprover"	class="com.gits.rms.action.LeaveApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/LeaveApprover.jsp</result>
+		</action>
+		<action name="setUpEmpInsertOrUpdateLeaveApprover" method="setUpEmpInsertOrUpdateLeaveApprover" class="com.gits.rms.action.LeaveApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/LeaveApproverForm.jsp</result>
+		</action>
+		<action name="viewEmpLeaveApprover" method="leaveApproverView" class="com.gits.rms.action.LeaveApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/LeaveApproverView.jsp</result>
+		</action>
+		
+		<action name="setUpEmpInsertOrUpdateLeaveApproverSingle" method="setUpEmpInsertOrUpdateLeaveApproverSingle" class="com.gits.rms.action.LeaveApproverAction">
+			<result name="success">/resources/jsp/ajax/employee/LeaveApproverForm.jsp</result>
+		</action>
+		<action name="insertOrUpdateLeaveApproverAjax" method="insertOrUpdateLeaveApprover" class="com.gits.rms.action.LeaveApproverAction">
+			<result name="input">/resources/jsp/ajax/employee/LeaveApproverForm.jsp</result>
+			<result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllLeaveApprover</param>
+		   		<param name="leaveApprover.hcmoEmployeeId.employeeId">${leaveApprover.hcmoEmployeeId.employeeId}</param>	
+		    </result>
+		</action>
+		<action name="deleteEmpLeaveApprover" method="deleteLeaveApprover"	class="com.gits.rms.action.LeaveApproverAction">
+			<result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllLeaveApprover</param>
+		   		<param name="leaveApprover.hcmoEmployeeId.employeeId">${leaveApprover.hcmoEmployeeId.employeeId}</param>	
+		    </result>
+		</action>
+		<action name="resetLeaveApprFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpInsertOrUpdateLeaveApprover</param>
+		    </result>
+        </action>
+        <action name="getEmployeeAllUser" method="getEmployeeAllUser" class="com.gits.rms.action.UserAction">
+            <result name="success">/resources/jsp/ajax/employee/User.jsp</result>
+        </action>
+        <action name="setUpEmpUser" method="setUpEmpUser" class="com.gits.rms.action.UserAction">
+            <result name="success">/resources/jsp/ajax/employee/UserForm.jsp</result>
+        </action>
+        
+         <action name="viewEmpUser" method="userView" class="com.gits.rms.action.UserAction">
+            <result name="success">/resources/jsp/ajax/employee/UserView.jsp</result>
+        </action>
+        
+        <action name="setUpEmpUserSingle" method="setUpEmpUserSingle" class="com.gits.rms.action.UserAction">
+            <result name="success">/resources/jsp/ajax/employee/UserForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateUserAjax" method="insertOrUpdateUser" class="com.gits.rms.action.UserAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllUser</param>
+		   		<param name="user.empIdObj.employeeId">${user.empIdObj.employeeId}</param>
+		   </result>
+           <result name="input">/resources/jsp/ajax/employee/UserForm.jsp</result>
+        </action>
+           <action name="deleteEmpUser" method="deleteUser" class="com.gits.rms.action.UserAction">
+           <result name="success" type="redirectAction">
+		   		<param name="actionName">getEmployeeAllUser</param>
+		   		<param name="user.empIdObj.employeeId">${user.empIdObj.employeeId}</param>
+		   </result>
+        </action>
+        <action name="resetUserFormAjax">
+        	<result name="success" type="redirectAction">
+		   		<param name="actionName">setUpEmpUser</param>
+		   </result>
+        </action>
+        <action name="insertOrUpdateLeaveReqsApproval" method="insertOrUpdateLeaveReqsApproval" class="com.gits.rms.action.LeaveReqsApprovalAction">
+           <result name="input">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+           <result name="success">/resources/jsp/LeaveReqsApprovalForm.jsp</result>
+		</action>
+		<action name="getEmployeeApproverTab" method="getESSEmployeeID" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/empViewApproverTab.jsp</result>
+		</action>
+		<action name="getESSEmployeeInformationTab" method="employeeView" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/empViewEmployeeInformationTab.jsp</result>
+		</action>
+		
+		<action name="getEmployeeAllPayStub" method="getEmployeeAllPayStub" class="com.gits.rms.action.PayStubAction">
+            <result name="success">/resources/jsp/ajax/employee/payStub.jsp</result>
+        </action>
+         <action name="setUpEmpPayStub" method="setUpEmpPayStub" class="com.gits.rms.action.PayStubAction">
+            <result name="success">/resources/jsp/ajax/employee/payStubForm.jsp</result>
+        </action>
+        <action name="insertOrUpdatePayStubAjax" method="insertOrUpdatePayStub" class="com.gits.rms.action.PayStubAction">
+           <result name="input">/resources/jsp/ajax/employee/payStubForm.jsp</result>
+   		   <result name="success" type="redirectAction">
+		   		<param name="actionName">getEssEmpPayStub</param>
+		   		<param name="payStub.employee.employeeId">${payStub.employee.employeeId}</param>
+		   		<param name="payStub.payStubId">${payStub.payStubId}</param>
+		   </result>
+        </action>
+        <action name="getEssEmpPayStub" method="getEssEmpPayStub" class="com.gits.rms.action.PayStubAction">
+            <result name="success">/resources/jsp/ajax/employee/payStubEmployeeList.jsp</result>
+        </action>
+        <action name="payStubEssView" method="payStubEssView" class="com.gits.rms.action.PayStubAction">
+           <result name="success">/resources/jsp/ajax/employee/payStubView.jsp</result>
+        </action>
+        <action name="deleteEssPayStub" method="deletePayStub" class="com.gits.rms.action.PayStubAction">
+        	<result name="success" type="redirectAction">
+      			<param name="actionName">getEmployeeAllPayStub</param>
+      			<param name="payStub.employee.employeeId">${payStub.employee.employeeId}</param>
+		   		<param name="payStub.payStubId">${payStub.payStubId}</param>
+   	   		</result>
+       </action>  
+         <action name="payStubDeductionEssView" method="payStubDeductionEssView" class="com.gits.rms.action.PayStubDeductionAction">
+           <result name="success">/resources/jsp/ajax/employee/payStubDeductionView.jsp</result>
+        </action>
+         <action name="setUpEssPayStubDeduction" method="setUpEssPayStubDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+            <result name="success">/resources/jsp/ajax/employee/payStubEmployeeList.jsp</result>
+            <result name="input">/resources/jsp/ajax/employee/payStubEmployeeList.jsp</result>
+        </action>
+         <action name="insertOrUpdateEssPayStubDeduction" method="insertOrUpdatePayStubDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+       			<param name="actionName">getAllEssEmployeePayStubsDeduction</param>
+       			<param name="payStubDeduction.payStub.payStubId">${payStubDeduction.payStub.payStubId}</param>
+       			<param name="payStub.payStubId">${payStub.payStubId}</param>
+	   	    </result>
+           <result name="input">/resources/jsp/ajax/employee/payStubEmployeeList.jsp</result>
+           <result name="error">/resources/jsp/ajax/employee/payStubEmployeeList.jsp</result>
+        </action> 
+		<action name="getAllEssEmployeePayStubsDeduction" method="getAllEmployeePayStubsDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+            <result name="success">/resources/jsp/ajax/employee/payStubEmployeeList.jsp</result>
+        </action>
+        <action name="deleteEssPayStubDeduction" method="deletePayStubDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+             <result name="success" type="redirectAction">
+       			<param name="actionName">getAllEssEmployeePayStubsDeduction</param>
+       			<param name="payStubDeduction.payStub.payStubId">${payStubDeduction.payStub.payStubId}</param>
+       			<param name="payStub.payStubId">${payStub.payStubId}</param>
+	   	    </result>
+        </action>
+	<!-- Dynamic Load Pages Ends -->
+	  
+	</package>
+</struts>
+

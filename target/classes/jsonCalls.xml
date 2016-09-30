@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="jsonCalls" extends="default">
+		
+	<!-- JSON Calls To Load Combo's Starts  -->
+		<action name="getSearchProcessJSONList" method="getSearchProcessJSONList" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="getMaritalStatusJSONList" method="getMaritalStatusJSONList" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="getMSGTypeJSONList" method="getMSGTypeJSONList" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="getLeaveAssignStatusJSONList" method="getLeaveAssignStatusJSONList" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="getTimesheetStatusJSONList" method="getTimesheetStatusJSONList" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="getEmpSpaceFileTypeJSONList" method="getEmpSpaceFileTypeJSONList" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="getSelectedTheme" method="getSelectedTheme" class="com.gits.rms.action.JSONAction">
+			<result type="json"/>
+		</action>
+		<action name="applyJqueryTheme" method="applyJqueryTheme" class="com.gits.rms.action.JSONAction">
+			<result name="success" type="redirectAction">
+           		<param name="actionName">myHome</param>
+       		</result>
+		</action>
+		
+	<!-- JSON Calls To Load Combo's Ends  -->
+	  
+	 </package>
+</struts>
+

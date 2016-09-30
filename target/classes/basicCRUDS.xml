@@ -1,0 +1,1996 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="basicCRUDS" extends="default">
+		
+	<!-- Manage Company Information Starts-->
+		<!-- Client CRUD Starts-->
+	        <action name="getAllClient" method="getAllClient" class="com.gits.rms.action.ClientAction">
+	        	 <interceptor-ref name="store">
+                 	<param name="operationMode">RETRIEVE</param>
+             	</interceptor-ref>
+	            <result name="success">/resources/jsp/Client.jsp</result>
+	        </action>
+	        <action name="setUpClient" method="setUpClient" class="com.gits.rms.action.ClientAction">
+	            <result name="success">/resources/jsp/ClientForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateClient" method="insertOrUpdateClient" class="com.gits.rms.action.ClientAction">
+	        	<interceptor-ref name="ClientCheckStack" />
+	        	<interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	            <exception-mapping exception="java.lang.Exception" result="input"/>
+	            <result name="success" type="redirectAction">
+            		<param name="actionName">getAllClient</param>
+        		 </result>
+	             <result name="input">/resources/jsp/ClientForm.jsp</result>
+	        </action>
+	        <action name="deleteClient" method="deleteClient" class="com.gits.rms.action.ClientAction">
+	           <result name="success" type="redirectAction">
+            		<param name="actionName">getAllClient</param>
+        		</result>
+	        </action>
+	        <action name="clientView" method="clientView" class="com.gits.rms.action.ClientAction">
+	           <result name="success">/resources/jsp/ClientView.jsp</result>
+	        </action>
+	        <action name="resetClient">
+	            <result name="success" type="redirectAction">
+            		<param name="actionName">setUpClient</param>
+        		</result>
+	        </action>
+	        <action name="setUpConfigurationClient" method="setUpClient" class="com.gits.rms.action.ClientAction">
+	            <result name="success">/resources/jsp/configuration/ClientForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateConfigurationClient" method="insertOrUpdateConfigurationClient" class="com.gits.rms.action.ClientAction">
+	        	<interceptor-ref name="ClientCheckStack" />
+	        	<interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	            <exception-mapping exception="java.lang.Exception" result="input"/>
+	            <result name="success" type="redirectAction">
+            		<param name="actionName">getAllConfigurationClient</param>
+        		 </result>
+	             <result name="input">/resources/jsp/configuration/ClientForm.jsp</result>
+	        </action>
+	        <action name="getAllConfigurationClient" method="getAllClient" class="com.gits.rms.action.ClientAction">
+	        	 <interceptor-ref name="store">
+                 	<param name="operationMode">RETRIEVE</param>
+             	</interceptor-ref>
+	            <result name="success">/resources/jsp/configuration/Client.jsp</result>
+	        </action>
+		<!-- Client CRUD Ends--> 
+		
+		<!-- Location CRUD Starts-->
+	        <action name="getAllLocation" method="getAllLocation" class="com.gits.rms.action.LocationAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/Location.jsp</result>
+	        </action>
+	        <action name="setUpLocation" method="setUpLocation" class="com.gits.rms.action.LocationAction">
+	            <result name="success">/resources/jsp/LocationForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateLocation" method="insertOrUpdateLocation" class="com.gits.rms.action.LocationAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	           		<param name="actionName">getAllLocation</param>
+	       	   </result>
+	           <result name="input">/resources/jsp/LocationForm.jsp</result>
+	        </action>
+	        <action name="deleteLocation" method="deleteLocation" class="com.gits.rms.action.LocationAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	           		<param name="actionName">getAllLocation</param>
+	       	   </result>
+	        </action>
+	        <action name="locationView" method="locationView" class="com.gits.rms.action.LocationAction">
+	           <result name="success">/resources/jsp/LocationView.jsp</result>
+	        </action>
+	        <action name="locationSearchForm" method="locationSearchForm" class="com.gits.rms.action.LocationAction">
+	           <result name="success">/resources/jsp/LocationSearchForm.jsp</result>
+	        </action>
+	        <action name="locationSearchResult" method="locationSearchResult" class="com.gits.rms.action.LocationAction">
+	           <result name="success">/resources/jsp/LocationSearchResult.jsp</result>
+	        </action>
+	        <action name="resetLocation">
+		        <result name="success" type="redirectAction">
+		       		<param name="actionName">setUpLocation</param>
+		   	   </result>
+	        </action>
+		<!-- Location CRUD Ends-->   
+		
+		<!-- Region CRUD -->
+	        <action name="getAllRegion" method="getAllRegion" class="com.gits.rms.action.RegionAction">
+	            <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+                </interceptor-ref>
+	            <result name="success">/resources/jsp/Region.jsp</result>
+	        </action>
+	        <action name="setUpInsertOrUpdateRegion" method="setUpInsertOrUpdateRegion" class="com.gits.rms.action.RegionAction">
+	            <result name="success">/resources/jsp/RegionForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateRegion" method="insertOrUpdateRegion" class="com.gits.rms.action.RegionAction">
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllRegion</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/RegionForm.jsp</result>
+	        </action>
+	        <action name="deleteRegion" method="deleteRegion" class="com.gits.rms.action.RegionAction">
+	          <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllRegion</param>
+		   	   </result>
+	        </action>
+	        <action name="regionView" method="regionView" class="com.gits.rms.action.RegionAction">
+	           <result name="success">/resources/jsp/RegionView.jsp</result>
+	        </action>
+	        <action name="regionSearchForm" method="regionSearchForm" class="com.gits.rms.action.RegionAction">
+	           <result name="success">/resources/jsp/RegionSearchForm.jsp</result>
+	        </action>
+	        <action name="regionSearchResult" method="regionSearchResult" class="com.gits.rms.action.RegionAction">
+	           <result name="success">/resources/jsp/RegionSearchResult.jsp</result>
+	        </action>
+	        <action name="resetRegion">
+	        	<result name="success" type="redirectAction">
+		       		<param name="actionName">setUpInsertOrUpdateRegion</param>
+		   	   </result>
+	        </action>
+    	<!-- Region CRUD Ends-->
+	<!-- Manage Company Information Ends-->
+	
+	<!-- Manage Lookup Information Starts-->
+	
+		<!-- SalaryGrade CRUD Starts-->
+	        <action name="getAllSalaryGrade" method="getAllSalaryGrade" class="com.gits.rms.action.SalaryGradeAction">
+	        	<interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+                </interceptor-ref>
+	            <result name="input">/resources/jsp/SalaryGrade.jsp</result>
+	            <result name="success">/resources/jsp/SalaryGrade.jsp</result>
+	        </action>
+	        <action name="setUpSalaryGrade" method="setUpSalaryGrade" class="com.gits.rms.action.SalaryGradeAction">
+	            <result name="input">/resources/jsp/SalaryGradeForm.jsp</result>
+	            <result name="success">/resources/jsp/SalaryGradeForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateSalaryGrade" method="insertOrUpdateSalaryGrade" class="com.gits.rms.action.SalaryGradeAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllSalaryGrade</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/SalaryGradeForm.jsp</result>
+	        </action>
+            <action name="deleteSalaryGrade" method="deleteSalaryGrade" class="com.gits.rms.action.SalaryGradeAction">
+               <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           	<result name="success" type="redirectAction">
+		       		<param name="actionName">getAllSalaryGrade</param>
+		   	   </result>
+	        </action>
+	        <action name="salaryGradeView" method="salaryGradeView" class="com.gits.rms.action.SalaryGradeAction">
+	           <result name="success">/resources/jsp/SalaryGradeView.jsp</result>
+	        </action>
+	        <action name="salaryGradeSearchForm" method="salaryGradeSearchForm" class="com.gits.rms.action.SalaryGradeAction">
+	           <result name="success">/resources/jsp/SalaryGradeSearchForm.jsp</result>
+	        </action>
+	        <action name="salaryGradeSearchResult" method="salaryGradeSearchResult" class="com.gits.rms.action.SalaryGradeAction">
+	           <result name="success">/resources/jsp/SalaryGradeSearchResult.jsp</result>
+	        </action>
+	        <action name="resetSalaryGrade">
+	        	<result name="success" type="redirectAction">
+		       		<param name="actionName">setUpSalaryGrade</param>
+		   	    </result>
+	        </action>
+	        <action name="setUpSalaryGradeDialog">
+	            <result name="input">/resources/jsp/SalaryGradeDialogForm.jsp</result>
+	            <result name="success">/resources/jsp/SalaryGradeDialogForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateSalaryGradeDialogue" method="insertOrUpdateSalaryGrade" class="com.gits.rms.action.SalaryGradeAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllSalaryGrade</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/SalaryGradeDialogForm.jsp</result>
+	        </action>
+	        <action name="setUpSalaryGradeDialogClose">
+	            <result name="success">/resources/jsp/jobTitleForm.jsp</result>
+	        </action>
+		<!-- SalaryGrade CRUD Ends--> 
+		
+		<!-- Job Title CRUD Starts-->
+	        <action name="getAllJobTitle" method="getAllJobTitle" class="com.gits.rms.action.JobTitleAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/jobTitle.jsp</result>
+	        </action>
+	        <action name="setUpJobTitle" method="setUpJobTitle" class="com.gits.rms.action.JobTitleAction">
+	            <result name="success">/resources/jsp/jobTitleForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateJobTitle" method="insertOrUpdateJobTitle" class="com.gits.rms.action.JobTitleAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllJobTitle</param>
+		   	    </result>
+	           <result name="input">/resources/jsp/jobTitleForm.jsp</result>
+	        </action> 
+	        <action name="deleteJobTitle" method="deleteJobTitle" class="com.gits.rms.action.JobTitleAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllJobTitle</param>
+		   	    </result>
+	        </action> 
+	        <action name="jobTitleView" method="jobTitleView" class="com.gits.rms.action.JobTitleAction">
+	           <result name="success">/resources/jsp/jobTitleView.jsp</result>
+	        </action>
+	        <action name="jobTitleSearchForm" method="jobTitleSearchForm" class="com.gits.rms.action.JobTitleAction">
+	           <result name="success">/resources/jsp/jobTitleSearchForm.jsp</result>
+	        </action>
+	        <action name="jobTitleSearchResult" method="jobTitleSearchResult" class="com.gits.rms.action.JobTitleAction">
+	           <result name="success">/resources/jsp/jobTitleSearchResult.jsp</result>
+	        </action> 
+	        <action name="resetJobTitle">
+        		<result name="success" type="redirectAction">
+		       		<param name="actionName">setUpJobTitle</param>
+		   	    </result>
+	        </action>
+		<!-- Job Title CRUD Ends-->
+		
+		<!-- Role CRUD Starts-->
+	        <action name="getAllRole" method="getAllRole" class="com.gits.rms.action.RoleAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/Role.jsp</result>
+	        </action>
+	        <action name="setUpRole" method="setUpRole" class="com.gits.rms.action.RoleAction">
+	            <result name="success">/resources/jsp/RoleForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateRole" method="insertOrUpdateRole" class="com.gits.rms.action.RoleAction">
+	           	<exception-mapping exception="java.lang.Exception" result="input"/>
+	           	<result name="success" type="redirectAction">
+		       		<param name="actionName">getAllRole</param>
+		   	   	</result>
+	           	<result name="input">/resources/jsp/RoleForm.jsp</result>
+	        </action>
+	        <action name="deleteRole" method="deleteRole" class="com.gits.rms.action.RoleAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           	<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllRole</param>
+		   	   	</result>
+	        </action>
+	        <action name="roleView" method="roleView" class="com.gits.rms.action.RoleAction">
+	           	<result name="success">/resources/jsp/RoleView.jsp</result>
+	        </action>
+	        <action name="roleSearchForm" method="roleSearchForm" class="com.gits.rms.action.RoleAction">
+	           	<result name="success">/resources/jsp/RoleSearchForm.jsp</result>
+	        </action>
+	        <action name="roleSearchResult" method="roleSearchResult" class="com.gits.rms.action.RoleAction">
+	        	<result name="success">/resources/jsp/RoleSearchResult.jsp</result>
+	        </action>
+	        <action name="resetRole">
+            	<result name="success" type="redirectAction">
+		       		<param name="actionName">setUpRole</param>
+		   	    </result>
+	        </action>
+		<!-- Role CRUD Ends--> 
+		
+		<!-- Department CRUD Starts-->
+	        <action name="getAllDepartment" method="getAllDepartment" class="com.gits.rms.action.DepartmentAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/Department.jsp</result>
+	        </action>
+	        <action name="setUpDepartment" method="setUpDepartment" class="com.gits.rms.action.DepartmentAction">
+	            <result name="success">/resources/jsp/DepartmentForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateDepartment" method="insertOrUpdateDepartment" class="com.gits.rms.action.DepartmentAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllDepartment</param>
+		   	    </result>
+	           <result name="input">/resources/jsp/DepartmentForm.jsp</result>
+	        </action> 
+	        <action name="deleteDepartment" method="deleteDepartment" class="com.gits.rms.action.DepartmentAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllDepartment</param>
+		   	    </result>
+	        </action> 
+	        <action name="departmentView" method="departmentView" class="com.gits.rms.action.DepartmentAction">
+	           <result name="success">/resources/jsp/DepartmentView.jsp</result>
+	        </action> 
+	        <action name="deptSearchForm" method="deptSearchForm" class="com.gits.rms.action.DepartmentAction">
+	            <result name="success">/resources/jsp/DepartmentSearchForm.jsp</result>
+	        </action>
+	         <action name="departmentSearchResult" method="departmentSearchResult" class="com.gits.rms.action.DepartmentAction">
+	           <result name="success">/resources/jsp/DepartmentSearchResult.jsp</result>
+	        </action>
+	        <action name="resetDepartment">
+	           	<result name="success" type="redirectAction">
+		       		<param name="actionName">setUpDepartment</param>
+		   	   	</result>
+	        </action>
+		<!-- Department CRUD Ends--> 
+		
+		<!-- Team CRUD Starts-->
+	       <action name="getAllTeam" method="getAllTeam" class="com.gits.rms.action.TeamAction">
+	          <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+              </interceptor-ref>
+	            <result name="success">/resources/jsp/Team.jsp</result>
+	        </action>
+	        <action name="setUpTeam" method="setUpTeam" class="com.gits.rms.action.TeamAction">
+	            <result name="success">/resources/jsp/TeamForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateTeam" method="insertOrUpdateTeam" class="com.gits.rms.action.TeamAction">
+	           	<exception-mapping exception="java.lang.Exception" result="input"/>
+   	           	<result name="success" type="redirectAction">
+		       		<param name="actionName">getAllTeam</param>
+		   	   	</result>
+	           <result name="input">/resources/jsp/TeamForm.jsp</result>
+	        </action> 
+	        <action name="deleteTeam" method="deleteTeam" class="com.gits.rms.action.TeamAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllTeam</param>
+		   	   </result>
+	        </action> 
+	        <action name="teamView" method="teamView" class="com.gits.rms.action.TeamAction">
+	           	<result name="success">/resources/jsp/TeamView.jsp</result>
+	        </action> 
+	       <action name="teamSearchForm" method="teamSearchForm" class="com.gits.rms.action.TeamAction">
+	           	<result name="success">/resources/jsp/TeamSearchForm.jsp</result>
+	        </action>
+	         <action name="teamSearchResult" method="teamSearchResult" class="com.gits.rms.action.TeamAction">
+	           	<result name="success">/resources/jsp/TeamSearchResult.jsp</result>
+	        </action>
+	        <action name="resetTeam">
+	           	<result name="success" type="redirectAction">
+		       		<param name="actionName">setUpTeam</param>
+		   	   	</result>
+	        </action>
+		<!-- Team CRUD Ends-->
+		
+		<!-- Currency CRUD Starts-->
+	        <action name="getAllCurrency" method="getAllCurrency" class="com.gits.rms.action.CurrencyAction">
+	            <result name="success">/resources/jsp/Currency.jsp</result>
+	        </action>
+	        <action name="setUpCurrency" method="setUpCurrency" class="com.gits.rms.action.CurrencyAction">
+	            <result name="success">/resources/jsp/CurrencyForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateCurrency" method="insertOrUpdateCurrency" class="com.gits.rms.action.CurrencyAction">
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllCurrency</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/CurrencyForm.jsp</result>
+	        </action> 
+	        <action name="deleteCurrency" method="deleteCurrency" class="com.gits.rms.action.CurrencyAction">
+	           <result name="success" type="redirectAction">
+	       	   		<param name="actionName">getAllCurrency</param>
+		   	   </result>
+	        </action> 
+	        <action name="currencyView" method="currencyView" class="com.gits.rms.action.CurrencyAction">
+	           <result name="success">/resources/jsp/CurrencyView.jsp</result>
+	        </action> 
+	        <action name="currencySearchForm" method="currencySearchForm" class="com.gits.rms.action.CurrencyAction">
+	            <result name="success">/resources/jsp/CurrencySearchForm.jsp</result>
+	        </action>
+	         <action name="currencySearchResult" method="currencySearchResult" class="com.gits.rms.action.CurrencyAction">
+	           <result name="success">/resources/jsp/CurrencySearchResult.jsp</result>
+	        </action>
+	        <action name="resetCurrency">
+           		<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpCurrency</param>
+		   	    </result>
+	        </action>
+    	<!-- Currency CRUD Ends-->
+    	
+    	<!-- Nationality CRUD Starts-->
+	        <action name="getAllNationality" method="getAllNationality" class="com.gits.rms.action.NationalityAction">
+	         <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/nationality.jsp</result>
+	        </action>
+	        <action name="setUpNationality" method="setUpNationality" class="com.gits.rms.action.NationalityAction">
+	            <result name="success">/resources/jsp/nationalityForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateNationality" method="insertOrUpdateNationality" class="com.gits.rms.action.NationalityAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllNationality</param>
+		   	    </result>
+	           <result name="input">/resources/jsp/nationalityForm.jsp</result>
+	        </action> 
+	        <action name="deleteNationality" method="deleteNationality" class="com.gits.rms.action.NationalityAction">
+	           		<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	          	 	<interceptor-ref name="store">
+       			   		<param name="operationMode">STORE</param>
+     		   		</interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllNationality</param>
+		   	   </result>
+	        </action> 
+	        <action name="nationalityView" method="nationalityView" class="com.gits.rms.action.NationalityAction">
+	           <result name="success">/resources/jsp/nationalityView.jsp</result>
+	        </action> 
+	        <action name="nationalitySearchForm" method="nationalitySearchForm" class="com.gits.rms.action.NationalityAction">
+	           <result name="success">/resources/jsp/nationalitySearchForm.jsp</result>
+	        </action>
+	        <action name="nationalitySearchResult" method="nationalitySearchResult" class="com.gits.rms.action.NationalityAction">
+	           <result name="success">/resources/jsp/nationalitySearchResult.jsp</result>
+	        </action>
+	        <action name="resetNationality">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpNationality</param>
+		   	   </result>
+	        </action>
+		<!-- Nationality CRUD Ends-->
+		
+		<!-- Ethnic Race CRUD Starts-->
+	        <action name="getAllEthnicRace" method="getAllEthnicRace" class="com.gits.rms.action.EthnicRaceAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/ethnicRace.jsp</result>
+	        </action>
+	        <action name="setUpEthnicRace" method="setUpEthnicRace" class="com.gits.rms.action.EthnicRaceAction">
+	            <result name="success">/resources/jsp/ethnicRaceForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEthnicRace" method="insertOrUpdateEthnicRace" class="com.gits.rms.action.EthnicRaceAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>        
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEthnicRace</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/ethnicRaceForm.jsp</result>
+	        </action> 
+	        <action name="deleteEthnicRace" method="deleteEthnicRace" class="com.gits.rms.action.EthnicRaceAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEthnicRace</param>
+		   	   </result>
+	        </action> 
+	        <action name="ethnicRaceView" method="ethnicRaceView" class="com.gits.rms.action.EthnicRaceAction">
+	           <result name="success">/resources/jsp/ethnicRaceView.jsp</result>
+	        </action> 
+	        <action name="ethnicRaceSearchForm" method="ethnicRaceSearchForm" class="com.gits.rms.action.EthnicRaceAction">
+	           <result name="success">/resources/jsp/ethnicRaceSearchForm.jsp</result>
+	        </action>
+	        <action name="ethnicRaceSearchResult" method="ethnicRaceSearchResult" class="com.gits.rms.action.EthnicRaceAction">
+	           <result name="success">/resources/jsp/ethnicRaceSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEthnicRace">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEthnicRace</param>
+		   	   </result>
+	        </action>
+		<!-- Ethnic Race CRUD Ends-->
+		
+		<!-- Country CRUD Starts-->
+	        <action name="getAllCountry" method="getAllCountry" class="com.gits.rms.action.CountryAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/Country.jsp</result>
+	        </action>
+	        <action name="setUpInsertOrUpdateCountry" method="setUpInsertOrUpdateCountry" class="com.gits.rms.action.CountryAction">
+	            <result name="success">/resources/jsp/CountryForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateCountry" method="insertOrUpdateCountry" class="com.gits.rms.action.CountryAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>        
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllCountry</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/CountryForm.jsp</result>
+	        </action>
+	        <action name="deleteCountry" method="deleteCountry" class="com.gits.rms.action.CountryAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllCountry</param>
+		   	   </result>
+	        </action>
+	        <action name="countryView" method="countryView" class="com.gits.rms.action.CountryAction">
+	           <result name="success">/resources/jsp/CountryView.jsp</result>
+	        </action>
+	        <action name="countrySearchForm" method="countrySearchForm" class="com.gits.rms.action.CountryAction">
+	           <result name="success">/resources/jsp/CountrySearchForm.jsp</result>
+	        </action>
+	        <action name="countrySearchResult" method="countrySearchResult" class="com.gits.rms.action.CountryAction">
+	           <result name="success">/resources/jsp/CountrySearchResult.jsp</result>
+	        </action>
+	        <action name="resetCountry">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateCountry</param>
+		   	   </result>
+	        </action>
+		<!-- Country CRUD Ends--> 
+		
+		<!-- Customer CRUD Starts-->
+	        <action name="getAllCustomer" method="getAllCustomer" class="com.gits.rms.action.CustomerAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="input">/resources/jsp/customer.jsp</result>
+	            <result name="success">/resources/jsp/customer.jsp</result>
+	        </action>
+	        <action name="setUpCustomer" method="setUpCustomer" class="com.gits.rms.action.CustomerAction">
+	        	<result name="input">/resources/jsp/customerForm.jsp</result>
+	            <result name="success">/resources/jsp/customerForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateCustomer" method="insertOrUpdateCustomer" class="com.gits.rms.action.CustomerAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllCustomer</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/customerForm.jsp</result>
+	        </action> 
+	        <action name="deleteCustomer" method="deleteCustomer" class="com.gits.rms.action.CustomerAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllCustomer</param>
+		   	   </result>
+	        </action> 
+	        <action name="customerView" method="customerView" class="com.gits.rms.action.CustomerAction">
+	           <result name="success">/resources/jsp/customerView.jsp</result>
+	        </action> 
+	        <action name="customerSearchForm" method="customerSearchForm" class="com.gits.rms.action.CustomerAction">
+	           <result name="success">/resources/jsp/customerSearchForm.jsp</result>
+	        </action>
+	        <action name="customerSearchResult" method="customerSearchResult" class="com.gits.rms.action.CustomerAction">
+	           <result name="success">/resources/jsp/customerSearchResult.jsp</result>
+	        </action>
+	        <action name="resetCustomer">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpCustomer</param>
+		   	   </result>
+	        </action>
+		<!-- Customer CRUD Ends-->
+		
+		<!-- Project CRUD Starts-->
+	        <action name="getAllProjects" method="getAllProjects" class="com.gits.rms.action.ProjectAction">
+	         <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/project.jsp</result>
+	        </action>
+	        <action name="setUpProject" method="setUpProject" class="com.gits.rms.action.ProjectAction">
+	            <result name="success">/resources/jsp/projectForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateProject" method="insertOrUpdateProject" class="com.gits.rms.action.ProjectAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllProjects</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/projectForm.jsp</result>
+	        </action> 
+	        <action name="deleteProject" method="deleteProject" class="com.gits.rms.action.ProjectAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllProjects</param>
+		   	   </result>
+		   	</action> 
+	        <action name="projectView" method="projectView" class="com.gits.rms.action.ProjectAction">
+	           <result name="success">/resources/jsp/projectView.jsp</result>
+	        </action> 
+	        <action name="projectsSearchForm" method="projectsSearchForm" class="com.gits.rms.action.ProjectAction">
+	           <result name="success">/resources/jsp/projectSearchForm.jsp</result>
+	        </action>
+	        <action name="projectsSearchResult" method="projectsSearchResult" class="com.gits.rms.action.ProjectAction">
+	           <result name="success">/resources/jsp/projectSearchResult.jsp</result>
+	        </action>
+	        <action name="resetProject">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpProject</param>
+		   	   </result>
+	        </action>
+		<!-- Project CRUD Ends-->
+		
+		<!-- Project Activity CRUD Starts-->
+	        <action name="getAllProjectActivity" method="getAllProjectActivity" class="com.gits.rms.action.ProjectActivityAction">
+	        <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/projActivity.jsp</result>
+	        </action>
+	        <action name="setUpProjectActivity" method="setUpProjectActivity" class="com.gits.rms.action.ProjectActivityAction">
+	            <result name="success">/resources/jsp/projectActivityForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateProjectActivity" method="insertOrUpdateProjectActivity" class="com.gits.rms.action.EmployeesAction">
+<!-- 	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllProjectActivity</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/projectActivityForm.jsp</result>
+	           <result name="error">/resources/jsp/projectActivityForm.jsp</result> -->
+	           
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllProjectActivity</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/employee.jsp</result>
+	           <result name="error">/resources/jsp/error.jsp</result>
+	       			
+	        </action> 
+	        <action name="deleteProjectActivity" method="deleteProjectActivity" class="com.gits.rms.action.ProjectActivityAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllProjectActivity</param>
+		   	   </result>
+	        </action> 
+	        <action name="projectActivityView" method="projectActivityView" class="com.gits.rms.action.ProjectActivityAction">
+	           <result name="success">/resources/jsp/projectActivityView.jsp</result>
+	        </action>
+	        <action name="projectActivitySearcForm" method="projectActivitySearcForm" class="com.gits.rms.action.ProjectActivityAction">
+	           <result name="success">/resources/jsp/projectActivitySearchForm.jsp</result>
+	        </action>
+	        <action name="projectActivitySearcResult" method="projectActivitySearcResult" class="com.gits.rms.action.ProjectActivityAction">
+	           <result name="success">/resources/jsp/projectActivitySearchResult.jsp</result>
+	        </action>
+	        <action name="resetProjectActivity">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpProjectActivity</param>
+		   	   </result>
+	        </action>
+     	    <action name="getPrevAddedProjActivityByProj" method="getPrevAddedProjActivityByProj" class="com.gits.rms.action.ProjectActivityAction">
+	           <result name="success">/resources/jsp/projectActivityPrevAddedProjectList.jsp</result>
+	        </action>
+		<!-- Project Activity CRUD Ends-->
+		
+		<!-- EmployeeStatus CRUD Starts-->
+			<action name="getAllEmployeeStatus" method="getAllEmployeeStatus" class="com.gits.rms.action.EmployeeStatusAction">
+			<interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/employeeStatus.jsp</result>
+	        </action>
+	        <action name="setUpForInsertOrUpdateEmpStatus" method="setUpForInsertOrUpdateEmpStatus" class="com.gits.rms.action.EmployeeStatusAction">
+	            <result name="success">/resources/jsp/employeeStatusForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEmployeeStatus" method="insertOrUpdateEmployeeStatus" class="com.gits.rms.action.EmployeeStatusAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeeStatus</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/employeeStatusForm.jsp</result>
+	        </action> 
+	        <action name="deleteEmployeeStatus" method="deleteEmployeeStatus" class="com.gits.rms.action.EmployeeStatusAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeeStatus</param>
+		   	   </result>
+	        </action>  
+	        <action name="empStatusView" method="empStatusView" class="com.gits.rms.action.EmployeeStatusAction">
+	           <result name="success">/resources/jsp/employeeStatusView.jsp</result>
+	        </action>       
+	        <action name="employeeStatusSearchForm" method="employeeStatusSearchForm" class="com.gits.rms.action.EmployeeStatusAction">
+	           <result name="success">/resources/jsp/employeeStatusSearchForm.jsp</result>
+	        </action>
+	        <action name="employeeStatusSearchResult" method="employeeStatusSearchResult" class="com.gits.rms.action.EmployeeStatusAction">
+	           <result name="success">/resources/jsp/employeeStatusSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEmployeeStatus">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpForInsertOrUpdateEmpStatus</param>
+		   	   </result>
+	        </action>
+		<!-- EmployeeStatus CRUD Ends-->
+		
+		<!-- Vendor CRUD Starts-->
+		      <action name="getAllVendor" method="getAllVendor" class="com.gits.rms.action.VendorAction">
+	            <result name="success">/resources/jsp/Vendor.jsp</result>
+	        </action>
+	        <action name="setUpForInsertOrUpdateVendor" method="setUpForInsertOrUpdateVendor" class="com.gits.rms.action.VendorAction">
+	            <result name="success">/resources/jsp/vendorForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateVendor" method="insertOrUpdateVendor" class="com.gits.rms.action.VendorAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllVendor</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/vendorForm.jsp</result>
+	        </action> 
+	        <action name="deleteVendor" method="deleteVendor" class="com.gits.rms.action.VendorAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllVendor</param>
+		   	   </result>
+	        </action>  
+	        <action name="vendorView" method="vendorView" class="com.gits.rms.action.VendorAction">
+	           <result name="success">/resources/jsp/vendorView.jsp</result>
+	        </action>
+	        <action name="vendorSearchForm" method="vendorSearchForm" class="com.gits.rms.action.VendorAction">
+	           <result name="success">/resources/jsp/vendorSearchForm.jsp</result>
+	        </action>
+	        <action name="vendorSearchResult" method="vendorSearchResult" class="com.gits.rms.action.VendorAction">
+	           <result name="success">/resources/jsp/vendorSearchResult.jsp</result>
+	        </action>
+	        <action name="resetVendor">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpForInsertOrUpdateVendor</param>
+		   	   </result>
+	        </action>
+		<!-- Vendor CRUD Starts-->
+		
+		<!-- Holiday CRUD Starts-->
+			<action name="getAllHoliday" method="getAllHoliday" class="com.gits.rms.action.HolidayAction">
+				<result name="success">/resources/jsp/Holiday.jsp</result>
+			</action>
+			<action name="setUpHoliday" method="setUpHoliday" class="com.gits.rms.action.HolidayAction">
+				<result name="success">/resources/jsp/HolidayForm.jsp </result>
+			</action>
+			<action name="insertOrUpdateHoliday" method="insertOrUpdateHoliday" class="com.gits.rms.action.HolidayAction">
+				<exception-mapping exception="java.lang.Exception" result="input"/>
+				<result name="input">/resources/jsp/HolidayForm.jsp</result>
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllHoliday</param>
+		   	    </result>
+			</action>
+			<action name="deleteHoliday" method="deleteHoliday"	class="com.gits.rms.action.HolidayAction">
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllHoliday</param>
+		   	    </result>
+			</action>
+	        <action name="holidayView" method="holidayView" class="com.gits.rms.action.HolidayAction">
+	           <result name="success">/resources/jsp/HolidayView.jsp</result>
+	        </action>
+	        <action name="holidaySearchForm" method="holidaySearchForm" class="com.gits.rms.action.HolidayAction">
+	           <result name="success">/resources/jsp/HolidaySearchForm.jsp</result>
+	        </action>
+	        <action name="holidaySearchResult" method="holidaySearchResult" class="com.gits.rms.action.HolidayAction">
+	           <result name="success">/resources/jsp/HolidaySearchResult.jsp</result>
+	        </action>
+	        <action name="resetHoliday">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpHoliday</param>
+		   	   </result>
+	        </action>
+		<!-- Holiday CRUD Ends--> 
+		
+		<!-- LeaveType CRUD Starts-->
+	  		<action name="getAllLeaveType" method="getAllLeaveType" class="com.gits.rms.action.LeaveTypeAction">
+	  		<interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	   			<result name="success">/resources/jsp/LeaveType.jsp</result>
+	        </action>
+	        <action name="setUpLeaveType" method="setUpLeaveType" class="com.gits.rms.action.LeaveTypeAction">
+	            <result name="success">/resources/jsp/LeaveTypeForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateLeaveType" method="insertOrUpdateLeaveType" class="com.gits.rms.action.LeaveTypeAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllLeaveType</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/LeaveTypeForm.jsp</result>
+	        </action>
+	        <action name="deleteLeaveType" method="deleteLeaveType" class="com.gits.rms.action.LeaveTypeAction">
+	       	   <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+			   <result name="success" type="redirectAction">
+		       		<param name="actionName">getAllLeaveType</param>
+		   	   </result>
+	        </action>
+	        <action name="leaveTypeView" method="leaveTypeView" class="com.gits.rms.action.LeaveTypeAction">
+	           <result name="success">/resources/jsp/LeaveTypeView.jsp</result>
+	        </action>
+	        <action name="leaveTypeSearchForm" method="leaveTypeSearchForm" class="com.gits.rms.action.LeaveTypeAction">
+	           <result name="success">/resources/jsp/LeaveTypeSearchForm.jsp</result>
+	        </action>
+	        <action name="leaveTypeSearchResult" method="leaveTypeSearchResult" class="com.gits.rms.action.LeaveTypeAction">
+	           <result name="success">/resources/jsp/LeaveTypeSearchResult.jsp</result>
+	        </action>
+	        <action name="resetLeaveType">
+	           <result name="success" type="redirectAction">
+	       	   		<param name="actionName">setUpLeaveType</param>
+		   	   </result>
+	        </action>
+		<!-- LeaveType CRUD Ends-->
+		
+		<!-- Expenses Type CRUD Starts-->
+			<action name="getAllExpType" method="getAllExpType" class="com.gits.rms.action.ExpensesTypeAction">
+				<result name="success">/resources/jsp/ExpensesType.jsp</result>
+			</action>
+			<action name="setUpInsertOrUpdateExpType" method="setUpInsertOrUpdateExpType" class="com.gits.rms.action.ExpensesTypeAction">
+				<result name="success">/resources/jsp/ExpensesTypeForm.jsp</result>
+			</action>
+			<action name="insertOrUpdateExpType" method="insertOrUpdateExpType" class="com.gits.rms.action.ExpensesTypeAction">
+				<exception-mapping exception="java.lang.Exception" result="input"/>
+				<result name="success" type="redirectAction">
+	       	   		<param name="actionName">getAllExpType</param>
+		   	    </result>
+				<result name="input">/resources/jsp/ExpensesTypeForm.jsp</result>
+			</action>
+			<action name="deleteExpType" method="deleteExpType" class="com.gits.rms.action.ExpensesTypeAction">
+				<result name="success" type="redirectAction">
+	       	   		<param name="actionName">getAllExpType</param>
+		   	    </result>
+			</action>
+			<action name="expensesTypeView" method="expensesTypeView" class="com.gits.rms.action.ExpensesTypeAction">
+	           <result name="success">/resources/jsp/ExpensesTypeView.jsp</result>
+	        </action>
+	        <action name="expTypeSearchForm" method="expTypeSearchForm" class="com.gits.rms.action.ExpensesTypeAction">
+	           <result name="success">/resources/jsp/ExpensesTypeSearchForm.jsp</result>
+	        </action>
+	        <action name="expTypeSearchResult" method="expTypeSearchResult" class="com.gits.rms.action.ExpensesTypeAction">
+	           <result name="success">/resources/jsp/ExpensesTypeSearchResult.jsp</result>
+	        </action>
+	        <action name="resetExpType">
+	           <result name="success" type="redirectAction">
+	       	   		<param name="actionName">setUpInsertOrUpdateExpType</param>
+		   	   </result>
+	        </action>
+		<!-- Expenses Type CRUD Ends-->
+	<!-- Manage Lookup Information Ends-->	
+	
+	<!-- Manage Employee Information Starts-->
+		<!-- Employees CRUD Starts-->
+	        <action name="getAllEmp" method="getAllEmp" class="com.gits.rms.action.EmployeesAction">
+	            <result name="success">/resources/jsp/emp.jsp</result>
+	        </action>
+	        <action name="setUpEmployees" method="setUpEmployees" class="com.gits.rms.action.EmployeesAction">
+	            <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+	        
+	        <action name="setUpEmployeesNEW" method="setUpEmployees" class="com.gits.rms.action.EmployeesAction">
+	           <!--  <result name="success">/resources/jsp/employee.jsp</result> -->
+	           <result name="success">/resources/jsp/employeeNew.jsp</result> 
+	        </action>
+	        
+	        <action name="setUpEmployeesEditTab" method="setUpEmployees" class="com.gits.rms.action.EmployeesAction">
+	            <result name="success">/resources/jsp/empEditForm.jsp</result>
+	        </action>
+	        <action name="setUpEmployeesEditForm" method="setUpEmployeesEditForm" class="com.gits.rms.action.EmployeesAction">
+	            <result name="success">/resources/jsp/empEditTabForm.jsp</result>
+	        </action>
+	        <action name="getEmployeeInformationTab" method="setUpEmployees" class="com.gits.rms.action.EmployeesAction">
+           		<result name="success">/resources/jsp/empEditEmployeeInformationTab.jsp</result>
+			</action>
+			<action name="getEmployeeInformationEditTab" method="setUpEmployeesEditForm" class="com.gits.rms.action.EmployeesAction">
+           		<result name="success">/resources/jsp/empEditEmployeeInformationTab.jsp</result>
+			</action>
+	        <action name="insertOrUpdateEmployees" method="insertOrUpdateEmployees" class="com.gits.rms.action.EmployeesAction">
+			   <interceptor-ref name="fileUploadStack" />
+	           <!--  <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">/resources/jsp/empForm.jsp</result>
+		       <result name="success" type="redirectAction">
+	           		<param name="actionName">setUpEmployeesEditTab</param>
+			        <param name="employee.employeeId">${employee.employeeId}</param>
+	           </result>
+	        </action>
+	        <action name="insertEmployeeProfile" method="insertEmployeeProfile" class="com.gits.rms.action.EmployeeProfileAction">
+			    <interceptor-ref name="fileUploadStack" />
+	          <!--    <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+	        
+	        <action name="UpdateEmployees" method="updateEmployees" class="com.gits.rms.action.EmployeesAction">
+			   <interceptor-ref name="fileUploadStack" />
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="input">/resources/jsp/empEditEmployeeInformationTab.jsp</result>
+	           <!-- <result name="success" type="redirectAction">
+	           		<param name="actionName">setUpEmployeesEditForm</param>
+			        <param name="employee.employeeId">${employee.employeeId}</param>
+	           </result>
+	           -->
+	          <result name="success">/resources/jsp/empEditEmployeeInformationTab.jsp</result>
+	        </action>
+	        
+	        <action name="updateEmployeeProfile" method="updateEmployeeProfile" class="com.gits.rms.action.EmployeeProfileAction">
+			    <interceptor-ref name="fileUploadStack" />
+	          <!--    <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+	        
+            <action name="deleteEmployees" method="deleteEmployees" class="com.gits.rms.action.EmployeesAction">
+	           <result name="success" type="redirectAction">
+	       	   		<param name="actionName">getAllEmp</param>
+		   	   </result>
+	        </action>
+	        
+	        <action name="deleteEmployeeProfile" method="deleteEmployeeProfile" class="com.gits.rms.action.EmployeeProfileAction">
+			    <interceptor-ref name="fileUploadStack" />
+	          <!--    <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+	        
+	        <action name="employeeView" method="employeeView" class="com.gits.rms.action.EmployeesAction">
+	           <result name="success">/resources/jsp/empView.jsp</result>
+	        </action>
+	        
+	        <action name="userImageUpload" method="userImageUpload" class="com.gits.rms.action.EmployeesAction">
+	           <interceptor-ref name="fileUploadStack" />
+	           <result name="input">/resources/jsp/empForm.jsp</result>
+	           <result name="success">/resources/jsp/EmpPictureResult.jsp</result>
+	           <result name="error" >/resources/jsp/empView.jsp</result>
+	        </action>
+	       <action name="userImageDownload" method="userImageDownload" class="com.gits.rms.action.EmployeesAction">
+				<result type="stream">
+					<param name="contentType">text/plain</param>
+					<param name="inputName">inStream</param>
+				</result>
+	        </action> 
+	        <action name="employeeSearchForm" method="employeeSearchForm" class="com.gits.rms.action.EmployeesAction">
+	           <result name="success">/resources/jsp/EmpSearchForm.jsp</result>
+	        </action>
+	        <action name="employeeSearchResult" method="employeeSearchResult" class="com.gits.rms.action.EmployeesAction">
+	           <result name="success">/resources/jsp/EmpSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEmployeeForm">
+	        	<result name="success" type="redirectAction">
+	       	   		<param name="actionName">setUpEmployees</param>
+		   	   </result>
+	        </action>
+	        
+	        <action name="insertOrUpdateEmployeeAsset" method="insertOrUpdateEmployeeAsset" class="com.gits.rms.action.EmployeeAssetAction">
+			    <interceptor-ref name="fileUploadStack" />
+	          <!--    <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+	        
+	        <action name="insertOrUpdateEmployeeShift" method="insertOrUpdateEmployeeShift" class="com.gits.rms.action.EmployeeShiftAction">
+			    <interceptor-ref name="fileUploadStack" />
+	          <!--    <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+	        
+	        
+	        <action name="insertOrUpdateEEO" method="insertOrUpdateEEO" class="com.gits.rms.action.EmployeeEEOAction">
+			    <interceptor-ref name="fileUploadStack" />
+	          <!--    <exception-mapping exception="java.lang.Exception" result="input"/>-->
+	           <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/empForm.jsp</result>
+	        </action>
+		<!-- Employees CRUD Ends-->
+		
+		<!-- Employee Assign Projects CRUD starts -->
+		
+		    <action name="insertOrUpdateEmpProjectAssign" method="insertOrUpdateEmpProjectAssign" class="com.gits.rms.action.EmployeesAction">
+<!-- 			   <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpAssignProj</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/empForm.jsp</result> -->
+	          <result name="input">error.jsp</result>
+		       <result name="success">/resources/jsp/employee.jsp</result>
+
+	        </action>
+	        
+		
+		<!-- Employee Assign Projects CRUD ends -->
+		
+		<!-- User CRUD Starts-->
+	        <action name="getAllUser" method="getAllUser" class="com.gits.rms.action.UserAction">
+	            <result name="success">/resources/jsp/User.jsp</result>
+	        </action>
+	        <action name="setUpUser" method="setUpUser" class="com.gits.rms.action.UserAction">
+	            <result name="success">/resources/jsp/UserForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateUser" method="insertOrUpdateUser" class="com.gits.rms.action.UserAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllUser</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/UserForm.jsp</result>
+	        </action>
+	        <action name="deleteUser" method="deleteUser" class="com.gits.rms.action.UserAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllUser</param>
+		   	   </result>
+	        </action>
+	         <action name="userView" method="userView" class="com.gits.rms.action.UserAction">
+	           <result name="success">/resources/jsp/UserView.jsp</result>
+	        </action>
+			<action name="MenuAction" class="com.gits.rms.action.MenuAction">
+				<result name="success">/resources/jsp/common/menu.jsp</result>  
+	        </action>
+	        <action name="configuration" method="getConfigurationHome" class="com.gits.rms.action.ConfigurationAction">
+				<result name="mailConfiguration">/resources/jsp/MailConfiguration.jsp</result>
+				<result name="client" type="redirectAction">
+           				<param name="actionName">getAllClient</param>
+        		</result>
+				<result name="location">/resources/jsp/Location.jsp</result>
+				<result name="region">/resources/jsp/Region.jsp</result>
+				<result name="salarygrade">/resources/jsp/SalaryGrade.jsp</result>
+				<result name="jobtitle">/resources/jsp/jobTitle.jsp</result>
+				<result name="department">/resources/jsp/Department.jsp</result>
+				<result name="team">/resources/jsp/Team.jsp</result>
+				<result name="nationality">/resources/jsp/nationality.jsp</result>
+				<result name="ethnicrace">/resources/jsp/ethnicRace.jsp</result>
+				<result name="employee" type="redirectAction">
+           				<param name="actionName">getAllEmp</param>
+        		</result>
+				<result name="success">/resources/jsp/em/login.jsp</result>
+			</action>
+			<action name="nextConfigurationAction" method="nextConfigurationAction" class="com.gits.rms.action.ConfigurationAction">
+				<result name="client" type="redirectAction">
+           				<param name="actionName">getAllClient</param>
+        		</result>
+				<result name="location">/resources/jsp/Location.jsp</result>
+				<result name="region">/resources/jsp/Region.jsp</result>
+				<result name="salarygrade">/resources/jsp/SalaryGrade.jsp</result>
+				<result name="jobtitle">/resources/jsp/jobTitle.jsp</result>
+				<result name="department">/resources/jsp/Department.jsp</result>
+				<result name="team">/resources/jsp/Team.jsp</result>
+				<result name="nationality">/resources/jsp/nationality.jsp</result>
+				<result name="ethnicrace">/resources/jsp/ethnicRace.jsp</result>
+				<result name="employee" type="redirectAction">
+           				<param name="actionName">getAllEmp</param>
+        		</result>
+			</action>
+			<action name="skippedPermanently" method="skippedPermanently" class="com.gits.rms.action.ConfigurationAction">
+				<!-- <result name="skippedpermanantely" type="redirectAction">myHome</result> -->
+				<result name="skippedpermanantely">/resources/jsp/common/skip_menu.jsp</result>
+			</action>
+			<action name="skip" method="skip" class="com.gits.rms.action.ConfigurationAction">
+				<!-- <result name="success" type="redirectAction">myHome</result> -->
+				<result name="success">/resources/jsp/common/skip_menu.jsp</result>
+			</action>
+	        <action name="userSearchForm" method="userSearchForm" class="com.gits.rms.action.UserAction">
+	           <result name="success">/resources/jsp/UserSearchForm.jsp</result>
+	        </action>
+	        <action name="userSearchResult" method="userSearchResult" class="com.gits.rms.action.UserAction">
+	           <result name="success">/resources/jsp/UserSearchResult.jsp</result>
+	        </action>
+	        <action name="resetUserForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpUser</param>
+		   	    </result>
+	        </action> 
+		<!-- User CRUD Ends-->
+		
+		<!-- License CRUD Starts-->
+	        <action name="getAllLicense" method="getAllLicense" class="com.gits.rms.action.LicenseAction">
+	            <result name="success">/resources/jsp/license.jsp</result>
+	        </action>
+	        <action name="setUpLicense" method="setUpLicense" class="com.gits.rms.action.LicenseAction">
+	            <result name="success">/resources/jsp/licenseForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateLicense" method="insertOrUpdateLicense" class="com.gits.rms.action.LicenseAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllLicense</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/licenseForm.jsp</result>
+	        </action> 
+	        <action name="deletelicense" method="deletelicense" class="com.gits.rms.action.LicenseAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllLicense</param>
+		   	   </result>
+	        </action> 
+	         <action name="licenseView" method="licenseView" class="com.gits.rms.action.LicenseAction">
+	           <result name="success">/resources/jsp/licenseView.jsp</result>
+	        </action>
+	        <action name="licenseSearchForm" method="licenseSearchForm" class="com.gits.rms.action.LicenseAction">
+	           <result name="success">/resources/jsp/licenseSearchForm.jsp</result>
+	        </action>
+	        <action name="licenseSearchResult" method="licenseSearchResult" class="com.gits.rms.action.LicenseAction">
+	           <result name="success">/resources/jsp/licenseSearchResult.jsp</result>
+	        </action> 
+	        <action name="resetLicenseForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpLicense</param>
+		   	    </result>
+	        </action>
+		<!-- License CRUD Ends-->
+		
+		<!-- Education CRUD Starts-->
+	        <action name="getAllEducation" method="getAllEducation" class="com.gits.rms.action.EducationAction">
+	            <result name="success">/resources/jsp/education.jsp</result>
+	        </action>
+	        <action name="setUpEducation" method="setUpEducation" class="com.gits.rms.action.EducationAction">
+	            <result name="success">/resources/jsp/educationForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEducation" method="insertOrUpdateEducation" class="com.gits.rms.action.EducationAction">
+	        <!-- 	<exception-mapping exception="java.lang.Exception" result="input"/>-->
+	        <!-- <result name="input">/resources/jsp/educationForm.jsp</result>-->
+	        <result name="input">error.jsp</result>
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEducation</param>
+		   	    </result>
+	        </action> 
+	        <action name="deleteEducation" method="deleteEducation" class="com.gits.rms.action.EducationAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEducation</param>
+		   	    </result>
+	        </action> 
+	        <action name="educationView" method="educationView" class="com.gits.rms.action.EducationAction">
+	           <result name="success">/resources/jsp/educationView.jsp</result>
+	        </action>
+	        <action name="educationSearchForm" method="educationSearchForm" class="com.gits.rms.action.EducationAction">
+	           <result name="success">/resources/jsp/educationSearchForm.jsp</result>
+	        </action>
+	        <action name="educationSearchResult" method="educationSearchResult" class="com.gits.rms.action.EducationAction">
+	           <result name="success">/resources/jsp/educationSearchResult.jsp</result>
+	        </action> 
+	        <action name="resetEducationForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEducation</param>
+		   	    </result>
+	        </action>
+		<!-- Education CRUD Ends-->
+		
+		<!-- Children CRUD Starts-->
+	        <action name="getAllChildren" method="getAllChildren" class="com.gits.rms.action.ChildrenAction">
+	            <result name="success">/resources/jsp/children.jsp</result>
+	        </action>
+	        <action name="setUpChildren" method="setUpChildren" class="com.gits.rms.action.ChildrenAction">
+	            <result name="success">/resources/jsp/childrenForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateChildren" method="insertOrUpdateChildren" class="com.gits.rms.action.ChildrenAction">
+	        	<exception-mapping exception="java.lang.Exception" result="input"/>
+	            <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllChildren</param>
+		   	    </result>
+	            <result name="input">/resources/jsp/childrenForm.jsp</result>
+	        </action> 
+	        <action name="deleteChildren" method="deleteChildren" class="com.gits.rms.action.ChildrenAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllChildren</param>
+		   	    </result>
+	        </action> 
+	        <action name="childrenView" method="childrenView" class="com.gits.rms.action.ChildrenAction">
+	           <result name="success">/resources/jsp/childrenView.jsp</result>
+	        </action>
+	        <action name="childrenSearchForm" method="childrenSearchForm" class="com.gits.rms.action.ChildrenAction">
+	           <result name="success">/resources/jsp/childrenSearchForm.jsp</result>
+	        </action>
+	        <action name="childrenSearchResult" method="childrenSearchResult" class="com.gits.rms.action.ChildrenAction">
+	           <result name="success">/resources/jsp/childrenSearchResult.jsp</result>
+	        </action> 
+	        <action name="resetChiForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpChildren</param>
+		   	    </result>
+	        </action>
+		<!-- Children CRUD Ends-->
+		
+		<!-- WorkExperience CRUD Starts-->
+	        <action name="getAllWorkExperience" method="getAllWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+	            <result name="success">/resources/jsp/WorkExperience.jsp</result>
+	        </action>
+	        <action name="setUpWorkExperience" method="setUpWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+	            <result name="success">/resources/jsp/WorkExperienceForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateWorkExperience" method="insertOrUpdateWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllWorkExperience</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/WorkExperienceForm.jsp</result>
+	        </action>
+	           <action name="deleteWorkExperience" method="deleteWorkExperience" class="com.gits.rms.action.WorkExperienceAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllWorkExperience</param>
+		   	   </result>
+	        </action>
+	        <action name="workExperienceView" method="workExperienceView" class="com.gits.rms.action.WorkExperienceAction">
+	           <result name="success">/resources/jsp/WorkExperienceView.jsp</result>
+	        </action>
+	        <action name="workExpSearchForm" method="workExpSearchForm" class="com.gits.rms.action.WorkExperienceAction">
+	           <result name="success">/resources/jsp/WorkExperienceSearchForm.jsp</result>
+	        </action>
+	        <action name="workExpSearchResult" method="workExpSearchResult" class="com.gits.rms.action.WorkExperienceAction">
+	           <result name="success">/resources/jsp/WorkExperienceSearchResult.jsp</result>
+	        </action>
+	        <action name="resetWorkExperienceForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpWorkExperience</param>
+		   	    </result>
+	        </action>
+		<!-- WorkExperience CRUD Ends-->
+		
+		<!-- Employee Location History CRUD Starts-->
+	        <action name="getAllEmpLocationHistory" method="getAllEmpLocationHistory" class="com.gits.rms.action.EmpLocationHistoryAction">
+	            <result name="success">/resources/jsp/EmpLocationHistory.jsp</result>
+	        </action>
+	        <action name="setUpEmpLocationHistory" method="setUpEmpLocationHistory" class="com.gits.rms.action.EmpLocationHistoryAction">
+	            <result name="success">/resources/jsp/EmpLocationHistoryForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEmpLocationHistory" method="insertOrUpdateEmpLocationHistory" class="com.gits.rms.action.EmpLocationHistoryAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpLocationHistory</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/EmpLocationHistoryForm.jsp</result>
+	        </action>
+	        <action name="deleteEmpLocationHistory" method="deleteEmpLocationHistory" class="com.gits.rms.action.EmpLocationHistoryAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpLocationHistory</param>
+		   	   </result>
+	        </action>
+	        <action name="empLocationHistoryView" method="empLocationHistoryView" class="com.gits.rms.action.EmpLocationHistoryAction">
+	            <result name="success">/resources/jsp/EmpLocationHistoryView.jsp</result>
+	        </action>
+	        <action name="empLocHistSearchForm" method="empLocHistSearchForm" class="com.gits.rms.action.EmpLocationHistoryAction">
+	           <result name="success">/resources/jsp/EmpLocationHistorySearchForm.jsp</result>
+	        </action>
+	        <action name="empLocHistSearchResult" method="empLocHistSearchResult" class="com.gits.rms.action.EmpLocationHistoryAction">
+	           <result name="success">/resources/jsp/EmpLocationHistorySearchResult.jsp</result>
+	        </action>
+	        <action name="resetLocationHistoryForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEmpLocationHistory</param>
+		   	    </result>
+	        </action>
+		<!-- Employee Location History CRUD Ends-->
+		
+		<!-- DirectDebit CRUD Starts-->
+	        <action name="getAllDirectDebit" method="getAllDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+	            <result name="success">/resources/jsp/directDebit.jsp</result>
+	        </action>
+	        <action name="setUpDirectDebit" method="setUpDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+	            <result name="success">/resources/jsp/directDebitForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateDirectDebit" method="insertOrUpdateDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllDirectDebit</param>
+		   	    </result>
+	           <result name="input">/resources/jsp/directDebitForm.jsp</result>
+	        </action> 
+	        <action name="deleteDirectDebit" method="deleteDirectDebit" class="com.gits.rms.action.DirectDebitAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllDirectDebit</param>
+		   	    </result>
+		   	    <result name="error">/resources/jsp/directDebit.jsp</result>
+           		<result name="input">/resources/jsp/directDebit.jsp</result>
+	        </action> 
+	        <action name="directDebitView" method="directDebitView" class="com.gits.rms.action.DirectDebitAction">
+	           <result name="success">/resources/jsp/directDebitView.jsp</result>
+	        </action>
+	        <action name="makePreferred" method="makePreferred" class="com.gits.rms.action.DirectDebitAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllDirectDebit</param>
+		   	    </result>
+	        </action>
+	        <action name="directDebitSearchForm" method="directDebitSearchForm" class="com.gits.rms.action.DirectDebitAction">
+	           <result name="success">/resources/jsp/directDebitSearchForm.jsp</result>
+	        </action>
+	        <action name="directDebitSearchResult" method="directDebitSearchResult" class="com.gits.rms.action.DirectDebitAction">
+	           <result name="success">/resources/jsp/directDebitSearchResult.jsp</result>
+	        </action>
+	        <action name="resetDirectDebitForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpDirectDebit</param>
+		   	    </result>
+	        </action>
+		<!-- DirectDebit CRUD Ends-->
+		
+		<!-- Employee Report To Starts-->
+	         <action name="getAllEmployeeReportTo" method="getAllEmployeeReportTo" class="com.gits.rms.action.EmployeeReportToAction">
+	            <result name="success">/resources/jsp/EmployeeReportTo.jsp</result>
+	        </action>
+	        <action name="setUpEmployeeReportTo" method="setUpEmployeeReportTo" class="com.gits.rms.action.EmployeeReportToAction">
+	            <result name="success">/resources/jsp/EmployeeReportToForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEmployeeReportTo" method="insertOrUpdateEmployeeReportTo" class="com.gits.rms.action.EmployeeReportToAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeeReportTo</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/EmployeeReportToForm.jsp</result>
+	        </action>
+	           <action name="deleteEmployeeReportTo" method="deleteEmployeeReportTo" class="com.gits.rms.action.EmployeeReportToAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeeReportTo</param>
+		   	   </result>
+	        </action>
+	        <action name="employeeReportToView" method="employeeReportToView" class="com.gits.rms.action.EmployeeReportToAction">
+	           <result name="success">/resources/jsp/EmployeeReportToView.jsp</result>
+	        </action>
+	        <action name="empReportToSearcForm" method="empReportToSearcForm" class="com.gits.rms.action.EmployeeReportToAction">
+	           <result name="success">/resources/jsp/EmployeeReportToSearchForm.jsp</result>
+	        </action>
+	        <action name="empReportToSearcResult" method="empReportToSearcResult" class="com.gits.rms.action.EmployeeReportToAction">
+	           <result name="success">/resources/jsp/EmployeeReportToSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEmployeeReportToForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEmployeeReportTo</param>
+ 		   	    </result>
+	        </action>
+		<!-- Employee Report To Ends-->
+		
+		<!-- Employee Passport CRUD Starts-->
+	        <action name="getAllEmpPassport" method="getAllEmpPassport" class="com.gits.rms.action.EmpPassportAction">
+	            <result name="success">/resources/jsp/EmpPassport.jsp</result>
+	        </action>
+	        <action name="setUpEmpPassport" method="setUpEmpPassport" class="com.gits.rms.action.EmpPassportAction">
+	            <result name="success">/resources/jsp/EmpPassportForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEmpPassport" method="Passport" class="com.gits.rms.action.EmpPassportAction">
+	        	<exception-mapping exception="java.lang.Exception" result="input"/>
+	            <result name="input">/resources/jsp/EmpPassportForm.jsp</result>
+	            <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpPassport</param>
+ 		   	    </result>
+	        </action>
+	           <action name="deleteEmpPassport" method="deleteEmpPassport" class="com.gits.rms.action.EmpPassportAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpPassport</param>
+ 		   	    </result>
+	        </action>
+	        <action name="empPassportView" method="empPassportView" class="com.gits.rms.action.EmpPassportAction">
+	            <result name="success">/resources/jsp/EmpPassportView.jsp</result>
+	        </action>
+	        <action name="passportSearchForm" method="passportSearchForm" class="com.gits.rms.action.EmpPassportAction">
+	           <result name="success">/resources/jsp/EmpPassportSearchForm.jsp</result>
+	        </action>
+	        <action name="passportSearchResult" method="passportSearchResult" class="com.gits.rms.action.EmpPassportAction">
+	           <result name="success">/resources/jsp/EmpPassportSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEmployeePassportForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEmpPassport</param>
+ 		   	    </result>
+	        </action>
+		<!-- Employee Passport CRUD Ends-->
+		
+		<!-- EmployeeBenefits CRUD Starts-->
+			<action name="getAllBenefit" method="getAllBenefit" class="com.gits.rms.action.BenefitsAction">
+			   <interceptor-ref name="store">
+		         	<param name="operationMode">RETRIEVE</param>
+		       </interceptor-ref>
+			     <result name="success">/resources/jsp/Benefits.jsp</result>
+	        </action>
+	        <action name="setUpBenefit" method="setUpBenefit" class="com.gits.rms.action.BenefitsAction">
+	           <result name="success">/resources/jsp/BenefitsForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateBenefit" method="insertOrUpdateBenefit" class="com.gits.rms.action.BenefitsAction">
+	           <interceptor-ref name="BenefitsCheckStack" />
+	           <interceptor-ref name="store">
+       				 <param name="operationMode">STORE</param>
+   			   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllBenefit</param>
+ 		   	   </result>
+	           <result name="input">/resources/jsp/BenefitsForm.jsp</result>
+	        </action> 
+	        <action name="deleteBenefit" method="deleteBenefit" class="com.gits.rms.action.BenefitsAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllBenefit</param>
+ 		   	   </result>
+	        </action>
+	        <action name="fileDownload" method="fileDownload" class="com.gits.rms.action.BenefitsAction">
+				<result type="stream">
+					<param name="contentType">text/plain</param>
+					<param name="inputName">inStream</param>
+					<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				</result>
+	        </action> 
+	        <action name="benefitView" method="benefitView" class="com.gits.rms.action.BenefitsAction">
+	           <result name="success">/resources/jsp/BenefitsView.jsp</result>
+	        </action>
+	        <action name="benefitSearch" method="benefitSearch" class="com.gits.rms.action.BenefitsAction">
+	           <result name="success">resources/jsp/BenefitsSearch.jsp</result>
+	        </action>
+	        <action name="getAllBenefitYearSearchResult" method="getAllBenefitYearSearchResult" class="com.gits.rms.action.BenefitsAction">
+			     <result name="success">/resources/jsp/BenefitsSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEmployeeBenefitsForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpBenefit</param>
+ 		   	    </result>
+	        </action>
+		<!-- EmployeeBenefits CRUD ends-->
+		
+		<!-- EmployeeLeaveQuota Starts-->
+	        <action name="getAllEmployeeLeaveQuota" method="getAllEmployeeLeaveQuota" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+		       <interceptor-ref name="store">
+		         	<param name="operationMode">RETRIEVE</param>
+		       </interceptor-ref>
+             	<result name="success">/resources/jsp/EmployeeLeaveQuota.jsp</result>
+            	 <result name="input">/resources/jsp/EmployeeLeaveQuota.jsp</result>
+        	 </action>
+	        <action name="setUpEmployeeLeaveQuota" method="setUpEmployeeLeaveQuota" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+            	 <result name="success">/resources/jsp/EmployeeLeaveQuotaForm.jsp</result>
+            	 <result name="error" type="redirectAction">
+          			 <param name="actionName">getAllEmployeeLeaveQuota</param>
+           		</result>
+        	 </action>
+	        <action name="insertOrUpdateEmployeeLeaveQuota" method="insertOrUpdateEmployeeLeaveQuota" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeeLeaveQuota</param>
+ 		   	   </result>
+	           <result name="input">/resources/jsp/EmployeeLeaveQuotaForm.jsp</result>
+	        </action>
+			<action name="deleteEmployeeLeaveQuota" method="deleteEmployeeLeaveQuota" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeeLeaveQuota</param>
+ 		   	   </result>
+	        </action>
+	        <action name="employeeLeaveQuotaView" method="employeeLeaveQuotaView" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+	           <result name="success">/resources/jsp/EmployeeLeaveQuotaView.jsp</result>
+	        </action>
+	        <action name="leaveQuotaSearchForm" method="leaveQuotaSearchForm" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+	           <result name="success">/resources/jsp/EmployeeLeaveQuotaSearchForm.jsp</result>
+	        </action>
+	        <action name="leaveQuotaSearchResult" method="leaveQuotaSearchResult" class="com.gits.rms.action.EmployeeLeaveQuotaAction">
+	           <result name="success">/resources/jsp/EmployeeLeaveQuotaSearchResult.jsp</result>
+	        </action>
+	         <action name="resetLeaveQuota">
+	            <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEmployeeLeaveQuota</param>
+ 		   	    </result>
+	        </action>
+		<!-- EmployeeLeaveQuota Ends-->
+		
+		<!-- Expenses Approver CRUD Starts-->	
+			<action name="getAllExpApprover" method="getAllExpApprover"	class="com.gits.rms.action.ExpensesApproverAction">
+				<result name="success">/resources/jsp/ExpensesApprover.jsp</result>
+			</action>
+			<action name="setUpInsertOrUpdateExpApprover" method="setUpInsertOrUpdateExpApprover" class="com.gits.rms.action.ExpensesApproverAction">	
+				<result name="success">/resources/jsp/ExpensesApproverForm.jsp</result>
+			</action>
+			
+			
+			<action name="insertOrUpdateExpApprover" method="insertOrUpdateExpApprover"	class="com.gits.rms.action.ExpensesApproverAction">	
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllExpApprover</param>
+ 		   	    </result>
+				<result name="input">/resources/jsp/ExpensesApproverForm.jsp</result>
+			</action>
+			
+			
+			<action name="deleteExpApprover" method="deleteExpApprover"	class="com.gits.rms.action.ExpensesApproverAction">	
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllExpApprover</param>
+ 		   	    </result>	
+			</action>
+			<action name="expensesApproverView" method="expensesApproverView" class="com.gits.rms.action.ExpensesApproverAction">
+	           <result name="success">/resources/jsp/ExpensesApproverView.jsp</result>
+	        </action>
+	        <action name="expAppSearchForm" method="expAppSearchForm" class="com.gits.rms.action.ExpensesApproverAction">
+				<result name="success">/resources/jsp/ExpensesApproverSearchForm.jsp</result>
+			</action>
+			<action name="expAppSearchResult" method="expAppSearchResult" class="com.gits.rms.action.ExpensesApproverAction">
+				<result name="success">/resources/jsp/ExpensesApproverSearchResult.jsp</result>
+			</action>
+			<action name="resetExpensesApprover">	
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateExpApprover</param>
+ 		   	    </result>
+			</action>
+		<!-- Expenses Approver CRUD Ends-->
+		
+		<!-- Expenses Accountant Approver CRUD Starts-->
+			<action name="getAllExpAccountantApprover" method="getAllExpAccountantApprover"	class="com.gits.rms.action.ExpensesAccountantApproverAction">
+				<result name="success">/resources/jsp/ExpensesAccountantApprover.jsp</result>
+			</action>
+			<action name="setUpInsertOrUpdateExpAccountantApprover" method="setUpInsertOrUpdateExpAccountantApprover" class="com.gits.rms.action.ExpensesAccountantApproverAction">	
+					<result name="success">/resources/jsp/ExpensesAccountantApproverForm.jsp</result>
+			</action>
+			<action name="insertOrUpdateExpAccountantApprover" method="insertOrUpdateExpAccountantApprover"	class="com.gits.rms.action.ExpensesAccountantApproverAction">		
+				<exception-mapping exception="java.lang.Exception" result="input"/>
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllExpAccountantApprover</param>
+ 		   	    </result>
+				<result name="input">/resources/jsp/ExpensesAccountantApproverForm.jsp</result>
+			</action>
+			<action name="deleteExpAccountantApprover" method="deleteExpAccountantApprover"	class="com.gits.rms.action.ExpensesAccountantApproverAction">	
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllExpAccountantApprover</param>
+ 		   	    </result>	
+			</action>
+			<action name="expAccountantApproverView" method="expAccountantApproverView" class="com.gits.rms.action.ExpensesAccountantApproverAction">
+	           <result name="success">/resources/jsp/ExpensesAccountantApproverView.jsp</result>
+	        </action>
+	        <action name="accountantSearchForm" method="accountantSearchForm" class="com.gits.rms.action.ExpensesAccountantApproverAction">
+	           <result name="success">/resources/jsp/ExpensesAccountantApproverSearchForm.jsp</result>
+	        </action>
+	        <action name="accountantSearchResult" method="accountantSearchResult" class="com.gits.rms.action.ExpensesAccountantApproverAction">
+	        	<result name="success">/resources/jsp/ExpensesAccountantApproverSearchResult.jsp</result>
+	        </action>
+	        <action name="resetExpensesAccountantApprover">	
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateExpAccountantApprover</param>
+ 		   	    </result>
+			</action>
+		<!-- Expenses Accountant Approver CRUD Ends-->
+		
+		<!-- Leave Approver CRUD Starts-->
+			<action name="getAllLeaveApprover" method="getAllLeaveApprover"	class="com.gits.rms.action.LeaveApproverAction">			
+				<result name="success">/resources/jsp/LeaveApprover.jsp</result>
+			</action>		
+			<action name="setUpInsertOrUpdateLeaveApprover" method="setUpInsertOrUpdateLeaveApprover" class="com.gits.rms.action.LeaveApproverAction">			
+				<result name="success">/resources/jsp/LeaveApproverForm.jsp</result>
+			</action>		
+			<action name="insertOrUpdateLeaveApprover" method="insertOrUpdateLeaveApprover" class="com.gits.rms.action.LeaveApproverAction">			
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllLeaveApprover</param>
+ 		   	    </result>
+				<result name="input">/resources/jsp/LeaveApproverForm.jsp</result>
+			</action>
+			<action name="deleteLeaveApprover" method="deleteLeaveApprover"	class="com.gits.rms.action.LeaveApproverAction">
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllLeaveApprover</param>
+ 		   	    </result>
+			</action>
+			<action name="leaveApproverView" method="leaveApproverView" class="com.gits.rms.action.LeaveApproverAction">
+	           <result name="success">/resources/jsp/LeaveApproverView.jsp</result>
+	        </action> 
+	        <action name="leaveAppSearchForm" method="leaveAppSearchForm" class="com.gits.rms.action.LeaveApproverAction">
+				<result name="success">/resources/jsp/LeaveApproverSearchForm.jsp</result>
+			</action>
+			<action name="leaveAppSearchResult" method="leaveAppSearchResult" class="com.gits.rms.action.LeaveApproverAction">
+				<result name="success">/resources/jsp/LeaveApproverSearchResult.jsp</result>
+			</action>
+			<action name="resetLeaveApprover">	
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateLeaveApprover</param>
+	   	    	</result>
+			</action>
+		<!-- Leave Approver CRUD Starts-->
+		
+		<!-- TimeSheet Approver CRUD Starts-->
+			 <action name="getAllTimeSheetApprover" method="getAllTimeSheetApprover" class="com.gits.rms.action.TimeSheetApproverAction">
+				<result name="success">/resources/jsp/TimeSheetApprover.jsp</result>
+			</action>
+			
+			<!--  <action name="getAllTimeSheetApprover" method="getEmployeeAllTimeSheetApprover"	class="com.gits.rms.action.TimeSheetApproverAction">
+				<result name="success">/resources/jsp/TimeSheetApprover.jsp</result>
+			</action>-->
+			
+			<action name="setUpInsertOrUpdateTimeSheetApprover" method="setUpInsertOrUpdateTimeSheetApprover" class="com.gits.rms.action.TimeSheetApproverAction">
+				<result name="success">/resources/jsp/TimeSheetApproverForm.jsp</result>
+				<result name="error">/resources/jsp/TimeSheetApproverForm.jsp</result>
+			</action>
+			
+			
+			<action name="insertOrUpdateTimeSheetApprover" method="insertOrUpdateTimeSheetApprover" class="com.gits.rms.action.TimeSheetApproverAction">
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTimeSheetApprover</param>
+	   	    	</result>
+				<result name="input">/resources/jsp/TimeSheetApproverForm.jsp</result>
+				<result name="error">/resources/jsp/TimeSheetApproverForm.jsp</result>
+			</action>
+			
+			
+			<action name="deleteTimeSheetApprover" method="deleteTimeSheetApprover" class="com.gits.rms.action.TimeSheetApproverAction">
+				<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTimeSheetApprover</param>
+	   	    	</result>
+			</action>
+			 <action name="timesheetApproverView" method="timesheetApproverView" class="com.gits.rms.action.TimeSheetApproverAction">
+	           <result name="success">/resources/jsp/TimeSheetApproverView.jsp</result>
+	        </action>
+	        <action name="timeAppSearchForm" method="timeAppSearchForm" class="com.gits.rms.action.TimeSheetApproverAction">
+	           <result name="success">/resources/jsp/TimeSheetApproverSearchForm.jsp</result>
+	        </action>
+	        <action name="timeAppSearchResult" method="timeAppSearchResult" class="com.gits.rms.action.TimeSheetApproverAction">
+	           <result name="success">/resources/jsp/TimeSheetApproverSearchResult.jsp</result>
+	        </action> 
+         	<action name="resetTimeSheetApprover">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateTimeSheetApprover</param>
+	   	    	</result>
+	        </action>
+		<!-- TimeSheet Approver CRUD Ends-->
+		
+		<!-- TimeSheet Category CRUD Starts -->
+			<action name="getAllTimeSheetCategory" method="getAllTimesheetCategory" class="com.gits.rms.action.TimeSheetCategoryAction">
+			<interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/timeSheetCategory.jsp</result>
+	        </action>
+	        <action name="setUpInsertOrUpdateTimesheetCategory" method="setUpTimesheetCategory" class="com.gits.rms.action.TimeSheetCategoryAction">
+	            <result name="success">/resources/jsp/TimesheetCategoryForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateTimesheetCategory" method="insertOrUpdateTimesheetCategory" class="com.gits.rms.action.TimeSheetCategoryAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTimeSheetCategory</param>
+	   	       </result>
+	           <result name="input">/resources/jsp/TimesheetCategoryForm.jsp</result>
+	        </action> 
+	        <action name="deleteTimesheetCategory" method="deleteTimesheetCategory" class="com.gits.rms.action.TimeSheetCategoryAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTimeSheetCategory</param>
+	   	       </result>
+	        </action> 
+	        <action name="timesheetCategoryView" method="timesheetCategoryView" class="com.gits.rms.action.TimeSheetCategoryAction">
+	           <result name="success">/resources/jsp/timesheetCategoryView.jsp</result>
+	        </action> 
+	        <action name="TimesheetCategorySearch" method="timesheetCategorySearchForm" class="com.gits.rms.action.TimeSheetCategoryAction">
+	           <result name="success">/resources/jsp/timesheetCategorySearchForm.jsp</result>
+	        </action>
+	        <action name="timesheetCategorySearchResult" method="timesheetCategorySearchResult" class="com.gits.rms.action.TimeSheetCategoryAction">
+	           <result name="success">/resources/jsp/timeSheetCategory.jsp</result>
+	        </action>
+	        <action name="resetTimeSheetCategoryForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateTimesheetCategory</param>
+	   	        </result>
+	        </action>
+		<!-- TimeSheet Category CRUD Ends -->
+		
+		<!-- TimeSheet Category Employee CRUD Starts -->
+			<action name="getAllTimeSheetCategoryEmp" method="getAllTimesheetCategoryEmp" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+			    <interceptor-ref name="store">
+                  <param name="operationMode">RETRIEVE</param>
+                </interceptor-ref>
+	            <result name="success">/resources/jsp/TimesheetCategoryEmp.jsp</result>
+	        </action>
+	        <action name="setUpInsertOrUpdateTimesheetCategoryEmp" method="setUpTimesheetCategoryEmp" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+	            <result name="success">/resources/jsp/TimeSheetCategoryEmpForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateTimeSheetCategoryEmp" method="insertOrUpdateTimesheetCategoryEmp" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTimeSheetCategoryEmp</param>
+	   	       </result>
+	           <result name="input">/resources/jsp/TimeSheetCategoryEmpForm.jsp</result>
+	           <result name="error">/resources/jsp/TimeSheetCategoryEmpForm.jsp</result>
+	        </action> 
+	        <action name="deleteTimesheetCategoryEmp" method="deleteTimesheetCategoryEmp" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+	           <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	           <interceptor-ref name="store">
+       			   <param name="operationMode">STORE</param>
+     		   </interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTimeSheetCategoryEmp</param>
+	   	       </result>
+	        </action> 
+	        <action name="timesheetCategoryEmpView" method="timesheetCategoryEmpView" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+	           <result name="success">/resources/jsp/timesheetCategoryEmpView.jsp</result>
+	        </action> 
+	        <action name="TimesheetCategorySearchEmp" method="timesheetCategoryEmpSearchForm" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+	           <result name="success">/resources/jsp/timesheetCategorySearchEmpForm.jsp</result>
+	        </action>
+	        <action name="timesheetCategoryEmpSearchResult" method="timesheetCategoryEmpSearchResult" class="com.gits.rms.action.TimeSheetCategoryEmpAction">
+	           <result name="success">/resources/jsp/TimesheetCategoryEmpSearchResult.jsp</result>
+	        </action>
+	        <action name="resetTimesheetCategoryEmpForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpInsertOrUpdateTimesheetCategoryEmp</param>
+	   	        </result>
+	        </action>
+		<!-- TimeSheet Category Employee CRUD Ends -->
+	<!-- Manage Employee Information Ends-->	
+	
+	<!-- Important News CRUD Starts-->
+        <action name="getAllImportantNews" method="getAllImportantNews" class="com.gits.rms.action.ImportantNewsAction">
+            <result name="success">/resources/jsp/ImportantNews.jsp</result>
+        </action>
+        <action name="setUpImportantNews" method="setUpImportantNews" class="com.gits.rms.action.ImportantNewsAction">
+            <result name="success">/resources/jsp/ImportantNewsForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateImportantNews" method="insertOrUpdateImportantNews" class="com.gits.rms.action.ImportantNewsAction">
+            <result name="success" type="redirectAction">
+   		   		<param name="actionName">getAllImportantNews</param>
+  	        </result>
+            <result name="input">/resources/jsp/ImportantNewsForm.jsp</result>
+        </action> 
+        <action name="deleteImportantNews" method="deleteImportantNews" class="com.gits.rms.action.ImportantNewsAction">
+           <result name="success" type="redirectAction">
+   		   		<param name="actionName">getAllImportantNews</param>
+  	        </result>
+        </action> 
+        <action name="importantNewsView" method="importantNewsView" class="com.gits.rms.action.ImportantNewsAction">
+           <result name="success">/resources/jsp/ImportantNewsView.jsp</result>
+        </action> 
+        <action name="makeChangesToShowMessage" method="makeChangesToShowMessage" class="com.gits.rms.action.ImportantNewsAction">
+           <result name="success" type="redirectAction">
+   		   		<param name="actionName">getAllImportantNews</param>
+  	        </result>
+        </action>
+        <action name="resetImportantNews">
+           <result name="success" type="redirectAction">
+   		   		<param name="actionName">setUpImportantNews</param>
+  	        </result>
+        </action>
+        <action name="importantNewsSearchForm" method="importantNewsSearchForm" class="com.gits.rms.action.ImportantNewsAction">
+            <result name="success">/resources/jsp/ImportantNewsSearchForm.jsp</result>
+        </action>
+        <action name="importantNewsSearchResult" method="importantNewsSearchResult" class="com.gits.rms.action.ImportantNewsAction">
+           <result name="success">/resources/jsp/ImportantNewsSearchResult.jsp</result>
+        </action>
+	<!-- Important News CRUD Ends-->   
+	
+	<!-- Deductions CRUD Starts-->
+		<action name="getAllDeductions" method="getAllDeductions" class="com.gits.rms.action.DeductionsAction">
+			<interceptor-ref name="store">
+       			<param name="operationMode">RETRIEVE</param>
+    		</interceptor-ref>
+	    	<result name="success">/resources/jsp/Deductions.jsp</result>
+	    </action>
+	    <action name="setUpForInsertOrUpdateDeduction" method="setUpForInsertOrUpdateDeduction" class="com.gits.rms.action.DeductionsAction">
+        	<result name="success">/resources/jsp/deductionForm.jsp</result>
+        </action>
+       	<action name="resetDeductionForm">
+        	<result name="success" type="redirectAction">
+    			<param name="actionName">setUpForInsertOrUpdateDeduction</param>
+		   	</result>
+        </action> 
+	    <action name="insertOrUpdateDeduction" method="insertOrUpdateDeduction" class="com.gits.rms.action.DeductionsAction">
+        	<exception-mapping exception="java.lang.Exception" result="input"/>
+            <result name="success" type="redirectAction">
+    			<param name="actionName">getAllDeductions</param>
+		   	</result>
+	        <result name="input">/resources/jsp/deductionForm.jsp</result>
+		</action>
+       	<action name="deductionSearchForm" method="deductionSearchForm" class="com.gits.rms.action.DeductionsAction">
+	    	<result name="success">/resources/jsp/deductionSearchForm.jsp</result>
+        </action>
+        <action name="deductionSearchResult" method="deductionSearchResult" class="com.gits.rms.action.DeductionsAction">
+        	<result name="success">/resources/jsp/deductionSearchResult.jsp</result>
+        </action>
+        <action name="deductionView" method="deductionView" class="com.gits.rms.action.DeductionsAction">
+           	<result name="success">/resources/jsp/deductionView.jsp</result>
+        </action>
+        <action name="deleteDeduction" method="deleteDeduction" class="com.gits.rms.action.DeductionsAction">
+        	<interceptor-ref name="store">
+      			<param name="operationMode">STORE</param>
+    		</interceptor-ref>
+    		<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllDeductions</param>
+	   	   </result>
+        </action>  
+	<!-- Deduction CRUD Ends-->
+
+	<!-- Pay Stub CRUD Starts-->
+		<action name="getAllPayStubs" method="getAllPayStubs" class="com.gits.rms.action.PayStubAction">
+        	<result name="success">/resources/jsp/PayStub.jsp</result>
+	    </action>
+	    <action name="setUpForInsertOrUpdatePayStub" method="setUpForInsertOrUpdatePayStub" class="com.gits.rms.action.PayStubAction">
+	    	<result name="success">/resources/jsp/payStubForm.jsp</result>
+        </action>
+        <action name="insertOrUpdatePayStub" method="insertOrUpdatePayStub" class="com.gits.rms.action.PayStubAction">
+<!--        		<exception-mapping exception="java.lang.Exception" result="input"/>
+ -->       		<result name="success" type="redirectAction">
+   				<param name="actionName">getEmployeePayStub</param>
+   				<param name="payStub.payStubId">${payStub.payStubId}</param>
+    		</result>
+       		<result name="input">/resources/jsp/payStubForm.jsp</result>
+       </action>
+       <action name="getEmployeePayStub" method="getEmployeePayStub" class="com.gits.rms.action.PayStubAction">
+        	<result name="success">/resources/jsp/PayStubEmployeeList.jsp</result>
+	    </action>
+	   <action name="resetPayStubForm">
+        	<result name="success" type="redirectAction">
+      			<param name="actionName">setUpForInsertOrUpdatePayStub</param>
+   	   		</result>
+        </action> 
+	    <action name="payStubSearchForm" method="payStubSearchForm" class="com.gits.rms.action.PayStubAction">
+	    	<result name="success">/resources/jsp/payStubSearchForm.jsp</result>
+        </action>
+        <action name="payStubSearchResult" method="payStubSearchResult" class="com.gits.rms.action.PayStubAction">
+           <result name="success">/resources/jsp/payStubSearchResult.jsp</result>
+        </action>
+        <action name="payStubView" method="payStubView" class="com.gits.rms.action.PayStubAction">
+           <result name="success">/resources/jsp/payStubView.jsp</result>
+        </action>
+        <action name="deletePayStub" method="deletePayStub" class="com.gits.rms.action.PayStubAction">
+        	<result name="success" type="redirectAction">
+      			<param name="actionName">getAllPayStubs</param>
+   	   		</result>
+       </action>  
+	<!-- PayStub CRUD Ends-->
+	
+	<!-- PayStub Deduction CRUD Starts-->
+	        <action name="getAllEmployeePayStubsDeduction" method="getAllEmployeePayStubsDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+	            <result name="success">/resources/jsp/PayStubEmployeeList.jsp</result>
+	        </action>
+	        <action name="setUpPayStubDeduction" method="setUpPayStubDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+	            <result name="success">/resources/jsp/PayStubEmployeeList.jsp</result>
+	            <result name="input">/resources/jsp/PayStubEmployeeList.jsp</result>
+	        </action>
+	        <action name="insertOrUpdatePayStubDeduction" method="insertOrUpdatePayStubDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeePayStubsDeduction</param>
+	       			<param name="payStubDeduction.payStub.payStubId">${payStubDeduction.payStub.payStubId}</param>
+	       			<param name="payStub.payStubId">${payStub.payStubId}</param>
+		   	    </result>
+	           <result name="input">/resources/jsp/PayStubEmployeeList.jsp</result>
+	           <result name="error">/resources/jsp/PayStubEmployeeList.jsp</result>
+	        </action> 
+	        <action name="deletePayStubDeduction" method="deletePayStubDeduction" class="com.gits.rms.action.PayStubDeductionAction">
+	             <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmployeePayStubsDeduction</param>
+	       			<param name="payStubDeduction.payStub.payStubId">${payStubDeduction.payStub.payStubId}</param>
+	       			<param name="payStub.payStubId">${payStub.payStubId}</param>
+		   	    </result>
+	        </action> 
+	        <action name="payStubDeductionView" method="payStubDeductionView" class="com.gits.rms.action.PayStubDeductionAction">
+	           <result name="success">/resources/jsp/payStubDeductionView.jsp</result>
+	        </action> 
+		<!-- PayStub Deduction CRUD Ends-->
+			 
+		<!-- Target & Goal CRUD Starts-->
+	        <action name="getAllTargets" method="getAllTargets" class="com.gits.rms.action.TargetsAction">
+	            <result name="success">/resources/jsp/Targets.jsp</result>
+	        </action>
+	        <action name="setUpTargets" method="setUpTargets" class="com.gits.rms.action.TargetsAction">
+	        	<result name="success">/resources/jsp/TargetsForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateTargets" method="insertOrUpdateTargets" class="com.gits.rms.action.TargetsAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTargets</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/TargetsForm.jsp</result>
+	        </action>
+	        <action name="deleteTargets" method="deleteTargets" class="com.gits.rms.action.TargetsAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTargets</param>
+		   	   </result>
+		   	</action>
+		   	<action name="viewTargets" method="viewTargets" class="com.gits.rms.action.TargetsAction">
+	           <result name="success">/resources/jsp/TargetsView.jsp</result>
+	        </action>
+	        <action name="targetsSearchForm" method="targetsSearchForm" class="com.gits.rms.action.TargetsAction">
+	        	<result name="success">/resources/jsp/TargetsSearchForm.jsp</result>
+	        </action>
+	        <action name="targetsSearchResult" method="targetsSearchResult" class="com.gits.rms.action.TargetsAction">
+	        <exception-mapping exception="java.lang.Exception" result="input"/>
+	        	<result name="success">/resources/jsp/TargetsSearchResult.jsp</result>
+	        	<result name="input">/resources/jsp/TargetsSearchForm.jsp</result>
+	        </action>
+	        <action name="resetTarget">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpTargets</param>
+		   	   </result>
+	        </action>
+			<action name="getAllGoal" method="getAllGoal" class="com.gits.rms.action.TargetsAction">
+	        	<result name="success">/resources/jsp/Goal.jsp</result>
+	        </action>
+	        <action name="setUpGoalForm" method="setUpGoalForm" class="com.gits.rms.action.TargetsAction">
+	        	<result name="success">/resources/jsp/GoalForm.jsp</result>
+	        </action>
+	        <action name="setUpGoalDialogForm" method="setUpGoalForm" class="com.gits.rms.action.TargetsAction">
+	        	<result name="success">/resources/jsp/GoalNameForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateGoal" method="insertOrUpdateGoal" class="com.gits.rms.action.TargetsAction">
+	        <exception-mapping exception="java.lang.Exception" result="input"/>
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllGoal</param>
+		   	   </result>
+	        	<result name="input">/resources/jsp/GoalForm.jsp</result>
+	        </action>
+	        <action name="insertGoal" method="insertOrUpdateGoal" class="com.gits.rms.action.TargetsAction">
+	        	<exception-mapping exception="java.lang.Exception" result="input"/>
+	        	<result name="GOALNAMEDIV">/resources/jsp/GoalNameTagDiv.jsp</result>
+	        	<result name="input">/resources/jsp/GoalNameTagDiv.jsp</result>
+	        </action>
+	        <action name="deleteGoal" method="deleteGoal" class="com.gits.rms.action.TargetsAction">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">getAllGoal</param>
+		   	   </result>
+		   	</action>
+	        <action name="getAllEmpTarget" method="getAllEmpTarget" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpTarget.jsp</result>
+	        </action>
+	        <action name="setUpEmpAddTargetGoal" method="setUpEmpAddTargetGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpTargetAndGoalForm.jsp</result>
+	        </action>
+	        <action name="setUpViewTargetGoal" method="setUpViewTargetGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpTargetAndGoalSearch.jsp</result>
+	        </action>
+	        <action name="getAllEmpTargetAndGoal" method="getAllEmpTargetAndGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpTargetAndGoal.jsp</result>
+	        </action>
+	        <action name="getEmpProjectActivity" method="getEmpProjectActivity" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpProjectActivityDiv.jsp</result>
+	        </action>
+	        <action name="getEmployeeTargetAndGoal" method="getEmployeeTargetAndGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result type="stream">
+	    			<param name="contentType">text/html</param>
+	    			<param name="inputName">inStream</param>
+	  			</result>
+	        </action>
+	        <action name="insertOrUpdateEmpTargetGoal" method="insertOrUpdateEmpTargetGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpViewTargetGoal</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/EmpTargetAndGoalForm.jsp</result>
+	        </action>
+	        <action name="viewEmpTarget" method="viewEmpTargetAndGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpTargetView.jsp</result>
+	        </action>
+	        <action name="viewEmpTargetAndGoal" method="viewEmpTargetAndGoal" class="com.gits.rms.action.EmpTargetAndGoalAction">
+	        	<result name="success">/resources/jsp/EmpTargetAndGoalView.jsp</result>
+	        </action>
+	        <action name="resetEmpTargetGoalForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEmpAddTargetGoal</param>
+		   	   </result>
+	        </action>
+	    <!-- Target & Goal CRUD Starts-->
+	    
+	    <!-- Target Type CRUD Starts-->
+	        <action name="getAllTargetType" method="getAllTargetType" class="com.gits.rms.action.TargetTypeAction">
+	         <interceptor-ref name="store">
+                 <param name="operationMode">RETRIEVE</param>
+             </interceptor-ref>
+	            <result name="success">/resources/jsp/targetType.jsp</result>
+	        </action>
+	        <action name="setUpTargetType" method="setUpTargetType" class="com.gits.rms.action.TargetTypeAction">
+	            <result name="success">/resources/jsp/targetTypeForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateTargetType" method="insertOrUpdateTargetType" class="com.gits.rms.action.TargetTypeAction">
+	           <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTargetType</param>
+		   	    </result>
+	           <result name="input">/resources/jsp/targetTypeForm.jsp</result>
+	        </action> 
+	        <action name="deleteTargetType" method="deleteTargetType" class="com.gits.rms.action.TargetTypeAction">
+	           		<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	          	 	<interceptor-ref name="store">
+       			   		<param name="operationMode">STORE</param>
+     		   		</interceptor-ref>
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllTargetType</param>
+		   	   </result>
+	        </action> 
+	        <action name="targetTypeView" method="targetTypeView" class="com.gits.rms.action.TargetTypeAction">
+	           <result name="success">/resources/jsp/targetTypeView.jsp</result>
+	        </action> 
+	        <action name="targetTypeSearchForm" method="targetTypeSearchForm" class="com.gits.rms.action.TargetTypeAction">
+	           <result name="success">/resources/jsp/targetTypeSearchForm.jsp</result>
+	        </action>
+	        <action name="targetTypeSearchResult" method="targetTypeSearchResult" class="com.gits.rms.action.TargetTypeAction">
+	           <result name="success">/resources/jsp/targetTypeSearchResult.jsp</result>
+	        </action>
+	        <action name="resetTargetType">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">setUpTargetType</param>
+		   	   </result>
+	        </action>
+		<!-- Target Type CRUD Ends-->
+	</package>
+	<include file="loginHomeAndOthers.xml"/>
+</struts>
+
+

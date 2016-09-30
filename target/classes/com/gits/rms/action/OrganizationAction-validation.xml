@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="org.orgName">
+  <field-validator type="requiredstring" short-circuit="true">
+	    <param name="trim">true</param>
+   		<message key="errors.org.name"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.org.name"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.org.name"></message>
+  </field-validator>
+</field>
+ 
+<field name="org.location.hcmolocationId">
+  <field-validator type="required">
+   		<message key="errors.location.name"></message>
+  </field-validator>
+</field>
+ 
+<field name="org.orgtype.hcmoorgTypeId">
+  <field-validator type="required">
+   		<message key="errors.orgType.name"></message>
+  </field-validator>
+</field>
+ 
+</validators>

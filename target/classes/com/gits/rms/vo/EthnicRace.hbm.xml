@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EthnicRaceVO" table="hcmo_ethnic_race">
+     <id
+        name="ethnicRaceId"
+        type="integer"
+        column="HcmoEthnicRaceId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+     <property
+        name="ethnicRaceDesc"
+        type="text"
+        column="EthnicRaceDesc"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+      </class>
+</hibernate-mapping>

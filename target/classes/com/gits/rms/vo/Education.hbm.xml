@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EducationVO" table="hcmo_emp_education">
+     <id
+        name="empEducationId"
+        type="integer"
+        column="HcmoEmpEducationId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+     <property
+        name="eduMajor"
+        type="string"
+        column="EduMajor"
+        length="100"
+    />
+    <property
+        name="eduYear"
+        type="integer"
+        column="EduYear"
+        length="4"
+    />
+     <property
+        name="eduGrade"
+        type="string"
+        column="EduGpa"
+        length="25"
+    />
+     <property
+        name="eduStartDate"
+        type="date"
+        column="EduStartDate"
+    />
+     <property
+        name="eduEndDate"
+        type="date"
+        column="EduEndDate"
+    />
+     <property
+        name="eduUniversity"
+        type="string"
+        column="EduUni"
+        length="100"
+    />
+    <property
+        name="eduDegree"
+        type="string"
+        column="EduDeg"
+        length="60"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    <property
+        name="gradStatus"
+        type="boolean"
+        column="gradStatus"
+    />
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+     </class>
+</hibernate-mapping>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.SupportVO" table="hcmo_support">
+     <id
+        name="supportId"
+        type="integer"
+        column="HcmoSupportId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+    <property
+        name="empFullName"
+        type="string"
+        column="SupportEmpFullName"
+        length="100"
+    />
+    <property
+        name="empEmail"
+        type="string"
+        column="SupportEmpEmail"
+        length="100"
+    />
+     <property
+        name="priority"
+        type="string"
+        column="SupportPriority"
+        length="60"
+    />
+    <property
+        name="supportMailSubject"
+        type="string"
+        column="Subject"
+        length="256"
+    />
+    <property
+        name="supportMailMessage"
+        type="text"
+        column="Message"
+    />
+    <property
+        name="supportAttachFileName"
+        type="string"
+        column="AttachFileName"
+        length="100"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+</class>
+</hibernate-mapping>

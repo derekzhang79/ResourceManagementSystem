@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EmployeeEEOVO" table="hcmo_emp_eeo">
+     <id
+        name="HcmoEEOId"
+        type="integer"
+        column="HcmoEEOId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+  
+    <property
+       name="maritalStatus"
+       type="string" 
+       column="maritalStatus"
+       length="100"
+    />
+    
+    <property
+       name="dependents"
+       type="int"
+       column="dependents"
+       length="11"
+    />
+    
+    <property
+       name="dependDetail"
+       type="string"
+       column="dependDetail"
+       length="255"
+    />
+    
+    <property
+       name="veteran"
+       type="string"
+       column="veteran"
+       length="100"
+    />
+    
+    <property
+        name="militaryStatus"
+        type="string"
+        column="militaryStatus"
+        length="100"
+     />
+     
+     <property
+        name="disability"
+        type="string"
+        column="disability"
+        length="100"
+     />
+     
+     <property
+         name="emergenConName"
+         type="string"
+         column="emergenConName"
+         length="100"
+     />
+     
+     <property
+         name="emergenPhNo"
+         type="int"
+         column="emergenPhNo"
+         length="20"
+     />
+     
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    
+    <property 
+    	name="clientId"
+    	type="integer"
+    	column="HcmoClientId"
+    	length="11" 
+    	/>
+    
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+        <property 
+    	name="ethnicDocumentId"
+    	type="integer"
+    	column="ethnicDocumentId"
+    	length="11" 
+    	/>
+    	
+    	    <property 
+    	name="veteranDocumentId"
+    	type="integer"
+    	column="veteranDocumentId"
+    	length="11" 
+    	/>
+    	
+    	    <property 
+    	name="militaryDocumentId"
+    	type="integer"
+    	column="militaryDocumentId"
+    	length="11" 
+    	/>
+    	
+    	    <property 
+    	name="disabilityDocumentId"
+    	type="integer"
+    	column="disabilityDocumentId"
+    	length="11" 
+    	/>
+        
+    <many-to-one name="employee" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+    <many-to-one name="ethnicRaceIdObj" column="HcmoEthnicRaceId" lazy="false" class="com.gits.rms.vo.EthnicRaceVO"/>
+<!--     <many-to-one name="ethnicDocumentIdObj" column="ethnicDocumentId" lazy="false" class="com.gits.rms.vo.DocumentVO"/>    
+    <many-to-one name="veteranDocumentIdObj" column="veteranDocumentId" lazy="false" class="com.gits.rms.vo.DocumentVO"/>    
+    <many-to-one name="militaryDocumentIdObj" column="militaryDocumentId" lazy="false" class="com.gits.rms.vo.DocumentVO"/>    
+    <many-to-one name="disabilityDocumentIdObj" column="disabilityDocumentId" lazy="false" class="com.gits.rms.vo.DocumentVO"/>  -->
+    <many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+</class>
+</hibernate-mapping>

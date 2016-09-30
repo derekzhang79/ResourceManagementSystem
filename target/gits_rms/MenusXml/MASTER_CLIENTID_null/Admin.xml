@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+*    HCM One - web based HR solution that centralizes the functions of time, leave, expense and 
+*    organizes documents, messaging by web and mobile 
+*    Copyright (C) <2012> <RoosterHR-www.roosterhr.com>
+*    <http://www.hcmone.com/opensource/> 
+*    <support@roosterhr.com>
+*
+*    This program is free software: you can redistribute it and/or modify
+*    it under the terms of the GNU General Public License as published by
+*    the Free Software Foundation, either version 3 of the License, or
+*    (at your option) any later version.
+*
+*    This program is distributed in the hope that it will be useful,
+*    but WITHOUT ANY WARRANTY; without even the implied warranty of
+*    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*    GNU General Public License for more details.
+*
+*    You should have received a copy of the GNU General Public License
+*    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<Menu>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Home]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[employeeView.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Country]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateCountry.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllCountry.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Nationality]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpNationality.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllNationality.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[EthnicRace]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEthnicRace.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEthnicRace.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Project]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpProject.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllProjects.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Customer]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpCustomer.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllCustomer.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Holiday]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpHoliday.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllHoliday.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[SalaryGrade]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpSalaryGrade.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllSalaryGrade.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[JobTitle]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpJobTitle.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllJobTitle.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Client]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpClient.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllClient.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[LeaveType]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpLeaveType.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllLeaveType.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[LeaveQuota]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEmployeeLeaveQuota.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmployeeLeaveQuota.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[LeaveApprover]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateLeaveApprover.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllLeaveApprover.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Region]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateRegion.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllRegion.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Employee]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEmployees.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmp.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Department]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpDepartment.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllDepartment.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Team]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpTeam.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllTeam.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Currency]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpCurrency.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllCurrency.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Salary]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpSalary.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllSalary.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[License]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpLicense.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllLicense.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Education]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEducation.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEducation.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ProjectActivity]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpProjectActivity.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllProjectActivity.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Children]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpChildren.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllChildren.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[DirectDebit]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpDirectDebit.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllDirectDebit.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[WorkExperience]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpWorkExperience.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllWorkExperience.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ReportTo]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEmployeeReportTo.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmployeeReportTo.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[LocationHistory]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEmpLocationHistory.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmpLocationHistory.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Role]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpRole.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllRole.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[User]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpUser.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllUser.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[EmployeeUSTax]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEmpUSTax.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmpUSTax.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ExpensesApprover]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateExpApprover.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllExpApprover.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ExpensesAccountant]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateExpAccountantApprover.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllExpAccountantApprover.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[TimeSheetApprover]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateTimeSheetApprover.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllTimeSheetApprover.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ESS]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[employeeView.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ExpenseModule]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[getAllEmpExpenses.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[LeaveModule]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[getAllLeaveTab.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[TimeSheetModule]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[showTimeSheetOptions.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Location]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpLocation.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllLocation.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[ExpenseType]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpInsertOrUpdateExpType.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllExpType.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[EmployeeStatus]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpForInsertOrUpdateEmpStatus.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmployeeStatus.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[EmployeePassport]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpEmpPassport.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllEmpPassport.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Benefits]]></Label>
+      <Add><![CDATA[true]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[true]]></Update>
+      <Delete><![CDATA[true]]></Delete>
+      <UrlRoot />
+      <UrlAdd><![CDATA[setUpBenefit.action]]></UrlAdd>
+      <UrlView><![CDATA[getAllBenefit.action]]></UrlView>
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Logout]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[doLogout.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[OrgChart]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[ModalFrameListOrgChartBase.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Reports]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[menuReports.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[Messaging]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[menuMessaging.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+  <MenuItem>
+    <None>
+      <Label><![CDATA[EmployeeSpace]]></Label>
+      <Add><![CDATA[false]]></Add>
+      <View><![CDATA[true]]></View>
+      <Update><![CDATA[false]]></Update>
+      <Delete><![CDATA[false]]></Delete>
+      <UrlRoot><![CDATA[SubMenuEmployeeSpace.action]]></UrlRoot>
+      <UrlAdd />
+      <UrlView />
+    </None>
+  </MenuItem>
+</Menu>
+

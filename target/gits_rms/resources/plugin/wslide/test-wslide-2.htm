@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>wSlide - tests avec effets</title>
+		<script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.easing.1.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.wslide.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function(){
+				/*====================== Exemple basique ======================*/
+				$("#parent1").wslide({
+					width: 450,
+					height: 200,
+					duration: 2000,
+					effect: 'easeOutBounce'
+				});
+				/*====================== Exemple 2 ======================*/
+				$("#parent2").wslide({
+					width: 250,
+					height: 250,
+					pos: 4,
+					horiz: true,
+					duration: 4000,
+					effect: 'easeOutElastic'
+				});
+				/*====================== Exemple 3 ======================*/
+				$("#parent3").wslide({
+					width: 250,
+					height: 300,
+					col: 4,
+					autolink: 'menu3',
+					duration: 4000,
+					effect: 'easeOutExpo'
+				});
+				
+
+				  $("#ma_liste").wslide({
+			            width: 250,
+			            height: 250,
+			            autolink:true
+			    });
+			});
+			
+			
+			
+		</script>
+		<link rel="stylesheet" href="ext_files/style.css" type="text/css" media="screen" charset="utf-8" />
+		<style type="text/css" media="screen">
+		
+			#ma_liste li{
+				background: #000000;
+				padding: 5px;
+				color: #ffffff;
+			}
+			#ma_liste-menu a.wactive{
+				padding: 0px 2px;
+				background: #000000;
+				color: #eeeeee;
+			}
+		
+		
+/*====================== Exemple basique ======================*/
+			#parent1 li{
+				background: #000000;
+				padding: 5px;
+				color: #ffffff;
+			}
+			#parent1-menu a.wactive{
+				padding: 0px 2px;
+				background: #000000;
+				color: #eeeeee;
+			}
+			/*====================== Exemple 2 ======================*/
+			#parent2-wrap{
+				border: 1px solid gray;
+			}
+			#parent2 li{
+				background: #F2F2F2;
+				padding: 15px;
+				margin: 5px;
+			}
+			#parent2-menu a.wactive{
+				font-weight: bold;
+			}
+			/*====================== Exemple 3 ======================*/
+			#parent3 li{
+				background: gray;
+				padding: 10px;
+				color: white;
+			}
+			#menu3 a.wactive{
+				padding: 0 3px;
+				border: 1px solid gray;
+			}
+		</style>
+	</head>
+	<body><h1>wSlide - tests avec effets</h1>
+		<div class="container" >
+			<div class="warning">
+				<strong>/!\</strong> <ins><em><a href='http://www.webinventif.fr/wslide-plugin/'>Revenir à la page d'accueil du plugin wSlide</a></em></ins><br />
+				<strong>/!\</strong> Autres pages de demo: <ins><em><a href='index.htm'>wSlide - tests sans effets</a></em></ins> | <ins><em><a href='test-wslide-3.htm'>wSlide - tests avancés</a></em></ins><br />
+				<strong>/!\</strong> N'oubliez pas d'integrer le fichier <ins><em><a href='http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js'>jquery.easing.js</a></em></ins> (<ins><em><a href='http://gsgd.co.uk/sandbox/jquery/easing/'>Auteur</a></em></ins>)<br />
+				<strong>/!\</strong> Pour les styles css des exemples, explorez le code source de la page, ils sont écrit en dur et séparés distinctement !
+			</div>
+			<br /><hr /><hr />
+			<!-- ====================== Exemple basique ====================== -->
+			<h2>Exemple basique</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				Idem que <ins><em><a href='test-wslide-1.htm#parent1'>cet exemple</a></em></ins>, mais avec une durée de 2 secondes et un effet de rebond.
+<pre>$("#parent1").wslide({
+	width: 450,
+	height: 200,
+	duration: 2000,
+	effect: 'easeOutBounce'
+});</pre>
+			</div>
+			<div>
+				<ul id="parent1">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<br /><hr />
+			<!-- ====================== Exemple 2 ====================== -->
+			<h2>Exemple 2</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				Idem que <ins><em><a href='test-wslide-1.htm#parent2'>cet exemple</a></em></ins>, mais avec une durée de 4 secondes et un effet elastique.
+<pre>$("#parent2").wslide({
+	width: 250,
+	height: 250,
+	pos: 4,
+	horiz: true,
+	duration: 4000,
+	effect: 'easeOutElastic'
+});</pre>
+			</div>
+			<div>
+				<ul id="parent2">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<br /><hr />
+			<!-- ====================== Exemple 3 ====================== -->
+			<h2>Exemple 3</h2>
+			<div class="code">
+				<h4>Code et explications</h4>
+				Idem que <ins><em><a href='test-wslide-1.htm#parent3'>cet exemple</a></em></ins>, mais avec une durée de 4 secondes et un effet de ralentissement.
+<pre>$("#parent3").wslide({
+	width: 250,
+	height: 300,
+	col: 4,
+	autolink: 'menu3',
+	duration: 4000,
+	effect: 'easeOutExpo'
+});</pre>
+			</div>
+			<div id="menu3">Ici viendra se placer le menu de navigation</div>
+			<div>
+				<ul id="parent3">
+					<li>Lorem ipsum ad delenit omittam his, habeo justo ad sea! Eu mel volumus noluisse disputando! Cu prompta moderatius sit? Et iuvaret suavitate vix, ne eum audiam luptatum, nam in epicuri adipisci scripserit.</li>
+					<li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+					<li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+					<li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+					<li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+					<li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+					<li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+					<li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+				</ul>
+			</div>
+			<br /><hr /><hr />
+			<div class="warning">
+				<strong>/!\</strong> <ins><em><a href='http://www.webinventif.fr/wslide-plugin/'>Revenir à la page d'accueil du plugin wSlide</a></em></ins><br />
+				<strong>/!\</strong> Autres pages de demo: <ins><em><a href='index.htm'>wSlide - tests sans effets</a></em></ins> | <ins><em><a href='test-wslide-3.htm'>wSlide - tests avancés</a></em></ins><br />
+				<strong>/!\</strong> N'oubliez pas d'integrer le fichier <ins><em><a href='http://gsgd.co.uk/sandbox/jquery/easing/jquery.easing.1.3.js'>jquery.easing.js</a></em></ins> (<ins><em><a href='http://gsgd.co.uk/sandbox/jquery/easing/'>Auteur</a></em></ins>)<br />
+				<strong>/!\</strong> Pour les styles css des exemples, explorez le code source de la page, ils sont écrit en dur et séparés distinctement !
+			</div>
+			
+			<div class="wslide-wrap">
+							<ul id="ma_liste">
+								        <li>Copy the code in the text area below and place this into the <head> of your html document.</li>
+								        <li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+								        <li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+								        <li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+								        <li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+								        <li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+								        <li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+								        <li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+								        
+								         <li>Copy the code in the text area below and place this into the <head> of your html document.</li>
+								        <li>His ad copiosae erroribus, has eu mucius cotidieque concludaturque. No appareat iracundia complectitur eum, pri an euismod corrumpit, zzril animal mnesarchum id sed. Ex duis erat persius est, ne vis assum timeam tamquam, rebum quaeque civibus in qui. Populo animal dissentiunt in eos. Ludus molestie ut vix, eum eros lobortis id.</li>
+								        <li>Quodsi dissentiunt cu eos, duo cu clita veritus, mei quot velit scriptorem ea? At kasd dolorum facilisi per, te discere inermis patrioque duo. Integre nominati sapientem has et? Ad erat essent ius, pro quando menandri definitiones te?</li>
+								        <li>Indoctum moderatius cum te? In dictas hendrerit eam. Vel meliore fuisset perpetua et? Nibh debitis erroribus mea te, sed cu virtute volutpat periculis. Omnium integre philosophia ut quo, et detracto honestatis sed.</li>
+								        <li>In eum natum facete, in eum vero vidit consectetuer. Alii oportere signiferumque id nam, mandamus recteque pro at? Eu perpetua sadipscing pro, pro omittam invenire ex. Sit no nemore omnium accommodare, sit in idque inani! Ut quo ubique dictas nostrud. Eum at quis pericula repudiandae, usu ne ornatus explicari vulputate.</li>
+								        <li>Simul tantas nostrum at has, his id postulant cotidieque, in eum omnium mediocrem moderatius! Pro oratio scriptorem ei, causae accusata est te. Ex quod nonummy has, usu et omnium probatus deterruisset! Ea impetus percipit takimata has. No qui probo dolore convenire. Et conceptam intellegat sententiae sit, has ex tota nobis.</li>
+								        <li>Nostrum volutpat cu ius. Sed affert aliquyam ea? An quo verear accumsan voluptaria. Id graeci audire sit.</li>
+								        <li>Pri petentium definitiones ad? Utinam delenit eos ex? Vim ea discere officiis conclusionemque, ad his lorem ponderum praesent? Ut vim consul timeam iracundia, mel civibus posidonium et, nam ea audire evertitur. An docendi pertinacia eum, utroque officiis his ne?</li>
+								</ul>
+						</div>
+						<div id="ma_liste-menu" class="wslide-menu">
+						
+						</div>		
+			
+			
+		</div>
+	</body>
+</html>

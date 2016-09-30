@@ -1,0 +1,51 @@
+html, body  {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: black;
+    background-color: white;
+    font-family: Verdana, Arial, sans-serif;
+    font-size:11px;
+}
+
+.nowrap { white-space:nowrap; }
+
+A { color:black; text-decoration:none;}
+A:link { text-decoration:none;}
+A:visited { text-decoration:none;}
+A:hover { text-decoration:none; color: black;}
+
+.borderAll {
+    border: 1px solid #BCBCBC;width:90%;
+}
+
+.borderAllExp {
+    border: 1px solid #BCBCBC;width:100%;
+}
+
+.borderAll th{
+	text-align:left; font-weight:bold; font-size:11px; padding-right:10px; background-color: #000; color: #fff;
+}
+.borderAll td{
+	font-size:11px; padding-right:10px;
+}
+
+
+.butStnd {
+    font-family:arial,sans-serif;
+    font-size:11px;
+    width:105px;
+    background-color:#DCDFFA ;color:#4A825A;font-weight:bold;
+}
+
+.error {
+    color: black;
+    font-weight: bold;
+}
+.errorSection {
+    padding-left:18px;
+    padding-top:2px;
+    padding-bottom:10px;
+    padding-right:5px;
+}
+

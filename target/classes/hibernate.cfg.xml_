@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+  "-//Hibernate/Hibernate Configuration DTD//EN"
+  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.useUnicode">true</property>
+		<property name="connection.characterEncoding">UTF-8</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+ 	    <property name="connection.url">jdbc:mysql://localhost:3306/hirevault_master_db</property>
+		<property name="connection.username">root</property>
+	    <property name="connection.password">Pass3o6d</property>
+		<property name="hibernate.connection.pool_size">10</property>
+		<property name="show_sql">false</property>
+		
+		<property name="connection.isolation">2</property>
+		<property name="connection.isolation.level">Serializable</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+
+		<mapping resource="com/gits/rms/vo/EmployeeStatus.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Nationality.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EthnicRace.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/License.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Education.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Project.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Customer.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ProjectActivity.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/JobTitle.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Children.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/DirectDebit.hbm.xml" />
+
+		<mapping resource="com/gits/rms/vo/Employees.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Country.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Region.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Location.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Organization.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/OrganizationType.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Salary.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/SalaryGrade.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Signature.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Client.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/WorkExperience.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmployeeReportTo.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Holiday.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmpUSTax.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmpPassport.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Role.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/User.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Benefits.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmpLocationHistory.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Vendor.hbm.xml" />
+		
+	<!-- Start of Events Module -->	
+		<mapping resource="com/gits/rms/vo/Events.hbm.xml" />
+	<!-- End of Events Module -->
+	
+	<!-- Start of TimeSheet Module -->
+		<mapping resource="com/gits/rms/vo/TimeSheetApprover.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/TimeSheetAttachment.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/TimeTrack.hbm.xml" />
+	<!-- End of TimeSheet Module -->
+	<!-- Start of Expenses Module -->
+		<mapping resource="com/gits/rms/vo/ExpensesType.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ExpensesDetails.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmployeeExpenses.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ExpensesApprover.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ExpensesAccountantApprover.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ExpensesAttachment.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ExpenseStatusTracker.hbm.xml" />
+	<!-- End of Expenses Module -->
+	<!-- Start of Leave Approver -->
+		<mapping resource="com/gits/rms/vo/LeaveApprover.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmployeeLeaveQuota.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/LeaveType.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/LeaveHistory.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/LeaveReqsApproval.hbm.xml" />
+	<!-- End of Leave Approver -->
+
+		<mapping resource="com/gits/rms/vo/Message.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Department.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Team.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/EmpSpace.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/MailConfiguration.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/TimesheetCategory.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/TimesheetCategoryEmp.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/TimeSheetCategoryAssign.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/TimeSheetProjectAssign.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ProjectAssignEmp.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/Currency.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/ImportantNews.hbm.xml" />
+		
+	<!-- Start of Deductions -->
+		<mapping resource="com/gits/rms/vo/Deductions.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/PayStub.hbm.xml" />
+		<mapping resource="com/gits/rms/vo/PayStubDeductions.hbm.xml" />
+	<!-- End of Deductions -->
+		
+</session-factory>
+</hibernate-configuration>

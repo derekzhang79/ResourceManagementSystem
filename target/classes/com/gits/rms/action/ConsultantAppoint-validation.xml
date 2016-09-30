@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="appDate">
+  <field-validator type="required">
+   		<message key="Please Enter The Start Date"></message>
+  </field-validator>
+ </field>
+
+<field name="dueDate">
+  <field-validator type="required">
+   		<message key="Please Enter The Due Date"></message>
+  </field-validator>
+ </field>
+ 
+</validators>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator Config 1.0//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-config-2.0.dtd">
+    	<validators>
+ <field name="username">
+  <field-validator type="requiredstring">
+   <param name="trim">true</param>
+   <message key="errors.username.required"></message>
+  </field-validator>
+ </field>
+ <field name="password">
+  <field-validator type="requiredstring">
+   <param name="trim">true</param>
+   <message key="errors.password.required"></message>
+  </field-validator>
+ </field>
+  <field name="captchacode">
+  <field-validator type="requiredstring">
+   <param name="trim">true</param>
+   <message key="errors.captcha.required"></message>
+  </field-validator>
+ </field>
+</validators>

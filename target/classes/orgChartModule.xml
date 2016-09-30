@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="orgChartModule" extends="default">
+	
+	<!-- OrgChart Starts -->
+		<action name="orgChartEmployeeTab" method="getOrgChartEmployeeTab" class="com.gits.rms.action.EmployeesAction">
+			<result name="LOOGEDINEMPLOYEE">/resources/jsp/orgChartEmployee.jsp</result>
+           <result name="success">/resources/jsp/OrgChartEmployeeTab.jsp</result>
+        </action>
+        <action name="getOrgChartEmployeeTsApproverTab" method="getOrgChartEmployeeTsApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartTimeSheetApprover.jsp</result>
+        </action><!--
+         <action name="getOrgChartEmployeeBenefitTab" method="getOrgChartEmployeeBenefitTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartBenefits.jsp</result>
+        </action>
+         --><action name="orgChartEmpView" method="orgChartEmpView" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartEmployeeView.jsp</result>
+        </action>
+	   <action name="showOrgChart" method="getAllEmpGrouped" class="com.gits.rms.action.EmployeesAction">
+	       <result name="success">/resources/jsp/OrgChart.jsp</result>
+	   </action>
+	   <action name="orgChartFrameContent">
+	   	   <result name="success">/resources/html/OrgChartEmp.html</result>
+	   </action>
+	<!-- OrgChart Ends -->
+	
+	<!-- New OrgChart -->
+		<action name="orgChartNewApproverTab" method="getOrgChartEmployeeNewLeaveID" class="com.gits.rms.action.EmployeesAction">
+	   		<result name="success">/resources/jsp/OrgChartEmployeeApproverTab.jsp</result>
+	   </action>
+	   <action name="orgChartLeaveApproverNewTab" method="getOrgChartEmployeeNewLeaveID" class="com.gits.rms.action.EmployeesAction">
+	   		<result name="success">/resources/jsp/OrgChartEmployeeLeaveApproverTab.jsp</result>
+	   </action>
+	    <action name="orgChartEmployeeLeaveApproverNewTab" method="getOrgChartEmployeeLeaveApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartLeaveApprover.jsp</result>
+        </action>
+        <action name="orgChartEmployeeLeaveAppSubEmployeeNewTab" method="getOrgChartSubEmployeeLeaveApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartLeaveSubEmployee.jsp</result>
+        </action>
+        
+        <action name="orgChartExpenseApproverNewTab" method="getOrgChartEmployeeNewExpensesID" class="com.gits.rms.action.EmployeesAction">
+	   		<result name="success">/resources/jsp/OrgChartEmployeeExpenseApproverTab.jsp</result>
+	   </action>
+	    <action name="orgChartEmployeeExpenseApproverNewTab" method="getOrgChartEmployeeExpenseApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartExpensesApprover.jsp</result>
+        </action>
+        <action name="orgChartSubEmployeeExpensesApproverNewTab" method="getOrgChartSubEmployeeExpensesApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartExpensesSubEmployee.jsp</result>
+        </action>
+         <action name="orgChartTimesheetApproverNewTab" method="getOrgChartEmployeeNewTimeSheetID" class="com.gits.rms.action.EmployeesAction">
+	   		<result name="success">/resources/jsp/OrgChartEmployeeTimesheetApproverTab.jsp</result>
+	    </action>
+	     <action name="orgChartEmployeeTimesheetApproverNewTab" method="getOrgChartEmployeeTsApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartTimeSheetApprover.jsp</result>
+        </action>
+        <action name="orgChartSubEmployeeTimesheetsApproverNewTab" method="getOrgChartSubEmployeeTsApproverTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartTimeSheetSubEmployee.jsp</result>
+        </action>
+        <action name="orgChartLeaveQuotaNewTab" method="getOrgChartEmployeeNewLeaveID" class="com.gits.rms.action.EmployeesAction">
+	   		<result name="success">/resources/jsp/OrgChartEmployeeLeaveQuotaTab.jsp</result>
+	   </action>
+	   <action name="orgChartEmployeeLeaveQuotaNewTab" method="getOrgChartEmployeeLeaveQuotaTab" class="com.gits.rms.action.EmployeesAction">
+           <result name="success">/resources/jsp/OrgChartEmployeeLeaveQuota.jsp</result>
+       </action>
+       <action name="orgChartSubEmployeeLeaveQuotaNewTab" method="getOrgChartSubEmployeeLeaveQuotaTab" class="com.gits.rms.action.EmployeesAction">
+          <result name="success">/resources/jsp/OrgChartSubEmployeeLeaveQuota.jsp</result>
+       </action>
+       <action name="orgChartBenefitNewTab" method="getOrgChartEmployeeBenefitTab" class="com.gits.rms.action.EmployeesAction">
+         <result name="success">/resources/jsp/OrgChartBenefits.jsp</result>
+       </action>
+		
+	<!-- New OrgChart -->
+	
+	</package>
+</struts>
+

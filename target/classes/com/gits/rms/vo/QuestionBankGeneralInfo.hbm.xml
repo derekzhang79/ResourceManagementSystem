@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.QuestionBankGeneralInfoVO" table="hcmo_question_general_info">
+	 	<id
+		 	name="hcmoQuestionGeneralInfoId"
+		 	type="integer"
+		 	length="11"
+		 	column="HcmoQuestionGeneralInfoId">
+		 	
+		 	<generator class="native"></generator>
+		 	
+		 </id>
+		 <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		 
+		 <property 
+		 	name="employeeType"
+		 	type="string"
+		 	length="100"
+		 	column="EmployeeType"
+		 />
+		 
+		 <property 
+		 	name="status"
+		 	type="string"
+		 	length="100"
+		 	column="Status"
+		 />
+		 
+		  <property 
+		 	name="approvingEmpComments"
+		 	type="string"
+		 	length="100"
+		 	column="ApprovingEmpComments"
+		 />
+		 
+		 <property 
+		 	name="adminComments"
+		 	type="string"
+		 	length="100"
+		 	column="AdminComments"
+		 />
+		 
+		 <property 
+		 	name="performanceIndStartDate"
+		 	type="date"
+		 	column="PerformanceIndStartDate"
+		 />
+		 
+		 <property 
+		 	name="performanceIndEndDate"
+		 	type="date"
+		 	column="PerformanceIndEndDate"
+		 />
+		 
+		  <property 
+		 	name="created"
+		 	type="date"
+		 	column="Created"
+		 />
+		 
+		 <property 
+		 	name="updated"
+		 	type="timestamp"
+		 	column="Updated"
+		 />
+		 
+		<property
+        	name="isActive"
+        	type="integer"
+        	column="IsActive"
+        	length="1"
+    	/>
+		 
+		 <many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoQuestionBankId" column="HcmoQuestionGroupNameId" lazy="false" class="com.gits.rms.vo.QuestionBankVO"/>
+		 <many-to-one name="hcmoEmployeeId" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="peerEmployeeId" column="PeerEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoTeamId" column="HcmoTeamId" lazy="false" class="com.gits.rms.vo.TeamVO"/>
+		 <many-to-one name="hcmoJobTitleId" column="HcmoJobTitleId" lazy="false" class="com.gits.rms.vo.JobTitleVO"/>
+		 <many-to-one name="hcmoDepartmentId" column="HcmoDepartmentId" lazy="false" class="com.gits.rms.vo.DepartmentVO"/>
+		 <many-to-one name="hcmoQuestionGroupNameIdentificationId" column="HcmoQuestionGroupNameIdentifiId" lazy="false" class="com.gits.rms.vo.QuestionGroupNameIdentificationVO"/>
+		 <many-to-one name="hcmoQuestionGeneralInfoGroup" column="HcmoQuestionGeneralInfoGroupId" lazy="false" class="com.gits.rms.vo.QuestionGeneralInfoGroupVO"/>
+		 <many-to-one name="hcmoApprovingEmpId" column="HcmoApprovingEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoAdminId" column="HcmoAdminId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	</class>
+	</hibernate-mapping>
+	

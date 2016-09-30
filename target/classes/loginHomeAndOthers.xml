@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="loginHomeAndOthers" extends="default">
+	<interceptors>
+	<interceptor-stack name="requirementFileUploadStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="profiling" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">2097152</param>
+                    <param name="allowedExtensions">.doc,.docx,.xls,.rtf,.pdf,.ppt,.txt</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+                    <param name="excludeParams"> dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+	 </interceptors>
+
+		<!-- Login Form Configuration Starts -->
+		
+
+		<action name="showLogin" class="com.gits.rms.PreLogin">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/resources/jsp/hcmone/login.jsp</result>
+			<result name="DEACTIVATEDCLIENT">/resources/jsp/hcmone/deactivatedLink.jsp
+			</result>
+			<result name="NOTKNOWN">/resources/jsp/hcmone/UnKnownError.jsp</result>
+		</action>
+		<action name="doLogin" class="com.gits.rms.Login">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="input">/resources/jsp/hcmone/login.jsp</result>
+			<result name="error">/resources/jsp/hcmone/login.jsp</result>
+			<result name="SaasContract">/resources/jsp/saasHome.jsp</result>
+			<result type="redirectAction">myHome</result>
+		</action>
+		<action name="doLogout" method="doLogout" class="com.gits.rms.Logout">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success" type="redirectAction">
+				<param name="actionName">showLogin</param>
+			</result>
+		</action>
+		<action name="sessionExpires" method="doLogout"
+			class="com.gits.rms.Logout">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/resources/jsp/common/sessionexpires.jsp</result>
+		</action>
+		<action name="forgotPassword">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/resources/jsp/hcmone/ForgotPassword.jsp</result>
+		</action>
+		<action name="checkUser" class="com.gits.rms.ForgotPassword">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="input">/resources/jsp/hcmone/ForgotPassword.jsp</result>
+			<result name="error">/resources/jsp/hcmone/ForgotPassword.jsp</result>
+			<result>/resources/jsp/hcmone/PasswordSent.jsp</result>
+		</action>
+		<action name="requestResetPassword" method="requestResetPassword"
+			class="com.gits.rms.ResetPassword">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="error">/resources/jsp/hcmone/login.jsp</result>
+			<result name="success">/resources/jsp/hcmone/ResetPassword.jsp</result>
+		</action>
+		<action name="resetPassword" method="resetPassword"
+			class="com.gits.rms.ResetPassword">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="input">/resources/jsp/hcmone/ResetPassword.jsp</result>
+			<result name="error">/resources/jsp/hcmone/ResetPassword.jsp</result>
+			<result>/resources/jsp/hcmone/login.jsp</result>
+		</action>
+		<!-- Login Form Configuration Ends -->
+		
+		<!-- New client signup -->
+		<action name="signup">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/resources/jsp/hcmone/SignUp.jsp</result>
+		</action>
+		<action name="addModule" method="clientRegistration" class="com.gits.rms.Signup">
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
+		    <result name="success">/resources/jsp/hcmone/addModule.jsp</result>
+        	<result name="DEACTIVATEDCLIENT">/resources/jsp/hcmone/deactivatedLink.jsp</result>
+        	<result name="NOTKNOWN">/resources/jsp/hcmone/UnKnownError.jsp</result>
+        </action>
+        <action name="addClient" method="updateModuleId" class="com.gits.rms.Signup">
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="success">/resources/jsp/billing/addPayment.jsp</result>
+        	<result name="NOTKNOWN">/resources/jsp/hcmone/UnKnownError.jsp</result>
+        </action>
+        <action name="verificationAction" method="activateAccount" class="com.gits.rms.Signup">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/resources/jsp/hcmone/activationSuccess.jsp</result>
+		</action>
+
+
+
+		<!-- New SubDomain Creation Starts -->
+		<action name="hcmoneAddNewSubdomain"
+			class="com.gits.rms.action.HCMOneNewSubDomainAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="success">/resources/jsp/hcmone/createNewSubDomain.jsp
+			</result>
+		</action>
+		<!-- New SubDomain Creation Ends -->
+
+		<!-- Saas Contract Start -->
+		<action name="acceptSaasContract" class="com.gits.rms.action.SaasContractAction">
+			<result name="success" type="chain">myHome</result>
+			<result name="input">/resources/jsp/saasHome.jsp</result>
+			<result name="error">/resources/jsp/saasHome.jsp</result>
+		</action>
+		<action name="downloadSaasContract" class="com.gits.rms.action.SaasContractedDownload">
+			<exception-mapping exception="java.lang.Exception"
+				result="INPUT" />
+			<result name="success" type="stream">
+				<param name="contentType">${contentType}</param>
+				<param name="inputName">inStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">${bufferSize}</param>
+			</result>
+			<result name="INPUT">/resources/jsp/saasContractFileNotFound.jsp
+			</result>
+		</action>
+		<!-- Saas Contract End -->
+		<!-- Captcha Starts -->
+		<action name="getCaptchaImage">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/resources/jsp/hcmone/mcap.jsp</result>
+		</action>
+		<!-- Captcha Ends -->
+
+		<!-- Home Page CRUD Starts -->
+		<action name="homePage" method="homePage"
+			class="com.gits.rms.action.HomePageAction">
+			<result name="success">/resources/jsp/homePage.jsp</result>
+		</action>
+
+		<action name="myHome" method="getHome"
+			class="com.gits.rms.action.EmployeesAction">
+			<!-- <result>/resources/jsp/Home.jsp</result> -->
+			<result>/resources/jsp/dashboard.jsp</result>
+		</action>
+		<!-- Home Page CRUD Ends -->
+
+		<!-- Ajax Calls To Load Combo's Starts -->
+		<action name="loadApproverName" method="getAllLeaveApproverName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getRegionDetails" method="getRegionDetails"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getProjectDetails" method="getProjectDetails"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getCityRegion" method="getRegionDetails"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getDeductionDetails" method="getDeductionDetails"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getDeductionAmount" method="getDeductionAmount"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getProjectEstimatedHours" method="getProjectEstimatedHours"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getRemainingProjectActivityHours" method="getRemainingProjectActivityHours"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getProjectActivityEstimatedHours" method="getProjectActivityEstimatedHours"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadEmpName" method="getAllEmployeeName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadExpAppName" method="getAllExpAppName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadCustomerName" method="getAllCustomerName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadOrganizationName" method="getAllOrganizationName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadSalaryGradeName" method="getAllSalaryGradeName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadLocationName" method="getAllLocationName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadOrgTypeName" method="getAllOrgTypeName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadEthnicRaceName" method="getAllEthnicRaceName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadNationalityName" method="getAllNationalityName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadRoleName" method="getAllRoleName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadJobTitleName" method="getAllJobTitleName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadProjectName" method="getAllProjectName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadSubEmployeeName" method="getAllSubEmployeeName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="loadLeaveName" method="getAllLeaveName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getAllSubCategoryName" method="getAllSubCategoryName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getAllQuestionBankName" method="getAllQuestionBankName"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<action name="getAllApproversSubEmployeeList" method="getAllApproversSubEmployeeList"
+			class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+		<!-- Ajax Calls To Load Combo's Ends -->
+
+		<!-- Menu Starts -->
+		<action name="SetUp">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/SetUp.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart1">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part1.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2UserInfo">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2UserInformation.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2OrgInfo">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2OrganizationInfo.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2EmpDynmInfo">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2EmpDynamicInfo.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2MainProjInfo">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2ProjectInformation.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2SubProjDetails">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2ProjectDetails.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2TargetAndGoalsInfo">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2TargetAndGoalsInfo.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2GeneralConfigInfo">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2GeneralConfigInfo.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart2TaxAndDeductions">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part2TaxandDeductions.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart3">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part3.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart3InformationTab">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part3InformationTab.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart3TrancationTab">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part3TransactionInfoTab.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart3ApproverTab">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part3ApproverInfoTab.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart3TimesheetCategoryTab">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part3TimesheetCategoryInfoTab.jsp</param>
+			</result>
+		</action>
+		<action name="MenuPart4">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/tabbedmenu/Part4.jsp</param>
+			</result>
+		</action>
+		<action name="SubMenu*">
+			<result>/resources/jsp/tabbedmenu/SubMenu{1}.jsp</result>
+		</action>
+		<action name="menuReports">
+			<result>/resources/jsp/ReportsTab.jsp</result>
+		</action>
+		<action name="menuMessaging">
+			<result>/resources/jsp/MessageTab.jsp</result>
+		</action>
+		<action name="menuEmployeeSpace">
+			<result>/resources/jsp/EmpSpaceTabs.jsp</result>
+		</action>
+		<action name="ModalFrame*">
+			<result type="dispatcher">
+				<param name="location">/resources/jsp/modals/ModalFrame{1}.jsp</param>
+			</result>
+		</action>
+		<action name="calendar">
+			<result>/resources/jsp/calendar.jsp</result>
+		</action>
+		<action name="showTimeSheetTabs">
+			<result name="success">/resources/jsp/TimesheetTab.jsp</result>
+		</action>
+		<action name="supportTab">
+			<result>/resources/jsp/SupportTab.jsp</result>
+		</action>
+		<action name="helpTab">
+			<result>/resources/jsp/HelpTab.jsp</result>
+		</action>
+		<action name="helpMainTab">
+			<result>/resources/jsp/Videos.jsp</result>
+		</action>
+		<action name="faqTab">
+			<result>/resources/jsp/faq.jsp</result>
+		</action>
+		<action name="aboutHCMOneTab">
+			<result>/resources/jsp/aboutHCMOne.jsp</result>
+		</action>
+		<action name="forumTab">
+			<result>/resources/jsp/forum.jsp</result>
+		</action>
+		<!-- <action name="upgradeHCMOne"> <result>/resources/jsp/upgradeHCMOne.jsp</result> 
+			</action> -->
+		<!-- Menu Ends -->
+
+		<!-- DashBoard tabbed Pannel -->
+		<action name="leaveCount" method="getLeaveForApproval"
+			class="com.gits.rms.action.LeaveReqsApprovalAction">
+			<result name="success">/resources/jsp/LeaveHomePageCount.jsp</result>
+		</action>
+		<action name="expenseCount" method="getExpensesForApproval"
+			class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpenseHomePageCount.jsp</result>
+		</action>
+		<action name="timeSheetCount" method="getTimeSheetForApproval"
+			class="com.gits.rms.action.TimesheetViewAction">
+			<result name="success">/resources/jsp/TimeSheetHomePageCount.jsp
+			</result>
+		</action>
+		<action name="empCalendar">
+			<result>/resources/jsp/common/calendar.jsp</result>
+		</action>
+		<!-- DashBoard tabbed Pannel -->
+
+		<!-- Theme Starts -->
+		<action name="ApplyTheme" class="com.gits.rms.ApplyTheme">
+			<result name="success" type="redirectAction">
+				<param name="actionName">myHome</param>
+			</result>
+		</action>
+		<!-- Theme Ends -->
+
+		<!-- Support Starts -->
+		<action name="doSupport" method="setUpSupport"
+			class="com.gits.rms.action.SupportAction">
+			<result name="success">/resources/jsp/SupportForm.jsp</result>
+		</action>
+		<action name="supportUpload" method="supportUpload"
+			class="com.gits.rms.action.SupportAction">
+			<result name="success">/resources/jsp/SupportSuccessForm.jsp</result>
+		</action>
+		<action name="resetSupportForm" method="resetSupport"
+			class="com.gits.rms.action.SupportAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">doSupport</param>
+			</result>
+		</action>
+		<!-- Support Ends -->
+
+		<!-- Upgrade to enterprice version Starts -->
+		<action name="upgradeHCMOne" method="setUpUpgradation"
+			class="com.gits.rms.action.UpgradationAction">
+			<result name="success">/resources/jsp/UpgradationForm.jsp</result>
+		</action>
+		<action name="upgradationMail" method="upgradationMail"
+			class="com.gits.rms.action.UpgradationAction">
+			<result name="success">/resources/jsp/upgradeHCMOne.jsp</result>
+		</action>
+		<!-- Upgrade to enterprice version Ends -->
+	</package>
+</struts>
+

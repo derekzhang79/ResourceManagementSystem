@@ -1,0 +1,463 @@
+
+/************* Login Landing page Css ***************/
+
+
+body.utility-page { padding-right: 0 !important; height: 100%;}
+
+/*body.utility-page #main { background: #fff;}*/
+
+body { height: 100%;}
+
+.allcp-form.theme-primary.LandingPage .panel { background: inherit;}
+
+#login {  float: right; margin: 0 !important; }
+
+.LoginPage #content_wrapper #content { padding: 0;}
+
+body.LoginPage #content .allcp-form { background: #fff none repeat scroll 0 0;   height: 789px; text-align: center; width: 380px;}
+
+body.LoginPage #content .panel { display: inline-block; float: none; margin: 80px 0 0; text-align: left; width: 320px; }
+
+body.utility-page #content .LandingPage { float: right; margin: 0; width: auto; }
+
+#content .LandingPage .landing_page { float: right; margin: 0; padding: 0; }
+
+.col-md-12.mb40.Landing_Cnt { margin: 100px 0; }
+
+.col-md-12.mb40.Landing_Cnt .col-sm-9.col-md-9 { background: #fff none repeat scroll 0 0; float: none; margin: 0 auto; padding: 50px; }
+
+h2.media-heading { color: #797978; font: 700 20px/24px "Lato" !important; margin-bottom: 15px !important; }
+
+.row { float: left; margin: 0; width: 100%; }
+
+.section.sec4 a.forgot_pass { color: #626262; font-size: 14px; line-height: 24px; }
+
+
+
+/************* /Login Landing page Css  ***************/
+
+
+
+
+/*************** Logo Css **************/
+
+
+.hcmone_logo img { display: inline-block; float: none; }
+
+
+/*************** /Logo Css **************/
+
+
+/*************** Login & Signup Css ***********/
+
+.btn { line-height: 20px !important;}
+
+.section.sec4 { float: left; margin: 10px 0 0 !important; width: 100%; }
+
+#form-login .btn.btn-bordered.btn-primary { margin-left: 0; width: 100%; }
+
+#form-login .section.sec4 { margin: 0 !important; }
+
+.form-login .btn.btn-bordered.btn-primary { margin-left: 0; width: 100%; }
+
+.form-login .section.sec4 { margin: 0 !important; }
+
+#login .section.sec4 .pt5 { padding-top: 0 !important; }
+
+.panel-title { color: #797978 !important;}
+
+.section.sec4 a { color: #505050; font-size: 16px; }
+
+.panel-body.pn .section input:hover { border-color: #919191; }
+
+.panel-body.pn .section select:hover { border-color: #919191 !important; }
+
+.panel-body.pn .section input:focus { outline-color: #919191; }
+
+/* .allcp-form.theme-primary .gui-input:focus, .allcp-form.theme-primary .gui-textarea:focus, .allcp-form.theme-primary .select > select:focus, .allcp-form.theme-primary .select-multiple select:focus { border-color: transparent !important; } */
+
+.allcp-form .btn-primary { background-color: #f57d2c !important; font-weight: bold; }
+
+.allcp-form .btn-primary:hover, .allcp-form .btn-primary:focus { background-color: #f57d2c !important; border-color: #f57d2c !important; }
+
+html .bg-primary { background-color: inherit !important;}
+
+body.utility-page #content .panel { border: medium none; box-shadow: none; }
+
+body.utility-page #content #sign-up { float: right; margin: 0; }
+
+#content.SignUp_page { padding: 0;  }
+
+#content .panel-body.pn { margin-top: 15px; }
+
+#content #sign-up .panel.panel-primary { margin-bottom: 0; border-radius: 0; padding: 30px 26px; height: 790px; }   
+
+.allcp-form .btn-primary, .allcp-form .btn-primary:hover, .allcp-form .btn-primary:focus, .allcp-form .btn-primary:active { margin-left: 10px; }
+
+#sign-up .mt10 { margin-top: 0 !important; }
+
+.allcp-form .section.Social_Icon { float: left; width: 100%; text-align: center; margin: 15px 0 0; }
+
+.Social_Icon ul { display: inline-block; float: none; margin: 0 auto; padding: 0 0 5px; width: 120px; border-bottom: 1px dashed #bbb; }
+
+.Social_Icon ul li { display: inline; float: none; list-style: outside none none; margin: 0 3px;}
+
+#content .allcp-form .field-icon i { color: #929392; }
+
+.allcp-form .section.row { margin-bottom: 0; }
+
+.allcp-form .section .col-md-6.ph10 { margin-bottom: 22px; }
+
+.allcp-form { line-height: 20px !important;}
+
+.panel-primary > .panel-heading > .panel-title { color: #797978; }
+
+.radio-custom.radio-primary label::before, .checkbox-custom.checkbox-primary label::before { border-color: #929392;}
+
+.radio-custom.radio-primary input[type="radio"]:checked + label::after, .radio-custom.radio-primary input[type="checkbox"]:checked + label::after, .checkbox-custom.checkbox-primary input[type="checkbox"]:checked + label::after, .checkbox-custom.checkbox-primary input[type="radio"]:checked + label::after { background-color: #929392;
+    color: #929392;}
+
+.social-icon i { color: #929392; }
+
+body.signUp_landing #main { background: #2d494d url("../img/patterns/backgrounds/singup-dummybg.jpg") no-repeat scroll center center / cover ;
+    height: 100%;
+    overflow: hidden; }
+    
+.allcp-form .btn-primary a { color: #fff; }
+.SignUp_page .section.row .col-md-6.ph10:first-child { padding-left: 0 !important;}
+.SignUp_page .section.row .col-md-6.ph10:last-child { padding-right: 0 !important;}
+.SignUp_page .checkbox-custom input[type="checkbox"]:checked + label::after { font-size: 16px; left: 2px; top: 1px; }
+
+
+
+
+    /************ Accoordian Css ***************/
+    
+        .panel-group .panel-heading a.collapsed::after {
+            content: "+";
+        }
+        .panel-group .panel-heading a::after {
+            content: "-";
+            font-size: 30px;
+            position: absolute;
+            right: 0px;
+            top: 0;
+        }
+        .Login_Module #collapseOne .panel-body { padding: 0;}
+        .Login_Module #collapseOne #form-order .panel-body { border: none;}
+        .Login_Module .panel.panel-default { padding: 0; }
+        
+        .Login_Module .panel-heading { padding: 12px 13px;}
+        
+        .Login_Module #collapseTwo .panel-body { padding: 0;}
+        .Login_Module .panel { padding: 0; }
+        
+        .panel-title > a:hover, .panel-title > a:focus { text-decoration: none;}
+        
+        #accordion h4 a { color: #2a2f43; font: 700 20px/24px "Lato"; text-transform: capitalize;}
+    
+        .allcp-form .panel-title.UpdateBill {font: 700 18px/24px "Lato"; text-transform: capitalize; margin: 5px 0; padding: 10px;}
+    
+    
+        
+    
+    
+    /************ /Accoordian Css ***************/
+
+/*************** /Login & Signup Css ***********/
+
+
+/*************** Modal popup Css ***********/
+
+.modal-footer { background: #fff; border-top: none; padding: 0 25px 49px;}
+
+.modal-footer .btn.btn-bordered.btn-primary.Sign-Up { background: #f57d2c; font-size: 14px; font-weight: 600; }
+
+.modal-header .close { margin: 0; position: absolute;  right: 15px; top: 10px; }
+
+.section.PayMentOpt { padding: 0 10px; }
+
+#exampleModal1 .modal-dialog { width: 800px; }
+
+#exampleModal .modal-body { padding: 0 15px; }
+
+#exampleModal1 .modal-body { padding: 0 15px; }
+
+#exampleModal .modal-body .panel, #exampleModal1 .modal-body .panel { border: none;}
+
+.modal-header { margin-bottom: 15px; border-bottom: 1px dashed #ddd; padding: 20px 15px;}
+
+#exampleModal .allcp-form .panel { margin-bottom: 0; }
+
+#exampleModal1 .allcp-form .panel { margin-bottom: 0; }
+
+#order .panel-body.pn .field.option.mb5 {
+    margin-bottom: 0 !important;
+}
+
+.modal-footer .btn + .btn { margin-left: 10px;}
+
+
+.Mod_Selection .w40 {
+    float: left;
+    width: auto;
+    padding: 6px 0;
+}
+.Mod_Selection p {
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    float: left;
+    /*font-size: 20px;*/ font-size: 14px;
+    line-height: 25px;
+    margin: 0 15px 0 0;
+    padding: 7px 10px;
+    text-align: center;
+    width: 155px;
+    height: 41px;
+}
+.Mod_Selection label {
+    float: left;
+    width: auto; padding-right: 0 !important; 
+}
+.Mod_Selection label > input {
+    height: 34px !important;
+    width: 34px !important;
+}
+.section.row.Mod_Selection {
+    float: left;
+    margin: 0 0 20px !important; width: 100%;
+}
+
+.Mod_Selection .img-responsive {
+    max-width: 30px !important;
+}
+.Mod_Selection .allcp-form .checkbox::before {
+    height: 7px;
+    left: 8px !important;
+    top: 10px;
+    width: 20px;
+}
+
+.checkbox-custom input[type="checkbox"]:checked + label::after, .checkbox-custom input[type="radio"]:checked + label::after { font-size: 20px; left: 8px; top: 10px; transform: rotate(-4deg);}
+
+.Mod_Selection .checkbox-custom label::before { height: 40px; width: 40px;}
+    
+.Mod_Selection .checkbox-custom.checkbox-primary label::before { border-color: #80dae5; }
+
+.Mod_Selection .checkbox-custom.checkbox-primary input[type="checkbox"]:checked + label::after { color: #80dae5;}
+
+.allcp-form .checkbox-custom.checkbox-primary.mb5 { margin: 0 !important; }
+
+.section.row > h3 { color: #797978; font: 700 18px/24px "Lato"; margin: 5px 0; padding: 10px 0; text-align: center; text-transform: capitalize; }
+
+.Mod_price .col-md-12.ph10.mb5 { padding: 0 !important; margin-bottom: 22px !important; }
+
+.allcp-form .Mod_price .prepend-icon input { padding-left: 10px; }
+
+.Mod_price p { border: 1px solid #ddd; border-radius: 3px; font-size: 14px; margin: 0; padding: 7px 10px; text-align: center; line-height: 25px; height: 41px; }
+
+#order .panel-body.pn .mb5.Mod_price { margin-bottom: 0 !important; }
+
+.allcp-form .field-icon i { color: #929392 !important;}
+
+.modal-title { font: 700 20px/24px "Lato"; color: #2a2f43;/*color: #797978;*/ }
+
+h2.modal-title { font-size: 22px; text-transform: capitalize; }
+
+h3.modal-title {  color: #797978; font: 18px/24px "Lato"; margin-top: 10px; text-transform: capitalize; }
+
+.PayMent .mw60 { float: right; margin-right: 0 !important; }
+
+.PayMent .field.option.mb5 { padding-right: 0; }
+
+.PayMent img.mr10 { margin-right: 5px !important; }
+
+.allcp-form .PayMent .radio { margin-right: 3px; top: -3px; }
+
+.col-md-12.ph10.mb5.ModBtn { text-align: right;  margin-bottom: 22px !important; }
+
+.ModBtn .btn + .btn { margin-left: 10px; }
+
+.ModBtn .btn { background: #f57d2c none repeat scroll 0 0; font-size: 14px; font-weight:  }
+
+
+
+/*************** /Modal popup Css ***********/
+
+
+
+/************** Payment Gateway Css ************/
+#exampleModal1 .panel-heading.pay_gateway {
+    background-color: inherit;
+    border: medium none;
+}
+
+#exampleModal1 .panel-heading.pay_gateway .panel { border: 1px solid #ddd; }
+#form-order .row { margin: 0;}
+
+.Acc_active {
+    float: left;
+    width: auto;
+    margin-bottom: 0;
+    color: green;
+}
+.Bussiness_acc {
+    float: left;
+    margin-right: 10px !important;
+    
+}
+
+.pay_gateway h3 {
+    font-size: 18px;
+    text-align: center;
+    color: #797978; margin-top: 0;
+}
+.pay_gateway h2 {
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+    color: #797978;
+}
+.btn.btn-bordered.btn-primary.Sign-Up > a {
+    color: #fff;
+}
+.pay_gateway { }
+
+#order .panel-body.pn .section.row {
+    margin-bottom: 0;
+}
+
+#order .panel-body.pn .mb5 {
+    margin-bottom: 22px !important;  padding-top: 0;
+}
+
+/* .allcp-form .select, .allcp-form .gui-input, .allcp-form , .allcp-form .select > select, .allcp-form .select-multiple select { color: #000000 !important; }
+.allcp-form .select > select { color: #808080 !important; } */
+/************** /Payment Gateway Css ************/
+
+
+
+
+/*************** Myprofile Dashboard *******************/
+
+
+.sidebar-menu > li > .sidebar-chat {
+    clear: both;
+    display: none;
+    height: auto;
+    padding: 6px 0;
+    width: 296px;
+}
+
+.sidebar-menu > li > .sidebar-chat {
+    background-color: #222636;
+}
+.sidebar-menu li > a.menu-open + .sidebar-chat {
+    display: block;
+}
+.sidebar-chat {
+    float: left;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.box-friends h4 {
+    color: #444444;
+    font-size: 12px;
+    margin: 0;
+    padding: 10px 15px 0 0;
+    position: relative;
+    text-align: left;
+}
+.friends-nav {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+.box-friends {
+    padding-top: 10px;
+}
+.box-friends .search-friends {
+    background: rgba(0, 0, 0, 0) url("../img/seach.png") no-repeat scroll left 8px center / 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    padding: 2px 10px 2px 30px;
+    width: 85%;
+}
+.box-friends .scroller-friends {
+    height: auto;
+    margin: 7px auto;
+    padding: 10px 0;
+    width: 90%;
+}
+
+.box-friends .scroller-friends .user-friends {
+    height: auto;
+    /*margin: 0 auto 30px;*/ margin: 0 auto 15px;
+    width: 90%;
+}
+.box-friends img {
+    border: 1px solid #dddddd;
+    border-radius: 50%;
+    /*height: 48px;*/ height: 30px;
+    margin: auto 10px auto auto;
+    /*width: 48px;*/ width: 30px;
+}
+.box-friends h4 {
+    color: #fff;
+    font-size: 14px;
+    /*margin: 3px 0 0 45px;
+    padding: 0;*/
+    margin: 0 0 0 45px;
+    padding: 6px 0;
+    position: relative;
+}
+.box-friends small {
+    color: #999999;
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    top: 2px;
+}
+.online {
+    background: #5abd49 none repeat scroll 0 0;
+    border-radius: 50%;
+    height: 11px;
+    margin-top: 9px;
+    width: 11px;
+}
+.box-friends p {
+    color: #888888;
+    display: none;
+    font-size: 12px;
+    margin: 0;
+    text-align: left;
+}
+.box-friends .scroller-friends .user-friends a, .box-friends .scroller-friends .user-friends a:focus, .box-friends .scroller-friends .user-friends a:hover { text-decoration: none; outline: medium none;}
+.box-friends small {
+    color: #999999;
+    font-size: 10px;
+}
+.navbar-form.search-form .btn { line-height: 38px; height: 38px;}
+.offline {
+    background: #8898af none repeat scroll 0 0;
+    border-radius: 50%;
+    height: 11px;
+    margin-top: 9px;
+    width: 11px;
+}
+.sidebar-left-content { box-shadow: inherit !important;}
+
+
+.nano.affix > .nano-pane {
+    display: none !important;
+}
+
+.navbar-logo-wrapper.dark.bg-dark { background-color: #8a8a8a !important;}
+.sidebar-widget.author-widget .media-body.My_profile { vertical-align: middle;}
+
+/*************** /Myprofile Dashboard *******************/

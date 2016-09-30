@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EmpUSTaxVO" table="hcmo_emp_us_tax">
+     <id
+        name="hcmoEmpUsTaxId"
+        type="integer"
+        column="HcmoEmpUsTaxId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+     <property
+        name="taxFederalStatus"
+        type="string"
+        column="TaxFederalStatus"
+        length="20"
+    />
+    <property
+        name="taxFederalExceptions"
+        type="string"
+        column="TaxFederalExceptions"
+        length="20"
+    />
+    <property
+        name="taxStateStatus"
+        type="string"
+        column="TaxStateStatus"
+        length="20"
+    />
+     <property
+        name="taxStateExceptions"
+        type="string"
+        column="TaxStateExceptions"
+        length="20"
+    />
+     <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+
+	<many-to-one name="hcmoEmployeeId" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="taxState" column="TaxState" lazy="false" class="com.gits.rms.vo.RegionVO"/>
+	<many-to-one name="taxUnempState" column="TaxUnempState" lazy="false" class="com.gits.rms.vo.RegionVO"/>
+	<many-to-one name="taxWorkState" column="taxWorkState" lazy="false" class="com.gits.rms.vo.RegionVO"/>   
+</class>
+</hibernate-mapping>

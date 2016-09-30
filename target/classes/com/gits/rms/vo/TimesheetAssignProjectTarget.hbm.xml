@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.TimesheetAssignProjectTargetVO" table="hcmo_ts_assign_proj_target">
+     <id
+        name="hcmoTsAssignProjTargetId"
+        type="integer"
+        column="HcmoTsAssignProjTargetId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+    <property
+    	name="targetAchieved"
+        type="text"
+        column="TargetAchieved"
+    />
+    <property
+       name="targetNotes"
+       type="text"
+       column="targetNotes"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+
+<many-to-one name="proAssignObj" column="HcmoTsEmpProjRelId" lazy="false" class="com.gits.rms.vo.ProjectAssignEmpVO"/>    
+<many-to-one name="targetObj" column="HcmoTargetId" lazy="false" class="com.gits.rms.vo.TargetsVO"/>
+<many-to-one name="employeeObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+     </class>
+</hibernate-mapping>

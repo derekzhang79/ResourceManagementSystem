@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="child.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.empName"></message>
+  	</field-validator>
+</field>
+ 
+<field name="child.childName">
+    <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.children.name"></message>
+    </field-validator>
+     <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.children.name"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.children.name"></message>
+    </field-validator>
+</field>
+
+<field name="child.childDOB">
+    <field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.children.DateOfBirth.invalid"></message>
+	</field-validator>
+</field>
+</validators>

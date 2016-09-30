@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="expenseModule" extends="default">
+		
+	<!-- Employee Expenses load ProjectID Starts-->
+		<action name="loadProjectName" method="getAllProjectName" class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+				<param name="contentType">text/html</param>
+				<param name="inputName">inStream</param>
+			</result>
+		</action>
+	<!-- Employee Expenses load ProjectID Ends-->		
+		
+	<!-- Employee Expense For Approval Starts-->
+ 		<action name="getAllExpensesForApproval" method="getAllExpensesForApproval" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpensesForApproval.jsp </result>
+		</action>
+		<action name="getExpensesForApprovalEmployee" method="getExpensesForApprovalEmployee" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpenseApprovalEmployeeView.jsp </result>
+		</action>
+		<action name="getAccountExpensesDetails" method="getAccountExpensesDetails" class="com.gits.rms.action.ExpensesAccountantPayableAction">
+			<result name="success">/resources/jsp/ExpenseAccountantReimburse.jsp </result>
+		</action>
+		<action name="rejectEmployeeExpense" method="rejectEmployeeExpense" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="input">/resources/jsp/RejectedNotes.jsp</result>
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAllExpensesForApproval</param>
+   	        </result>
+		</action>
+		<action name="reviewEmployeeExpense" method="reviewEmployeeExpense" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAllExpensesForApproval</param>
+   	        </result>
+		</action>
+		<action name="SetReimburseAmount" method="SetReimburseAmount" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAllExpensesForApproval</param>
+   	        </result>
+		</action>
+		<action name="approveAndSubmitToAccount" method="approveAndSubmitToAccount" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAllExpensesForApproval</param>
+   	        </result>
+		</action>
+		<action name="insertReimburse" method="insertReimburse" class="com.gits.rms.action.ExpensesAccountantPayableAction">
+			<result name="input">/resources/jsp/ExpenseAccountantReimburse.jsp</result>
+			<result name="error">/resources/jsp/ExpenseAccountantReimburse.jsp</result>
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAccountantTab</param>
+   	        </result>
+		</action>
+		<action name="approveAndSubmitToNextLevel" method="approveAndSubmitToNextLevel" class="com.gits.rms.action.ExpensesApproveAndSubmitNextLevelAction">
+			<result name="input">/resources/jsp/NextLevelApprover.jsp</result>
+			<result name="error">/resources/jsp/NextLevelApprover.jsp</result>
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAllExpensesForApproval</param>
+   	        </result>
+		</action>
+		<action name="enterRejectedNotes" method="enterRejectedNotes" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/RejectedNotes.jsp </result>
+		</action>
+		<action name="forRejectedTab" method="forRejectedTab" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpenseRejectedTab.jsp </result>
+		</action>
+		<action name="forApprovedTab" method="forApprovedTab" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpenseApprovedTab.jsp </result>
+		</action>
+		<action name="forReviewTab" method="forReviewTab" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpenseReviewTab.jsp </result>
+		</action>
+		<action name="myExpensesReview" method="myExpensesReview" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpensesMyReviewTab.jsp </result>
+		</action>
+		<action name="getMyReviewExpensesDetail" method="getMyReviewExpensesDetail" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpensesMyReviewExpenseDetails.jsp </result>
+		</action>
+		<action name="editExpensesDetails" method="editExpensesDetails" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/ExpensesEditDetailsForm.jsp </result>
+		</action>
+		<action name="updateExpensesDetails" method="updateExpensesDetails" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getMyReviewExpensesDetail</param>
+   	        </result>
+		</action>
+		
+		<!--<action name="updateExpensesAfterEdit" method="updateExpensesAfterEdit" class="com.gits.rms.action.ExpensesUpdate">
+			<result name="success" type="chain">myExpensesReview </result>
+		</action>
+		<action name="updateExpensesAfterEdit" method="updateExpensesAfterEdit" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success" type="chain">myExpensesReview </result>
+		</action> -->
+		
+		<action name="updateEditedExpenses" method="updateEditedExpensess" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success" type="redirectAction">
+       			<param name="actionName">myExpensesReview</param>
+   	        </result>
+		</action>
+		<action name="getAccountantTab" method="getAccountantTab" class="com.gits.rms.action.ExpensesAccountantPayableAction">
+			<result name="success">/resources/jsp/ExpenseAccountantTab.jsp </result>
+		</action>
+		<action name="nextLevelApprover" method="nextLevelApprover" class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="success">/resources/jsp/NextLevelApprover.jsp </result>
+		</action>
+	<!-- Employee Expense For Approval Ends-->		
+		
+	<!-- Expenses Details Starts -->
+			<action name="getAllEmpExpenses" method="getAllEmpExpenses" class="com.gits.rms.action.EmployeeExpensesAction">
+			<result name="success">/resources/jsp/ExpensesTabs.jsp</result>
+		</action>
+		 <action name="setUpInsertOrUpdateEmpExpenses" method="setUpInsertOrUpdateEmpExpenses" class="com.gits.rms.action.EmployeeExpensesAction">
+			<result name="success">/resources/jsp/EmployeeExpenseDetailsForm.jsp</result>
+		</action>
+		<action name="insertEmployeeExpensesDetails" method="insertEmployeeExpensesDetails"	class="com.gits.rms.action.ExpensesForApprovalAction">
+			<result name="input">/resources/jsp/EmployeeExpenseDetailsForm.jsp</result>
+			<result name="success" >/resources/jsp/ExpensesInsertedView.jsp</result>
+		</action>
+		 <action name="loadExpensesType" method="getAllExpensesTypeName" class="com.gits.rms.action.utils.LoadKeyValuesAction">
+			<result type="stream">
+    			<param name="contentType">text/html</param>
+    			<param name="inputName">inStream</param>
+  			</result>
+        </action>
+	<!-- Employee Expenses Ends-->
+	
+	<!-- Expenses File Attachments Starts -->
+		<action name="doExpensesAttachments" class="com.gits.rms.action.ExpensesAttachmentAction" method="upload">
+			<result name="input">/resources/jsp/ExpensesAttachmentsSuccess.jsp</result>
+			<result name="error">/resources/jsp/ExpensesAttachmentsSuccess.jsp</result>
+			<result name="success">/resources/jsp/ExpensesAttachmentsSuccess.jsp</result>
+		</action>
+		<action name="expensesFileDownload" method="expensesFileDownload" class="com.gits.rms.action.ExpensesAttachmentAction">
+			<result type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="inputName">inStream</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+			</result>
+        </action>
+        <action name="deleteExpensesAttachments" method="deleteExpensesAttachments" class="com.gits.rms.action.ExpensesAttachmentAction">
+        	<result name="error">/resources/error.jsp</result>
+			<result name="success">/resources/jsp/ExpensesAttachmentsSuccess.jsp</result>
+		</action>
+	<!-- Expenses File Attachments Ends -->
+	
+	<!-- Expense History Starts-->
+	 	<action name="getExpOwnHistorySearchForm" method="getExpOwnHistorySearchForm" class="com.gits.rms.action.ExpensesHistoryAction">
+			<result name="success">/resources/jsp/ExpensesHistoryOwnSearchForm.jsp</result>
+		</action>
+		<action name="getExpOwnHistorySearchResult" method="getExpOwnHistorySearchResult" class="com.gits.rms.action.ExpensesHistoryAction">
+			<result name="success">/resources/jsp/ExpensesEmpOwnSearchResult.jsp</result>
+		</action>
+		<action name="getExpHistoryDetails" method="getExpHistoryDetails" class="com.gits.rms.action.ExpensesHistoryAction">
+			<result name="success">/resources/jsp/ExpensesHistoryDetailView.jsp</result>
+		</action>
+		<action name="getExpEmployeeHistorySearchForm" method="getExpEmployeeHistorySearchForm" class="com.gits.rms.action.ExpensesHistoryAction">
+			<result name="success">/resources/jsp/ExpensesHistoryEmpSearchForm.jsp</result>
+		</action>
+		<action name="getExpEmployeeHistorySearchResult" method="getExpEmployeeHistorySearchResult" class="com.gits.rms.action.ExpensesHistoryAction">
+			<result name="success">/resources/jsp/ExpensesEmployeeSearchResult.jsp</result>
+		</action>
+		<action name="getExpEmployeeHistoryDetails" method="getExpEmployeeHistoryDetails" class="com.gits.rms.action.ExpensesHistoryAction">
+			<result name="success">/resources/jsp/ExpensesHistoryEmployeeDetailView.jsp</result>
+		</action>
+	<!-- Expense History Ends-->		
+	  
+	</package>
+</struts>
+

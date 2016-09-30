@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.gits.rms.vo.LocationVO" table="hcmo_location">
+ <id
+        name="hcmolocationId"
+        type="integer"
+        column="HcmoLocationId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    
+    <property
+        name="locationName"
+        type="string"
+        column="Name"
+        length="100"
+    />
+    <property
+        name="address1"
+        type="string"
+        column="Address1"
+        length="60"
+    />
+    <property
+        name="address2"
+        type="string"
+        column="Address2"
+        length="60"
+    />
+    <property
+        name="region"
+        type="string"
+        column="Region"
+        length="60"
+    />
+    <property
+        name="city"
+        type="string"
+        column="City"
+        length="60"
+    />
+    <property
+        name="phone"
+        type="string"
+        column="Phone"
+        length="20"
+    />
+    <property
+        name="fax"
+        type="string"
+        column="Fax"
+        length="20"
+    />
+    <property
+        name="zipcode"
+        type="string"
+        column="ZipCode"
+        length="20"
+    />
+  
+    <property
+        name="comments"
+        type="text"
+        column="Comments"
+        
+    />
+	     
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+<many-to-one name="country" column="HcmoCountryId" lazy="false" class="com.gits.rms.vo.CountryVO"/>   	
+
+  </class>
+</hibernate-mapping>

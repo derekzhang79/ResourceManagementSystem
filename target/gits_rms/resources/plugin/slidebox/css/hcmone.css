@@ -1,0 +1,13 @@
+
+@charset "utf-8";
+/* CSS Document */
+body{background:#ffffff; font-family:"Times New Roman", Times, serif; margin:0px; height:0px; color:#000000;}
+a{text-decoration:none;}
+#wapper{width:1366px; height:auto; margin:0px; padding:0px; }
+.container{width:1366px; float:left;}
+.logo-contaner{ width:158px; float:right; }
+
+.logo{ width:158px; height:129px; float:left; }
+.ads-contaner{width:83%; float:left; margin-top:20px;}
+
+.header{background:url(../images/header-bg.jpg) repeat-x; width:1366px; height:129px; float:left;}

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.QuestionBankVO" table="hcmo_question_group_name">
+	 	<id
+		 	name="hcmoQuestionBankId"
+		 	type="integer"
+		 	length="11"
+		 	column="HcmoQuestionGroupNameId">
+		 	
+		 	<generator class="native"></generator>
+		 	
+		 </id>
+		 <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		
+		  <property 
+		 	name="created"
+		 	type="date"
+		 	column="Created"
+		 />
+		 
+		 <property 
+		 	name="updated"
+		 	type="timestamp"
+		 	column="Updated"
+		 />
+		 
+		<property
+        	name="isActive"
+        	type="integer"
+        	column="IsActive"
+        	length="1"
+    	/>
+		 
+		 <many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		 <many-to-one name="hcmoQuestionId" column="HcmoQuestionId" lazy="false" class="com.gits.rms.vo.QuestionVO"/>
+		 <many-to-one name="hcmoQuestionGroupNameIdentificationId" column="HcmoQuestionGroupNameIdentifiId" lazy="false" class="com.gits.rms.vo.QuestionGroupNameIdentificationVO"/>
+	</class>
+	</hibernate-mapping>
+	

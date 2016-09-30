@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="messagingModule" extends="default">
+		  
+	<!-- MailConfiguration CRUD Starts-->
+		<action name="getAllMailConfig" method="getAllMailConfig" class="com.gits.rms.action.MailConfigurationAction">
+           <result name="success">/resources/jsp/MailConfiguration.jsp</result>
+        </action>
+        <action name="setUpMailConfig" method="setUpMailConfig" class="com.gits.rms.action.MailConfigurationAction">
+            <result name="success">/resources/jsp/MailConfigurationForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateMailConfiguration" method="insertOrUpdateMailConfiguration" class="com.gits.rms.action.MailConfigurationAction">
+        	<exception-mapping exception="java.lang.Exception" result="input"/>
+            <result name="success" type="redirectAction">
+           		<param name="actionName">getAllMailConfig</param>
+       		</result>
+            <result name="input">/resources/jsp/MailConfigurationForm.jsp</result>
+		</action>
+		<action name="mailConfigView" method="mailConfigView" class="com.gits.rms.action.MailConfigurationAction">
+            <result name="success">/resources/jsp/MailConfigurationView.jsp</result>
+        </action>
+        <action name="resetMailConfiguration">
+            <result name="success" type="redirectAction">setUpMailConfig</result>
+        </action>
+        <action name="insertOrUpdateConfigureMailConfiguration" method="insertOrUpdateConfigureMailConfiguration" class="com.gits.rms.action.MailConfigurationAction">
+        	<exception-mapping exception="java.lang.Exception" result="input"/>
+            <result name="success" type="redirectAction">
+           		<param name="actionName">getAllConfigurationMailConfig</param>
+       		</result>
+            <result name="input">/resources/jsp/configuration/MailConfigurationForm.jsp</result>
+		</action>
+		<action name="getAllConfigurationMailConfig" method="getAllMailConfig" class="com.gits.rms.action.MailConfigurationAction">
+           <result name="success">/resources/jsp/configuration/MailConfiguration.jsp</result>
+        </action>
+	<!-- MailConfiguration CRUD Ends-->
+	
+	<!-- Signature CRUD Starts-->
+	    <action name="getAllSignature" method="getAllSignature" class="com.gits.rms.action.SignatureAction">
+            <result name="success">/resources/jsp/Signature.jsp</result>
+        </action>
+		<action name="setUpSignature" method="setUpSignature" class="com.gits.rms.action.SignatureAction">
+            <result name="success">/resources/jsp/SignatureForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateSignature" method="insertOrUpdateSignature" class="com.gits.rms.action.SignatureAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllSignature</param>
+       	   </result>
+           <result name="input">/resources/jsp/SignatureForm.jsp</result>
+        </action> 
+        <action name="deleteSignature" method="deleteSignature" class="com.gits.rms.action.SignatureAction">
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllSignature</param>
+       	   </result>
+            <result name="error">/resources/jsp/Signature.jsp</result>
+        </action> 
+        <action name="signatureView" method="signatureView" class="com.gits.rms.action.SignatureAction">
+           <result name="success">/resources/jsp/SignatureView.jsp</result>
+        </action>
+        <action name="makePreferredSignature" method="makePreferredSignature" class="com.gits.rms.action.SignatureAction">
+           <result name="success" type="redirectAction">
+           		<param name="actionName">getAllSignature</param>
+       	   </result>
+        </action>
+        <action name="signatureSearchForm" method="signatureSearchForm" class="com.gits.rms.action.SignatureAction">
+           <result name="success">/resources/jsp/SignatureSearchForm.jsp</result>
+        </action>
+        <action name="signatureSearchResult" method="signatureSearchResult" class="com.gits.rms.action.SignatureAction">
+           <result name="success">/resources/jsp/SignatureSearchResult.jsp</result>
+        </action>
+        <action name="resetSignature">
+           <result name="success" type="redirectAction">
+           		<param name="actionName">setUpSignature</param>
+       	   </result>
+        </action>
+	<!-- Signature CRUD Ends-->
+	
+	<!-- Message CRUD Starts-->
+		<action name="getMessageLeftPanel">
+			<result name="success">/resources/jsp/MessageLeftPanel.jsp</result>
+		</action>
+		<action name="getMessagingDefaultRightPanel">
+	   	   <result name="success">/resources/html/MessagingDefaultRightPanel.html</result>
+	   </action>
+		<action name="getAllMyInMessage" method="getAllMyInMessage" class="com.gits.rms.action.MessageAction">
+			<result name="success">/resources/jsp/Message.jsp</result>
+		</action>
+		<action name="setUpMessage" method="setUpMessage" class="com.gits.rms.action.MessageAction">
+			<result name="success">/resources/jsp/MessageForm.jsp</result>
+		</action>
+		<action name="setUpBroadcastMessage" method="setUpBroadcastMessage" class="com.gits.rms.action.MessageAction">
+			<result name="success">/resources/jsp/MessageBroadcastForm.jsp</result>
+		</action>
+		<action name="insertOrUpdateMessage" method="insertOrUpdateMessage" class="com.gits.rms.action.MessageAction">
+			<exception-mapping exception="java.lang.Exception" result="input"/>
+			<result name="input">/resources/jsp/MessageForm.jsp</result>
+			<result name="success" type="redirectAction">
+           		<param name="actionName">getAllMyMessage</param>
+       	    </result>
+		    <result name="mymessage_success" type="redirectAction">
+           		<param name="actionName">getAllMyInMessage</param>
+       	    </result>
+			<!--<result name="broadcast_success" type="chain">getAllBroadcastMessage</result>-->
+		</action>
+		<action name="deleteMessage" method="deleteMessage"	class="com.gits.rms.action.MessageAction">
+			<result name="alert" type="redirectAction">
+           		<param name="actionName">getAllMyInAlert</param>
+       	    </result>
+			<result name="success" type="redirectAction">
+           		<param name="actionName">getAllMyInAlert</param>
+       	    </result>
+		</action>
+		<action name="deleteMsgAndBroadCastMessage" method="deleteMsgAndBroadCastMessage"	class="com.gits.rms.action.MessageAction">
+			<result name="success" type="redirectAction">
+           		<param name="actionName">getAllMyInMessage</param>
+       	    </result>
+       	    <result name="broadcast" type="redirectAction">
+           		<param name="actionName">getAllBroadcastMessage</param>
+       	    </result>
+       	    <result name="message" type="redirectAction">
+           		<param name="actionName">getAllMyInMessage</param>
+       	    </result>
+		</action>
+        <action name="broadcastMsgSearchForm" method="broadcastMsgSearchForm" class="com.gits.rms.action.MessageAction">
+           <result name="success">/resources/jsp/MessageBroadcastSearchForm.jsp</result>
+        </action>
+        <action name="broadcastSearchResult" method="broadcastSearchResult" class="com.gits.rms.action.MessageAction">
+           <result name="success">/resources/jsp/MessageBroadcastSearchResult.jsp</result>
+        </action>
+        <action name="messageLeftMenu">
+           <result name="success">/resources/jsp/MessageLeftMenu.jsp</result>
+        </action>
+        <action name="insertOrUpdateBroadCastMessage" method="insertOrUpdateBroadCastMessage" class="com.gits.rms.action.BroadCastMessageAction">
+			<exception-mapping exception="java.lang.Exception" result="input"/>
+			<result name="input">/resources/jsp/MessageBroadcastForm.jsp</result>
+			<result name="broadcast_success" type="redirectAction">
+           		<param name="actionName">getAllBroadcastMessage</param>
+       	    </result>
+		</action>
+		<action name="resetComposeMessage">
+            <result name="success" type="redirectAction">
+           		<param name="actionName">setUpMessage</param>
+       	    </result>
+        </action>
+        <action name="resetBroadCastMessage">
+            <result name="success" type="redirectAction">
+           		<param name="actionName">setUpBroadcastMessage</param>
+       	    </result>
+        </action>
+        
+   		<!-- Alert Message Starts -->
+	   		<action name="getAllMyInAlert" method="getAllMyInAlert" class="com.gits.rms.action.MessageAction">
+				<result name="success">/resources/jsp/MessageAlert.jsp</result>
+			</action>
+			<!-- Opened Alert Message Starts -->
+				<action name="getAllOpenedAlertMails" method="getAllOpenedAlertMails" class="com.gits.rms.action.MessageAction">
+		           <result name="success">/resources/jsp/MessageAlertOpenedMails.jsp</result>
+		        </action>
+		        <action name="openedAlertMarkAsUnread" method="markAsUnread" class="com.gits.rms.action.MessageAction">
+	           		<result name="success" type="redirectAction">
+		           		<param name="actionName">getAllOpenedAlertMails</param>
+		       	    </result>
+	        	</action>
+        	<!-- Opened Alert Message Ends -->
+	        <action name="getAllUnOpenedAlertMails" method="getAllUnOpenedAlertMails" class="com.gits.rms.action.MessageAction">
+	           <result name="success">/resources/jsp/MessageAlertUnOpenedMails.jsp</result>
+	        </action>
+   		<!-- Alert Message Ends -->
+   		
+   		<!-- Compose Message Starts -->
+	   		<action name="getAllMyMessage" method="getAllMyMessage" class="com.gits.rms.action.MessageAction">
+				<result name="success">/resources/jsp/MessageInbox.jsp</result>
+			</action>
+			<!-- Opened Alert Message Starts -->
+				<action name="getAllOpenedComposeMails" method="getAllOpenedComposeMails" class="com.gits.rms.action.MessageAction">
+		           <result name="success">/resources/jsp/MessageComposeOpenedMails.jsp</result>
+		        </action>
+		        <action name="openedComposeMarkAsUnread" method="markAsUnread" class="com.gits.rms.action.MessageAction">
+	           		<result name="success" type="redirectAction">
+		           		<param name="actionName">getAllOpenedComposeMails</param>
+		       	    </result>
+	        	</action>
+        	<!-- Opened Alert Message Ends -->
+	        <action name="getAllUnOpenedComposeMails" method="getAllUnOpenedComposeMails" class="com.gits.rms.action.MessageAction">
+	           <result name="success">/resources/jsp/MessageComposeUnOpenedMails.jsp</result>
+	        </action>
+   		<!-- Compose Message Ends -->
+   		
+   		<!-- Broadcast Message Starts -->
+		   		<action name="getAllBroadcastMessage" method="getAllBroadcastMessage" class="com.gits.rms.action.MessageAction">
+					<result name="success">/resources/jsp/MessageBroadcast.jsp</result>
+				</action>
+			<!-- Opened Alert Message Starts -->
+				<action name="getAllOpenedBroadcastMails" method="getAllOpenedBroadcastMails" class="com.gits.rms.action.MessageAction">
+		           <result name="success">/resources/jsp/MessageBroadcastOpenedMails.jsp</result>
+		        </action>
+		        <action name="openedBroadcastMarkAsUnread" method="markAsUnread" class="com.gits.rms.action.MessageAction">
+	           		<result name="success" type="redirectAction">
+		           		<param name="actionName">getAllOpenedBroadcastMails</param>
+		       	    </result>
+	        	</action>
+        	<!-- Opened Alert Message Ends -->
+	        <action name="getAllUnOpenedBroadcastMails" method="getAllUnOpenedBroadcastMails" class="com.gits.rms.action.MessageAction">
+	           <result name="success">/resources/jsp/MessageBroadcastUnOpenedMails.jsp</result>
+	        </action>
+   		<!-- Broadcast Message Ends -->
+   		
+   		<!-- Message Read Starts-->
+        	<action name="messageView" method="messageView" class="com.gits.rms.action.MessageAction">
+           		<result name="success">/resources/jsp/MessageView.jsp</result>
+        	</action>
+	        <action name="openedMailMessageView" method="openedMailMessageView" class="com.gits.rms.action.MessageAction">
+	           <result name="success">/resources/jsp/MessageView.jsp</result>
+	        </action>
+	        <action name="markAsUnread" method="markAsUnread" class="com.gits.rms.action.MessageAction">
+           		<result name="success" type="redirectAction">
+	           		<param name="actionName">getAllMyMessage</param>
+	       	    </result>
+       		</action>
+        <!-- Message Read Ends-->
+        
+	<!-- Message CRUD Ends-->
+	
+	</package>
+</struts>
+

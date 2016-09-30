@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+	<field name="saasContract.companyName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="errors.saas.companyname"></message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">255</param>
+			<message key="errors.length.saas.companyname"></message>
+		</field-validator>
+	</field>
+
+	<field name="saasContract.personName">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="errors.saas.personname"></message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">255</param>
+			<message key="errors.length.saas.personname"></message>
+		</field-validator>
+	</field>
+
+	<field name="saasContract.designation">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="errors.saas.designation"></message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">255</param>
+			<message key="errors.length.saas.designation"></message>
+		</field-validator>
+	</field>
+ 
+</validators>
