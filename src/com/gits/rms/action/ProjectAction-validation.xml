@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+	<field name="proj.empIdObj.employeeId">
+	  	<field-validator type="required">
+	   		<message key="errors.project.projectOwner"></message>
+	  	</field-validator>
+	</field>
+	 
+	<field name="proj.customerId.customerId">
+	  	<field-validator type="required">
+	   		<message key="errors.customer.name"></message>
+	  	</field-validator>
+	</field>
+	
+	<field name="proj.projectName">
+	  <field-validator type="requiredstring">
+	   		<param name="trim">true</param>
+	   		<message key="errors.project.name"></message>
+	  </field-validator>
+	  <field-validator type="stringlength">
+	        <param name="maxLength">120</param>
+	        <param name="trim">true</param>
+	        <message key="errors.length.project.projectName"/>
+	   </field-validator>
+	</field>
+	<field name="proj.estimatedHours">
+		<field-validator type="regex" short-circuit="true">
+	   		<param name="trim">true</param>
+	   		<param name="expression"><![CDATA[([\d]*)]]></param>
+	   		<message key="errors.specialCharacter.assignProject.allocatedHour"></message>
+	  	</field-validator>
+	  	<field-validator type="stringlength">
+	        <param name="maxLength">120</param>
+	        <param name="trim">true</param>
+	        <message key="errors.length.assignProject.allocatedHour"/>
+	   	</field-validator>
+	</field>
+</validators>

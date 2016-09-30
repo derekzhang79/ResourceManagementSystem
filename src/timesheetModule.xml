@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="timesheetModule" extends="default">
+		  
+	<!--  Timesheet Starts -->
+		<!-- Timesheet Assigned Project CRUD Starts-->
+	        <action name="getAllTsProjectAssigned" method="getAllTsProjectAssigned" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	        	<interceptor-ref name="store">
+                	<param name="operationMode">RETRIEVE</param>
+             	</interceptor-ref>
+	            <result name="success">/resources/jsp/tsProjectAssigned.jsp</result>
+	        </action>
+	        <action name="setUpTsProjectAssigned" method="setUpTsProjectAssigned" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	            <result name="success">/resources/jsp/tsProjectAssignedForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateTsProjectAssigned" method="insertOrUpdateTsProjectAssigned" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	        <exception-mapping exception="java.lang.Exception" result="input"/>
+	           <!-- <result name="success" type="redirectAction">
+   		   				<param name="actionName">getAllTsProjectAssigned</param>
+   	           		</result> -->
+   	           <result name="success" type="redirectAction">
+   		   				<param name="actionName">getTargetListByProjAndActivityId</param>
+   		   				<param name="projectId">${tsProjAssigned.projectName.projectId}</param>
+   		   				<param name="activityId">${tsProjAssigned.projectActivityId.projectActivityId}</param>
+   		   				<param name="projectAssignEmpId">${assignProjId}</param>
+   	           	</result>
+	           <result name="input">/resources/jsp/tsProjectAssignedForm.jsp</result>
+	        </action> 
+	        <action name="getAllTsProjectAssignedTab">
+				<result name="success">/resources/jsp/TimeSheetTab.jsp</result>
+			</action>
+	        <action name="deleteTsProjectAssigned" method="deleteTsProjectAssigned" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	        	<interceptor-ref name="SessionCheckStack"></interceptor-ref>
+          	 	<interceptor-ref name="store">
+      			   	<param name="operationMode">STORE</param>
+   		   		</interceptor-ref>
+	            <result name="success" type="redirectAction">
+   		   			<param name="actionName">getAllTsProjectAssigned</param>
+   	        	</result>
+	        </action> 
+	         <action name="tsProjectAssignedView" method="tsProjectAssignedView" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	           <result name="success">/resources/jsp/tsProjectAssignedView.jsp</result>
+	        </action> 
+	        <action name="tsProjectAssignSearchForm" method="tsProjectAssignSearchForm" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	           <result name="success">/resources/jsp/tsProjectAssignedSearchForm.jsp</result>
+	        </action>
+	        <action name="tsProjectAssignSearchResult" method="tsProjectAssignSearchResult" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	           <result name="success">/resources/jsp/tsProjectAssignedSearchResult.jsp</result>
+	        </action>
+	        <action name="projectAssignedViewForm" method="projectAssignedViewForm" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+	           <result name="success">/resources/jsp/timeSheetViewForm.jsp</result>
+	        </action>
+	        <action name="resetProjectAssignedForm">
+        		<result name="success" type="redirectAction">
+   		   			<param name="actionName">setUpTsProjectAssigned</param>
+   	        	</result>
+        	</action>
+        	<action name="getTargetType" method="getTargetType" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+        		<result name="success">/resources/jsp/TargetTypeDiv.jsp</result>
+        	</action>
+        	<action name="getTargetMode" method="getTargetMode" class="com.gits.rms.action.TimeSheetProjectAssignedAction">
+        		<result name="success">/resources/jsp/TargetModeDiv.jsp</result>
+        	</action>
+        	<action name="getProjectActivity" class="com.gits.rms.action.TimeSheetProjectActivityAction">
+        		<result name="success">/resources/jsp/projectActivityDiv.jsp</result>
+        	</action>
+        	
+        	<!-- Timesheet Assign Target Starts -->
+	        	<action name="getTargetListByProjAndActivityId" method="getTargetListByProjAndActivityId" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+	        		<result name="success">/resources/jsp/tsProjectAssignedTargets.jsp</result>
+	        	</action>
+	        	<action name="insertAssignProjectTarget" method="insertAssignProjectTarget" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+	   	           	<result name="input">/resources/jsp/tsProjectAssignedTargetsResultList.jsp</result>
+	   	           	<result name="success">/resources/jsp/tsProjectAssignedTargetsResultList.jsp</result>
+	        	</action>
+	        	<action name="getAllEmpAssignedTargetList" method="getAllEmpAssignedTargetList" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+		        	<interceptor-ref name="store">
+	                	<param name="operationMode">RETRIEVE</param>
+	             	</interceptor-ref>
+	        	<result name="success">/resources/jsp/tsProjectAssignedTargetsEmpList.jsp</result>
+	        	</action>
+	        	<action name="viewAssigedTarget" method="getAssignedTarget" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+		        	<result name="success">/resources/jsp/tsProjectAssignedTargetsForm.jsp</result>
+		        </action>
+		        <action name="UpdateTsAchievedTarget" method="UpdateTsAchievedTarget" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+		        	<result name="success" type="redirectAction">
+   		   				<param name="actionName">getAllEmpAssignedTargetList</param>
+   	        		</result>
+   	        		<result name="input" type="redirectAction">
+   		   				<param name="actionName">viewAssigedTarget</param>
+   	        		</result>
+   	        		<result name="input">/resources/jsp/tsProjectAssignedTargetsForm.jsp</result>
+		        </action>
+		        <action name="getSubEmpAssignedTargetSearchForm" method="getSubEmpAssignedTargetSearchForm" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+		        	<result name="success">/resources/jsp/tsProjectAssignedTargetsSearchForm.jsp</result>
+		        </action>
+     		    <action name="getAssignedTargetSearchList" method="getAssignedTargetSearchList" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+		        	<result name="success">/resources/jsp/tsProjectAssignedTargetsSearchResultList.jsp</result>
+		        </action>
+		        <action name="getEmployeeAchivedTargetList" method="getEmployeeAchivedTargetList" class="com.gits.rms.action.TimeSheetProjectAssignGetTargetListAction">
+		        	<result name="success">/resources/jsp/tsProjectAchivedTargetList.jsp</result>
+		        </action>
+		        
+        	<!-- Timesheet Assign Target Ends -->
+        	
+	    <!-- Timesheet Assigned Project CRUD Ends-->
+		
+		<action name="validateAssignedEmployeeProject" method="validateAssignedEmployeeProject" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/calenderForEmptyProject.jsp</result>
+			<result name="success">/resources/jsp/calendar.jsp</result>
+		</action>
+		<action name="showTimeSheetOptions" method="timesheetApproverView" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success">/resources/jsp/TimesheetOptions.jsp</result>
+		</action>
+		<action name="TimeSheetUpdate" method="getEmployeeData" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="success">/resources/jsp/calendar.jsp</result>
+			<result name="error">/resources/jsp/calendar.jsp</result>
+		</action>
+		<action name="getEmployeeDataLink" method="getEmployeeDataLink" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/timeSheetViewForm.jsp</result>
+			<result name="success">/resources/jsp/calendarView.jsp</result>
+			<result name="error">/resources/jsp/timeSheetViewForm.jsp</result>
+		</action>
+		
+		<action name="getEmployeeDataCalendarDec" method="getEmployeeDataCalendarDec" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/calendarView.jsp</result>
+			<result name="success">/resources/jsp/calendarView.jsp?iMonth=${monthList}</result>
+		</action>
+		<action name="getEmployeeDataCalendarInc" method="getEmployeeDataCalendarInc" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/calendarView.jsp</result>
+			<result name="success">/resources/jsp/calendarView.jsp?iMonth=${monthList}</result>
+		</action>
+		<action name="getEmployeeDataCalendarYearDec" method="getEmployeeDataCalendarYearDec" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/calendarView.jsp</result>
+			<result name="success">/resources/jsp/calendarView.jsp?iMonth=${monthList}</result>
+		</action>
+		<action name="getEmployeeDataCalendarYearInc" method="getEmployeeDataCalendarYearInc" class="com.gits.rms.action.TimeSheetApproverAction">
+			<result name="input">/resources/jsp/calendarView.jsp</result>
+			<result name="success">/resources/jsp/calendarView.jsp?iMonth=${monthList}</result>
+		</action>
+		<action name="getTimeSheetDetails" method="getTimeSheetDetails" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="input">/resources/jsp/calendar.jsp</result>
+			<result name="success">/resources/jsp/TimeSheetEnterPage.jsp</result>
+			<result name="error">/resources/jsp/calendar.jsp</result>
+		</action>
+		<action name="insertTimesheetDetails" method="insertTimesheetDetails" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="input">/resources/jsp/calendar.jsp</result>
+			<result name="back" type="redirectAction">TimeSheetUpdate</result>
+			
+			<result name="success" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	   			<param name="sbTimeSheetDetails">${sbTimeSheetDetails}</param>
+	   			<param name="proTimeSheetDetails">${proTimeSheetDetails}</param>
+	   		</result>
+	   		
+	        <result name="error" type="redirectAction">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+		</action>
+		<action name="insertTimeTrackValues" method="insertTimeTrackValues" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="input">/resources/jsp/calendar.jsp</result>
+			<result name="success" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+			<result name="error" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+		</action>
+		<action name="updateTimeTrackDetails" method="updateTimeTrackValues" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="input">/resources/jsp/calendar.jsp</result>
+			<result name="success" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+			<result name="error" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+		</action>
+		
+		<action name="checkOutActivity" method="checkOutActivity" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="input">/resources/jsp/calendar.jsp</result>
+			<result name="success" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+			<result name="error" type="chain">
+	   			<param name="actionName">getTimeSheetDetails</param>
+	        </result>
+		</action>
+		
+		
+		
+		<action name="timeTrackCheckInOut" method="timeTrackCheckInOut" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="checkin" type="chain">
+	   			<param name="actionName">insertTimeTrackValues</param>
+	        </result>
+	        
+	        <result name="CategoryCheckOut" type="chain">
+	   			<param name="actionName">updateTimeTrackDetails</param>
+	        </result>
+	        
+	        <result name="ProjectCheckOut" type="chain">
+	   			<param name="actionName">checkOutActivity</param>
+	        </result>
+			
+		</action>
+		
+		
+		<action name="ShowTimeSheet">
+			<result>/resources/jsp/ShowTimeSheet.jsp</result>
+		</action>
+		<action name="ShowDetails">
+			<result>/resources/jsp/ShowDetails.jsp</result>
+		</action>
+		<action name="ListTimeSheet">
+			<result>/resources/jsp/ListTimeSheet.jsp</result>
+		</action>
+		<action name="AppointConsultant">
+			<result>/resources/jsp/AppointConsultant.jsp</result>
+		</action>
+		<action name="ConsultantAppoint" class="com.gits.rms.action.ConsultantAppoint">
+			<result name="success">/resources/jsp/ConsultantAppoint.jsp</result>
+			<result name="input">/resources/jsp/ConsultantAppoint.jsp</result>
+		</action>
+	<!--  Timesheet Ends -->		  
+		  
+	<!-- Timesheet File Upload Start -->
+		<action name="doTimesheetAttachments" class="com.gits.rms.action.TimeSheetAttachmentAction" method="upload">
+			<result name="input">/resources/jsp/TimeSheetAttachmentsSuccess.jsp</result>
+			<result name="error">/resources/jsp/TimeSheetAttachmentsSuccess.jsp</result>
+			<result name="success">/resources/jsp/TimeSheetAttachmentsSuccess.jsp</result>
+		</action>
+		<action name="timesheetFileDownload" method="timesheetFileDownload" class="com.gits.rms.action.TimeSheetAttachmentAction">
+			<result type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="inputName">inStream</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+			</result>
+        </action>
+        <action name="deleteTimeSheetAttachments" method="deleteTimeSheetAttachments" class="com.gits.rms.action.TimeSheetAttachmentAction">
+        	<result name="error">/resources/error.jsp</result>
+			<result name="success">/resources/jsp/TimeSheetAttachmentList.jsp</result>
+		</action>
+		<action name="getAllTmesheetFileAttachment" method="getAllTmesheetFileAttachment" class="com.gits.rms.action.TimeSheetFileAttAction">
+			<result name="success">/resources/jsp/TimeSheetAttList.jsp</result>
+		</action>
+		<action name="fileUploadAction" method="fileUploadAction" class="com.gits.rms.action.TimeSheetFileAttAction">
+			<interceptor-ref name="TimesheetCheckStack" />
+			<result name="success">/resources/jsp/TimeSheetAttList.jsp</result>
+			<result name="input">/resources/jsp/TimeSheetAttUploadList.jsp</result>
+		</action>
+		<action name="fileUploadListAction" method="timeSheetAttachmentsList" class="com.gits.rms.action.TimeSheetFileAttAction">
+			<result name="success">/resources/jsp/TimeSheetAttUploadList.jsp</result>
+		</action>
+		<action name="fileTimeSheetAttDownload" method="fileDownload" class="com.gits.rms.action.BenefitsAction">
+			<result type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="inputName">inStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+			</result>
+        </action> 
+	<!-- TimeSheet File Upload Stop -->
+	
+	<!-- TimeSheet Notes Starts-->
+		<action name="timesheetNotes" method="getTimesheetNotes" class="com.gits.rms.action.TimesheetViewAction">
+			<result>/resources/jsp/timesheetNotesForm.jsp</result>
+		</action>
+		<action name="insertOrUpdateTimesheetNotes" method="insertOrUpdateTimesheetNotes" class="com.gits.rms.action.TimesheetViewAction">
+			<result name="input">/resources/jsp/timesheetNotesForm.jsp</result>
+			<result name="success">/resources/jsp/timesheetNotesForm.jsp</result>
+		</action>
+	<!-- TimeSheet Notes Starts-->
+	
+	</package>
+</struts>
+

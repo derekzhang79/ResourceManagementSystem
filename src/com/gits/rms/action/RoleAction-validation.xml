@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="role.roleName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.role.name"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.role.name"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+  	    <param name="maxLength">45</param>
+  	    <message key="errors.length.role.name"></message>
+    </field-validator>
+</field>
+ 
+</validators>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.ProjectActivityVO" table="hcmo_project_activity">
+     <id
+        name="projectActivityId"
+        type="integer"
+        column="HcmoProjectActivityId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+     <property
+        name="activityName"
+        type="string"
+        column="ActivityName"
+        length="120"
+    />
+    <property
+        name="activityNotes"
+        type="text"
+        column="Notes"
+    />
+	<property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    <property
+        name="estimatedHours"
+        type="string"
+        column="EstimatedHours"
+        length="256"
+    />
+    
+    <property
+        name="taskStartDate"
+        type="date"
+        column="taskStartDate"
+     />
+     
+     <property
+        name="taskEndDate"
+        type="date"
+        column="taskEndDate"
+     />
+     
+     <property
+        name="description"
+        type="string"
+        column="description"
+        length="255"
+     />
+     
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="proObj" column="HcmoProjectId" lazy="false" class="com.gits.rms.vo.ProjectVO"/>
+	<many-to-one name="projectOwnerEmpIdObj" column="ProjectActivityOwner" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="departmentIdObj" column="HcmoDepartmentId" lazy="false" class="com.gits.rms.vo.DepartmentVO"/>
+	</class>
+</hibernate-mapping>

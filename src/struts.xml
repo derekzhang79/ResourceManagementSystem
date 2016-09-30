@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+   <include file="struts-default.xml"/>
+
+	<constant name="struts.multipart.maxSize" value="10485760" />
+	<constant name="struts.multipart.parser" value="jakarta" />
+	<constant name="struts.ckeditor.allowUploads" value="true" />
+	<constant name="struts.ckeditor.allowedFileExtensions" value="jpg,jpeg,png" />
+	<constant name="struts.ckeditor.uploadFolder" value="/imageUploads" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    	<!-- <constant name="struts.devMode" value="true" /> -->
+    
+    <package name="default" extends="json-default,jfreechart-default,jasperreports-default,struts-default">
+		<result-types>
+			<result-type name="jasper" class="org.apache.struts2.views.jasperreports.JasperReportsResult"></result-type>
+		</result-types>
+
+		<interceptors>
+			<interceptor name="SessionCheck" class="com.gits.rms.SessionInterceptor" />
+			
+			<interceptor-stack name="SessionCheckStack">
+        		<interceptor-ref name="SessionCheck" />
+        		<interceptor-ref name="store">
+        			<param name="operationMode">AUTOMATIC</param>
+     			</interceptor-ref>
+        		<interceptor-ref name="defaultStack" />
+     		</interceptor-stack>
+			<interceptor-stack name="fileUploadStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="profiling" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">500000</param>
+                    <param name="allowedTypes"> image/jpeg,image/gif,image/png</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+                    <param name="excludeParams"> dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+            <interceptor-stack name="BenefitsfileUploadStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="profiling" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">5242880</param>
+                    <param name="allowedExtensions"> .doc,.txt,.pdf</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+                    <param name="excludeParams"> dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+            <interceptor-stack name="timesheetFileUploadStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="profiling" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">500000</param>
+                    <param name="allowedExtensions "> .doc,.txt,.pdf</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+                    <param name="excludeParams"> dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+			<interceptor-stack name="ExpensesfileUploadStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="profiling" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">5242880</param>
+                    <param name="allowedExtensions "> .doc,.txt,.pdf</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+                    <param name="excludeParams"> dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+            <interceptor-stack name="ClientLogoUploadStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="profiling" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="fileUpload">
+                    <param name="maximumSize">524288</param>
+                    <param name="allowedTypes"> image/jpeg,image/gif,image/png</param>
+                </interceptor-ref>
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+                    <param name="excludeParams"> dojo\..*,^struts\..*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods"> input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+            <interceptor-stack name="BenefitsCheckStack">
+        		<interceptor-ref name="SessionCheck" />
+        		<interceptor-ref name="BenefitsfileUploadStack" />
+     		</interceptor-stack>
+     		<interceptor-stack name="TimesheetCheckStack">
+        		<interceptor-ref name="SessionCheck" />
+        		<interceptor-ref name="timesheetFileUploadStack" />
+     		</interceptor-stack>
+			<interceptor-stack name="ExpensesCheckStack">
+        		<interceptor-ref name="SessionCheck" />
+        		<interceptor-ref name="ExpensesfileUploadStack" />
+     		</interceptor-stack>
+     		<interceptor-stack name="ClientCheckStack">
+        		<interceptor-ref name="SessionCheck" />
+        		<interceptor-ref name="ClientLogoUploadStack" />
+     		</interceptor-stack>
+		</interceptors>
+		
+		<default-interceptor-ref name="SessionCheckStack"></default-interceptor-ref>
+        <global-results>
+    	    <result name="notLoggedIn" type="redirectAction">sessionExpires</result>
+        </global-results>     
+    </package>
+     
+     <!-- Including Other XML Files Starts-->
+     	<include file="loginHomeAndOthers.xml"/>
+     	<include file="basicCRUDS.xml"/>
+     	<include file="essModule.xml"/>
+     	<include file="expenseModule.xml"/>
+     	<include file="leaveModule.xml"/>
+     	<include file="timesheetModule.xml"/>
+     	<include file="reportModule.xml"/>
+     	<include file="orgChartModule.xml"/>
+     	<include file="messagingModule.xml"/>
+     	<include file="employeeSpaceModule.xml"/>
+     	<include file="eventsCalendar.xml"/>
+     	<include file="jsonCalls.xml"/>
+     	<include file="empScheduleModule.xml"/>
+     	<include file="performanceModule.xml"/>
+     	
+     	     	<include file="ajaxJSON.xml"/>
+     	<include file="autocomplete.xml"/>
+     	
+     <!-- Including Other XML Files Ends-->
+</struts>

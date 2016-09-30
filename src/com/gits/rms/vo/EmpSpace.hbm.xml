@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ 	<class name="com.gits.rms.vo.EmpSpaceVO" table="hcmo_empspace">
+  		<id 
+  			name="hcmoEmpSpaceId" 
+  			length="11" 
+  			column="HcmoEmpSpaceId" 
+  			type="integer">
+   			<generator class="native"/>
+  		</id>
+  		<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		<property
+	        name="spaceAttachFileName"
+        	type="string"
+        	column="EmpSpaceAttachFileName"
+        	length="100"
+    	/>
+    	<property
+	        name="sharedEmpIds"
+        	type="string"
+        	column="SharedEmpIds"
+        	length="100"
+    	/>
+    	<property
+	        name="sharedEmpFirstName"
+        	type="string"
+        	column="SharedEmpFirstName"
+        	length="250"
+    	/>
+    	<property
+	        name="sharedEmpEmailId"
+        	type="string"
+        	column="SharedEmpEmailId"
+        	length="250"
+    	/>
+    	<property
+	        name="sharedFileTitle"
+        	type="string"
+        	column="SharedFileTitle"
+        	length="100"
+    		/>
+   		<property
+	        name="sharedFileDesc"
+        	type="text"
+        	column="SharedFileDesc"
+    		/>
+   	 	<property
+       		 name="created"
+        	 type="date"
+       	     column="Created"
+  		  />
+    	 <property
+       		 name="updated"
+        	 type="timestamp"
+       		 column="Updated"
+  		  />
+  		  
+  	  <property
+       		 name="isActive"
+       		 type="integer"
+       		 column="IsActive"
+     		 length="1"
+   		 />
+   		 
+<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>    
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+</class>
+</hibernate-mapping>

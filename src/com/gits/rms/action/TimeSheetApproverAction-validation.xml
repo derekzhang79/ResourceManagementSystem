@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+
+<field name="timeSheetApprover.hcmoEmployeeId.employeeId">
+	<field-validator type="required">
+		    <message key="errors.common.employeeName"></message>
+	</field-validator>
+</field>
+
+<field name="timeSheetApprover.hcmoApprovingEmpId.employeeId">
+	<field-validator type="required">
+			<message key="errors.common.approvingEmployee" />
+	</field-validator>
+</field>
+</validators>

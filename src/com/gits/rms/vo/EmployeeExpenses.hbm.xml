@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.EmployeeExpensesVO" table="hcmo_employee_expenses">
+		<id 
+			name="hcmoExpensesId" 
+			type="integer" 
+			column="HcmoExpensesId"
+			length="11">
+			<generator class="native"></generator>
+		</id>
+		<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		
+		<property 
+			name="createdDate" 
+			type="date" 
+			column="CreatedDate"
+		/>
+		<property 
+			name="totalAmount" 
+			type="big_decimal" 
+			column="TotalAmount"
+		/>
+		<property 
+			name="reimbursementAmount" 
+			type="double"
+			column="ReimbursementAmount"
+		/>
+		<property 
+			name="reimbursementDate" 
+			type="date" 
+			column="ReimbursementDate"
+		/>
+		<property 
+			name="accountingNotes" 
+			type="string" 
+			column="AccountingNotes"
+		/>
+		<property 
+			name="status" 
+			type="string" 
+			column="Status"
+		/>
+		<property 
+			name="nextLevelId" 
+			type="integer" 	
+			column="NextLevelId"
+		/>
+		<property 
+			name="created" 
+			type="date" 
+			column="Created"
+		/>
+		<property 
+			name="updated" 
+			type="timestamp" 
+			column="Updated"
+		/>
+		<property 
+			name="isActive" 
+			type="integer" 
+			column="IsActive"
+			length="1"
+		/>
+		<property 
+			name="expenseName" 
+			type="string" 
+			column="ExpenseName"
+		/>
+		<property 
+			name="receipt" 
+			type="string" 
+			column="Receipt"
+		/>
+		<property 
+			name="expenseFromDate" 
+			type="date" 
+			column="ExpenseFromDate"
+		/>
+		<property 
+			name="expenseToDate" 
+			type="date" 
+			column="ExpenseToDate"
+		/>
+		
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+	<many-to-one name="hcmoEmployeeId" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+	<many-to-one name="hcmoAccountantId" column="HcmoAccountantId" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+
+	</class>
+</hibernate-mapping>

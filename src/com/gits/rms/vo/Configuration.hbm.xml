@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.gits.rms.vo.ConfigurationVO" table="hcmo_configuration">
+     <id
+        name="hcmoConfigurationId"
+        type="integer"
+        column="HcmoConfigurationId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    
+    <property
+        name="status"
+        type="string"
+        column="Status"
+        length="100"
+    />
+     <property
+        name="mailConfiguration"
+        type="integer"
+        column="MailConfiguration"
+        length="1"
+    />
+    <property
+        name="Client"
+        type="integer"
+        column="client"
+        length="1"
+    />
+    <property
+        name="clientId"
+        type="integer"
+        column="hcmoclientid"
+        length="11"
+    />
+    <property
+        name="Location"
+        type="integer"
+        column="location"
+        length="1"
+    />
+    <property
+        name="Region"
+        type="integer"
+        column="region"
+        length="1"
+    />
+    <property
+        name="SalaryGrade"
+        type="integer"
+        column="salaryGrade"
+        length="1"
+    />
+    <property
+        name="JobTitle"
+        type="integer"
+        column="jobTitle"
+        length="1"
+    />
+    <property
+        name="Department"
+        type="integer"
+        column="department"
+        length="1"
+    />
+    <property
+        name="Team"
+        type="integer"
+        column="team"
+        length="1"
+    />
+    <property
+        name="Nationality"
+        type="integer"
+        column="nationality"
+        length="1"
+    />
+    <property
+        name="EthnicRace"
+        type="integer"
+        column="ethnicRace"
+        length="1"
+    />
+    <property
+        name="Employee"
+        type="integer"
+        column="employee"
+        length="1"
+    />
+     <property
+        name="Skip"
+        type="integer"
+        column="skip"
+        length="1"
+    />
+     <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.ProjectVO" table="hcmo_project">
+     <id
+        name="projectId"
+        type="integer"
+        column="HcmoProjectId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+     <property
+        name="projectName"
+        type="string"
+        column="Name"
+        length="120"
+    />
+    <property
+        name="projectDesc"
+        type="text"
+        column="Description"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+    <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    <property
+        name="estimatedHours"
+        type="string"
+        column="EstimatedHours"
+        length="256"
+    />
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="customerId" column="HcmoCustomerId" lazy="false" class="com.gits.rms.vo.CustomerVO"/>
+<many-to-one name="empIdObj" column="ProjectOwner" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>    
+</class>
+</hibernate-mapping>

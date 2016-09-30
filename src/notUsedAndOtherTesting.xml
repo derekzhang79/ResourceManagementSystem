@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="notUsedAndOtherTesting" extends="default">
+	
+	<!-- Organization Type CRUD Starts-->
+         <action name="getAllOrganizationType" method="getAllOrganizationType" class="com.gits.rms.action.OrganizationTypeAction">
+           <interceptor-ref name="store">
+             <param name="operationMode">RETRIEVE</param>
+           </interceptor-ref>
+            <result name="success">/resources/jsp/OrganizationType.jsp</result>
+        </action>
+        <action name="setUpOrganizationType" method="setUpOrganizationType" class="com.gits.rms.action.OrganizationTypeAction">
+            <result name="success">/resources/jsp/OrganizationTypeForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateOrganizationType" method="insertOrUpdateOrganizationType" class="com.gits.rms.action.OrganizationTypeAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="chain">getAllOrganizationType</result>
+           <result name="input">/resources/jsp/OrganizationTypeForm.jsp</result>
+        </action>
+        <action name="deleteOrganizationType" method="deleteOrganizationType" class="com.gits.rms.action.OrganizationTypeAction">
+          <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	      <interceptor-ref name="store">
+       		<param name="operationMode">STORE</param>
+          </interceptor-ref>
+     	  <result name="success" type="redirectAction">
+	       <param name="actionName">getAllOrganizationType</param>
+	   	 </result>
+        </action>
+        <action name="organizationTypeView" method="organizationTypeView" class="com.gits.rms.action.OrganizationTypeAction">
+           <result name="success">/resources/jsp/OrganizationTypeView.jsp</result>
+        </action>
+        <action name="organizationTypeSearchForm" method="organizationTypeSearchForm" class="com.gits.rms.action.OrganizationTypeAction">
+           <result name="success">/resources/jsp/OrganizationTypeSearchForm.jsp</result>
+        </action>
+        <action name="organizationTypeSearchResult" method="organizationTypeSearchResult" class="com.gits.rms.action.OrganizationTypeAction">
+           <result name="success">/resources/jsp/OrganizationTypeSearchResult.jsp</result>
+        </action>
+        <action name="resetOrganizationType">
+           <result name="success" type="redirectAction">setUpOrganizationType</result>
+        </action>
+	<!-- Organization Type CRUD Ends-->        
+       
+	<!-- Organization CRUD Starts-->
+        <action name="getAllOrganization" method="getAllOrganization" class="com.gits.rms.action.OrganizationAction">
+           <interceptor-ref name="store">
+             <param name="operationMode">RETRIEVE</param>
+           </interceptor-ref>
+            <result name="success">/resources/jsp/Organization.jsp</result>
+        </action>
+        <action name="setUpOrganization" method="setUpOrganization" class="com.gits.rms.action.OrganizationAction">
+            <result name="success">/resources/jsp/OrganizationForm.jsp</result>
+        </action>
+        <action name="insertOrUpdateOrganization" method="insertOrUpdateOrganization" class="com.gits.rms.action.OrganizationAction">
+           <exception-mapping exception="java.lang.Exception" result="input"/>
+           <result name="success" type="chain">getAllOrganization</result>
+           <result name="input">/resources/jsp/OrganizationForm.jsp</result>
+        </action>
+        <action name="deleteOrganization" method="deleteOrganization" class="com.gits.rms.action.OrganizationAction">
+          <interceptor-ref name="SessionCheckStack"></interceptor-ref>
+	      <interceptor-ref name="store">
+       		<param name="operationMode">STORE</param>
+          </interceptor-ref>
+     	  <result name="success" type="redirectAction">
+	       <param name="actionName">getAllOrganization</param>
+	   	 </result>
+        </action>
+        <action name="organizationView" method="organizationView" class="com.gits.rms.action.OrganizationAction">
+           <result name="success">/resources/jsp/OrganizationView.jsp</result>
+        </action>
+        <action name="organizationSearchForm" method="organizationSearchForm" class="com.gits.rms.action.OrganizationAction">
+            <result name="success">/resources/jsp/OrganizationSearchForm.jsp</result>
+        </action>
+        <action name="organizationSearchResult" method="organizationSearchResult" class="com.gits.rms.action.OrganizationAction">
+            <result name="success">/resources/jsp/OrganizationSearchResult.jsp</result>
+        </action>
+        <action name="resetOrganization">
+           <result name="success" type="redirectAction">setUpOrganization</result>
+        </action>
+	<!-- Organization CRUD Ends-->
+	
+	<!-- Salary CRUD Starts-->
+	        <action name="getAllSalary" method="getAllSalary" class="com.gits.rms.action.SalaryAction">
+	            <result name="success">/resources/jsp/Salary.jsp</result>
+	        </action>
+	        <action name="setUpSalary" method="setUpSalary" class="com.gits.rms.action.SalaryAction">
+	            <result name="success">/resources/jsp/SalaryForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateSalary" method="insertOrUpdateSalary" class="com.gits.rms.action.SalaryAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllSalary</param>
+		   	   </result>
+	           <result name="input">/resources/jsp/SalaryForm.jsp</result>
+	        </action>
+	           <action name="deleteSalary" method="deleteSalary" class="com.gits.rms.action.SalaryAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllSalary</param>
+		   	   </result>
+	        </action>
+	         <action name="salaryView" method="salaryView" class="com.gits.rms.action.SalaryAction">
+	           <result name="success">/resources/jsp/SalaryView.jsp</result>
+	        </action>
+	        <action name="salarySearchForm" method="salarySearchForm" class="com.gits.rms.action.SalaryAction">
+	            <result name="success">/resources/jsp/SalarySearchForm.jsp</result>
+	        </action>
+	        <action name="salarySearchResult" method="salarySearchResult" class="com.gits.rms.action.SalaryAction">
+	        	<result name="input">/resources/jsp/SalarySearchForm.jsp</result>
+	            <result name="success">/resources/jsp/SalarySearchResult.jsp</result>
+	        </action>
+	        <action name="resetSalaryForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpSalary</param>
+		   	    </result>
+	        </action>
+		<!-- Salary CRUD Ends-->  
+		<!-- Ess Salary -->
+			<action name="getEmployeeAllSalary" method="getEmployeeAllSalary" class="com.gits.rms.action.SalaryAction">
+	            <result name="success">/resources/jsp/ajax/employee/Salary.jsp</result>
+	        </action>
+	        <action name="setUpEmpSalary" method="setUpEmpSalary" class="com.gits.rms.action.SalaryAction">
+	            <result name="success">/resources/jsp/ajax/employee/SalaryForm.jsp</result>
+	        </action>
+	        <action name="setUpEmpSalarySingle" method="setUpEmpSalarySingle" class="com.gits.rms.action.SalaryAction">
+	            <result name="success">/resources/jsp/ajax/employee/SalaryForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateSalaryAjax" method="insertOrUpdateSalary" class="com.gits.rms.action.SalaryAction">
+	           <result name="input">/resources/jsp/ajax/employee/SalaryForm.jsp</result>
+	           <result name="success" type="redirectAction">
+			   		<param name="actionName">getEmployeeAllSalary</param>
+			   		<param name="sal.empIdObj.employeeId">${sal.empIdObj.employeeId}</param>
+			   </result>
+	        </action>
+	        <action name="deleteEmpSalary" method="deleteSalary" class="com.gits.rms.action.SalaryAction">
+	           <result name="success" type="redirectAction">
+			   		<param name="actionName">getEmployeeAllSalary</param>
+			   		<param name="sal.empIdObj.employeeId">${sal.empIdObj.employeeId}</param>
+			   </result>
+	        </action>
+	         <action name="resetSalaryFormAjax">
+	        	<result name="success" type="redirectAction">
+			   		<param name="actionName">setUpEmpSalary</param>
+			    </result>
+	        </action>
+		<!-- Ess Salary -->
+		<!-- Employees US Tax CRUD Starts-->
+	        <action name="getAllEmpUSTax" method="getAllEmpUSTax" class="com.gits.rms.action.EmpUSTaxAction">
+	            <result name="success">/resources/jsp/EmpUSTax.jsp</result>
+	        </action>
+	        <action name="setUpEmpUSTax" method="setUpEmpUSTax" class="com.gits.rms.action.EmpUSTaxAction">
+	            <result name="success">/resources/jsp/EmpUSTaxForm.jsp</result>
+	        </action>
+	        <action name="insertOrUpdateEmpUSTax" method="insertOrUpdateEmpUSTax" class="com.gits.rms.action.EmpUSTaxAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpUSTax</param>
+ 		   	   </result>
+	           <result name="input">/resources/jsp/EmpUSTaxForm.jsp</result>
+	        </action>
+	           <action name="deleteEmpUSTax" method="deleteEmpUSTax" class="com.gits.rms.action.EmpUSTaxAction">
+	           <result name="success" type="redirectAction">
+	       			<param name="actionName">getAllEmpUSTax</param>
+ 		   	   </result>
+	        </action>
+	         <action name="empUSTaxView" method="empUSTaxView" class="com.gits.rms.action.EmpUSTaxAction">
+	           <result name="success">/resources/jsp/EmpUSTaxView.jsp</result>
+	        </action>
+	        <action name="usTaxSearchForm" method="usTaxSearchForm" class="com.gits.rms.action.EmpUSTaxAction">
+	           <result name="success">/resources/jsp/EmpUSTaxSearchForm.jsp</result>
+	        </action>
+	        <action name="usTaxSearchResult" method="usTaxSearchResult" class="com.gits.rms.action.EmpUSTaxAction">
+	           <result name="success">/resources/jsp/EmpUSTaxSearchResult.jsp</result>
+	        </action>
+	        <action name="resetEmployeeUSTaxForm">
+	        	<result name="success" type="redirectAction">
+	       			<param name="actionName">setUpEmpUSTax</param>
+ 		   	    </result>
+	        </action>
+		<!-- Employees US Tax CRUD Ends-->
+	<!-- Multiple File Upload Starts-->
+		<action name="multipleUploadUsingList">
+			<result>/resources/jsp/multipleUploadUsingList.jsp</result>
+		</action>
+		<action name="doMultipleUploadUsingList" class="com.gits.rms.action.MultipleFileUploadUsingListAction" method="upload">
+			<result name="input">/resources/jsp/multipleUploadUsingList-success.jsp</result>
+			<result>/resources/jsp/multipleUploadUsingList-success.jsp</result>
+		</action>
+	<!-- Multiple File Upload Ends -->
+	
+	<!-- JSON Calls To Load Combo's Starts  -->
+        <action name="holidayJSONList">
+            <result>/resources/js/keyvaluepairs/holidayJSONList.js</result>
+        </action>
+        <action name="maritalStatusJSONList">
+            <result>/resources/js/keyvaluepairs/maritalStatusJSONList.js</result>
+        </action>
+        <action name="msgTypeJSONList">
+            <result>/resources/js/keyvaluepairs/msgTypeJSONList.js</result>
+        </action>
+        <action name="fileTypeJSONList">
+            <result>/resources/js/keyvaluepairs/empSpaceFileTypeJSONList.js</result>
+        </action>
+        <action name="searchProcessJSONList">
+            <result>/resources/js/keyvaluepairs/searchProcessJSONList.js</result>
+        </action>
+        <action name="timesheetJSONList">
+            <result>/resources/js/keyvaluepairs/timesheetJSONList.js</result>
+        </action>
+   	<!-- JSON Calls To Load Combo's Ends  -->
+	
+	<!-- Jasper Reports Starts -->
+		<action name="myJasperTest" class="com.gits.rms.action.reports.JasperAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/jasper/our_compiled_template.jasper</param>
+	            <param name="dataSource">myList</param>
+	            <param name="format">PDF</param>
+	        </result>
+	    </action>
+		<action name="reportsCountry" class="com.gits.rms.action.reports.ReportsCountryAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/em_country_report.jasper</param>
+	            <param name="dataSource">countryList</param>
+	            <param name="format">PDF</param>
+	        </result>
+	    </action>
+	<!-- Jasper Reports Ends -->
+	
+	<!-- JFreeChart Starts -->
+		<action name="viewModerationChart" class="com.gits.rms.action.jfreechart.ViewModerationChartAction">
+		  <result name="success" type="chart">
+		    <param name="width">340</param>
+		    <param name="height">235</param> 
+		  </result>
+		</action>
+		<action name="getPayrollGraph" class="com.gits.rms.action.jfreechart.PayrollGraphAction">
+		  <result name="success" type="chart">
+		    <param name="width">340</param>
+		    <param name="height">235</param> 
+		  </result>
+		</action>
+		<action name="getTimerollGraph" class="com.gits.rms.action.jfreechart.TimerollGraphAction">
+		  <result name="success" type="chart">
+		    <param name="width">340</param>
+		    <param name="height">235</param> 
+		  </result>
+		</action>
+		<action name="getEmpCountPerYearGraph" class="com.gits.rms.action.jfreechart.DBEmpPerYearGraphAction">
+		  <result name="success" type="chart">
+		    <param name="width">340</param>
+		    <param name="height">235</param> 
+		  </result>
+		</action>
+		<action name="getEmpCountPerDeptGraph" class="com.gits.rms.action.jfreechart.DBEmpPerDeptGraphAction">
+		  <result name="success" type="chart">
+		    <param name="width">340</param>
+		    <param name="height">235</param> 
+		  </result>
+		</action>
+		<action name="getEmpCountSalaryGradeGraph" class="com.gits.rms.action.jfreechart.DBEmpSalaryGradeGraphAction">
+		  <result name="success" type="chart">
+		    <param name="width">340</param>
+		    <param name="height">235</param> 
+		  </result>
+		</action>
+	<!-- JFreeChart Ends -->
+	  
+	 </package>
+</struts>
+

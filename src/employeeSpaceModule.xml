@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="employeeSpaceModule" extends="default">
+		  
+	<!-- Employee Space File Upload Starts-->
+		<action name="getAllEmpSpace" method="getAllEmpSpace" class="com.gits.rms.action.EmpSpaceAction">
+            <result name="success">/resources/jsp/EmpSpace.jsp</result>
+            <result name="error">/resources/jsp/EmpSpace.jsp</result>
+        </action>
+		<action name="setUpFileUpload" method="getEmpAllotedSpace" class="com.gits.rms.action.EmpSpaceAction">
+			<result>/resources/jsp/EmpSpaceForm.jsp</result>
+		</action>
+		<action name="shareFile" method="shareFile" class="com.gits.rms.action.EmpSpaceAction">
+			<result name="success">/resources/jsp/EmpSpaceShare.jsp</result>
+			<result name="input">/resources/jsp/EmpSpaceShare.jsp</result>
+			<result name="error">/resources/jsp/EmpSpaceForm.jsp</result>
+		</action>
+		
+		<action name="empSpaceupload" method="upload" class="com.gits.rms.action.EmpSpaceAction">
+			<result name="input">/resources/jsp/EmpSpaceForm.jsp</result>
+			<result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpSpace</param>
+   	        </result>
+			<result name="error">/resources/jsp/EmpSpaceForm.jsp</result>
+		</action>
+        <action name="empSpaceFileDownload" method="empSpaceFileDownload" class="com.gits.rms.action.EmpSpaceAction">
+			<result type="stream">
+				<param name="contentType">text/plain</param>
+				<param name="inputName">inStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+			</result>
+        </action>
+        <action name="deleteEmpSpace" method="deleteEmpSpace" class="com.gits.rms.action.EmpSpaceAction">
+           <result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpSpace</param>
+   	        </result>
+        </action>
+        <action name="makeUnshare" method="makeUnshare" class="com.gits.rms.action.EmpSpaceAction">
+           <result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpSpace</param>
+   	        </result>
+        </action>
+        <action name="makeShared" method="makeShared" class="com.gits.rms.action.EmpSpaceAction">
+           <result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpSpace</param>
+   	        </result>
+           <result name="input" >/resources/jsp/EmpSpaceShare.jsp</result>
+           <result name="error" type="redirectAction">
+       			<param name="actionName">shareFile</param>
+   	        </result>
+        </action>
+        <action name="getAllSharedEmpSpace" method="getAllSharedEmpSpace" class="com.gits.rms.action.EmpSpaceAction">
+            <result name="success">/resources/jsp/EmpSpaceShared.jsp</result>
+            <result name="error" type="redirectAction">
+       			<param name="actionName">setUpFileUpload</param>
+   	        </result>
+            <result name="input" type="redirectAction">
+       			<param name="actionName">setUpFileUpload</param>
+   	        </result>
+        </action>
+        <action name="sharedAndUploadedEmpSpace" method="getAllSharedAndUploadedEmpSpace" class="com.gits.rms.action.EmpSpaceAction">
+			<result name="success">/resources/jsp/EmpSpaceSharedAndUploaded.jsp</result>
+		</action>
+        <action name="empSpaceSearchForm" method="empSpaceSearchForm" class="com.gits.rms.action.EmpSpaceAction">
+           <result name="success">/resources/jsp/EmpSpaceSearchForm.jsp</result>
+        </action>
+        <action name="empspaceSearchResult" method="empspaceSearchResult" class="com.gits.rms.action.EmpSpaceAction">
+           <result name="success">/resources/jsp/EmpSpaceSearchResult.jsp</result>
+        </action>
+        <action name="resetEmpSpaceForm">
+           <result name="success" type="redirectAction">
+       			<param name="actionName">setUpFileUpload</param>
+   	        </result>
+        </action>
+        <action name="backEmpSpaceSearchTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">empSpaceSearchForm</param>
+	   	    </result>
+        </action>
+        <action name="backEmpSpaceShareTabButton">
+        	<result name="success" type="redirectAction">
+       			<param name="actionName">getAllEmpSpace</param>
+	   	    </result>
+        </action>
+	<!-- Employee Space File Upload Ends -->
+		  
+	</package>
+</struts>
+

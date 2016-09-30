@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+<field name="dirDebit.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.empName"></message>
+  	</field-validator>
+</field>
+ 
+<field name="dirDebit.routingNum">
+    <field-validator type="required" short-circuit="true">
+   		<message key="errors.directDebit.routingNo"></message>
+    </field-validator>
+    <field-validator type="int" short-circuit="true">
+    	<param name="min">0</param>
+        <message key="errors.directDebit.routingNo.invalid"></message>
+    </field-validator>
+    <field-validator type="int" short-circuit="true">
+        <param name="max">999999999</param>
+        <message key="errors.length.directDebit.routingNo"></message>
+    </field-validator>
+</field>
+
+<field name="dirDebit.account">
+    <field-validator type="requiredstring" short-circuit="true">
+  		<param name="trim">true</param>
+   		<message key="errors.directDebit.account"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\d]*)]]></param>
+   		<message key="errors.specialCharacter.directDebit.account"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.directDebit.account"></message>
+    </field-validator>
+</field>
+
+<field name="dirDebit.amount">
+  <field-validator type="required" short-circuit="true">
+   		<message key="errors.directDebit.amount"></message>
+  </field-validator>
+  <field-validator type="double" short-circuit="true">
+    	<param name="minExclusive">0.95</param>
+        <message key="errors.specialCharacter.directDebit.amount"></message>
+  </field-validator>
+  <field-validator type="double" short-circuit="true">
+  		<param name="maxExclusive">99999999999</param>
+  		<message key="errors.length.directDebit.amount"></message>
+  </field-validator>
+</field>
+
+<field name="dirDebit.accountType">
+    <field-validator type="requiredstring" short-circuit="true">
+	   	<param name="trim">true</param>
+   		<message key="errors.directDebit.accountType"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.directDebit.accountType"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">20</param>
+   		<message key="errors.length.directDebit.accountType"></message>
+    </field-validator>
+</field>
+
+<field name="dirDebit.transactionType">
+    <field-validator type="requiredstring" short-circuit="true">
+	   	<param name="trim">true</param>
+   		<message key="errors.directDebit.transactionType"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.directDebit.transactionType"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">20</param>
+   		<message key="errors.length.directDebit.transactionType"></message>
+    </field-validator>
+</field>
+
+  
+
+</validators>

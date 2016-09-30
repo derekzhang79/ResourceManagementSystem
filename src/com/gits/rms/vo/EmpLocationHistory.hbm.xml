@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.EmpLocationHistoryVO" table="hcmo_emp_location_history">
+		<id name="hcmoEmpLocHistoryId"
+		    type="integer" 
+		    column="HcmoEmpLocHistoryId"
+			length="11">
+		<generator class="native" />
+		</id>
+		
+		
+		<property 
+				name="startDate" 
+		        type="date"
+		        column="StartDate"
+			  />
+		<property 
+				name="endDate"
+				type="date"
+		        column="EndDate"
+			   />
+		<property 
+				name="created"
+                type="date"
+                column="Created"/>
+     	<property
+        		name="updated"
+        		type="timestamp"
+        		column="Updated"
+    			/>
+    	<property
+	        	name="isActive"
+    	    	type="integer"
+        		column="IsActive"
+        		length="1"/>
+    
+
+<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+<many-to-one name="locationIdObj" column="HcmoLocationId" lazy="false" class="com.gits.rms.vo.LocationVO" />
+<many-to-one name="clientIdObj" column="HcmoClientId" lazy="false" class="com.gits.rms.vo.ClientVO" />
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>		
+
+
+</class>
+</hibernate-mapping>

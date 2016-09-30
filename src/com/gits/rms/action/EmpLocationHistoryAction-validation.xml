@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="elhist.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.empName"></message>
+  	</field-validator>
+</field>
+ 
+<field name="elhist.locationIdObj.hcmolocationId">
+   <field-validator type="required">
+   		<message key="errors.location.name"></message>
+   </field-validator>
+</field>
+
+<field name="elhist.clientIdObj.hcmoclientId">
+   <field-validator type="required">
+ 		<param name="trim">true</param>
+   		<message key="errors.empLocationHistory.client.invalid"></message>
+   </field-validator>
+</field>
+
+<field name="elhist.startDate">
+   <field-validator type="required">
+   		<message key="errors.education.startDate"></message>
+   </field-validator>
+   <field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.education.startDate.invalid"></message>
+   </field-validator>
+</field>
+
+<field name="elhist.endDate">
+   <field-validator type="required">
+   		<message key="errors.education.enddate"></message>
+   </field-validator>
+   <field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.education.endDate.invalid"></message>
+   </field-validator>
+</field>
+
+</validators>

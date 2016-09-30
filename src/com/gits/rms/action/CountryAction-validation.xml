@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="cou.countryName">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+		<message key="errors.country.name"/>
+   </field-validator>   
+   <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.country.name"></message>
+   </field-validator>
+   <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.country.name"/>
+   </field-validator>
+</field>
+ 
+<field name="cou.countryCode">
+   <field-validator type="requiredstring" short-circuit="true">
+	    <param name="trim">true</param>
+   		<message key="errors.country.code"/>
+   </field-validator>
+   <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\d]*)]]></param>
+   		<message key="errors.specialCharacter.country.code"></message>
+   </field-validator>
+   <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">60</param>
+        <param name="trim">true</param>
+        <message key="errors.length.country.code"/>
+   </field-validator>
+</field>
+ 
+</validators>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+  <field name="mailConfig.smtpHost">
+  	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.mailConfig.smtpHost"></message>
+  </field-validator>
+  <field-validator type="stringlength">
+        <param name="maxLength">255</param>
+        <param name="trim">true</param>
+        <message key="errors.length.mailConfig.smtpHost"/>
+   </field-validator>
+ </field>
+ <field name="mailConfig.username">
+  	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.mailConfig.username"></message>
+  </field-validator>
+  <field-validator type="stringlength">
+        <param name="maxLength">255</param>
+        <param name="trim">true</param>
+        <message key="errors.length.mailConfig.username"/>
+   </field-validator>
+ </field>
+ <field name="mailConfig.password">
+  	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.mailConfig.password"></message>
+  </field-validator>
+  <field-validator type="stringlength">
+        <param name="maxLength">255</param>
+        <param name="trim">true</param>
+        <message key="errors.length.mailConfig.password"/>
+   </field-validator>
+ </field>
+ 
+</validators>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.EmpAssetsVO" table="hcmo_emp_assets">
+     <id
+        name="hcmoAssetId"
+        type="integer"
+        column="HcmoAssetId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property
+      name="assetName"
+      type="string"
+      column="AssetName"
+      length="255"
+    />
+    
+     <property 
+     name="srNo"
+     type="integer"
+     column="SrNo"
+     length="11" 
+     />
+    <property
+        name="issuedDate"
+        type="date"
+        column="IssuedDate"
+    />
+    <property
+        name="releasedDate"
+        type="date"
+        column="ReleasedDate"
+    />
+    <property 
+     name="clientId"
+     type="integer"
+     column="hcmoclientid"
+     length="11" 
+     />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+    
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="empIdObj" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="assetIdObj" column="AssetTypeId" lazy="false" class="com.gits.rms.vo.AssetsVO"/>
+
+     </class>
+</hibernate-mapping>

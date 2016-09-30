@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="employee.empFirstName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.firstName"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.employee.firstName"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.firstName"/>
+    </field-validator>
+</field>
+
+<field name="employee.empMidName">
+	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.employee.midName"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.midName"/>
+    </field-validator>
+</field>
+
+<field name="employee.empLastName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.lastName"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.employee.lastName"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.lastName"/>
+    </field-validator>
+</field>
+
+<field name="employee.empNickName">
+	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.employee.nickName"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.nickName"/>
+    </field-validator>
+</field>
+
+<field name="employee.empBirthDate">
+    <field-validator type="required">
+  		<message key="errors.employee.birthDate"></message>
+    </field-validator>
+    <field-validator type="date">
+	    <param name="min">1/2/1947</param>
+	    <message key="errors.children.DateOfBirth.invalid"></message>
+    </field-validator>
+</field>
+
+<field name="employee.empMaritalStatus">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.maritalStatuse"></message>
+    </field-validator>
+    <field-validator type="stringlength">
+        <param name="maxLength">20</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.maritalStatus"/>
+    </field-validator>
+</field>
+ 
+<field name="employee.ethnicRaceIdObj.ethnicRaceId">
+  	<field-validator type="required">
+   	    <message key="errors.ethnicRace.name"></message>
+  	</field-validator>
+</field> 
+
+<field name="employee.departmentIdObj.hcmoDepartmentId">
+    <field-validator type="required">
+   		<message key="errors.department.name"></message>
+    </field-validator>
+</field>
+
+<field name="employee.teamIdObj.hcmoTeamId">
+    <field-validator type="required">
+   		<message key="errors.team.name"></message>
+    </field-validator>
+</field>
+
+<field name="employee.empType">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.empType"></message>
+    </field-validator>
+    <field-validator type="stringlength">
+        <param name="maxLength">20</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.empType"/>
+    </field-validator>
+</field>
+
+<field name="employee.empStatusIdObj.empStatusId">
+  	<field-validator type="required">
+   		<message key="errors.empStatus.name"></message>
+  	</field-validator>
+</field>
+
+<field name="employee.empSSNNumber">
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9])]]></param>
+   		<message key="errors.employee.ssnNumber.invalid"></message>
+    </field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.ssnNumber"/>
+    </field-validator>
+</field>
+
+<field name="employee.empMilitaryService">
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.employee.militaryStatus"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.militaryStatus"/>
+    </field-validator>
+</field> 
+ 
+<field name="employee.empDriLicenNum">
+    <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.driLicenseNo"/>
+    </field-validator>
+</field>
+
+<field name="employee.empDriLicenExpDate">
+	<field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.employee.driLicenseExpDate.invalid"></message>
+    </field-validator>
+</field>  
+
+<field name="employee.empOtherId">
+    <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.otherId"/>
+    </field-validator>
+</field>
+
+<field name="employee.nationalityIdObj.nationalityId">
+   <field-validator type="required">
+   		<message key="errors.nationality.name"></message>
+   </field-validator>
+</field>
+
+<field name="employee.empZipCode">
+	<field-validator type="stringlength">
+    	<param name="maxLength">20</param>
+    	<param name="trim">true</param>
+    	<message key="errors.length.common.zipCode"/>
+	</field-validator>
+	<field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\d]*)]]></param>
+   		<message key="errors.common.zipCode.invalid"></message>
+    </field-validator>
+</field>
+
+<field name="employee.empCounName">
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.employee.region.name"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.region.name"/>
+    </field-validator>
+</field>
+
+<field name="employee.empCityName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.city"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.common.city"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.common.city"/>
+    </field-validator>
+  
+</field>
+
+<field name="employee.empStreet1">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.street1"></message>
+    </field-validator>
+    <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.street1"/>
+    </field-validator>
+</field>
+
+<field name="employee.empStreet2">
+    <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.street2"/>
+    </field-validator>
+</field>
+
+<field name="employee.empHmTelephone">
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.employee.homePhone.invalid"></message>
+    </field-validator>
+</field>
+
+<field name="employee.empMobile">
+    <field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.empMobile"></message>
+    </field-validator>
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.employee.mobile.invalid"></message>
+    </field-validator>
+</field> 
+ 
+<field name="employee.roleObj.hcmoRoleId">
+    <field-validator type="required">
+   		<message key="errors.role.name"></message>
+    </field-validator>
+</field>
+
+<field name="employee.jobTitleIdObj.jobTitleId">
+    <field-validator type="required">
+   		<message key="errors.jobTitle.name"></message>
+    </field-validator>
+</field> 
+
+<field name="employee.country.hcmocountryId">
+    <field-validator type="required">
+   		<message key="errors.employee.country"></message>
+    </field-validator>
+</field> 
+
+<field name="employee.empWorkEmail">
+    <field-validator type="requiredstring" short-circuit="true">
+  		<message key="errors.employee.workEmail"></message>
+    </field-validator>
+	<field-validator type="email" short-circuit="true">
+   		<message key="errors.employee.workEmail.invalid"></message>
+	</field-validator>
+	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.workEmail"/>
+    </field-validator>
+</field>
+ 
+<field name="employee.empWorkTelephone">
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.employee.workTelephone.invalid"></message>
+    </field-validator>
+</field> 
+
+<field name="employee.empJoineddate">
+    <field-validator type="required">
+  	     <message key="errors.employee.joinedDate"></message>
+    </field-validator>
+    <field-validator type="date">
+	     <param name="min">1/2/1970</param>
+	     <message key="errors.employee.joinedDate.invalid"></message>
+    </field-validator>
+</field> 
+
+<field name="employee.empTerminatedDate">
+    <field-validator type="date">
+	    <param name="min">1/2/1970</param>
+	    <message key="errors.employee.terminatedDate.invalid"></message>
+    </field-validator>
+</field>
+
+<field name="employee.empTerminatedReason">
+    <field-validator type="stringlength">
+        <param name="maxLength">256</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.terminatedReason"/>
+    </field-validator>
+</field>
+
+<field name="employee.empOthEmail">
+	<field-validator type="email" short-circuit="true">
+   		<message key="errors.employee.OtherEmailId.invalid"></message>
+	</field-validator>
+	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.OtherEmailId"/>
+    </field-validator>
+</field>
+
+<field name="employee.empCustom1">
+    <field-validator type="stringlength">
+        <param name="maxLength">256</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.custom1"/>
+    </field-validator>
+</field>
+
+<field name="employee.empCustom2">
+    <field-validator type="stringlength">
+        <param name="maxLength">256</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.custom2"/>
+    </field-validator>
+</field>
+
+<field name="employee.empSpace">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.empSpace.fileSize"></message>
+    </field-validator>
+    <field-validator type="stringlength">
+        <param name="maxLength">255</param>
+        <param name="trim">true</param>
+        <message key="errors.length.employee.empSpace.fileSize"/>
+     </field-validator>
+</field>
+<field name="employee.employeeWage">
+    <field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.employee.employeeWage"></message>
+    </field-validator>
+</field>
+
+
+</validators>

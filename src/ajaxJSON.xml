@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+
+
+	<package name="ajaxJSON" extends="default">
+		<action name="ajaxAction" class="com.gits.rms.action.AjaxJsonAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action>
+
+		<action name="employeeJSONAction" class="com.gits.rms.action.EmployeesJSONAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="root">employee</param>
+			</result>
+			<!-- <result name="input">/resources/jsp/hcmone/login.jsp</result> -->
+		</action>
+
+		<action name="updateEmployeeProfileJSON" method="updateEmployeeProfile" class="com.gits.rms.action.EmployeeProfileAction"> 
+		<!-- <action name="updateEmployeeProfileJSON" method="insertOrUpdateEmployees" class="com.gits.rms.action.EmployeesAction"> -->
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="root">employee</param>
+			</result>
+		</action>
+		
+		<!-- <action name="insertOrUpdateEmpProjectAssignJSON" method="insertOrUpdateEmpProjectAssign" class="com.gits.rms.action.EmployeesAction"> 
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+		</action> -->
+		
+		<action name="projectAssignJSONAction" class="com.gits.rms.action.ProjectAssignJSONAction">
+			<result type="json">
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+			</result>
+			<!-- <result name="input">/resources/jsp/hcmone/login.jsp</result> -->
+		</action>
+	</package>
+
+</struts>

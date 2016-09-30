@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     <class name="com.gits.rms.vo.PayStubVO" table="hcmo_paystub">
+     
+     <id
+        name="payStubId"
+        type="integer"
+        column="HcmoPayStubId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+     
+    <property
+        name="grossSalary"
+        type="double"
+        column="GrossSalary"
+        length="13"
+    />
+    <property
+        name="netSalary"
+        type="double"
+        column="NetSalary"
+        length="13"
+    />
+    <property
+        name="declarationDate"
+        type="date"
+        column="DeclarationDate"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+    <property
+        name="empType"
+        type="string"
+        column="empType"
+        length="100"
+    />
+    
+    <property
+        name="payFreq"
+        type="integer"
+        column="payFreq"
+        length="13"
+    />
+    
+    <property
+        name="commission"
+        type="double"
+        column="commission"
+        length="13"
+     />
+     
+     <property
+        name="bonus"
+        type="double"
+        column="bonus"
+        length="13"
+     />
+     
+     <property
+        name="regularRate"
+        type="double"
+        column="regularRate"
+        length="13"
+     />
+     
+     <property
+        name="overtimeRate"
+        type="double"
+        column="overtimeRate"
+        length="13"
+     />
+     
+     <property
+        name="isBenefit"
+        type="integer"
+        column="isBenefit"
+        length="1"
+    />
+     
+     <property
+        name="paymentType"
+        type="string"
+        column="paymentType"
+        length="100"
+     />
+     
+     <property
+        name="firstDay"
+         type="string"
+        column="firstDay"
+        length="100"
+     />
+     
+     <property
+        name="role"
+         type="string"
+        column="role"
+        length="100"
+     />
+       
+     <property
+        name="payDate"
+        type="date"
+        column="payDate"
+     />
+        
+    <many-to-one name="employee" column="HcmoEmployeeId" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	
+</class>
+</hibernate-mapping>

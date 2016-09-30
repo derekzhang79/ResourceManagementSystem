@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="reportModule" extends="default">
+		  
+	<!--  Reports Starts -->
+		<action name="showLeaveReports" method="getReportLeaveSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportLeaveHistForm.jsp</result>
+		</action>
+		<action name="showBroadcastReports">
+			<result>/resources/jsp/ReportBroadcastForm.jsp</result>
+		</action>
+		<action name="showEmployeeReports" method="getReportEmpReportingToSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportEmployeeForm.jsp</result>
+		</action>
+		<action name="showProjectReports">
+			<result>/resources/jsp/ReportProjectForm.jsp</result>
+		</action>
+		<action name="showExpensesHistReports" method="getReportExpensesSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportExpensesHistForm.jsp</result>
+		</action>
+		<action name="showBirthdayReports" method="getReportEmpReportingToSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportBirthdayForm.jsp</result>
+		</action>
+		<action name="showTimeSheetReports" method="getReportTimeSheetSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportTimeSheetForm.jsp</result>
+		</action>
+		<action name="showSummationTimeSheetReports" method="getReportTimeSheetSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportSummationTimeSheetForm.jsp</result>
+		</action>
+		<action name="showTimeSheetProjectSummationReports" >
+			<result>/resources/jsp/ReportTimeSheetProjectSummationForm.jsp</result>
+		</action>
+		<action name="showTimeEstimationReports" method="getReportTimeSheetSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportTimeEstimationForm.jsp</result>
+		</action>
+		<action name="showPayStubReports" >
+			<result>/resources/jsp/ReportPayStubForm.jsp</result>
+		</action>
+		<action name="showTargetAndGoalReports" method="getReportTimeSheetSubEmpList" class="com.gits.rms.action.ReportsAction">
+			<result>/resources/jsp/ReportTargetAndGoalForm.jsp</result>
+		</action>
+		
+		<action name="getBroadcastReportPreview" method="getBroadcastReportPreview" class="com.gits.rms.action.ReportsAction">
+            <result name="success">/resources/jsp/ReportsBroadcastPreview.jsp</result>
+        </action>
+        <action name="getEmployeeReportsPreview" method="getEmployeeReportsPreview" class="com.gits.rms.action.ReportsAction">
+            <result name="success">/resources/jsp/ReportsEmployeePreview.jsp</result>
+        </action>
+        <action name="getProjectReportsPreview" method="getProjectReportsPreview" class="com.gits.rms.action.ReportsAction">
+            <result name="success">/resources/jsp/ReportProjectPreview.jsp</result>
+        </action>
+        <action name="getLeaveHistoryReportsPreview" method="getLeaveHistoryReportsPreview" class="com.gits.rms.action.ReportsAction">
+            <result name="success">/resources/jsp/ReportLeaveHistPreview.jsp</result>
+        </action>
+        <action name="getExpensesStatusTrackerReportsPreview" method="getExpensesStatusTrackerReportsPreview" class="com.gits.rms.action.ReportsAction">
+            <result name="success">/resources/jsp/ReportExpensesHistPreview.jsp</result>
+        </action>
+        <action name="getTimeSheetReportsPreview" method="getTimeSheetReportsPreview" class="com.gits.rms.action.ReportsAction">
+             <result name="success">/resources/jsp/timesheetReport.jsp</result>
+             <result name="error">/resources/jsp/ReportTimeSheetForm.jsp</result>
+             <result name="input">/resources/jsp/ReportTimeSheetForm.jsp</result>
+        </action>
+        <action name="getTimeEstimationReportsPreview" method="getTimeEstimationReportsPreview" class="com.gits.rms.action.ReportsAction">
+             <result name="success">/resources/jsp/ReportTimeEstimation.jsp</result>
+             <result name="input">/resources/jsp/ReportTimeEstimationForm.jsp</result>
+        </action>
+        <action name="getBirthdayReportsPreview" method="getBirthdayReportsPreview" class="com.gits.rms.action.ReportsAction">
+            <result name="success">/resources/jsp/ReportsEmployeeBirthdayPreview.jsp</result>
+        </action>
+        <action name="getTargetAndGoalReportsPreview" method="getTargetAndGoalReportsPreview" class="com.gits.rms.action.ReportsAction">
+             <result name="success">/resources/jsp/ReportTargetAndGoal.jsp</result>
+             <result name="input">/resources/jsp/ReportTargetAndGoalForm.jsp</result>
+        </action>
+        
+        <action name="reportsTimeSheetProjectSummationAction" class="com.gits.rms.action.reports.ReportsTimeSheetSummationAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/timeSheetReports/projectSummation/TimeSheetSummationReport.jasper</param>
+	            <param name="dataSource">timeSheetReportList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="Timesheet Report.pdf"</param>
+	        </result>
+	    </action>
+        <action name="reportsTimeSheetSummationAction" class="com.gits.rms.action.reports.ReportsTimeSheetProjectSummationAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/timeSheetReports/summation/project/TimeSheetProjectSummationReport.jasper</param>
+	            <param name="dataSource">timeSheetProjectAssignList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="Timesheet Report.pdf"</param>
+	        </result>
+	    </action>
+	    <action name="reportsTimeSheetCategorySummationAction" class="com.gits.rms.action.reports.ReportsTimeSheetCategorySummationAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/timeSheetReports/summation/category/TimeSheetCategorySummationReport.jasper</param>
+	            <param name="dataSource">timeSheetCategoryAssignList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="TimeSheetReport.pdf"</param>
+	        </result>
+	    </action>
+        <action name="reportsTimeSheetAction" class="com.gits.rms.action.reports.ReportsTimeSheetAction">
+	        <result name="success" type="jasper">
+	          <!--  <param name="location">/resources/reports/timeSheetReports/TimeSheetReport.jasper</param> --> 
+	            <param name="location">/resources/reports/timeSheetReports/TimeSheetSubReport.jasper</param>
+	            <param name="dataSource">displayList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="Timesheet Sub Report.pdf"</param>
+	            <param name="reportParameters">reportParameters</param>
+	        </result>
+	                
+	    </action>
+	    
+	     <action name="TsReportfileDownload" class="com.gits.rms.action.reports.ReportsTimeSheetAction">
+				<result type="stream">
+					<param name="inputName">inStream</param>
+					<param name="format">PDF</param>
+					<param name="contentDisposition">attachment;filename="Time Sheet Report.pdf"</param>
+				</result>
+				<result name="error">/resources/jsp/ReportTimeSheetForm.jsp</result>
+				<result name="input">/resources/jsp/ReportTimeSheetForm.jsp</result>
+	     </action> 
+        <action name="reportsBroadcastMessageAction" class="com.gits.rms.action.reports.ReportsBroadcastMessageAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/broadcastReports/BroadcastReport.jasper</param>
+	            <param name="dataSource">msgBroadcastList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="MessageReport.pdf"</param>
+	        </result>
+	    </action>
+	    <action name="reportsEmployeeAction" class="com.gits.rms.action.reports.ReportsEmployeeAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/employeeReports/EmployeesReport.jasper</param>
+	            <param name="dataSource">empList</param>
+	            <param name="format">PDF</param>
+	              <param name="contentDisposition">attachment;filename="EmployeeReport.pdf"</param>
+	        </result>
+	    </action>
+	    <action name="reportsProjectAction" class="com.gits.rms.action.reports.ReportsProjectAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/projectReports/Project.jasper</param>
+	            <param name="dataSource">projectList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="ProjectReport.pdf"</param>
+	        </result>
+	    </action>
+	    <action name="reportsLeave" class="com.gits.rms.action.reports.ReportsLeaveHistAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/leaveReports/LeaveReport.jasper</param>
+	            <param name="dataSource">leaveList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="LeaveReport.pdf"</param>
+	        </result>
+	    </action>
+	    <action name="reportsEmployeeBirthday" class="com.gits.rms.action.reports.ReportsEmployeeBirthdayAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/birthdayReports/Birthday.jasper</param>
+	            <param name="dataSource">empList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="BirthdayReport.pdf"</param>
+	        </result>
+	    </action>
+	    <action name="reportsExpensesHistory" class="com.gits.rms.action.reports.ReportsExpensesHistAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/expensesReports/ExpensesReport.jasper</param>
+	            <param name="dataSource">expensesList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="ExpensesReport.pdf"</param>
+	        </result>
+	    </action>
+		<action name="reportsPayStubAction" class="com.gits.rms.action.reports.ReportsPayStubAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/paystubReports/PayStubReport.jasper</param>
+	            <param name="dataSource">finalPayStubReportList</param>
+	            <param name="format">PDF</param>
+	            <param name="contentDisposition">attachment;filename="PayStubReport.pdf"</param>
+	            <param name="reportParameters">reportParameters</param>
+	        </result>
+	         <result name="input">/resources/jsp/ReportPayStubForm.jsp</result>
+	    </action>
+	    <action name="reportsTimesheetEstimation" class="com.gits.rms.action.reports.ReportsTimesheetEstimationAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/timeSheetReports/estimationReport/TimeSheetEstimationReport.jasper</param>
+	            <param name="dataSource">enteredTimeDisplayList</param>
+	            <param name="format">PDF</param>
+	              <param name="contentDisposition">attachment;filename="TimesheetEstimation.pdf"</param>
+	        </result>
+	        <result name="input">/resources/jsp/ReportTimeEstimationForm.jsp</result>
+	    </action>
+	    <action name="reportsTargetAndGoal" class="com.gits.rms.action.reports.ReportsTagetAndGoalAction">
+	        <result name="success" type="jasper">
+	            <param name="location">/resources/reports/targetAndGoals/TargetAndGoals.jasper</param>
+	            <param name="dataSource">targetAndGoalList</param>
+	            <param name="format">PDF</param>
+	              <param name="contentDisposition">attachment;filename="TargetAndGoal.pdf"</param>
+	        </result>
+	        <result name="input">/resources/jsp/ReportTargetAndGoalForm.jsp</result>
+	    </action>
+	<!--  Reports Ends -->
+ </package>
+</struts>

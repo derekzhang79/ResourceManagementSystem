@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+	<field name="leave.leaveTypeName">
+	    <field-validator type="requiredstring" short-circuit="true">
+		   <param name="trim">true</param>
+		   <message key="errors.leaveType.name"></message>
+	   </field-validator>
+	   <field-validator type="regex" short-circuit="true">
+   		  <param name="trim">true</param>
+   		  <param name="expression"><![CDATA[([\D]*)]]></param>
+   		  <message key="errors.specialCharacter.leaveType.name"></message>
+  	   </field-validator>
+	   <field-validator type="stringlength" short-circuit="true">
+	  	  <param name="maxLength">20</param>
+	  	  <message key="errors.length.leaveType.name"></message>
+	   </field-validator>
+	</field>
+</validators>

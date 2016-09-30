@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.gits.rms.vo.ExpensesDetailsVO" table="hcmo_expenses_details">
+		<id name="hcmoExpensesDetailsId" type="integer" column="HcmoExpensesDetailsId"
+			length="11">
+			<generator class="native"></generator>
+		</id>
+		<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+		
+		<property 
+				name="amount" 
+				type="big_decimal" 
+				column="Amount">
+		</property>
+		
+		<property 
+				name="note" 
+				type="text" 
+				column="Note">
+		</property>
+		
+		<property 
+				name="description" 
+				type="text" 
+				column="Description">
+		</property>
+		
+		<property 
+				name="expensesDate" 
+				type="date" 
+				column="ExpenseDate">
+		</property>
+		
+		<property 
+				name="created" 
+				type="date" 
+				column="Created" 
+		/>
+		
+		<property 
+				name="updated" 
+				type="timestamp" 
+				column="Updated" 
+	    />
+		
+		<property 
+				name="isActive" 
+				type="integer" 
+				column="IsActive"
+				length="1" 
+		/>
+			
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO" />
+<many-to-one name="hcmoExpensesTypeId" column="HcmoExpensesTypeId" lazy="false" class="com.gits.rms.vo.ExpensesTypeVO" />
+<many-to-one name="hcmoExpensesId" column="HcmoExpensesId" lazy="false" class="com.gits.rms.vo.EmployeeExpensesVO" />
+<many-to-one name="projectId" column="ProjectId" lazy="false" class="com.gits.rms.vo.ProjectVO"/>
+</class>
+</hibernate-mapping>

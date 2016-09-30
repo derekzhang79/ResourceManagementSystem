@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.gits.rms.vo">
+	<class name="TimesheetCategoryVO" table="hcmo_timesheetcat">
+	
+	<id name="hcmoTimesheetCategoryId" 
+			type="integer" 
+			column="hcmo_timesheetcat_id"
+			length="11">
+			<generator class="native"></generator>
+		</id>
+		<property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+	<property
+        name="name"
+        type="string"
+        column="name"
+        length="60"
+        unique="true"
+    />
+	<property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+    
+
+<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+		
+	</class>
+</hibernate-mapping>

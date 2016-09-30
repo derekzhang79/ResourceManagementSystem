@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="vendor.taxId">
+    <field-validator type="requiredstring" short-circuit="true">
+  		<param name="trim">true</param>
+   		<message key="errors.vendor.taxId"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\d]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.taxId"></message>
+  	</field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">30</param>
+   		<message key="errors.length.vendor.taxId"></message>
+    </field-validator>
+</field>
+
+<field name="vendor.vendorName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.vendor.vendorName"></message>
+    </field-validator>
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.vendorName"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.vendorName"/>
+    </field-validator>
+</field>
+
+<field name="vendor.vendorShName">
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.vendorShName"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.vendorShName"/>
+    </field-validator>
+</field>
+
+<field name="vendor.contactPerson1">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.vendor.contactPerson1"></message>
+    </field-validator>
+	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.contactPerson1"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.contactPerson1"/>
+    </field-validator>
+</field>
+
+<field name="vendor.emailAddress1">
+    <field-validator type="requiredstring" short-circuit="true">
+  		<message key="errors.vendor.emailAddress1"></message>
+    </field-validator>
+	<field-validator type="email" short-circuit="true">
+   		<message key="errors.specialCharacter.vendor.emailAddress1"></message>
+	</field-validator>
+	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.emailAddress1"/>
+    </field-validator>
+</field>
+
+<field name="vendor.contactPerson2">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.vendor.contactPerson2"></message>
+    </field-validator>
+	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.contactPerson2"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.contactPerson2"/>
+    </field-validator>
+</field>
+
+<field name="vendor.emailAddress2">
+    <field-validator type="requiredstring" short-circuit="true">
+  		<message key="errors.vendor.emailAddress2"></message>
+    </field-validator>
+	<field-validator type="email" short-circuit="true">
+   		<message key="errors.specialCharacter.vendor.emailAddress2"></message>
+	</field-validator>
+	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.emailAddress2"/>
+    </field-validator>
+</field>
+
+<field name="vendor.userName">
+	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.vendor.userName"></message>
+    </field-validator>
+	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.userName"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">60</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.userName"/>
+    </field-validator>
+</field>
+
+<field name="vendor.password">
+	<field-validator type="requiredstring" short-circuit="true">
+   	    <param name="trim">true</param>
+   		<message key="errors.vendor.password"></message>
+    </field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+  	    <param name="minLength">6</param>
+  	    <message key="errors.length.min.vendor.password"></message>
+    </field-validator>
+    <field-validator type="stringlength" short-circuit="true">
+  	    <param name="maxLength">16</param>
+  	    <message key="errors.length.vendor.password"></message>
+    </field-validator>
+</field> 
+
+<field name="vendor.companyName">
+  <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.vendor.companyName"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.companyName"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.vendor.companyName"></message>
+  </field-validator>
+</field>
+
+<field name="vendor.address1">
+    <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.address1"/>
+    </field-validator>
+</field>
+
+<field name="vendor.address2">
+    <field-validator type="stringlength">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.address2"/>
+    </field-validator>
+</field>
+
+<field name="vendor.country.hcmocountryId">
+    <field-validator type="required">
+   		<message key="errors.vendor.country"></message>
+    </field-validator>
+</field> 
+
+
+<field name="vendor.state">
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.state"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">60</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.state"/>
+    </field-validator>
+</field>
+
+<field name="vendor.city">
+    <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.vendor.city"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.city"/>
+    </field-validator>
+</field>
+
+<field name="vendor.zipCode">
+	<field-validator type="stringlength">
+    	<param name="maxLength">20</param>
+    	<param name="trim">true</param>
+    	<message key="errors.length.vendor.zipCode"/>
+	</field-validator>
+	<field-validator type="regex">
+	    <param name="trim">true</param>
+	    <param name="expression"><![CDATA[^\d*$]]></param>       
+     <message key="errors.specialCharacter.vendor.zipCode"></message>
+  </field-validator>
+</field>
+
+<field name="vendor.phone">
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.specialCharacter.vendor.phone"></message>
+    </field-validator>
+</field>
+<field name="vendor.extension">
+    <field-validator type="stringlength">
+        <param name="maxLength">4</param>
+        <param name="trim">true</param>
+        <message key="errors.specialCharacter.vendor.extension"/>
+    </field-validator>
+</field>
+
+<field name="vendor.fax">
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.specialCharacter.vendor.fax"></message>
+    </field-validator>
+</field>
+
+<field name="vendor.custom1">
+    <field-validator type="stringlength">
+        <param name="maxLength">256</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.custom1"/>
+    </field-validator>
+</field>
+
+<field name="vendor.custom2">
+    <field-validator type="stringlength">
+        <param name="maxLength">256</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.custom2"/>
+    </field-validator>
+</field>
+
+<field name="vendor.webSite">
+    <field-validator type="stringlength">
+        <param name="maxLength">256</param>
+        <param name="trim">true</param>
+        <message key="errors.length.vendor.website"/>
+    </field-validator>
+</field>
+
+</validators>

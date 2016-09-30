@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="cli.companyName">
+  <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.client.companyName"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.client.companyName"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.client.companyName"></message>
+  </field-validator>
+</field>
+
+<field name="cli.noOfEmp">
+  	<field-validator type="required">
+   		<message key="errors.client.noOfEmp"></message>
+  	</field-validator>
+ 	<field-validator type="int">
+    	<param name="min">1</param>
+        <message key="errors.specialCharacter.client.noOFEmp"></message>
+    </field-validator>
+</field> 
+
+<field name="cli.country.hcmocountryId">
+  <field-validator type="required">
+   		<message key="errors.country.name"></message>
+  </field-validator>
+</field>
+ 
+<field name="cli.zipcode" >
+  <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.common.zipCode"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">20</param>
+  		<message key="errors.length.common.zipCode"></message>
+  </field-validator>
+</field>
+
+<field name="cli.city">
+  <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.common.city"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.common.city"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">100</param>
+  		<message key="errors.length.common.city"></message>
+  </field-validator>
+</field>
+
+<field name="cli.state">
+  <field-validator type="requiredstring" short-circuit="true">
+ 		<param name="trim">true</param>
+   		<message key="errors.common.state"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.common.state.name"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.common.state"></message>
+  </field-validator>
+</field>
+
+<field name="cli.address1">
+  <field-validator type="requiredstring">
+ 		<param name="trim">true</param>
+   		<message key="errors.common.address1"></message>
+  </field-validator>
+  <field-validator type="stringlength">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.common.address1"></message>
+  </field-validator>
+</field>
+
+<field name="cli.address2">
+  <field-validator type="stringlength">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.common.address2"></message>
+  </field-validator>
+</field>
+
+<field name="cli.phone">
+  <field-validator type="requiredstring">
+ 		<param name="trim">true</param>
+   		<message key="errors.common.phone"></message>
+  </field-validator>
+  <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.common.phone.invalid"></message>
+  </field-validator>
+</field>
+
+<field name="cli.fax">
+  <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.common.fax.invalid"></message>
+  </field-validator>
+</field> 
+
+<field name="cli.taxId">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<message key="errors.client.taxId"></message>
+  	</field-validator>
+  	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([a-zA-Z0-9]*)]]></param>
+   		<message key="errors.specialCharacter.client.taxId"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">30</param>
+  		<message key="errors.length.client.taxId"></message>
+   </field-validator>
+</field>
+
+</validators>

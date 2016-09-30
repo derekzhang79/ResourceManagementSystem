@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="autocomple" extends="default">
+	
+		<action name="searchEmployees" method="searchEmployees"
+			class="com.gits.rms.action.AutocompleteAction">
+			<result type="json">
+				<param name="root">employees</param>
+			</result>
+		</action>
+
+		<action name="searchDepartments" method="searchDepartments"
+			class="com.gits.rms.action.AutocompleteAction">
+			<result type="json">
+				<param name="root">departments</param>
+			</result>
+		</action>
+
+		<action name="searchProjectss" method="searchProjectss"
+			class="com.gits.rms.action.AutocompleteAction">
+			<result type="json">
+				<param name="root">projects</param>
+			</result>
+		</action>
+
+		<action name="searchProjectActivities" method="searchProjectActivities"
+			class="com.gits.rms.action.AutocompleteAction">
+			<result type="json">
+				<param name="root">projectActivities</param>
+			</result>
+		</action>
+
+		<action name="searchRoles" method="searchRoles"
+			class="com.gits.rms.action.AutocompleteAction">
+			<result type="json">
+				<param name="root">roles</param>
+			</result>
+		</action>
+
+		<action name="searchCustomers" method="searchCustomers"
+			class="com.gits.rms.action.AutocompleteAction">
+			<result type="json">
+				<param name="root">customers</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

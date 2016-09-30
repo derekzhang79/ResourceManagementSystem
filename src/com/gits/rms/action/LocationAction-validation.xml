@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="loc.locationName">
+  <field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.location.name"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.location.name"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.location.name"></message>
+  </field-validator>
+</field>
+
+<field name="loc.country.hcmocountryId">
+  	<field-validator type="required">
+   		<message key="errors.country.name"></message>
+  	</field-validator>
+</field>
+
+<field name="loc.zipcode">
+	 <field-validator type="requiredstring" short-circuit="true">
+	   		<param name="trim">true</param>
+	   		<message key="errors.common.zipCode"></message>
+	 </field-validator>
+	 <field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">20</param>
+  		<message key="errors.length.common.zipCode"></message>
+   </field-validator>
+</field>
+ 
+ <field name="loc.city">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.location.city"></message>
+  	</field-validator>
+  	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.common.city"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.common.city"></message>
+  </field-validator>
+</field>
+ 
+<field name="loc.region">
+    <field-validator type="requiredstring" short-circuit="true">
+    	<param name="trim">true</param>
+		<message key="errors.location.region.name"></message>
+  	</field-validator>
+  	<field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.location.region.name"></message>
+  	</field-validator>
+  	<field-validator type="stringlength" short-circuit="true">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.region.name"></message>
+  </field-validator>
+</field>
+ 
+<field name="loc.address1">
+    <field-validator type="requiredstring">
+	    <param name="trim">true</param>
+	    <message key="errors.location.address1"></message>
+    </field-validator>
+    <field-validator type="stringlength">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.common.address1"></message>
+    </field-validator>
+</field>
+
+<field name="loc.address2">
+  	<field-validator type="stringlength">
+  		<param name="maxLength">60</param>
+  		<message key="errors.length.common.address2"></message>
+  </field-validator>
+</field>
+ 
+<field name="loc.phone">
+    <field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.customer.phone"></message>
+    </field-validator>
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.common.phone.invalid"></message>
+    </field-validator>
+</field>
+ 
+<field name="loc.fax">
+    <field-validator type="regex">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[(\d{10}|\d{12})]]></param>
+   		<message key="errors.common.fax.invalid"></message>
+    </field-validator>
+</field>
+ 
+</validators>

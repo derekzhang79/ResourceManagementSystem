@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<field name="edu.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.empName"></message>
+  	</field-validator>
+</field>
+
+<field name="edu.eduMajor">
+   <field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+   		<message key="errors.education.major"></message>
+   </field-validator>
+   <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.education.major"></message>
+   </field-validator>
+   <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.education.major"></message>
+   </field-validator>
+</field>
+ 
+<field name="edu.eduYear">
+  <field-validator type="required">
+	   <message key="errors.education.year"></message>
+  </field-validator>
+  <field-validator type="int">
+       <param name="min">1900</param>
+       <param name="max">2500</param>
+       <message key="errors.education.year.invalid"></message>
+  </field-validator>
+</field>
+
+<field name="edu.eduGrade">
+  <field-validator type="regex" short-circuit="true">
+   	    <param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.education.grade"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">25</param>
+   		 <param name="trim">true</param>
+   		<message key="errors.length.education.grade"></message>
+  </field-validator>	
+</field>
+ 
+<field name="edu.eduStartDate">
+   <field-validator type="required">
+  		<message key="errors.education.startDate"></message>
+   </field-validator>
+   <field-validator type="date">
+        <param name="min">1/2/1970</param>
+	    <message key="errors.education.startDate.invalid"></message>
+   </field-validator>
+</field>
+ 
+<field name="edu.eduEndDate">
+   <field-validator type="required">
+   	    <message key="errors.education.enddate"></message>
+   </field-validator>
+   <field-validator type="date">
+        <param name="min">1/2/1970</param>
+	    <message key="errors.education.endDate.invalid"></message>
+   </field-validator>
+</field>
+ 
+<field name="edu.eduUniversity">
+   <field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>  
+   		<message key="errors.education.univ"></message>
+   </field-validator>
+   <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.education.univ"></message>
+   </field-validator>
+   <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.education.univ"></message>
+   </field-validator>
+</field>
+ 
+<field name="edu.eduDegree">
+   <field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>  
+   		<message key="errors.education.degree"></message>
+   </field-validator>
+   <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.education.degree"></message>
+   </field-validator>
+   <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">60</param>
+   		<message key="errors.length.education.degree"></message>
+   </field-validator>
+</field>
+
+</validators>

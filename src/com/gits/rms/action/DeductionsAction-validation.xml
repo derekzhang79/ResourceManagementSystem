@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+	<field name="deduction.deductionName">
+		<field-validator type="requiredstring" short-circuit="true">
+	   		<param name="trim">true</param>
+	   		<message key="errors.required.deduction.deductionName"></message>
+	    </field-validator>
+	    <field-validator type="regex" short-circuit="true">
+	   		<param name="trim">true</param>
+	   		<param name="expression"><![CDATA[([a-zA-Z\s]*)]]></param>
+	   		<message key="errors.specialCharacter.deduction.deductionName"></message>
+	  	</field-validator>
+	  	<field-validator type="stringlength" short-circuit="true">
+	        <param name="maxLength">100</param>
+	        <param name="trim">true</param>
+	        <message key="errors.length.deduction.deductionName"/>
+	    </field-validator>
+	</field>
+	<field name="deduction.deductionType">
+		<field-validator type="requiredstring">
+	   		<param name="trim">true</param>
+	   		<message key="errors.required.deduction.deductionType"></message>
+	    </field-validator>    
+	</field>
+	<field name="deduction.deductionMode">
+		<field-validator type="requiredstring">
+	   		<param name="trim">true</param>
+	   		<message key="errors.required.deduction.deductionMode"></message>
+	    </field-validator>    
+	</field>
+</validators>

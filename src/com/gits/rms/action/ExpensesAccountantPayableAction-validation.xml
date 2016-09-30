@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+ <!--  <validators>
+   
+  <field name="empExpenses.reimbursementAmount">
+  <field-validator type="required">
+  		<param name="trim">true</param>
+   		<message key="errors.expensesreimburse.amount"></message>
+  </field-validator>
+</field>
+ 
+<field name="empExpenses.reimbursementDate">
+  <field-validator type="required">
+   		<message key="errors.expensesreimburse.reimbursedate"></message>
+  </field-validator>
+</field>
+ 
+<field name="expenseStatusStracker.rejectedNotes">
+	<field-validator type="requiredstring">
+   		<param name="trim">true</param>
+   		<message key="errors.rejected.notes"></message>
+  </field-validator>
+    <field-validator type="stringlength">
+   		<param name="maxLength">1000</param>
+   		<message key="errors.length.reimburse.acountingnotes.comments"></message>
+  </field-validator>
+</field> 
+  
+ 
+</validators> -->

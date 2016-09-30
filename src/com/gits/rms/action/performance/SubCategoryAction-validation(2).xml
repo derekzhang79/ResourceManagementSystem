@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ <field name="subCategory.hcmoCategoryId.hcmoCategoryId">
+  	<field-validator type="required">
+   		<message key="errors.category.name"></message>
+  	</field-validator>
+</field>
+
+<field name="subCategory.subCategoryName">
+  	<field-validator type="requiredstring" short-circuit="true">
+   		<param name="trim">true</param>
+		<message key="errors.subCategory.name"/>
+   </field-validator>   
+   <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.subCategory.name"></message>
+   </field-validator>
+   <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <param name="trim">true</param>
+        <message key="errors.length.subCategory.nam"/>
+   </field-validator>
+</field>
+ </validators>

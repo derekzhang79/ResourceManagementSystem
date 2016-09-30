@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="com.gits.rms.vo.SaasContractVO" table="hcmo_saas_contract">
+     <id
+        name="hcmoSaasContractId"
+        type="integer"
+        column="HcmoSaasContractId"
+        length="11"
+       >
+        <generator class="native" />
+    </id>
+    <property 
+     name="clientId"
+     type="integer"
+     column="HcmoClientId"
+     length="11" 
+     />
+    <property
+        name="saasName"
+        type="string"
+        column="SaasName"
+        length="255"
+    />
+    <property
+        name="saasType"
+        type="string"
+        column="SaasType"
+        length="255"
+    />
+    <property
+        name="saasSize"
+        type="integer"
+        column="SaasSize"
+        length="11"
+    />
+    <property
+        name="companyName"
+        type="string"
+        column="CompanyName"
+        length="255"
+    />
+    <property
+        name="personName"
+        type="string"
+        column="PersonName"
+        length="255"
+    />
+    <property
+        name="designation"
+        type="string"
+        column="Designation"
+        length="255"
+    />
+    <property
+        name="saasSignDate"
+        type="date"
+        column="SaasSignDate"
+    />
+    <property
+        name="created"
+        type="date"
+        column="Created"
+    />
+     <property
+        name="updated"
+        type="timestamp"
+        column="Updated"
+    />
+    <property
+        name="isActive"
+        type="integer"
+        column="IsActive"
+        length="1"
+    />
+	<many-to-one name="createdBy" column="CreatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+	<many-to-one name="updatedBy" column="UpdatedBy" lazy="false" class="com.gits.rms.vo.EmployeesVO"/>
+    </class>
+</hibernate-mapping>

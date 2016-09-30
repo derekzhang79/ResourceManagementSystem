@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+	<field name="payStub.employee.employeeId">
+	  	<field-validator type="required">
+	   		<message key="errors.empName"></message>
+	  	</field-validator>
+	</field>
+	<field name="payStub.grossSalary">
+	  	<field-validator type="required" short-circuit="true">
+	   		<message key="errors.payStub.grossSalary"></message>
+	  	</field-validator>
+	  	<field-validator type="double" short-circuit="true">
+	  		<param name="minExclusive">0.95</param>
+	  		<message key="errors.paystub.grossSalary.invalid"></message>
+	    </field-validator>
+	  	<field-validator type="double" short-circuit="true">
+	  		<param name="maxExclusive">99999999999</param>
+	  		<message key="errors.length.payStub.grossSalary"></message>
+	    </field-validator> 
+	</field>
+	<field name="payStub.declarationDate">
+    	<field-validator type="required">
+  			<message key="errors.payStub.declarationdate"></message>
+    	</field-validator>
+    	<field-validator type="date">
+	    	<param name="min">1/2/1970</param>
+	    	<message key="errors.paystub.declarationDate.invalid"></message>
+    	</field-validator>
+	</field>
+</validators>

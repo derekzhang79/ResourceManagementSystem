@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+    
+<validators>
+ 
+<field name="sal.salary">
+  	<field-validator type="required" short-circuit="true">
+   		<message key="errors.salary.name"></message>
+  	</field-validator>
+  	<field-validator type="double" short-circuit="true">
+  		<param name="minExclusive">0.95</param>
+  		<message key="errors.salary.salaryname.invalid"></message>
+    </field-validator>
+  	<field-validator type="double" short-circuit="true">
+  		<param name="maxExclusive">99999999999</param>
+  		<message key="errors.length.salary.name"></message>
+    </field-validator> 
+</field>
+ 
+<field name="sal.empIdObj.employeeId">
+  	<field-validator type="required">
+   		<message key="errors.salary.empName"></message>
+  	</field-validator>
+</field>
+ 
+<field name="sal.declarationDate">
+  	<field-validator type="required">
+   		<message key="errors.salary.decDate"></message>
+  	</field-validator>
+  	<field-validator type="date">
+   		<param name="min">1/2/1970</param>
+        <message key="errors.salary.declatationDate.invalid"></message>
+  	</field-validator>
+</field>
+ 
+
+ 
+</validators>

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ 	<class name="com.gits.rms.vo.ClientRegVO" table="hcmo_client_reg">
+  		<id 
+  			name="hcmoclientregId" 
+  			length="11" 
+  			column="hcmoClientregid" 
+  			type="integer">
+   			<generator class="native"/>
+  		</id>
+  		<property
+	        name="clientid"
+        	type="integer"
+        	column="hcmoclientid"
+        	length="11"
+    	/>
+		<property
+	        name="firstName"
+        	type="string"
+        	column="contact_firstname"
+        	length="100"
+    	/>
+    	<property
+	        name="lastName"
+        	type="string"
+        	column="contact_lastname"
+        	length="100"
+    	/>
+    	<property
+	        name="contactMail"
+        	type="string"
+        	column="contact_mail"
+        	length="50"
+    	/>
+    	
+    	<property
+	        name="companyName"
+        	type="string"
+        	column="companyName"
+        	length="50"
+    	/>
+    	<property
+	        name="contactAddress"
+        	type="string"
+        	column="contact_address"
+        	length="100"
+    	/>
+    <!-- 	<property
+	        name="emailId"
+        	type="string"
+        	column="Email_id"
+        	length="100"
+    	/> -->
+    	<property
+	        name="addressOptional"
+        	type="string"
+        	column="contact_addressoptional"
+        	length="100"
+    	/>
+    	
+    	
+		<property
+	        name="phone"
+        	type="string"
+        	column="contactPhoneno"
+        	length="15"
+    	/>
+    	<property
+	        name="password"
+        	type="string"
+        	column="Password"
+        	length="50"
+    	/>
+    	<property
+	        name="adminuserid"
+        	type="string"
+        	column="adminuserid"
+        	length="50"
+    	/>
+ 
+	    
+	    <property
+	        name="entryDate"
+	        type="date"
+	        column="Entry_datetime"
+	        
+	    />
+	    <property
+	        name="updatedDate"
+	        type="timestamp"
+	        column="UpdatedDate"
+	        
+	    />
+	    <property
+	        name="status"
+	        type="integer"
+	        column="status"
+	        length="2"
+	    />
+	    <property 
+	        name="activationKey"
+	        type="string"
+	        column="activationKey"
+	        length="255"
+	    />
+	    <property
+	        name="moduleId"
+	        type="integer"
+	        column="moduleId"
+	        length="2"
+	    />
+ </class>
+</hibernate-mapping>

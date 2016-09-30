@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC
+    "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+
+<validators>
+<field name="reg.name">
+  <field-validator type="requiredstring" short-circuit="true">
+	   <param name="trim">true</param>
+   	   <message key="errors.region.name"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.region.name"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.region.name"></message>
+  </field-validator>
+</field>
+
+<field name="reg.country.hcmocountryId">
+  <field-validator type="required">
+   	   <message key="errors.employee.country"></message>
+  </field-validator>
+</field>
+
+<field name="reg.zipCode">
+  <field-validator type="requiredstring" short-circuit="true">
+	   <param name="trim">true</param>
+   	   <message key="errors.common.zipCode"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\d]*)]]></param>
+   		<message key="errors.specialCharacter.common.zipCode"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">50</param>
+   		<message key="errors.length.common.zipCode"></message>
+  </field-validator>
+</field>
+
+<field name="reg.city">
+  <field-validator type="requiredstring" short-circuit="true">
+	   <param name="trim">true</param>
+   	   <message key="errors.common.city"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   		<param name="trim">true</param>
+   		<param name="expression"><![CDATA[([\D]*)]]></param>
+   		<message key="errors.specialCharacter.common.city"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   		<param name="maxLength">100</param>
+   		<message key="errors.length.common.city"></message>
+  </field-validator>
+</field>
+
+<field name="reg.regionCode">
+  <field-validator type="requiredstring" short-circuit="true">
+	   <param name="trim">true</param>
+   	   <message key="errors.region.regionCode"></message>
+  </field-validator>
+  <field-validator type="regex" short-circuit="true">
+   	   <param name="trim">true</param>
+   	   <param name="expression"><![CDATA[([\d]*)]]></param>
+   	   <message key="errors.specialCharacter.region.regionCode"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   	   <param name="maxLength">5</param>
+   	   <message key="errors.length.region.regionCode"></message>
+  </field-validator>  
+</field>
+
+<field name="reg.areaCode">
+  <field-validator type="regex" short-circuit="true">
+   	   <param name="trim">true</param>
+   	   <param name="expression"><![CDATA[([\d]*)]]></param>
+   	   <message key="errors.specialCharacter.region.areaCode"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+   	   <param name="maxLength">50</param>
+   	   <message key="errors.length.region.areaCode"></message>
+  </field-validator>  
+</field>
+
+<field name="reg.timeZone">
+  <field-validator type="stringlength">
+   	   <param name="maxLength">50</param>
+   	   <message key="errors.length.region.timeZone"></message>
+  </field-validator>
+</field>
+
+<field name="reg.latitude">
+  <field-validator type="stringlength">
+   	   <param name="maxLength">50</param>
+   	   <message key="errors.length.region.latitude"></message>
+  </field-validator>
+</field>
+
+<field name="reg.longitude">
+  <field-validator type="stringlength">
+   	   <param name="maxLength">50</param>
+   	   <message key="errors.length.region.longitude"></message>
+  </field-validator>
+</field>
+<field name="reg.countyField">
+  <field-validator type="regex" short-circuit="true">
+   	  <param name="trim">true</param>
+   	  <param name="expression"><![CDATA[([\D]*)]]></param>
+   	  <message key="errors.specialCharacter.region.countyField"></message>
+  </field-validator>
+  <field-validator type="stringlength" short-circuit="true">
+        <param name="maxLength">100</param>
+        <message key="errors.length.region.countyField"></message>
+  </field-validator>  
+</field>
+  
+</validators>
